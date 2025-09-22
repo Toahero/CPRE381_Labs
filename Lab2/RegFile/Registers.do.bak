@@ -1,0 +1,22 @@
+add wave -noupdate -divider "Standard Inputs"
+add wave -noupdate -label Clock    /tb_registers/CLK
+add wave -noupdate -label Reset    /tb_registers/reset
+
+# Add RS1 signals
+add wave -noupdate -divider "Read Port 1"
+add wave -noupdate -label RS1_Select  -radix unsigned /tb_registers/s_RS1Sel
+add wave -noupdate -label RS1 -radix decimal    /tb_registers/s_RS1
+
+# Add RS2 signals
+add wave -noupdate -divider "Read Port 2"
+add wave -noupdate -label RS2_Select  -radix unsigned /tb_registers/s_RS2Sel
+add wave -noupdate -label RS2 -radix decimal    /tb_registers/s_RS2
+
+# Add Write signals
+add wave -noupdate -divider "Write Port"
+add wave -noupdate  -label Write_Enable  /tb_registers/s_WrEn
+add wave -noupdate -label Rd_Select -radix unsigned  /tb_registers/s_RdSel
+add wave -noupdate -label Rd -radix decimal   /tb_registers/s_Rd
+
+#Add Internal Signals
+add wave -noupdate -label Registers -radix decimal /tb_registers/REGFILE/s_ReadAr

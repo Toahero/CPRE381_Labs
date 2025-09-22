@@ -1,0 +1,27 @@
+-------------------------------------------------------------------------
+-- James Gaul
+-- CPRE 381
+-- Iowa State University
+-------------------------------------------------------------------------
+--Dependencies: array32.vhd
+
+-- MUX32t1.vhd
+-------------------------------------------------------------------------
+--9/14/25 by JAG: Initially Created
+-------------------------------------------------------------------------
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.array32.all;
+
+entity mux32t1 is
+	port(	i_d	: in array32bits32;
+		i_sel	: in std_logic_vector(5 downto 0);
+		o_out	: out std_logic_vector(32 downto 0));
+end mux32t1;
+
+Architecture dataflow of mux32t1 is
+begin
+	o_out <= i_d (to_integer(unsigned(i_sel)));
+end dataflow;

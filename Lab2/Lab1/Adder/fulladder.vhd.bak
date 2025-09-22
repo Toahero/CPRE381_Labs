@@ -1,0 +1,54 @@
+-------------------------------------------------------------------------
+-- James Gaul
+-- CPRE 381
+-- Iowa State University
+-------------------------------------------------------------------------
+
+
+-- fullAdder.vhd
+-------------------------------------------------------------------------
+-- DESCRIPTION: This file contains a structural VDHL full adder
+
+--9/2/25 by JAG: Initially Created
+-------------------------------------------------------------------------
+
+--Library Declaration
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+--Entity Declaration
+entity fullAdder is
+	Port(	i_A	:	in std_logic;
+		i_B	:	in std_logic;
+		i_Cin	:	in std_logic;
+
+		o_S	:	out std_logic;
+		o_Cout	:	out std_logic);
+end fullAdder;
+
+--Architecture
+architecture structural of fullAdder is
+
+	--AND Gate
+	component andg2 is
+		Port(	i_A, i_B	: in std_logic;
+			o_F		: out std_logic);
+	end component;
+	
+	--OR Gate
+	component org2 is
+		Port(	i_A, i_B	: in std_logic;
+			o_F		: out std_logic);
+	end component;
+	
+	--XOR Gate
+	component xorg2 is
+		Port(	i_A, i_B	: in std_logic;
+			o_F		: out std_logic);
+	end component;
+
+signal	A_xor_B, A_and_B, AB_and_Cin : std_logic;
+
+--Adder
+begin
+	x1: andg2 port map(	i_

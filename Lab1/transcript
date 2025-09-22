@@ -12,106 +12,199 @@
 # // of the Customer's facilities without the express written permission of SISW,
 # // and may not be used in any way not expressly authorized by SISW.
 # //
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:47:12 on Sep 16,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity testbench_fullAdder
+# -- Compiling architecture behavior of testbench_fullAdder
+# ** Error: /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd(58): Illegal target for signal assignment.
+# ** Error: /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd(58): (vcom-1136) Unknown identifier "CLK".
+# ** Error: /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd(60): Illegal target for signal assignment.
+# ** Error: /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd(60): (vcom-1136) Unknown identifier "CLK".
+# ** Error: /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd(126): Labels do not match: 'behavior' and 'mixed'.
+# ** Note: /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd(126): VHDL Compiler exiting
+# End time: 13:47:12 on Sep 16,2025, Elapsed time: 0:00:00
+# Errors: 5, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:48:04 on Sep 16,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity testbench_fullAdder
+# -- Compiling architecture behavior of testbench_fullAdder
+# ** Error: /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd(129): Labels do not match: 'behavior' and 'mixed'.
+# ** Note: /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd(129): VHDL Compiler exiting
+# End time: 13:48:04 on Sep 16,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:48:31 on Sep 16,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity testbench_fullAdder
+# -- Compiling architecture behavior of testbench_fullAdder
+# End time: 13:48:31 on Sep 16,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:48:35 on Sep 16,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity testbench_fullAdder
+# -- Compiling architecture behavior of testbench_fullAdder
+# End time: 13:48:36 on Sep 16,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
 # Load canceled
-vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Mux/tb_mux2t1_N.vhd
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd
 # QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-# Start time: 13:11:06 on Sep 08,2025
-# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Mux/tb_mux2t1_N.vhd 
+# Start time: 13:49:24 on Sep 16,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Loading package std_logic_textio
-# -- Loading package ENV
-# -- Compiling entity tb_mux2t1_N
-# -- Compiling architecture mixed of tb_mux2t1_N
-# End time: 13:11:07 on Sep 08,2025, Elapsed time: 0:00:01
+# -- Compiling entity testbench_fullAdder
+# -- Compiling architecture behavior of testbench_fullAdder
+# End time: 13:49:24 on Sep 16,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim work.tb_mux2t1_n
-# vsim work.tb_mux2t1_n 
-# Start time: 13:11:50 on Sep 08,2025
-# ** Note: (vsim-3812) Design is being optimized...
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.std_logic_textio(body)
-# Loading std.env(body)
-# Loading work.tb_mux2t1_n(mixed)#1
-quit -sim
-# End time: 13:11:57 on Sep 08,2025, Elapsed time: 0:00:07
-# Errors: 0, Warnings: 0
-vsim work.tb_mux2t1_n -voptargs=+acc
-# vsim work.tb_mux2t1_n -voptargs="+acc" 
-# Start time: 13:12:12 on Sep 08,2025
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.std_logic_textio(body)
-# Loading std.env(body)
-# Loading work.tb_mux2t1_n(mixed)#1
-# Loading work.mux2t1_n(structural)#1
-# Loading work.mux2t1(structural)#1
-# Loading work.invg(dataflow)#1
-# Loading work.andg2(dataflow)#1
-# Loading work.org2(dataflow)#1
-do /home/jagaul/cpre381/Lab1/Mux/tb_mux2t1_N.do
-run 100
-quit -sim
-# End time: 13:39:00 on Sep 08,2025, Elapsed time: 0:26:48
-# Errors: 0, Warnings: 1
-vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Mux/tb_mux2t1_N.vhd
+# Load canceled
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd
 # QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-# Start time: 13:39:24 on Sep 08,2025
-# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Mux/tb_mux2t1_N.vhd 
+# Start time: 13:50:20 on Sep 16,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Loading package std_logic_textio
-# -- Loading package ENV
-# -- Compiling entity tb_mux2t1_N
-# -- Compiling architecture mixed of tb_mux2t1_N
-# End time: 13:39:24 on Sep 08,2025, Elapsed time: 0:00:00
+# -- Compiling entity tb_fullAdder
+# -- Compiling architecture behavior of testbench_fullAdder
+# -- Loading entity testbench_fullAdder
+# End time: 13:50:20 on Sep 16,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim -voptargs=+acc work.tb_mux2t1_n
-# vsim -voptargs="+acc" work.tb_mux2t1_n 
-# Start time: 13:39:43 on Sep 08,2025
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+vsim work.tb_fulladder -voptargs=+acc
+# vsim work.tb_fulladder -voptargs="+acc" 
+# Start time: 13:50:40 on Sep 16,2025
+# ** Note: (vsim-3812) Design is being optimized...
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.std_logic_textio(body)
-# Loading std.env(body)
-# Loading work.tb_mux2t1_n(mixed)#1
-# Loading work.mux2t1_n(structural)#1
-# Loading work.mux2t1(structural)#1
-# Loading work.invg(dataflow)#1
-# Loading work.andg2(dataflow)#1
-# Loading work.org2(dataflow)#1
-do /home/jagaul/cpre381/Lab1/Mux/tb_mux2t1_N.do
-run 100
-quit -sim
-# End time: 13:47:59 on Sep 08,2025, Elapsed time: 0:08:16
-# Errors: 0, Warnings: 1
-vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/OnesComp/tb_onesComp_n.vhd
+# ** Error: (vopt-13130) Failed to find design unit 'tb_fulladder'.
+#         Searched libraries:
+#             work
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
+# Error loading design
+# End time: 13:50:41 on Sep 16,2025, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 1
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd
 # QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-# Start time: 13:55:38 on Sep 08,2025
-# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/OnesComp/tb_onesComp_n.vhd 
+# Start time: 14:08:21 on Sep 16,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Loading package std_logic_textio
-# -- Loading package ENV
-# -- Compiling entity tb_onesComp_n
-# -- Compiling architecture mixed of tb_onesComp_n
-# End time: 13:55:39 on Sep 08,2025, Elapsed time: 0:00:01
+# -- Compiling entity tb_fullAdder
+# -- Compiling architecture behavior of testbench_fullAdder
+# -- Loading entity testbench_fullAdder
+# End time: 14:08:21 on Sep 16,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim -voptargs=+acc work.tb_onescomp_n
-# vsim -voptargs="+acc" work.tb_onescomp_n 
-# Start time: 13:55:54 on Sep 08,2025
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 14:08:35 on Sep 16,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity tb_fullAdder
+# -- Compiling architecture behavior of testbench_fullAdder
+# -- Loading entity testbench_fullAdder
+# End time: 14:08:35 on Sep 16,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -voptargs=+acc work.tb_fulladder
+# vsim -voptargs="+acc" work.tb_fulladder 
+# Start time: 14:09:14 on Sep 16,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Error: (vopt-13130) Failed to find design unit 'tb_fulladder'.
+#         Searched libraries:
+#             work
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
+# Error loading design
+# End time: 14:09:14 on Sep 16,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 14:09:51 on Sep 16,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab1/Adder/tb_fulladder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity tb_fullAdder
+# -- Compiling architecture behavior of tb_fullAdder
+# End time: 14:09:51 on Sep 16,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -voptargs=+acc work.fulladder
+# vsim -voptargs="+acc" work.fulladder 
+# Start time: 14:10:02 on Sep 16,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.fulladder(structural)#1
+# Loading work.xorg2(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+run 100
+add wave -position insertpoint  \
+sim:/fulladder/i_Cin \
+sim:/fulladder/i_X \
+sim:/fulladder/i_Y \
+sim:/fulladder/o_Cout \
+sim:/fulladder/o_S \
+sim:/fulladder/X_and_Y \
+sim:/fulladder/X_xor_Y \
+sim:/fulladder/XY_and_Cin
+run 100
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+run 100
+quit -sim
+# End time: 14:11:14 on Sep 16,2025, Elapsed time: 0:01:12
+# Errors: 0, Warnings: 1
+vsim -voptargs=+acc work.tb_fulladder
+# vsim -voptargs="+acc" work.tb_fulladder 
+# Start time: 14:11:30 on Sep 16,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_fulladder(behavior)#1
+# Loading work.fulladder(structural)#1
+# Loading work.xorg2(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+add wave -position insertpoint sim:/tb_fulladder/*
+run 100
+run 100
+quit -sim
+# End time: 14:14:46 on Sep 16,2025, Elapsed time: 0:03:16
+# Errors: 0, Warnings: 1
+vsim -voptargs=+acc work.tb_rippleadder_n
+# vsim -voptargs="+acc" work.tb_rippleadder_n 
+# Start time: 14:15:23 on Sep 16,2025
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
 # ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
@@ -120,36 +213,14 @@ vsim -voptargs=+acc work.tb_onescomp_n
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.std_logic_textio(body)
 # Loading std.env(body)
-# Loading work.tb_onescomp_n(mixed)#1
-# Loading work.onescomp_n(structural)#1
-# Loading work.invg(dataflow)#1
-do /home/jagaul/cpre381/Lab1/OnesComp/tb_onesComp_n.do
-run 100
-quit -sim
-# End time: 14:14:21 on Sep 08,2025, Elapsed time: 0:18:27
-# Errors: 0, Warnings: 1
-vsim -voptargs=+acc work.tb_addsub_n
-# vsim -voptargs="+acc" work.tb_addsub_n 
-# Start time: 14:16:11 on Sep 08,2025
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.tb_addsub_n(mixed)#1
-# Loading work.addsub_n(structural)#1
-# Loading work.onescomp_n(structural)#1
-# Loading work.invg(dataflow)#1
-# Loading work.mux2t1_n(structural)#1
-# Loading work.mux2t1(structural)#1
-# Loading work.andg2(dataflow)#1
-# Loading work.org2(dataflow)#1
+# Loading work.tb_rippleadder_n(mixed)#1
 # Loading work.rippleadder_n(structural)#1
 # Loading work.fulladder(structural)#1
 # Loading work.xorg2(dataflow)#1
-do /home/jagaul/cpre381/Lab1/AddSub/tb_AddSub.do
-quit -sim
-# End time: 14:18:18 on Sep 08,2025, Elapsed time: 0:02:07
-# Errors: 0, Warnings: 1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+add wave -position insertpoint sim:/tb_rippleadder_n/*
+run 100
 quit
+# End time: 14:28:43 on Sep 16,2025, Elapsed time: 0:13:20
+# Errors: 0, Warnings: 1

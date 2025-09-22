@@ -1,0 +1,271 @@
+# //  Questa Sim-64
+# //  Version 2025.1_2 linux_x86_64 Apr  7 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 16:52:24 on Sep 21,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_mem
+# ** Warning: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(25): (vcom-1615) Existing architecture 'tb_Datapath1(mixed)' at /home/jagaul/cpre381/Lab2/MyFirstRISCVDatapath/tb_Datapath1.vhd(26) will be overwritten.
+# -- Compiling architecture mixed of tb_Datapath1
+# -- Loading entity tb_Datapath1
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(31): near "port": (vcom-1576) expecting ';'.
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(32): VHDL Compiler exiting
+# End time: 16:52:24 on Sep 21,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 16:55:55 on Sep 21,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_mem
+# ** Warning: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(25): (vcom-1615) Existing architecture 'tb_Datapath1(mixed)' at /home/jagaul/cpre381/Lab2/MyFirstRISCVDatapath/tb_Datapath1.vhd(26) will be overwritten.
+# -- Compiling architecture mixed of tb_Datapath1
+# -- Loading entity tb_Datapath1
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(31): near "port": (vcom-1576) expecting ';'.
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(32): VHDL Compiler exiting
+# End time: 16:55:55 on Sep 21,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 16:56:26 on Sep 21,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_mem
+# ** Warning: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(25): (vcom-1615) Existing architecture 'tb_Datapath1(mixed)' at /home/jagaul/cpre381/Lab2/MyFirstRISCVDatapath/tb_Datapath1.vhd(26) will be overwritten.
+# -- Compiling architecture mixed of tb_Datapath1
+# -- Loading entity tb_Datapath1
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(31): near "port": (vcom-1576) expecting ';'.
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(32): VHDL Compiler exiting
+# End time: 16:56:26 on Sep 21,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 16:57:05 on Sep 21,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_mem
+# ** Warning: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(25): (vcom-1615) Existing architecture 'tb_Datapath1(mixed)' at /home/jagaul/cpre381/Lab2/MyFirstRISCVDatapath/tb_Datapath1.vhd(26) will be overwritten.
+# -- Compiling architecture mixed of tb_Datapath1
+# -- Loading entity tb_Datapath1
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(48): near "(": (vcom-1576) expecting MAP.
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(54): Statement cannot be labeled.
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(74): VHDL Compiler exiting
+# End time: 16:57:05 on Sep 21,2025, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 1
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 16:57:12 on Sep 21,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_mem
+# ** Warning: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(25): (vcom-1615) Existing architecture 'tb_Datapath1(mixed)' at /home/jagaul/cpre381/Lab2/MyFirstRISCVDatapath/tb_Datapath1.vhd(26) will be overwritten.
+# -- Compiling architecture mixed of tb_Datapath1
+# -- Loading entity tb_Datapath1
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(31): near "port": (vcom-1576) expecting ';'.
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(32): VHDL Compiler exiting
+# End time: 16:57:12 on Sep 21,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 16:57:49 on Sep 21,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_mem
+# ** Warning: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(25): (vcom-1615) Existing architecture 'tb_Datapath1(mixed)' at /home/jagaul/cpre381/Lab2/MyFirstRISCVDatapath/tb_Datapath1.vhd(26) will be overwritten.
+# -- Compiling architecture mixed of tb_Datapath1
+# -- Loading entity tb_Datapath1
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(31): near "port": (vcom-1576) expecting ';'.
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(32): VHDL Compiler exiting
+# End time: 16:57:49 on Sep 21,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:00:09 on Sep 21,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_mem
+# -- Compiling architecture mixed of tb_mem
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(32): near "port": (vcom-1576) expecting ';'.
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(33): VHDL Compiler exiting
+# End time: 17:00:09 on Sep 21,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Lab2/mem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:00:21 on Sep 21,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Lab2/mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 17:00:21 on Sep 21,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:00:25 on Sep 21,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_mem
+# -- Compiling architecture mixed of tb_mem
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(32): near "port": (vcom-1576) expecting ';'.
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(33): VHDL Compiler exiting
+# End time: 17:00:26 on Sep 21,2025, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:01:40 on Sep 21,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_mem
+# -- Compiling architecture mixed of tb_mem
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(49): near "(": (vcom-1576) expecting MAP.
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(55): Statement cannot be labeled.
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd(75): VHDL Compiler exiting
+# End time: 17:01:40 on Sep 21,2025, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:02:43 on Sep 21,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_mem
+# -- Compiling architecture mixed of tb_mem
+# End time: 17:02:43 on Sep 21,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.tb_mem -voptargs=+acc
+# vsim work.tb_mem -voptargs="+acc" 
+# Start time: 17:03:00 on Sep 21,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.tb_mem(mixed)#1
+# Loading work.mem(rtl)#1
+add wave -position insertpoint sim:/tb_mem/*
+run 100
+restart -f -nowave
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+do /home/jagaul/cpre381/Lab2/Memory/tb_mem.do
+# ** UI-Msg (Warning): (vish-4014) No objects found matching 'decimal'.
+# ** UI-Msg (Warning): (vish-4014) No objects found matching 'address'.
+# Error in macro /home/jagaul/cpre381/Lab2/Memory/tb_mem.do line 9
+# ** UI-Msg (Warning): (vish-4014) No objects found matching 'decimal'.
+# ** UI-Msg (Warning): (vish-4014) No objects found matching 'address'.
+#     while executing
+# "add wave -noupdate -divider "Input Signals""
+restart -f -nowave
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+do /home/jagaul/cpre381/Lab2/Memory/tb_mem.do
+restart -f -nowave
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+do /home/jagaul/cpre381/Lab2/Memory/tb_mem.do
+quit -sim
+# End time: 17:17:57 on Sep 21,2025, Elapsed time: 0:14:57
+# Errors: 0, Warnings: 1
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:18:13 on Sep 21,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_mem
+# -- Compiling architecture mixed of tb_mem
+# End time: 17:18:13 on Sep 21,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -voptargs=+acc work.tb_mem
+# vsim -voptargs="+acc" work.tb_mem 
+# Start time: 17:18:39 on Sep 21,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.tb_mem(mixed)#1
+# Loading work.mem(rtl)#1
+do /home/jagaul/cpre381/Lab2/Memory/tb_mem.do
+quit -sim
+# End time: 17:19:40 on Sep 21,2025, Elapsed time: 0:01:01
+# Errors: 0, Warnings: 1

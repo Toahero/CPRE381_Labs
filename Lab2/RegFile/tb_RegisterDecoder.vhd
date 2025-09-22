@@ -1,0 +1,69 @@
+-------------------------------------------------------------------------
+-- James Gaul
+-- CPRE 381
+-- Iowa State University
+-------------------------------------------------------------------------
+--Dependencies: RegisterDecoder.vhd
+--Description: Register Decoder testbed
+
+-- tb_RegisterDecoder.vhd
+-------------------------------------------------------------------------
+--9/13/25 by JAG: Initially Created
+-------------------------------------------------------------------------
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_textio.all;  -- For logic types I/O
+library std;
+use std.env.all;                -- For hierarchical/external signals
+use std.textio.all;             -- For basic I/O
+
+entity tb_RegisterDecoder is
+  generic(gCLK_HPER   : time := 10 ns;
+          DATA_WIDTH  : integer := 32);   -- Generic for half of the clock cycle period
+end tb_RegisterDecoder;
+
+architecture mixed of tb_RegisterDecoder is
+
+	-- Define the total clock period time
+	constant cCLK_PER  : time := gCLK_HPER * 2;
+
+	--Component Interface
+	component RegisterDecoder is
+		port(	D_IN	: in std_logic_vector(5-1 downto 0);
+			F_OUT	: out std_logic_vector(32-1 downto 0));
+	end component;
+
+	signal CLK	: std_logic := '0';
+
+	signal s_0	: std_logic := '0';
+	signal s_1	: std_logic := '0';
+	signal s_2	: std_logic := '0';
+	signal s_3	: std_logic := '0';
+	signal s_4	: std_logic := '0';
+
+	signal s_OUT	: std_logic_vector(32-1 downto 0);
+
+begin
+	DUT0:	RegisterDecoder
+		port map( 	D_IN(0)	=> s_0,
+				D_IN(1)	=> s_1,
+				D_IN(2)	=> s_2,
+				D_IN(3)	=> s_3,
+				D_IN(4)	=> s_4,
+				F_OUT	=> s_OUT);
+  P_CLK: process
+  begin
+    CLK <= '1';         -- clock starts at 1
+    wait for gCLK_HPER; -- after half a cycle
+    CLK <= '0';         -- clock becomes a 0 (negative edge)
+    wait for gCLK_HPER; -- after half a cycle, process begins evaluation again
+  end process;
+
+
+P_TEST_CASES: process
+  begin
+
+	wait;
+end process;
+end mixed;

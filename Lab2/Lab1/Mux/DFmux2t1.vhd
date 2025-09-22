@@ -1,0 +1,18 @@
+-- library declaration
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+-- entity
+entity DFmux2t1 is
+	Port(i_D0	:	in std_logic;
+	i_D1	:	in std_logic;
+	i_S	:	in std_logic;
+	o_O	:	out std_logic);
+end DFmux2t1;
+
+architecture dataflow of DFmux2t1 is 
+begin
+	o_O <= 	'1' when (i_S = '0' AND i_D0 = '1') else
+		'1' when (i_S = '1' AND i_D1 = '1') else
+		'0';
+end dataflow;
