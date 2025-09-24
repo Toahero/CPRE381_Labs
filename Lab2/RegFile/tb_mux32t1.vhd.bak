@@ -4,7 +4,7 @@
 -- Iowa State University
 -------------------------------------------------------------------------
 --Dependencies: mux32t1.vhd
---Description: 32x32t1 Multiplexer testbed
+--Description: 32x 32t1 Multiplexer testbed
 
 -- tb_Mux32t1.vhd
 -------------------------------------------------------------------------

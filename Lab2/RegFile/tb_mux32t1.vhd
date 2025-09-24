@@ -63,6 +63,7 @@ P_TEST_CASES: process
 
 	for i in 0 to 31 loop
 		s_d(i) <= std_logic_vector(to_unsigned(i * 65536, 32));
+		wait for gCLK_HPER;
 	end loop;
 	wait for gCLK_HPER/2; --Change inputs on clk midpoints
 

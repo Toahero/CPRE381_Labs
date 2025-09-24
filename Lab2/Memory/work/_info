@@ -1,0 +1,191 @@
+m255
+K4
+z2
+Z0 !s12c _opt2
+Z1 !s99 nomlopt
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+Z2 !s12c _opt
+R1
+R2
+R1
+!s11e vcom 2025.1_2 2025.04, Apr  7 2025
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z3 d/home/jagaul/cpre381/Lab2/Memory
+T_opt
+!s110 1758576761
+V8YzK;FZkJDXnIU9nc``C@2
+04 6 5 work tb_mem mixed 1
+=2-000ae431a4f1-68d1c078-d9807-a490
+R1
+Z4 !s12f OEM100
+Z5 !s12b OEM100
+Z6 !s124 OEM100
+Z7 !s135 nogc
+Z8 o-quiet -auto_acc_if_foreign -work work +acc
+Z9 tCvgOpt 0
+n@_opt
+Z10 OL;O;2025.1_2;82
+R3
+T_opt2
+Z11 !s110 1758581720
+VK6Ik?^D[XVOd:6X<ldn@F0
+04 7 5 work tb_dmem mixed 1
+=1-000ae431a4f1-68d1d3d8-59e2a-d765
+R1
+R4
+R5
+R6
+R7
+R8
+R9
+n@_opt2
+R10
+Emem
+Z12 w1756242071
+Z13 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z14 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z15 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 33
+R3
+Z16 8mem.vhd
+Z17 Fmem.vhd
+l0
+L8 1
+V=kW427Wk[mlK<AKP952FS3
+!s100 fRlcaiTJZJ1H;nZh;8=LI3
+Z18 OL;C;2025.1_2;82
+33
+R11
+!i10b 1
+Z19 !s108 1758581720.000000
+Z20 !s90 -reportprogress|300|-2008|mem.vhd|tb_dmem.vhd|
+Z21 !s107 tb_dmem.vhd|mem.vhd|
+!i113 0
+Z22 o-2008
+Z23 tExplicit 1 NoCoverage 1 CvgOpt 0
+Artl
+R13
+R14
+R15
+DEx4 work 3 mem 0 22 =kW427Wk[mlK<AKP952FS3
+!i122 33
+l37
+L27 24
+VSn7PQgBcZcW^i;cWHW<6d1
+!s100 OI8_3><BhDkT3l3n8`OXd3
+R18
+33
+R11
+!i10b 1
+R19
+R20
+R21
+!i113 0
+R22
+R23
+Etb_dmem
+Z24 w1758581703
+Z25 DPx3 std 3 env 0 22 g[fj8WJKOa<0Y`zWY3UD70
+R13
+Z26 DPx4 ieee 16 std_logic_textio 0 22 8]8<fKiYoHe;_IDO3kmNH2
+R14
+R15
+!i122 33
+R3
+Z27 8tb_dmem.vhd
+Z28 Ftb_dmem.vhd
+l0
+Z29 L21 1
+V<Co2=4D[bW@d;RIC>LXgj2
+!s100 2P0o`P?`h=1;@U0hQhlL;3
+R18
+33
+R11
+!i10b 1
+R19
+R20
+R21
+!i113 0
+R22
+R23
+Amixed
+R25
+R13
+R26
+R14
+R15
+DEx4 work 7 tb_dmem 0 22 <Co2=4D[bW@d;RIC>LXgj2
+!i122 33
+l46
+L25 83
+VM^8PCV?Z<J5ae`W25RQWU0
+!s100 WdWH=mi7lg52Vh40DXUe]3
+R18
+33
+R11
+!i10b 1
+R19
+R20
+R21
+!i113 0
+R22
+R23
+Etb_mem
+Z30 w1758575950
+R25
+R13
+R26
+R14
+R15
+!i122 5
+R3
+Z31 8tb_mem.vhd
+Z32 Ftb_mem.vhd
+l0
+R29
+Vk_N>n]@<6[HGMg[HCIAfV1
+!s100 zX>ioc?>^aR2`o8:C`_FO0
+R18
+33
+Z33 !s110 1758576711
+!i10b 1
+Z34 !s108 1758576711.000000
+Z35 !s90 -reportprogress|300|-2008|mem.vhd|tb_mem.vhd|
+Z36 !s107 tb_mem.vhd|mem.vhd|
+!i113 0
+R22
+R23
+Amixed
+R25
+R13
+R26
+R14
+R15
+DEx4 work 6 tb_mem 0 22 k_N>n]@<6[HGMg[HCIAfV1
+!i122 5
+l45
+L25 52
+Vm0GmA>iR?^H08`D[cVg@V2
+!s100 CoA:ZRGSAo;88hdh9b7Mm0
+R18
+33
+R33
+!i10b 1
+R34
+R35
+R36
+!i113 0
+R22
+R23

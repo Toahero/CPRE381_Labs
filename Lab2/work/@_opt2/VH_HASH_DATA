@@ -4,10 +4,10 @@
 5 mixed
 1
 30 /home/jagaul/cpre381/Lab2/work
-2
-12 tb_datapath1
 5
 10 DATA_WIDTH
+2
+19 tb_bitextender16t32
 4
 9 gCLK_HPER
 ]
