@@ -12,81 +12,30 @@
 # // of the Customer's facilities without the express written permission of SISW,
 # // and may not be used in any way not expressly authorized by SISW.
 # //
-vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Extenders/bitExtender16t32.vhd
-# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-# Start time: 10:56:25 on Sep 24,2025
-# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Extenders/bitExtender16t32.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity bitExtender16t32
-# -- Compiling architecture dataflow of bitExtender16t32
-# ** Warning: /home/jagaul/cpre381/Lab2/Extenders/bitExtender16t32.vhd(30): (vcom-1272) Length of expected is 16; length of actual is 32.
-# ** Warning: /home/jagaul/cpre381/Lab2/Extenders/bitExtender16t32.vhd(31): (vcom-1272) Length of expected is 16; length of actual is 32.
-# End time: 10:56:25 on Sep 24,2025, Elapsed time: 0:00:00
+vsim work.tb_mux32t1 -voptargs=+acc
+# vsim work.tb_mux32t1 -voptargs="+acc" 
+# Start time: 09:27:21 on Sep 27,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Warning: (vopt-13) Recompile work.tb_mux32t1(mixed) because work.tb_mux32t1 has changed.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.array32
+# Loading work.tb_mux32t1(mixed)#1
+# Loading work.mux32t1(dataflow)#1
+do /home/jagaul/cpre381/Lab2/RegFile/tb_mux32t1.do
+quit -sim
+# End time: 09:28:42 on Sep 27,2025, Elapsed time: 0:01:21
 # Errors: 0, Warnings: 2
-vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Extenders/bitExtender16t32.vhd
-# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-# Start time: 10:56:55 on Sep 24,2025
-# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Extenders/bitExtender16t32.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity bitExtender16t32
-# -- Compiling architecture dataflow of bitExtender16t32
-# End time: 10:56:55 on Sep 24,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd
-# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-# Start time: 10:56:58 on Sep 24,2025
-# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package std_logic_textio
-# -- Loading package NUMERIC_STD
-# -- Loading package ENV
-# -- Loading package array32
-# -- Compiling entity tb_bitExtender16t32
-# -- Compiling architecture mixed of tb_bitExtender16t32
-# ** Error: /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd(49): (vcom-1484) Unknown formal identifier "i_32bit".
-# ** Error: /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd(53): Illegal target for signal assignment.
-# ** Error: /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd(53): (vcom-1136) Unknown identifier "CLK".
-# ** Error: /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd(55): Illegal target for signal assignment.
-# ** Error: /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd(55): (vcom-1136) Unknown identifier "CLK".
-# ** Note: /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd(79): VHDL Compiler exiting
-# End time: 10:56:58 on Sep 24,2025, Elapsed time: 0:00:00
-# Errors: 5, Warnings: 0
-vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd
-# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-# Start time: 10:58:00 on Sep 24,2025
-# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package std_logic_textio
-# -- Loading package NUMERIC_STD
-# -- Loading package ENV
-# -- Loading package array32
-# -- Compiling entity tb_bitExtender16t32
-# -- Compiling architecture mixed of tb_bitExtender16t32
-# End time: 10:58:00 on Sep 24,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Extenders/bitExtender16t32.vhd
-# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-# Start time: 10:58:02 on Sep 24,2025
-# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Extenders/bitExtender16t32.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity bitExtender16t32
-# -- Compiling architecture dataflow of bitExtender16t32
-# End time: 10:58:02 on Sep 24,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim work.tb_bitextender16t32
-# vsim work.tb_bitextender16t32 
-# Start time: 10:58:32 on Sep 24,2025
-# ** Note: (vsim-3812) Design is being optimized...
+vsim work.tb_mux32t1 -voptargs=+acc
+# vsim work.tb_mux32t1 -voptargs="+acc" 
+# Start time: 09:30:01 on Sep 27,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -94,13 +43,20 @@ vsim work.tb_bitextender16t32
 # Loading ieee.numeric_std(body)
 # Loading std.env(body)
 # Loading work.array32
-# Loading work.tb_bitextender16t32(mixed)#1
+# Loading work.tb_mux32t1(mixed)#1
+# Loading work.mux32t1(dataflow)#1
+do /home/jagaul/cpre381/Lab2/RegFile/tb_mux32t1.do
+restart -f
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
+restart -f -nowave
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
+do /home/jagaul/cpre381/Lab2/RegFile/tb_mux32t1.do
 quit -sim
-# End time: 10:58:55 on Sep 24,2025, Elapsed time: 0:00:23
+# End time: 09:35:38 on Sep 27,2025, Elapsed time: 0:05:37
 # Errors: 0, Warnings: 0
-vsim work.tb_bitextender16t32 -voptargs=+acc
-# vsim work.tb_bitextender16t32 -voptargs="+acc" 
-# Start time: 10:59:39 on Sep 24,2025
+vsim -voptargs=+acc work.tb_regfile
+# vsim -voptargs="+acc" work.tb_regfile 
+# Start time: 09:37:33 on Sep 27,2025
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
 # ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
@@ -111,163 +67,86 @@ vsim work.tb_bitextender16t32 -voptargs=+acc
 # Loading ieee.numeric_std(body)
 # Loading std.env(body)
 # Loading work.array32
-# Loading work.tb_bitextender16t32(mixed)#1
-# Loading work.bitextender16t32(dataflow)#1
-add wave -position insertpoint sim:/tb_bitextender16t32/*
-run 100
-run 500
+# Loading work.tb_regfile(mixed)#1
+# Loading work.regfile(structural)#1
+# Loading work.nbitregister(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1(dataflow)#1
+# Loading work.registerdecoder(structural)#1
+do /home/jagaul/cpre381/Lab2/RegFile/RegFile.do
 quit -sim
-# End time: 11:01:05 on Sep 24,2025, Elapsed time: 0:01:26
+# End time: 09:39:43 on Sep 27,2025, Elapsed time: 0:02:10
 # Errors: 0, Warnings: 1
-vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd
-# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-# Start time: 11:04:13 on Sep 24,2025
-# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package std_logic_textio
-# -- Loading package NUMERIC_STD
-# -- Loading package ENV
-# -- Loading package array32
-# -- Compiling entity tb_bitExtender16t32
-# -- Compiling architecture mixed of tb_bitExtender16t32
-# End time: 11:04:13 on Sep 24,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim -voptargs=+acc work.tb_bitextender16t32
-# vsim -voptargs="+acc" work.tb_bitextender16t32 
-# Start time: 11:04:41 on Sep 24,2025
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+vsim -voptargs=+acc work.tb_nbitregister
+# vsim -voptargs="+acc" work.tb_nbitregister 
+# Start time: 09:54:41 on Sep 27,2025
+# ** Note: (vsim-3812) Design is being optimized...
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
 # ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.std_logic_textio(body)
-# Loading ieee.numeric_std(body)
 # Loading std.env(body)
-# Loading work.array32
-# Loading work.tb_bitextender16t32(mixed)#1
-# Loading work.bitextender16t32(dataflow)#1
-add wave -position insertpoint  \
-sim:/tb_bitextender16t32/cCLK_PER \
-sim:/tb_bitextender16t32/CLK \
-sim:/tb_bitextender16t32/DATA_WIDTH \
-sim:/tb_bitextender16t32/gCLK_HPER \
-sim:/tb_bitextender16t32/s_16bit \
-sim:/tb_bitextender16t32/s_32bit \
-sim:/tb_bitextender16t32/s_sw
-run 200
+# Loading work.tb_nbitregister(mixed)#1
+# Loading work.nbitregister(structural)#1
+# Loading work.dffg(mixed)#1
 quit -sim
-# End time: 11:06:19 on Sep 24,2025, Elapsed time: 0:01:38
+# End time: 09:55:14 on Sep 27,2025, Elapsed time: 0:00:33
 # Errors: 0, Warnings: 1
-vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd
+do /home/jagaul/cpre381/Lab2/RegFile/tb_nBitRegister.do
 # QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-# Start time: 11:14:37 on Sep 24,2025
-# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package std_logic_textio
-# -- Loading package NUMERIC_STD
-# -- Loading package ENV
-# -- Loading package array32
-# -- Compiling entity tb_bitExtender16t32
-# -- Compiling architecture mixed of tb_bitExtender16t32
-# End time: 11:14:37 on Sep 24,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-do /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender.do
-# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-# Start time: 11:14:47 on Sep 24,2025
+# Start time: 10:07:37 on Sep 27,2025
 # vcom -reportprogress 300 -2008 *.vhd 
 # ** Error: (vcom-7) Failed to open design unit file "*.vhd" in read mode.
 # No such file or directory. (errno = ENOENT)
-# End time: 11:14:47 on Sep 24,2025, Elapsed time: 0:00:00
+# End time: 10:07:37 on Sep 27,2025, Elapsed time: 0:00:00
 # Errors: 1, Warnings: 0
 # ** Error: /usr/local/mentor/questasim/linux_x86_64/vcom failed.
-# Error in macro /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender.do line 4
+# Error in macro /home/jagaul/cpre381/Lab2/RegFile/tb_nBitRegister.do line 2
 # /usr/local/mentor/questasim/linux_x86_64/vcom failed.
 #     while executing
 # "vcom -2008 *.vhd"
-vsim -voptargs=+acc work.tb_bitextender16t32
-# vsim -voptargs="+acc" work.tb_bitextender16t32 
-# Start time: 11:17:34 on Sep 24,2025
-# ** Note: (vsim-8009) Loading existing optimized design _opt2
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.std_logic_textio(body)
-# Loading ieee.numeric_std(body)
-# Loading std.env(body)
-# Loading work.array32
-# Loading work.tb_bitextender16t32(mixed)#1
-# Loading work.bitextender16t32(dataflow)#1
-do /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender.do
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/tb_bitExtender16t32/o_32bit'.
-# Error in macro /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender.do line 19
-# ** UI-Msg (Warning): (vish-4014) No objects found matching '/tb_bitExtender16t32/o_32bit'.
-#     while executing
-# "add wave -noupdate -divider "Output Signals""
-quit -sim
-# End time: 11:18:02 on Sep 24,2025, Elapsed time: 0:00:28
-# Errors: 0, Warnings: 0
-
-do /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender.do
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/RegFile/nBitRegister.vhd
 # QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-# Start time: 11:18:54 on Sep 24,2025
-# vcom -reportprogress 300 -2008 *.vhd 
-# ** Error: (vcom-7) Failed to open design unit file "*.vhd" in read mode.
-# No such file or directory. (errno = ENOENT)
-# End time: 11:18:54 on Sep 24,2025, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-# ** Error: /usr/local/mentor/questasim/linux_x86_64/vcom failed.
-# Error in macro /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender.do line 4
-# /usr/local/mentor/questasim/linux_x86_64/vcom failed.
-#     while executing
-# "vcom -2008 *.vhd"
-do /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender.do
-# ** Error: No Design Loaded!
-# Error in macro /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender.do line 21
-# No Design Loaded!
-#     while executing
-# "run 200"
-vsim -voptargs=+acc work.tb_bitextender16t32
-# vsim -voptargs="+acc" work.tb_bitextender16t32 
-# Start time: 11:20:05 on Sep 24,2025
-# ** Note: (vsim-8009) Loading existing optimized design _opt2
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.std_logic_textio(body)
-# Loading ieee.numeric_std(body)
-# Loading std.env(body)
-# Loading work.array32
-# Loading work.tb_bitextender16t32(mixed)#1
-# Loading work.bitextender16t32(dataflow)#1
-do /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender.do
-# 0 ns
-# 210 ns
-quit -sim
-# End time: 11:20:39 on Sep 24,2025, Elapsed time: 0:00:34
+# Start time: 10:07:53 on Sep 27,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/RegFile/nBitRegister.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity nBitRegister
+# -- Compiling architecture structural of nBitRegister
+# End time: 10:07:54 on Sep 27,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/RegFile/tb_nBitRegister.vhd
 # QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-# Start time: 11:21:38 on Sep 24,2025
-# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd 
+# Start time: 10:08:00 on Sep 27,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/RegFile/tb_nBitRegister.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package std_logic_textio
-# -- Loading package NUMERIC_STD
 # -- Loading package ENV
-# -- Loading package array32
-# -- Compiling entity tb_bitExtender16t32
-# -- Compiling architecture mixed of tb_bitExtender16t32
-# End time: 11:21:38 on Sep 24,2025, Elapsed time: 0:00:00
+# -- Compiling entity tb_nBitRegister
+# -- Compiling architecture mixed of tb_nBitRegister
+# End time: 10:08:00 on Sep 27,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim -voptargs=+acc work.tb_bitextender16t32
-# vsim -voptargs="+acc" work.tb_bitextender16t32 
-# Start time: 11:21:54 on Sep 24,2025
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/RegFile/tb_nBitRegister.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 10:08:38 on Sep 27,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/RegFile/tb_nBitRegister.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package ENV
+# -- Compiling entity tb_nBitRegister
+# -- Compiling architecture mixed of tb_nBitRegister
+# End time: 10:08:38 on Sep 27,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do /home/jagaul/cpre381/Lab2/RegFile/tb_nBitRegister.do
+# vsim -voptargs="+acc" work.tb_nBitRegister 
+# Start time: 10:08:49 on Sep 27,2025
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
 # ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
@@ -275,71 +154,27 @@ vsim -voptargs=+acc work.tb_bitextender16t32
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.std_logic_textio(body)
-# Loading ieee.numeric_std(body)
 # Loading std.env(body)
-# Loading work.array32
-# Loading work.tb_bitextender16t32(mixed)#1
-# Loading work.bitextender16t32(dataflow)#1
-do /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender.do
-# ** Warning: (vsim-86) Argument value -160 is not in bounds of subtype NATURAL.
-#    Time: 95 ns  Iteration: 0  Instance: /tb_bitextender16t32
-# ** Warning: (vsim-86) Argument value -144 is not in bounds of subtype NATURAL.
-#    Time: 105 ns  Iteration: 0  Instance: /tb_bitextender16t32
-# ** Warning: (vsim-86) Argument value -128 is not in bounds of subtype NATURAL.
-#    Time: 115 ns  Iteration: 0  Instance: /tb_bitextender16t32
-# ** Warning: (vsim-86) Argument value -112 is not in bounds of subtype NATURAL.
-#    Time: 125 ns  Iteration: 0  Instance: /tb_bitextender16t32
-# ** Warning: (vsim-86) Argument value -96 is not in bounds of subtype NATURAL.
-#    Time: 135 ns  Iteration: 0  Instance: /tb_bitextender16t32
-# ** Warning: (vsim-86) Argument value -80 is not in bounds of subtype NATURAL.
-#    Time: 145 ns  Iteration: 0  Instance: /tb_bitextender16t32
-# ** Warning: (vsim-86) Argument value -64 is not in bounds of subtype NATURAL.
-#    Time: 155 ns  Iteration: 0  Instance: /tb_bitextender16t32
-# ** Warning: (vsim-86) Argument value -48 is not in bounds of subtype NATURAL.
-#    Time: 165 ns  Iteration: 0  Instance: /tb_bitextender16t32
-# ** Warning: (vsim-86) Argument value -32 is not in bounds of subtype NATURAL.
-#    Time: 175 ns  Iteration: 0  Instance: /tb_bitextender16t32
-# ** Warning: (vsim-86) Argument value -16 is not in bounds of subtype NATURAL.
-#    Time: 185 ns  Iteration: 0  Instance: /tb_bitextender16t32
+# Loading work.tb_nbitregister(mixed)#1
+# Loading work.nbitregister(structural)#1
+# Loading work.dffg(mixed)#1
 # 0 ns
 # 210 ns
-quit -sim
-# End time: 11:22:27 on Sep 24,2025, Elapsed time: 0:00:33
-# Errors: 0, Warnings: 11
-vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd
-# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-# Start time: 11:22:55 on Sep 24,2025
-# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package std_logic_textio
-# -- Loading package NUMERIC_STD
-# -- Loading package ENV
-# -- Loading package array32
-# -- Compiling entity tb_bitExtender16t32
-# -- Compiling architecture mixed of tb_bitExtender16t32
-# End time: 11:22:55 on Sep 24,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim -voptargs=+acc work.tb_bitextender16t32
-# vsim -voptargs="+acc" work.tb_bitextender16t32 
-# Start time: 11:23:08 on Sep 24,2025
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.std_logic_textio(body)
-# Loading ieee.numeric_std(body)
-# Loading std.env(body)
-# Loading work.array32
-# Loading work.tb_bitextender16t32(mixed)#1
-# Loading work.bitextender16t32(dataflow)#1
-do /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender.do
-# 0 ns
-# 210 ns
-quit -sim
-# End time: 11:24:24 on Sep 24,2025, Elapsed time: 0:01:16
+do /home/jagaul/cpre381/Lab2/RegFile/tb_nBitRegister.do
+# End time: 10:09:49 on Sep 27,2025, Elapsed time: 0:01:00
 # Errors: 0, Warnings: 1
-quit
+# vsim -voptargs="+acc" work.tb_nBitRegister 
+# Start time: 10:09:49 on Sep 27,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading std.env(body)
+# Loading work.tb_nbitregister(mixed)#1
+# Loading work.nbitregister(structural)#1
+# Loading work.dffg(mixed)#1
+# 0 ns
+# 210 ns
+# End time: 11:09:19 on Sep 27,2025, Elapsed time: 0:59:30
+# Errors: 0, Warnings: 0

@@ -82,14 +82,35 @@ begin
   -- TODO: add test cases as needed.
   P_TEST_CASES: process
   begin
+	wait for gCLK_HPER*3; --Let the reset process finish
     wait for gCLK_HPER/2; -- for waveform clarity, I prefer not to change inputs on clk edges
 	
-	--Test Case 1 -Test Loading the register
+	--Test Case 1 -Test Loading max value
 	s_WrEn <= '1';
 	s_write <= x"FFFFFFFF";
+	wait for gCLK_HPER;
+	s_WrEn <= '0';
+	wait for gCLK_HPER;
+	
 
-	wait for gCLK_HPER*2;
+wait for gCLK_HPER/2; -- for waveform clarity, I prefer not to change inputs on clk edges
+	
+	--Test Case 2 -Test that values don't change until write enable
+	
+	s_write <= x"00000000";
+	wait for gCLK_HPER;
+	s_WrEn <= '1';
+	wait for gCLK_HPER;
+	s_WrEn <= '0';
+	wait for gCLK_HPER;
 
+
+--Test Case 3 -Test Loading varied bits
+	s_WrEn <= '1';
+	s_write <= x"F0E1D2C3";
+	wait for gCLK_HPER;
+	s_WrEn <= '0';
+	wait for gCLK_HPER;
 	wait;
 end process;
 

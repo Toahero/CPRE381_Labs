@@ -89,6 +89,7 @@ begin
 	g_Reg:	RegFile
 		port map(	clock	=> clock,
 				reset	=> reset,
+
 				RS1Sel	=> RS1,
 				RS1	=> s_RS1_Val,
 

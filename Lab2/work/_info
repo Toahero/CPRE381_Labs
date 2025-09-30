@@ -7,11 +7,83 @@ R0
 R1
 R0
 R1
+Z2 !s12c _opt
+R1
 R0
 R1
-Z2 !s12c _opt1
+R0
 R1
-Z3 !s12c _opt
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+Z3 !s12c _opt1
+R1
+R3
+R1
+R2
+R1
+R2
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R3
+R1
+R2
+R1
+R2
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R3
+R1
+R3
+R1
+R3
 R1
 R3
 R1
@@ -23,9 +95,9 @@ R0
 R1
 R0
 R1
-R0
+R2
 R1
-R0
+R3
 R1
 R0
 R1
@@ -41,13 +113,15 @@ R2
 R1
 R2
 R1
-R0
+R2
 R1
-R0
+R2
 R1
-R0
+R2
 R1
-R0
+R2
+R1
+R2
 R1
 R3
 R1
@@ -55,37 +129,9 @@ R2
 R1
 R0
 R1
-R0
-R1
-R0
-R1
-R3
-R1
-R3
-R1
-R3
-R1
-R3
-R1
-R3
-R1
-R3
-R1
-R3
-R1
-R3
-R1
 R3
 R1
 R2
-R1
-R3
-R1
-R0
-R1
-R2
-R1
-R3
 R1
 !s11e vcom 2025.1_2 2025.04, Apr  7 2025
 13
@@ -96,49 +142,50 @@ R1
 cModel Technology
 Z4 d/home/jagaul/cpre381/Lab2
 T_opt
-!s110 1758493120
-Va8l_GMgilCmD;l8I=>oCF1
-04 6 5 work tb_mem mixed 1
-=1-000ae431a4f1-68d079c0-6385-5ba6
+!s110 1759166889
+V]SWlTTzXoIGC<;V:4S]RG3
+Z5 04 12 5 work tb_datapath2 mixed 1
+=1-000ae431a4f1-68dac1a8-b1a35-d8f
 R1
-Z5 !s12f OEM100
-Z6 !s12b OEM100
-Z7 !s124 OEM100
-Z8 !s135 nogc
-Z9 o-quiet -auto_acc_if_foreign -work work +acc
+Z6 !s12f OEM100
+Z7 !s12b OEM100
+Z8 !s124 OEM100
+Z9 !s135 nogc
+o-quiet -auto_acc_if_foreign -work work
 Z10 tCvgOpt 0
 n@_opt
 Z11 OL;O;2025.1_2;82
 R4
 T_opt1
-!s110 1758729513
-Vo>cVOM<ik`0QEBKIoJ`PD0
-Z12 04 19 5 work tb_bitextender16t32 mixed 1
-=1-000ae431a4f1-68d41528-bd98f-3871
-R1
+!s110 1758909395
+VVMA<6eK_<jkmlJSi`8eJM3
 R5
+=1-000ae431a4f1-68d6d3d2-d8f35-97a9
+R1
 R6
 R7
 R8
-o-quiet -auto_acc_if_foreign -work work
+R9
+Z12 o-quiet -auto_acc_if_foreign -work work +acc
 R10
 n@_opt1
 R11
 R4
 T_opt2
-!s110 1758730988
-V7dX5mV0Nzoo2C9]KOKD2e1
-R12
-=1-000ae431a4f1-68d41aec-29ec3-4446
-R1
+!s110 1759167426
+V50HUAgZiUARmZDo`_gk:02
 R5
+=1-000ae431a4f1-68dac3c1-e7c13-1345
+R1
 R6
 R7
 R8
 R9
+R12
 R10
 n@_opt2
 R11
+R4
 Eaddsub_n
 Z13 w1757688977
 Z14 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
@@ -325,28 +372,112 @@ R49
 !i113 0
 R24
 R25
+Edatapath2
+Z50 w1758932456
+R14
+R15
+!i122 242
+Z51 d/home/jagaul/cpre381/Lab2/MySecondRISCVDatapath
+Z52 8Datapath2.vhd
+Z53 FDatapath2.vhd
+l0
+Z54 L17 1
+VWmUhm1OcA`TReN]MQ9D3l3
+!s100 CTlRnUcnCB`5JXG[@6<SO3
+R19
+33
+Z55 !s110 1759167844
+!i10b 1
+Z56 !s108 1759167844.000000
+Z57 !s90 -reportprogress|300|-2008|Datapath2.vhd|tb_Datapath2.vhd|
+Z58 !s107 tb_Datapath2.vhd|Datapath2.vhd|
+!i113 0
+Z59 o-2008
+R25
+Astructural
+R14
+R15
+Z60 DEx4 work 9 datapath2 0 22 WmUhm1OcA`TReN]MQ9D3l3
+!i122 242
+l101
+Z61 L41 111
+Z62 VT6gfalm=2NK[ERhCJ`ANo3
+Z63 !s100 IWYDKc6MQ5o59T?X<KFig3
+R19
+33
+R55
+!i10b 1
+R56
+R57
+R58
+!i113 0
+R59
+R25
+Edatapath2_tb
+Z64 w1758905288
+Z65 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R14
+R15
+!i122 176
+R4
+Z66 8/home/jagaul/cpre381/Lab2/MySecondRISCVDatapath/tb_Datapath2.vhd
+Z67 F/home/jagaul/cpre381/Lab2/MySecondRISCVDatapath/tb_Datapath2.vhd
+l0
+L5 1
+V]KT0cnjf025eZbfZQU`F>0
+!s100 AWKL6<SL1YXhVb=Eo6m[l3
+R19
+33
+Z68 !s110 1758905289
+!i10b 1
+Z69 !s108 1758905289.000000
+Z70 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/MySecondRISCVDatapath/tb_Datapath2.vhd|
+Z71 !s107 /home/jagaul/cpre381/Lab2/MySecondRISCVDatapath/tb_Datapath2.vhd|
+!i113 0
+R24
+R25
+Amixed
+R65
+R14
+R15
+DEx4 work 12 datapath2_tb 0 22 ]KT0cnjf025eZbfZQU`F>0
+!i122 176
+l54
+L10 100
+V5>P=EGOd0b91UK;B8]dDM3
+!s100 eXDAWCkKRET>>zkn<P>FV3
+R19
+33
+R68
+!i10b 1
+R69
+R70
+R71
+!i113 0
+R24
+R25
 Edffg
-Z50 w1756242071
+Z72 w1756242071
 R14
 R15
 !i122 0
 R4
-Z51 8/home/jagaul/cpre381/Lab2/Lab2/dffg.vhd
-Z52 F/home/jagaul/cpre381/Lab2/Lab2/dffg.vhd
+Z73 8/home/jagaul/cpre381/Lab2/Lab2/dffg.vhd
+Z74 F/home/jagaul/cpre381/Lab2/Lab2/dffg.vhd
 l0
 R29
 V<]b9Vm3e`GAN;Cnj:57L>2
 !s100 T4gcXQGMCgKJbn8XhBM;b0
 R19
 32
-Z53 !s110 1757534037
+Z75 !s110 1757534037
 !i10b 1
-Z54 !s108 1757534037.000000
-Z55 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab2/dffg.vhd|
-Z56 !s107 /home/jagaul/cpre381/Lab2/Lab2/dffg.vhd|
+Z76 !s108 1757534037.000000
+Z77 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab2/dffg.vhd|
+Z78 !s107 /home/jagaul/cpre381/Lab2/Lab2/dffg.vhd|
 !i113 0
 R24
-Z57 tExplicit 1 CvgOpt 0
+Z79 tExplicit 1 CvgOpt 0
 Amixed
 R14
 R15
@@ -358,33 +489,33 @@ V`CHXPZKVEek`3gFWL_zFm2
 !s100 iOdlTUid@@]UimFK_53^C1
 R19
 32
-R53
+R75
 !i10b 1
-R54
-R55
-R56
+R76
+R77
+R78
 !i113 0
 R24
-R57
+R79
 Efulladder
-Z58 w1756915802
+Z80 w1756915802
 R14
 R15
 !i122 83
 R4
-Z59 8/home/jagaul/cpre381/Lab2/Lab1/Adder/fulladder.vhd
-Z60 F/home/jagaul/cpre381/Lab2/Lab1/Adder/fulladder.vhd
+Z81 8/home/jagaul/cpre381/Lab2/Lab1/Adder/fulladder.vhd
+Z82 F/home/jagaul/cpre381/Lab2/Lab1/Adder/fulladder.vhd
 l0
-Z61 L20 1
+Z83 L20 1
 VI;5>i=fB?6Ij]1cYIT?JP2
 !s100 fV:e<cN>[i2;Nc2TG=:l62
 R19
 33
-Z62 !s110 1758312367
+Z84 !s110 1758312367
 !i10b 1
-Z63 !s108 1758312367.000000
-Z64 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab1/Adder/fulladder.vhd|
-Z65 !s107 /home/jagaul/cpre381/Lab2/Lab1/Adder/fulladder.vhd|
+Z85 !s108 1758312367.000000
+Z86 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab1/Adder/fulladder.vhd|
+Z87 !s107 /home/jagaul/cpre381/Lab2/Lab1/Adder/fulladder.vhd|
 !i113 0
 R24
 R25
@@ -399,11 +530,11 @@ VC2?>Z5j=kV>DG7bnGL;cn1
 !s100 WR<[jG^5V_kCz@CUJk]hh0
 R19
 33
-R62
+R84
 !i10b 1
-R63
-R64
-R65
+R85
+R86
+R87
 !i113 0
 R24
 R25
@@ -413,19 +544,19 @@ R14
 R15
 !i122 87
 R4
-Z66 8/home/jagaul/cpre381/Lab2/Lab1/Lab1/invg.vhd
-Z67 F/home/jagaul/cpre381/Lab2/Lab1/Lab1/invg.vhd
+Z88 8/home/jagaul/cpre381/Lab2/Lab1/Lab1/invg.vhd
+Z89 F/home/jagaul/cpre381/Lab2/Lab1/Lab1/invg.vhd
 l0
 R29
 VzJhOLc0g_4RfSF]IXa;:73
 !s100 _XK?_^5z0Rm1<k12?;5R?2
 R19
 33
-Z68 !s110 1758312439
+Z90 !s110 1758312439
 !i10b 1
-Z69 !s108 1758312439.000000
-Z70 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab1/Lab1/invg.vhd|
-Z71 !s107 /home/jagaul/cpre381/Lab2/Lab1/Lab1/invg.vhd|
+Z91 !s108 1758312439.000000
+Z92 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab1/Lab1/invg.vhd|
+Z93 !s107 /home/jagaul/cpre381/Lab2/Lab1/Lab1/invg.vhd|
 !i113 0
 R24
 R25
@@ -440,39 +571,39 @@ VT@AA60h>IXVJ?D^`RRiZk1
 !s100 bk7I76o8e1LURdoZEQb8H0
 R19
 33
-R68
+R90
 !i10b 1
-R69
-R70
-R71
+R91
+R92
+R93
 !i113 0
 R24
 R25
 Emem
-R50
-Z72 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R72
+R65
 R14
 R15
 !i122 144
 R4
-Z73 8/home/jagaul/cpre381/Lab2/Lab2/mem.vhd
-Z74 F/home/jagaul/cpre381/Lab2/Lab2/mem.vhd
+Z94 8/home/jagaul/cpre381/Lab2/Lab2/mem.vhd
+Z95 F/home/jagaul/cpre381/Lab2/Lab2/mem.vhd
 l0
 L8 1
 VQ_Y953^@mg4h;HoXAPe2d2
 !s100 fRlcaiTJZJ1H;nZh;8=LI3
 R19
 33
-Z75 !s110 1758492021
+Z96 !s110 1758492021
 !i10b 1
-Z76 !s108 1758492021.000000
-Z77 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab2/mem.vhd|
-Z78 !s107 /home/jagaul/cpre381/Lab2/Lab2/mem.vhd|
+Z97 !s108 1758492021.000000
+Z98 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab2/mem.vhd|
+Z99 !s107 /home/jagaul/cpre381/Lab2/Lab2/mem.vhd|
 !i113 0
 R24
 R25
 Artl
-R72
+R65
 R14
 R15
 DEx4 work 3 mem 0 22 Q_Y953^@mg4h;HoXAPe2d2
@@ -483,33 +614,33 @@ VcdMDH_i8fEBbejOT7K`iC2
 !s100 OI8_3><BhDkT3l3n8`OXd3
 R19
 33
-R75
+R96
 !i10b 1
-R76
-R77
-R78
+R97
+R98
+R99
 !i113 0
 R24
 R25
 Emux2t1
-Z79 w1756682658
+Z100 w1756682658
 R14
 R15
 !i122 80
 R4
-Z80 8/home/jagaul/cpre381/Lab2/Lab1/Mux/mux2t1.vhd
-Z81 F/home/jagaul/cpre381/Lab2/Lab1/Mux/mux2t1.vhd
+Z101 8/home/jagaul/cpre381/Lab2/Lab1/Mux/mux2t1.vhd
+Z102 F/home/jagaul/cpre381/Lab2/Lab1/Mux/mux2t1.vhd
 l0
-Z82 L21 1
+Z103 L21 1
 VKfn?gG2g8nZNX:FV3_eRj2
 !s100 EG:cMDLOn>_KjffNR`6a12
 R19
 33
-Z83 !s110 1758312319
+Z104 !s110 1758312319
 !i10b 1
-Z84 !s108 1758312319.000000
-Z85 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab1/Mux/mux2t1.vhd|
-Z86 !s107 /home/jagaul/cpre381/Lab2/Lab1/Mux/mux2t1.vhd|
+Z105 !s108 1758312319.000000
+Z106 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab1/Mux/mux2t1.vhd|
+Z107 !s107 /home/jagaul/cpre381/Lab2/Lab1/Mux/mux2t1.vhd|
 !i113 0
 R24
 R25
@@ -524,11 +655,11 @@ V]P]<AGoDLOZ8LR9Zf@WXn2
 !s100 j7XOM7]V=io1Hzn^cM;TZ2
 R19
 33
-R83
+R104
 !i10b 1
-R84
-R85
-R86
+R105
+R106
+R107
 !i113 0
 R24
 R25
@@ -538,19 +669,19 @@ R14
 R15
 !i122 81
 R4
-Z87 8/home/jagaul/cpre381/Lab2/Lab1/Lab1/mux2t1_N.vhd
-Z88 F/home/jagaul/cpre381/Lab2/Lab1/Lab1/mux2t1_N.vhd
+Z108 8/home/jagaul/cpre381/Lab2/Lab1/Lab1/mux2t1_N.vhd
+Z109 F/home/jagaul/cpre381/Lab2/Lab1/Lab1/mux2t1_N.vhd
 l0
-R82
+R103
 VX=8caLddO;GBDIdffNOz`3
 !s100 a8b75l9QH119Si`4JcQ1J0
 R19
 33
-Z89 !s110 1758312332
+Z110 !s110 1758312332
 !i10b 1
-Z90 !s108 1758312332.000000
-Z91 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab1/Lab1/mux2t1_N.vhd|
-Z92 !s107 /home/jagaul/cpre381/Lab2/Lab1/Lab1/mux2t1_N.vhd|
+Z111 !s108 1758312332.000000
+Z112 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab1/Lab1/mux2t1_N.vhd|
+Z113 !s107 /home/jagaul/cpre381/Lab2/Lab1/Lab1/mux2t1_N.vhd|
 !i113 0
 R24
 R25
@@ -565,41 +696,41 @@ VS;7^3=hDiT7zH78Vm1Xhk1
 !s100 W>5MMWO2LBg`K8[P>h>Ye1
 R19
 33
-R89
+R110
 !i10b 1
-R90
-R91
-R92
+R111
+R112
+R113
 !i113 0
 R24
 R25
 Emux32t1
-Z93 w1757855836
-Z94 DPx4 work 7 array32 0 22 H:J3_19Nl6Em;>g1=7WWa2
-R72
+Z114 w1757855836
+Z115 DPx4 work 7 array32 0 22 H:J3_19Nl6Em;>g1=7WWa2
+R65
 R14
 R15
 !i122 50
 R4
-Z95 8/home/jagaul/cpre381/Lab2/RegFile/mux32t1.vhd
-Z96 F/home/jagaul/cpre381/Lab2/RegFile/mux32t1.vhd
+Z116 8/home/jagaul/cpre381/Lab2/RegFile/mux32t1.vhd
+Z117 F/home/jagaul/cpre381/Lab2/RegFile/mux32t1.vhd
 l0
 L18 1
 VmAG2U@G9Bk:517S4`kHO@0
 !s100 ?B2A9Z7hakCECbQo[8eb>1
 R19
 33
-Z97 !s110 1757870144
+Z118 !s110 1757870144
 !i10b 1
-Z98 !s108 1757870144.000000
-Z99 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/RegFile/mux32t1.vhd|
-Z100 !s107 /home/jagaul/cpre381/Lab2/RegFile/mux32t1.vhd|
+Z119 !s108 1757870144.000000
+Z120 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/RegFile/mux32t1.vhd|
+Z121 !s107 /home/jagaul/cpre381/Lab2/RegFile/mux32t1.vhd|
 !i113 0
 R24
 R25
 Adataflow
-R94
-R72
+R115
+R65
 R14
 R15
 DEx4 work 7 mux32t1 0 22 mAG2U@G9Bk:517S4`kHO@0
@@ -610,36 +741,36 @@ VAmi9YVNER>Kk;mWQNMhz[1
 !s100 Z`4iS:@;eg`3[OkOJXVO03
 R19
 33
-R97
+R118
 !i10b 1
-R98
-R99
-R100
+R119
+R120
+R121
 !i113 0
 R24
 R25
 Enbitregister
-Z101 w1757534341
+Z122 w1757534341
 R14
 R15
 !i122 7
 R4
-Z102 8/home/jagaul/cpre381/Lab2/RegFile/nBitRegister.vhd
-Z103 F/home/jagaul/cpre381/Lab2/RegFile/nBitRegister.vhd
+Z123 8/home/jagaul/cpre381/Lab2/RegFile/nBitRegister.vhd
+Z124 F/home/jagaul/cpre381/Lab2/RegFile/nBitRegister.vhd
 l0
 R45
 Vi[jDcB5B561g4La<PZVQo3
 !s100 L]fN[GXaSQ9KzZKXI_<DG1
 R19
 32
-Z104 !s110 1757608463
+Z125 !s110 1757608463
 !i10b 1
-Z105 !s108 1757608463.000000
-Z106 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/RegFile/nBitRegister.vhd|
-Z107 !s107 /home/jagaul/cpre381/Lab2/RegFile/nBitRegister.vhd|
+Z126 !s108 1757608463.000000
+Z127 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/RegFile/nBitRegister.vhd|
+Z128 !s107 /home/jagaul/cpre381/Lab2/RegFile/nBitRegister.vhd|
 !i113 0
 R24
-R57
+R79
 Astructural
 R14
 R15
@@ -651,33 +782,33 @@ VAD0PKmEnm6SPz4KVNINNn2
 !s100 134iaHC86ML0X1FAFT_;Y0
 R19
 32
-R104
+R125
 !i10b 1
-R105
-R106
-R107
+R126
+R127
+R128
 !i113 0
 R24
-R57
+R79
 Eonescomp_n
-Z108 w1757605547
+Z129 w1757605547
 R14
 R15
 !i122 90
 R4
-Z109 8/home/jagaul/cpre381/Lab2/Lab1/OnesComp/onesComp_n.vhd
-Z110 F/home/jagaul/cpre381/Lab2/Lab1/OnesComp/onesComp_n.vhd
+Z130 8/home/jagaul/cpre381/Lab2/Lab1/OnesComp/onesComp_n.vhd
+Z131 F/home/jagaul/cpre381/Lab2/Lab1/OnesComp/onesComp_n.vhd
 l0
-Z111 L17 1
+R54
 VGImG^=nWCNgAIf@Mc;82B3
 !s100 JY8XG22nPeH3fImLgH`>W3
 R19
 33
-Z112 !s110 1758312458
+Z132 !s110 1758312458
 !i10b 1
-Z113 !s108 1758312458.000000
-Z114 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab1/OnesComp/onesComp_n.vhd|
-Z115 !s107 /home/jagaul/cpre381/Lab2/Lab1/OnesComp/onesComp_n.vhd|
+Z133 !s108 1758312458.000000
+Z134 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab1/OnesComp/onesComp_n.vhd|
+Z135 !s107 /home/jagaul/cpre381/Lab2/Lab1/OnesComp/onesComp_n.vhd|
 !i113 0
 R24
 R25
@@ -692,11 +823,11 @@ VFRe:TVlSC1;mhW1h@k`4A2
 !s100 Kego;[VSb1;BLU_;EFW2j1
 R19
 33
-R112
+R132
 !i10b 1
-R113
-R114
-R115
+R133
+R134
+R135
 !i113 0
 R24
 R25
@@ -706,19 +837,19 @@ R14
 R15
 !i122 88
 R4
-Z116 8/home/jagaul/cpre381/Lab2/Lab1/Lab1/org2.vhd
-Z117 F/home/jagaul/cpre381/Lab2/Lab1/Lab1/org2.vhd
+Z136 8/home/jagaul/cpre381/Lab2/Lab1/Lab1/org2.vhd
+Z137 F/home/jagaul/cpre381/Lab2/Lab1/Lab1/org2.vhd
 l0
 R29
 V0FzB9ATDX9TV=M:n@=VB83
 !s100 bGQ1F9eW^Q17OoL9h4g7z2
 R19
 33
-Z118 !s110 1758312445
+Z138 !s110 1758312445
 !i10b 1
-Z119 !s108 1758312445.000000
-Z120 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab1/Lab1/org2.vhd|
-Z121 !s107 /home/jagaul/cpre381/Lab2/Lab1/Lab1/org2.vhd|
+Z139 !s108 1758312445.000000
+Z140 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab1/Lab1/org2.vhd|
+Z141 !s107 /home/jagaul/cpre381/Lab2/Lab1/Lab1/org2.vhd|
 !i113 0
 R24
 R25
@@ -733,39 +864,39 @@ V0JC>N7cRXc=9bni@>dg7o3
 !s100 h5_AzR3TdRA0a_K=dQ>mI2
 R19
 33
-R118
+R138
 !i10b 1
-R119
-R120
-R121
+R139
+R140
+R141
 !i113 0
 R24
 R25
 Eregfile
-Z122 w1758386887
-R94
+Z142 w1758386887
+R115
 R14
 R15
 !i122 131
 R4
-Z123 8/home/jagaul/cpre381/Lab2/RegFile/RegFile.vhd
-Z124 F/home/jagaul/cpre381/Lab2/RegFile/RegFile.vhd
+Z143 8/home/jagaul/cpre381/Lab2/RegFile/RegFile.vhd
+Z144 F/home/jagaul/cpre381/Lab2/RegFile/RegFile.vhd
 l0
-R111
+R54
 V;^n?4`VDcER::GJ=PV<>D2
 !s100 oGO?VJAC2aAAZ9Q<Q=U532
 R19
 33
-Z125 !s110 1758386908
+Z145 !s110 1758386908
 !i10b 1
-Z126 !s108 1758386908.000000
-Z127 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/RegFile/RegFile.vhd|
-Z128 !s107 /home/jagaul/cpre381/Lab2/RegFile/RegFile.vhd|
+Z146 !s108 1758386908.000000
+Z147 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/RegFile/RegFile.vhd|
+Z148 !s107 /home/jagaul/cpre381/Lab2/RegFile/RegFile.vhd|
 !i113 0
 R24
 R25
 Astructural
-R94
+R115
 R14
 R15
 DEx4 work 7 regfile 0 22 ;^n?4`VDcER::GJ=PV<>D2
@@ -776,33 +907,33 @@ VkCkn9>96Q9zci>X?iXMX83
 !s100 Ca18l;f_CfWUmZNDCcfQ]0
 R19
 33
-R125
+R145
 !i10b 1
-R126
-R127
-R128
+R146
+R147
+R148
 !i113 0
 R24
 R25
 Eregisterdecoder
-Z129 w1758382800
+Z149 w1758382800
 R14
 R15
 !i122 114
 R4
-Z130 8/home/jagaul/cpre381/Lab2/RegFile/RegisterDecoder.vhd
-Z131 F/home/jagaul/cpre381/Lab2/RegFile/RegisterDecoder.vhd
+Z150 8/home/jagaul/cpre381/Lab2/RegFile/RegisterDecoder.vhd
+Z151 F/home/jagaul/cpre381/Lab2/RegFile/RegisterDecoder.vhd
 l0
 R45
 VmB;n6QV7[YUAPlRgTb^G30
 !s100 ];JVU8fbd8U`^=Yhb;PYK1
 R19
 33
-Z132 !s110 1758382805
+Z152 !s110 1758382805
 !i10b 1
-Z133 !s108 1758382805.000000
-Z134 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/RegFile/RegisterDecoder.vhd|
-Z135 !s107 /home/jagaul/cpre381/Lab2/RegFile/RegisterDecoder.vhd|
+Z153 !s108 1758382805.000000
+Z154 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/RegFile/RegisterDecoder.vhd|
+Z155 !s107 /home/jagaul/cpre381/Lab2/RegFile/RegisterDecoder.vhd|
 !i113 0
 R24
 R25
@@ -817,39 +948,39 @@ VcKIf83G;cM?2BZ6ZSJ;<F1
 !s100 NALB23MkBzZk>AG?1lH5^3
 R19
 33
-R132
+R152
 !i10b 1
-R133
-R134
-R135
+R153
+R154
+R155
 !i113 0
 R24
 R25
 Eregisters
-Z136 w1757991764
-R94
+Z156 w1757991764
+R115
 R14
 R15
 !i122 77
 R4
-Z137 8/home/jagaul/cpre381/Lab2/RegFile/Registers.vhd
-Z138 F/home/jagaul/cpre381/Lab2/RegFile/Registers.vhd
+Z157 8/home/jagaul/cpre381/Lab2/RegFile/Registers.vhd
+Z158 F/home/jagaul/cpre381/Lab2/RegFile/Registers.vhd
 l0
-R111
+R54
 VATl3M0K1ke;ASS:ViC4;f2
 !s100 aaS?9L`S=ZJWSOXWAd=8A2
 R19
 33
-Z139 !s110 1757992163
+Z159 !s110 1757992163
 !i10b 1
-Z140 !s108 1757992162.000000
-Z141 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/RegFile/Registers.vhd|
-Z142 !s107 /home/jagaul/cpre381/Lab2/RegFile/Registers.vhd|
+Z160 !s108 1757992162.000000
+Z161 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/RegFile/Registers.vhd|
+Z162 !s107 /home/jagaul/cpre381/Lab2/RegFile/Registers.vhd|
 !i113 0
 R24
 R25
 Astructural
-R94
+R115
 R14
 R15
 DEx4 work 9 registers 0 22 ATl3M0K1ke;ASS:ViC4;f2
@@ -860,33 +991,33 @@ V9L4XfDRI>NGUN?H_UUmNL2
 !s100 ]R:bZjl]jmEOQ[620FMDN0
 R19
 33
-R139
+R159
 !i10b 1
-R140
-R141
-R142
+R160
+R161
+R162
 !i113 0
 R24
 R25
 Erippleadder_n
-Z143 w1757688839
+Z163 w1757688839
 R14
 R15
 !i122 84
 R4
-Z144 8/home/jagaul/cpre381/Lab2/Lab1/Adder/rippleAdder_n.vhd
-Z145 F/home/jagaul/cpre381/Lab2/Lab1/Adder/rippleAdder_n.vhd
+Z164 8/home/jagaul/cpre381/Lab2/Lab1/Adder/rippleAdder_n.vhd
+Z165 F/home/jagaul/cpre381/Lab2/Lab1/Adder/rippleAdder_n.vhd
 l0
 R18
 VTEeYSZj8IFYhPERE8Y5gL0
 !s100 Gn]BT4AiNUVdYlbN=<2S:3
 R19
 33
-Z146 !s110 1758312371
+Z166 !s110 1758312371
 !i10b 1
-Z147 !s108 1758312371.000000
-Z148 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab1/Adder/rippleAdder_n.vhd|
-Z149 !s107 /home/jagaul/cpre381/Lab2/Lab1/Adder/rippleAdder_n.vhd|
+Z167 !s108 1758312371.000000
+Z168 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab1/Adder/rippleAdder_n.vhd|
+Z169 !s107 /home/jagaul/cpre381/Lab2/Lab1/Adder/rippleAdder_n.vhd|
 !i113 0
 R24
 R25
@@ -901,33 +1032,33 @@ V6dfKC1GfK0;:1?ek::goV0
 !s100 <5G8CFBYi0UMnYeTZZDR;2
 R19
 33
-R146
+R166
 !i10b 1
-R147
-R148
-R149
+R167
+R168
+R169
 !i113 0
 R24
 R25
 Etb_addsub_n
-Z150 w1757691101
+Z170 w1757691101
 R14
 R15
 !i122 85
 R4
-Z151 8/home/jagaul/cpre381/Lab2/Lab1/AddSub/tb_addSub_n.vhd
-Z152 F/home/jagaul/cpre381/Lab2/Lab1/AddSub/tb_addSub_n.vhd
+Z171 8/home/jagaul/cpre381/Lab2/Lab1/AddSub/tb_addSub_n.vhd
+Z172 F/home/jagaul/cpre381/Lab2/Lab1/AddSub/tb_addSub_n.vhd
 l0
-R82
+R103
 VELI[0?CTViGIQ]>zl5AC]0
 !s100 TUNc>08I46ZdAdPNX_m:c1
 R19
 33
-Z153 !s110 1758312391
+Z173 !s110 1758312391
 !i10b 1
-Z154 !s108 1758312391.000000
-Z155 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab1/AddSub/tb_addSub_n.vhd|
-Z156 !s107 /home/jagaul/cpre381/Lab2/Lab1/AddSub/tb_addSub_n.vhd|
+Z174 !s108 1758312391.000000
+Z175 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab1/AddSub/tb_addSub_n.vhd|
+Z176 !s107 /home/jagaul/cpre381/Lab2/Lab1/AddSub/tb_addSub_n.vhd|
 !i113 0
 R24
 R25
@@ -942,45 +1073,45 @@ VoToDO<AbV`XTU?P<MPQf>0
 !s100 COgj<YYHiHehZMLOR6X1i3
 R19
 33
-R153
+R173
 !i10b 1
-R154
-R155
-R156
+R174
+R175
+R176
 !i113 0
 R24
 R25
 Etb_bitextender16t32
-Z157 w1758730969
-R94
-Z158 DPx3 std 3 env 0 22 g[fj8WJKOa<0Y`zWY3UD70
-R72
-Z159 DPx4 ieee 16 std_logic_textio 0 22 8]8<fKiYoHe;_IDO3kmNH2
+Z177 w1758730969
+R115
+Z178 DPx3 std 3 env 0 22 g[fj8WJKOa<0Y`zWY3UD70
+R65
+Z179 DPx4 ieee 16 std_logic_textio 0 22 8]8<fKiYoHe;_IDO3kmNH2
 R14
 R15
 !i122 158
 R4
-Z160 8/home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd
-Z161 F/home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd
+Z180 8/home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd
+Z181 F/home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd
 l0
 L24 1
 VGWh_I?OckmF2bTkZ:QI2E3
 !s100 DUe[e<P9Vfnh2ZS]BF9k?1
 R19
 33
-Z162 !s110 1758730975
+Z182 !s110 1758730975
 !i10b 1
-Z163 !s108 1758730975.000000
-Z164 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd|
-Z165 !s107 /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd|
+Z183 !s108 1758730975.000000
+Z184 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd|
+Z185 !s107 /home/jagaul/cpre381/Lab2/Extenders/tb_bitExtender16t32.vhd|
 !i113 0
 R24
 R25
 Amixed
-R94
-R158
-R72
-R159
+R115
+R178
+R65
+R179
 R14
 R15
 DEx4 work 19 tb_bitextender16t32 0 22 GWh_I?OckmF2bTkZ:QI2E3
@@ -991,43 +1122,43 @@ V:h=<bFOOUJhMk=e5RO=@F1
 !s100 9dGUo^?4hDgg1Hj:@Okh`3
 R19
 33
-R162
+R182
 !i10b 1
-R163
-R164
-R165
+R183
+R184
+R185
 !i113 0
 R24
 R25
 Etb_datapath1
-Z166 w1758391850
-R158
-R72
-R159
+Z186 w1758391850
+R178
+R65
+R179
 R14
 R15
 !i122 136
 R4
-Z167 8/home/jagaul/cpre381/Lab2/MyFirstRISCVDatapath/tb_Datapath1.vhd
-Z168 F/home/jagaul/cpre381/Lab2/MyFirstRISCVDatapath/tb_Datapath1.vhd
+Z187 8/home/jagaul/cpre381/Lab2/MyFirstRISCVDatapath/tb_Datapath1.vhd
+Z188 F/home/jagaul/cpre381/Lab2/MyFirstRISCVDatapath/tb_Datapath1.vhd
 l0
-R82
+R103
 VJ[fB?RQ34T^7h3SGFQ2BW1
 !s100 ;0UfC=mKi_9H]4ULb<MM90
 R19
 33
-Z169 !s110 1758391859
+Z189 !s110 1758391859
 !i10b 1
-Z170 !s108 1758391859.000000
-Z171 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/MyFirstRISCVDatapath/tb_Datapath1.vhd|
-Z172 !s107 /home/jagaul/cpre381/Lab2/MyFirstRISCVDatapath/tb_Datapath1.vhd|
+Z190 !s108 1758391859.000000
+Z191 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/MyFirstRISCVDatapath/tb_Datapath1.vhd|
+Z192 !s107 /home/jagaul/cpre381/Lab2/MyFirstRISCVDatapath/tb_Datapath1.vhd|
 !i113 0
 R24
 R25
 Amixed
-R158
-R72
-R159
+R178
+R65
+R179
 R14
 R15
 DEx4 work 12 tb_datapath1 0 22 J[fB?RQ34T^7h3SGFQ2BW1
@@ -1038,43 +1169,86 @@ Vg>l30Pb_PKC3Z;A^5PVMo2
 !s100 4eYP>mDH2kP4j0Ri?SeO70
 R19
 33
-R169
+R189
 !i10b 1
-R170
-R171
-R172
+R190
+R191
+R192
 !i113 0
 R24
 R25
+Etb_datapath2
+Z193 w1759167421
+R65
+R14
+R15
+!i122 242
+R51
+Z194 8tb_Datapath2.vhd
+Z195 Ftb_Datapath2.vhd
+l0
+L7 1
+VMJak7RZM8Ik=NP^cZ`6Mo0
+!s100 oboezAIf;7cW8gKaQA9Dc1
+R19
+33
+R55
+!i10b 1
+R56
+R57
+R58
+!i113 0
+R59
+R25
+Amixed
+R65
+R14
+R15
+Z196 DEx4 work 12 tb_datapath2 0 22 MJak7RZM8Ik=NP^cZ`6Mo0
+!i122 242
+l52
+Z197 L12 161
+Z198 VbEKQUl;RI@L9TNCOV<N=H2
+Z199 !s100 3nUYAhi0:>009nSBoVGT@2
+R19
+33
+R55
+!i10b 1
+R56
+R57
+R58
+!i113 0
+R59
+R25
 Etb_mem
-Z173 w1758575950
-R158
-R72
-R159
+Z200 w1758575950
+R178
+R65
+R179
 R14
 R15
 !i122 149
 R4
-Z174 8/home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd
-Z175 F/home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd
+Z201 8/home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd
+Z202 F/home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd
 l0
-R82
+R103
 VL8810WM06cknE9mFL_z^D0
 !s100 zX>ioc?>^aR2`o8:C`_FO0
 R19
 33
-Z176 !s110 1758575977
+Z203 !s110 1758575977
 !i10b 1
-Z177 !s108 1758575977.000000
-Z178 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd|
-Z179 !s107 /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd|
+Z204 !s108 1758575977.000000
+Z205 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd|
+Z206 !s107 /home/jagaul/cpre381/Lab2/Memory/tb_mem.vhd|
 !i113 0
 R24
 R25
 Amixed
-R158
-R72
-R159
+R178
+R65
+R179
 R14
 R15
 DEx4 work 6 tb_mem 0 22 L8810WM06cknE9mFL_z^D0
@@ -1085,26 +1259,26 @@ VV?9POYdBV0]XNk8z@jCGd2
 !s100 CoA:ZRGSAo;88hdh9b7Mm0
 R19
 33
-R176
+R203
 !i10b 1
-R177
-R178
-R179
+R204
+R205
+R206
 !i113 0
 R24
 R25
 Etb_mux32t1
-Z180 w1757980196
-R94
-R158
-R72
-R159
+Z207 w1757980196
+R115
+R178
+R65
+R179
 R14
 R15
 !i122 70
 R4
-Z181 8/home/jagaul/cpre381/Lab2/RegFile/tb_Registers.vhd
-Z182 F/home/jagaul/cpre381/Lab2/RegFile/tb_Registers.vhd
+Z208 8/home/jagaul/cpre381/Lab2/RegFile/tb_Registers.vhd
+Z209 F/home/jagaul/cpre381/Lab2/RegFile/tb_Registers.vhd
 l0
 R29
 V5C=InY:fWKOJ9dS7B5j=W1
@@ -1114,16 +1288,16 @@ R19
 !s110 1757980209
 !i10b 1
 !s108 1757980209.000000
-Z183 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/RegFile/tb_Registers.vhd|
-Z184 !s107 /home/jagaul/cpre381/Lab2/RegFile/tb_Registers.vhd|
+Z210 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/RegFile/tb_Registers.vhd|
+Z211 !s107 /home/jagaul/cpre381/Lab2/RegFile/tb_Registers.vhd|
 !i113 0
 R24
 R25
 Amixed
-R94
-R158
-R72
-R159
+R115
+R178
+R65
+R179
 R14
 R15
 DEx4 work 10 tb_mux32t1 0 22 iiT8LazNKf6K0XGY:D6l00
@@ -1145,32 +1319,32 @@ R25
 F/home/jagaul/cpre381/Lab2/RegFile/tb_mux32t1.vhd
 8/home/jagaul/cpre381/Lab2/RegFile/tb_mux32t1.vhd
 Etb_nbitregister
-Z185 w1757608713
-R158
-R159
+Z212 w1757608713
+R178
+R179
 R14
 R15
 !i122 47
 R4
-Z186 8/home/jagaul/cpre381/Lab2/RegFile/tb_nBitRegister.vhd
-Z187 F/home/jagaul/cpre381/Lab2/RegFile/tb_nBitRegister.vhd
+Z213 8/home/jagaul/cpre381/Lab2/RegFile/tb_nBitRegister.vhd
+Z214 F/home/jagaul/cpre381/Lab2/RegFile/tb_nBitRegister.vhd
 l0
-R61
+R83
 VZgF5IUQ^^M5JK52hcTGIP3
 !s100 PRG[YmC`6Deo^k`CfR<c30
 R19
 33
-Z188 !s110 1757861172
+Z215 !s110 1757861172
 !i10b 1
-Z189 !s108 1757861172.000000
-Z190 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/RegFile/tb_nBitRegister.vhd|
-Z191 !s107 /home/jagaul/cpre381/Lab2/RegFile/tb_nBitRegister.vhd|
+Z216 !s108 1757861172.000000
+Z217 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/RegFile/tb_nBitRegister.vhd|
+Z218 !s107 /home/jagaul/cpre381/Lab2/RegFile/tb_nBitRegister.vhd|
 !i113 0
 R24
 R25
 Amixed
-R158
-R159
+R178
+R179
 R14
 R15
 DEx4 work 15 tb_nbitregister 0 22 ZgF5IUQ^^M5JK52hcTGIP3
@@ -1181,45 +1355,45 @@ VAbOkJ0Td=k8m>d>TNS1Tl3
 !s100 1An9kId>ALIjd];DY94X43
 R19
 33
-R188
+R215
 !i10b 1
-R189
-R190
-R191
+R216
+R217
+R218
 !i113 0
 R24
 R25
 Etb_regfile
-Z192 w1758383034
-R94
-R158
-R72
-R159
+Z219 w1758383034
+R115
+R178
+R65
+R179
 R14
 R15
 !i122 119
 R4
-Z193 8/home/jagaul/cpre381/Lab2/RegFile/tb_RegFile.vhd
-Z194 F/home/jagaul/cpre381/Lab2/RegFile/tb_RegFile.vhd
+Z220 8/home/jagaul/cpre381/Lab2/RegFile/tb_RegFile.vhd
+Z221 F/home/jagaul/cpre381/Lab2/RegFile/tb_RegFile.vhd
 l0
 R29
 VKF:[[UAM6Vim?>0DK8f=]2
 !s100 :IQb;U3VRj==Wcb1Qmm_V3
 R19
 33
-Z195 !s110 1758383060
+Z222 !s110 1758383060
 !i10b 1
-Z196 !s108 1758383060.000000
-Z197 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/RegFile/tb_RegFile.vhd|
-Z198 !s107 /home/jagaul/cpre381/Lab2/RegFile/tb_RegFile.vhd|
+Z223 !s108 1758383060.000000
+Z224 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/RegFile/tb_RegFile.vhd|
+Z225 !s107 /home/jagaul/cpre381/Lab2/RegFile/tb_RegFile.vhd|
 !i113 0
 R24
 R25
 Amixed
-R94
-R158
-R72
-R159
+R115
+R178
+R65
+R179
 R14
 R15
 DEx4 work 10 tb_regfile 0 22 KF:[[UAM6Vim?>0DK8f=]2
@@ -1230,41 +1404,41 @@ Vj:_kRDWFDilLiVibK=eAQ1
 !s100 kRI<UfQlM[Vi7zcdKQ?k[3
 R19
 33
-R195
+R222
 !i10b 1
-R196
-R197
-R198
+R223
+R224
+R225
 !i113 0
 R24
 R25
 Etb_registerdecoder
-Z199 w1757787691
-R158
-R159
+Z226 w1757787691
+R178
+R179
 R14
 R15
 !i122 24
 R4
-Z200 8/home/jagaul/cpre381/Lab2/RegFile/tb_RegisterDecoder.vhd
-Z201 F/home/jagaul/cpre381/Lab2/RegFile/tb_RegisterDecoder.vhd
+Z227 8/home/jagaul/cpre381/Lab2/RegFile/tb_RegisterDecoder.vhd
+Z228 F/home/jagaul/cpre381/Lab2/RegFile/tb_RegisterDecoder.vhd
 l0
-R82
+R103
 V?Hd:QbL]ol8JK>2W^S0_D1
 !s100 fNW9h8QL0n2J2_cl5jR@<2
 R19
 33
-Z202 !s110 1757788323
+Z229 !s110 1757788323
 !i10b 1
-Z203 !s108 1757788323.000000
-Z204 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/RegFile/tb_RegisterDecoder.vhd|
-Z205 !s107 /home/jagaul/cpre381/Lab2/RegFile/tb_RegisterDecoder.vhd|
+Z230 !s108 1757788323.000000
+Z231 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/RegFile/tb_RegisterDecoder.vhd|
+Z232 !s107 /home/jagaul/cpre381/Lab2/RegFile/tb_RegisterDecoder.vhd|
 !i113 0
 R24
 R25
 Amixed
-R158
-R159
+R178
+R179
 R14
 R15
 DEx4 work 18 tb_registerdecoder 0 22 ?Hd:QbL]ol8JK>2W^S0_D1
@@ -1275,45 +1449,45 @@ Vh4Y8:;1IkF:2]MEk]4IWc3
 !s100 m^3V0OMVW3JRi0g5E`K=52
 R19
 33
-R202
+R229
 !i10b 1
-R203
-R204
-R205
+R230
+R231
+R232
 !i113 0
 R24
 R25
 Etb_registers
-Z206 w1757991795
-R94
-R158
-R72
-R159
+Z233 w1757991795
+R115
+R178
+R65
+R179
 R14
 R15
 !i122 78
 R4
-R181
-R182
+R208
+R209
 l0
 R29
 VGJECcY5FPfl^`8@Of]VRW0
 !s100 ON61?cmVVN;1VA8RnSLC^3
 R19
 33
-Z207 !s110 1757992167
+Z234 !s110 1757992167
 !i10b 1
-Z208 !s108 1757992167.000000
-R183
-R184
+Z235 !s108 1757992167.000000
+R210
+R211
 !i113 0
 R24
 R25
 Amixed
-R94
-R158
-R72
-R159
+R115
+R178
+R65
+R179
 R14
 R15
 DEx4 work 12 tb_registers 0 22 GJECcY5FPfl^`8@Of]VRW0
@@ -1324,11 +1498,11 @@ VTUea@9^B?gf@TJ?HBbRT13
 !s100 @7GYKV<QR[4G@aDi;SZJk3
 R19
 33
-R207
+R234
 !i10b 1
-R208
-R183
-R184
+R235
+R210
+R211
 !i113 0
 R24
 R25
@@ -1338,19 +1512,19 @@ R14
 R15
 !i122 89
 R4
-Z209 8/home/jagaul/cpre381/Lab2/Lab1/Lab1/xorg2.vhd
-Z210 F/home/jagaul/cpre381/Lab2/Lab1/Lab1/xorg2.vhd
+Z236 8/home/jagaul/cpre381/Lab2/Lab1/Lab1/xorg2.vhd
+Z237 F/home/jagaul/cpre381/Lab2/Lab1/Lab1/xorg2.vhd
 l0
 R29
 VV6C:miP5l_oAXXFV_WP4`3
 !s100 [hI[mXFH4_j16U;>U1Lfn2
 R19
 33
-Z211 !s110 1758312448
+Z238 !s110 1758312448
 !i10b 1
-Z212 !s108 1758312448.000000
-Z213 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab1/Lab1/xorg2.vhd|
-Z214 !s107 /home/jagaul/cpre381/Lab2/Lab1/Lab1/xorg2.vhd|
+Z239 !s108 1758312448.000000
+Z240 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Lab2/Lab1/Lab1/xorg2.vhd|
+Z241 !s107 /home/jagaul/cpre381/Lab2/Lab1/Lab1/xorg2.vhd|
 !i113 0
 R24
 R25
@@ -1365,11 +1539,11 @@ V0<8Ik`hGa2ooIj9K`Y3Wc0
 !s100 Z6[FAPS4fBLB`F?OO<AY72
 R19
 33
-R211
+R238
 !i10b 1
-R212
-R213
-R214
+R239
+R240
+R241
 !i113 0
 R24
 R25

@@ -3,7 +3,7 @@
 -- CPRE 381
 -- Iowa State University
 -------------------------------------------------------------------------
---Dependencies: RegFile.vhd, 
+--Dependencies: RegFile.vhd, addSun_n.vhd, mux2t1_N.vhd
 --RISC-V Register system
 --Datapath1.vhd
 -------------------------------------------------------------------------

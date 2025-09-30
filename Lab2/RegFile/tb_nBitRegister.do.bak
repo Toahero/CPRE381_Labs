@@ -1,0 +1,17 @@
+quit -sim
+
+vsim -voptargs=+acc work.tb_nBitRegister
+add wave -noupdate -divider "Standard Inputs"
+add wave -noupdate -label Clock    /tb_nBitRegister/CLK
+add wave -noupdate -label Reset    /tb_nBitRegister/reset
+
+# Input signals
+add wave -noupdate -divider "Input Values"
+add wave -noupdate  -label Write_Enable  /tb_nBitRegister/s_WrEn
+add wave -noupdate -label Write  -radix unsigned /tb_nBitRegister/s_write
+
+# AOutput Signals
+add wave -noupdate -divider "Output"
+add wave -noupdate -label Write  -radix unsigned /tb_nBitRegister/s_read
+run 200
+wave zoom full

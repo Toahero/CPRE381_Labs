@@ -1,4 +1,5 @@
 #tb_mem.do
+mem load -infile dmem.hex -format hex /tb_dmem/dmem/ram
 
 # compile all code in src folder
 vcom -2008 *.vhd
