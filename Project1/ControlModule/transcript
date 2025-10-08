@@ -1,0 +1,122 @@
+# //  Questa Sim-64
+# //  Version 2025.1_2 linux_x86_64 Apr  7 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+vlib work
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 16:57:03 on Oct 08,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# ** Error: /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd(18): near "port": (vcom-1576) expecting ';'.
+# ** Note: /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd(18): VHDL Compiler exiting
+# End time: 16:57:03 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 16:58:42 on Oct 08,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# ** Error: /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd(47): near "<=": syntax error
+# ** Error: /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd(56): near "'1'": (vcom-1576) expecting ';' or ','.
+# ** Error: /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd(60): near "'1'": (vcom-1576) expecting ';' or ','.
+# ** Error: /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd(71): near "EOF": syntax error
+# End time: 16:58:42 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 4, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 16:59:32 on Oct 08,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# ** Error: /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd(56): near "'1'": (vcom-1576) expecting ';' or ','.
+# ** Error: /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd(60): near "'1'": (vcom-1576) expecting ';' or ','.
+# ** Error: /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd(71): near "EOF": syntax error
+# End time: 16:59:32 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 16:59:53 on Oct 08,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# ** Error: /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd(56): near "'1'": (vcom-1576) expecting ';' or ','.
+# ** Error: /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd(60): near "'1'": (vcom-1576) expecting ';' or ','.
+# ** Error: /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd(71): near "EOF": syntax error
+# End time: 16:59:53 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 16:59:58 on Oct 08,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# ** Error: /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd(71): near "EOF": syntax error
+# End time: 16:59:58 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:00:21 on Oct 08,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# ** Warning: /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd(63): (vcom-1272) Length of expected is 4; length of actual is 3.
+# ** Warning: /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd(64): (vcom-1272) Length of expected is 4; length of actual is 3.
+# ** Warning: /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd(66): (vcom-1272) Length of expected is 4; length of actual is 3.
+# ** Warning: /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd(67): (vcom-1272) Length of expected is 4; length of actual is 3.
+# ** Warning: /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd(68): (vcom-1272) Length of expected is 4; length of actual is 3.
+# ** Warning: /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd(69): (vcom-1272) Length of expected is 4; length of actual is 3.
+# ** Warning: /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd(70): (vcom-1272) Length of expected is 4; length of actual is 3.
+# End time: 17:00:21 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 7
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:00:35 on Oct 08,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# End time: 17:00:35 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:01:27 on Oct 08,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# End time: 17:01:27 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
