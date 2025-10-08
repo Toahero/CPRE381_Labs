@@ -14,9 +14,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity inst_mem is
-
-    generic 
-	(
+    generic(
 		DATA_WIDTH : natural := 32;
 		ADDR_WIDTH : natural := 10
 	);
@@ -24,32 +22,43 @@ entity inst_mem is
     port(
         i_clk   : in std_logic;
         i_num   : in std_logic_vector((ADDR_WIDTH-1) downto 0);
-		o_inst  : out std_logic_vector((DATA_WIDTH -1) downto 0));
-
-    end inst_mem;
+		o_inst  : out std_logic_vector((DATA_WIDTH -1) downto 0)
+    );
+end inst_mem;
 
 architecture structural of inst_mem is
 
     component mem is
-		generic( 	DATA_WIDTH : natural; 
-				ADDR_WIDTH: natural);
-        port(	clk		: in std_logic;
-			    addr    : in std_logic_vector((ADDR_WIDTH-1) downto 0);
-			data        : in std_logic_vector((DATA_WIDTH-1) downto 0);
-			we	        : in std_logic := '1';
-			q		    : out std_logic_vector((DATA_WIDTH -1) downto 0));
+		generic(
+            DATA_WIDTH : natural; 
+			ADDR_WIDTH: natural
+        );
+        port(
+            clk		: in std_logic;
+			addr    : in std_logic_vector((ADDR_WIDTH-1) downto 0);
+			data    : in std_logic_vector((DATA_WIDTH-1) downto 0);
+			we	    : in std_logic := '1';
+			q		: out std_logic_vector((DATA_WIDTH -1) downto 0)
+        );
 	end component;
 
+    signal s_zero : std_logic_vector(DATA_WIDTH - 1 downto 0);
+
 begin
+
+    s_zero <= (others => '0');
+
     mem_module: mem
         generic map(
             DATA_WIDTH  => 32,
-            ADDR_WIDTH  => 10)
+            ADDR_WIDTH  => 10
+        )
         port map(
             clk     => i_clk,
             addr    => i_num,
-	data	=> std_logic_vector(to_unsigned(DATA_WIDTH, 0)),
+            data	=> s_zero,
             we      => '0',
-            q       => o_inst);
+            q       => o_inst
+        );
+
 end structural;
-    
