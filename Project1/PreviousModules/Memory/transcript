@@ -1,0 +1,630 @@
+# //  Questa Sim-64
+# //  Version 2025.1_2 linux_x86_64 Apr  7 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+do /home/jagaul/cpre381/Lab2/Memory/tb_dmem.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 16:37:43 on Sep 22,2025
+# vcom -reportprogress 300 -2008 mem.vhd tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# -- Loading package std_logic_textio
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# End time: 16:37:43 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" work.tb_dmem 
+# Start time: 16:37:43 on Sep 22,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.tb_dmem(mixed)#1
+# Loading work.mem(rtl)#1
+# ** UI-Msg (Warning): (vish-4014) No objects found matching '/tb_mem/CLK'.
+# Error in macro /home/jagaul/cpre381/Lab2/Memory/tb_dmem.do line 11
+# ** UI-Msg (Warning): (vish-4014) No objects found matching '/tb_mem/CLK'.
+#     while executing
+# "add wave -noupdate -divider "Standard Inputs""
+quit -sim
+# End time: 16:38:07 on Sep 22,2025, Elapsed time: 0:00:24
+# Errors: 0, Warnings: 0
+do /home/jagaul/cpre381/Lab2/Memory/tb_dmem.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 16:38:11 on Sep 22,2025
+# vcom -reportprogress 300 -2008 mem.vhd tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# -- Loading package std_logic_textio
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# End time: 16:38:11 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" work.tb_dmem 
+# Start time: 16:38:11 on Sep 22,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.tb_dmem(mixed)#1
+# Loading work.mem(rtl)#1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_dmem/dmem
+# 0 ns
+# 525 ns
+quit -sim
+# End time: 16:38:40 on Sep 22,2025, Elapsed time: 0:00:29
+# Errors: 0, Warnings: 1
+# Load canceled
+do /home/jagaul/cpre381/Lab2/Memory/tb_dmem.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 16:40:20 on Sep 22,2025
+# vcom -reportprogress 300 -2008 mem.vhd tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# -- Loading package std_logic_textio
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# End time: 16:40:20 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" work.tb_dmem 
+# Start time: 16:40:20 on Sep 22,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.tb_dmem(mixed)#1
+# Loading work.mem(rtl)#1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_dmem/dmem
+# 0 ns
+# 525 ns
+quit -sim
+# End time: 16:41:42 on Sep 22,2025, Elapsed time: 0:01:22
+# Errors: 0, Warnings: 2
+do /home/jagaul/cpre381/Lab2/Memory/tb_dmem.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 16:46:17 on Sep 22,2025
+# vcom -reportprogress 300 -2008 mem.vhd tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# -- Loading package std_logic_textio
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# End time: 16:46:17 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" work.tb_dmem 
+# Start time: 16:46:17 on Sep 22,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.tb_dmem(mixed)#1
+# Loading work.mem(rtl)#1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_dmem/dmem
+# 0 ns
+# 525 ns
+quit -sim
+# End time: 16:46:34 on Sep 22,2025, Elapsed time: 0:00:17
+# Errors: 0, Warnings: 1
+do /home/jagaul/cpre381/Lab2/Memory/tb_dmem.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 16:51:05 on Sep 22,2025
+# vcom -reportprogress 300 -2008 mem.vhd tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# -- Loading package std_logic_textio
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# End time: 16:51:05 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" work.tb_dmem 
+# Start time: 16:51:05 on Sep 22,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.tb_dmem(mixed)#1
+# Loading work.mem(rtl)#1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_dmem/dmem
+# 0 ns
+# 525 ns
+quit -sim
+# End time: 17:18:25 on Sep 22,2025, Elapsed time: 0:27:20
+# Errors: 0, Warnings: 1
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:24:00 on Sep 22,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(83): Target of signal assignment is not a signal.
+# ** Warning: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(85): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(85): Physical unit hidden by declaration of 'i' at line 78.
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(85): (vcom-1136) Unknown identifier "x100".
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(85): near ";": (vcom-1576) expecting ')'.
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(45): Variable declaration 'memVar' not allowed in this region.
+# ** Error (suppressible): /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(83): (vcom-1272) Length of expected is 33; length of actual is 32.
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(91): VHDL Compiler exiting
+# End time: 17:24:00 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 6, Warnings: 1
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:30:05 on Sep 22,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# ** Warning: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(86): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(86): Physical unit hidden by declaration of 'i' at line 78.
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(86): (vcom-1136) Unknown identifier "x100".
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(86): near ";": (vcom-1576) expecting ')'.
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(45): Variable declaration 'memVar' not allowed in this region.
+# ** Error (suppressible): /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(83): (vcom-1272) Length of expected is 33; length of actual is 32.
+# ** Error (suppressible): /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(88): (vcom-1272) Length of expected is 32; length of actual is 33.
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(98): VHDL Compiler exiting
+# End time: 17:30:05 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 6, Warnings: 1
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:30:35 on Sep 22,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(86): (vcom-1136) Unknown identifier "x100".
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(86): near ";": (vcom-1576) expecting ')'.
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(45): Variable declaration 'memVar' not allowed in this region.
+# ** Error (suppressible): /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(83): (vcom-1272) Length of expected is 33; length of actual is 32.
+# ** Error (suppressible): /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(88): (vcom-1272) Length of expected is 32; length of actual is 33.
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(98): VHDL Compiler exiting
+# End time: 17:30:35 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 5, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:30:50 on Sep 22,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(86): near ";": (vcom-1576) expecting ')'.
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(45): Variable declaration 'memVar' not allowed in this region.
+# ** Error (suppressible): /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(83): (vcom-1272) Length of expected is 33; length of actual is 32.
+# ** Error (suppressible): /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(88): (vcom-1272) Length of expected is 32; length of actual is 33.
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(98): VHDL Compiler exiting
+# End time: 17:30:50 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 4, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:37:02 on Sep 22,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(80): near ";": (vcom-1576) expecting ')'.
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(82): (vcom-1604) No feasible entries for subprogram "TO_UNSIGNED" with expected return type "STD_LOGIC_VECTOR".
+#    Visible subprograms are:
+#       (explicit) NUMERIC_STD.TO_UNSIGNED[NATURAL, NATURAL return UNRESOLVED_UNSIGNED] at vhdl_src/ieee/mti_numeric_std.vhd(1464)
+#       (explicit) NUMERIC_STD.TO_UNSIGNED[NATURAL, UNRESOLVED_UNSIGNED return UNRESOLVED_UNSIGNED] at vhdl_src/ieee/mti_numeric_std.vhd(1478)
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(83): Illegal target for signal assignment.
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(83): (vcom-1136) Unknown identifier "we".
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(85): Illegal target for signal assignment.
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(85): (vcom-1136) Unknown identifier "we".
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(45): Variable declaration 'memVar' not allowed in this region.
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(90): VHDL Compiler exiting
+# End time: 17:37:02 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 7, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:37:20 on Sep 22,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(80): near ";": (vcom-1576) expecting ')'.
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(82): (vcom-1604) No feasible entries for subprogram "TO_UNSIGNED" with expected return type "STD_LOGIC_VECTOR".
+#    Visible subprograms are:
+#       (explicit) NUMERIC_STD.TO_UNSIGNED[NATURAL, NATURAL return UNRESOLVED_UNSIGNED] at vhdl_src/ieee/mti_numeric_std.vhd(1464)
+#       (explicit) NUMERIC_STD.TO_UNSIGNED[NATURAL, UNRESOLVED_UNSIGNED return UNRESOLVED_UNSIGNED] at vhdl_src/ieee/mti_numeric_std.vhd(1478)
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(85): Illegal target for signal assignment.
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(85): (vcom-1136) Unknown identifier "we".
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(45): Variable declaration 'memVar' not allowed in this region.
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(90): VHDL Compiler exiting
+# End time: 17:37:20 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 5, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:37:35 on Sep 22,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(80): near ";": (vcom-1576) expecting ')'.
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(82): (vcom-1604) No feasible entries for subprogram "TO_UNSIGNED" with expected return type "STD_LOGIC_VECTOR".
+#    Visible subprograms are:
+#       (explicit) NUMERIC_STD.TO_UNSIGNED[NATURAL, NATURAL return UNRESOLVED_UNSIGNED] at vhdl_src/ieee/mti_numeric_std.vhd(1464)
+#       (explicit) NUMERIC_STD.TO_UNSIGNED[NATURAL, UNRESOLVED_UNSIGNED return UNRESOLVED_UNSIGNED] at vhdl_src/ieee/mti_numeric_std.vhd(1478)
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(45): Variable declaration 'memVar' not allowed in this region.
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(90): VHDL Compiler exiting
+# End time: 17:37:35 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:37:48 on Sep 22,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(79): near ";": (vcom-1576) expecting ')'.
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(81): (vcom-1604) No feasible entries for subprogram "TO_UNSIGNED" with expected return type "STD_LOGIC_VECTOR".
+#    Visible subprograms are:
+#       (explicit) NUMERIC_STD.TO_UNSIGNED[NATURAL, NATURAL return UNRESOLVED_UNSIGNED] at vhdl_src/ieee/mti_numeric_std.vhd(1464)
+#       (explicit) NUMERIC_STD.TO_UNSIGNED[NATURAL, UNRESOLVED_UNSIGNED return UNRESOLVED_UNSIGNED] at vhdl_src/ieee/mti_numeric_std.vhd(1478)
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(89): VHDL Compiler exiting
+# End time: 17:37:48 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:38:27 on Sep 22,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(79): near ";": (vcom-1576) expecting ')'.
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(81): (vcom-1604) No feasible entries for subprogram "TO_UNSIGNED" with expected return type "STD_LOGIC_VECTOR".
+#    Visible subprograms are:
+#       (explicit) NUMERIC_STD.TO_UNSIGNED[NATURAL, NATURAL return UNRESOLVED_UNSIGNED] at vhdl_src/ieee/mti_numeric_std.vhd(1464)
+#       (explicit) NUMERIC_STD.TO_UNSIGNED[NATURAL, UNRESOLVED_UNSIGNED return UNRESOLVED_UNSIGNED] at vhdl_src/ieee/mti_numeric_std.vhd(1478)
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(89): VHDL Compiler exiting
+# End time: 17:38:27 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:39:19 on Sep 22,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(79): near ";": (vcom-1576) expecting ')'.
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(81): (vcom-1604) No feasible entries for subprogram "TO_UNSIGNED" with expected return type "STD_LOGIC_VECTOR".
+#    Visible subprograms are:
+#       (explicit) NUMERIC_STD.TO_UNSIGNED[NATURAL, NATURAL return UNRESOLVED_UNSIGNED] at vhdl_src/ieee/mti_numeric_std.vhd(1464)
+#       (explicit) NUMERIC_STD.TO_UNSIGNED[NATURAL, UNRESOLVED_UNSIGNED return UNRESOLVED_UNSIGNED] at vhdl_src/ieee/mti_numeric_std.vhd(1478)
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(89): VHDL Compiler exiting
+# End time: 17:39:19 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:39:57 on Sep 22,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(79): near ";": (vcom-1576) expecting ')'.
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(81): (vcom-1604) No feasible entries for subprogram "TO_UNSIGNED" with expected return type "STD_LOGIC_VECTOR".
+#    Visible subprograms are:
+#       (explicit) NUMERIC_STD.TO_UNSIGNED[NATURAL, NATURAL return UNRESOLVED_UNSIGNED] at vhdl_src/ieee/mti_numeric_std.vhd(1464)
+#       (explicit) NUMERIC_STD.TO_UNSIGNED[NATURAL, UNRESOLVED_UNSIGNED return UNRESOLVED_UNSIGNED] at vhdl_src/ieee/mti_numeric_std.vhd(1478)
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(89): VHDL Compiler exiting
+# End time: 17:39:57 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:45:33 on Sep 22,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(79): (vcom-1136) Unknown identifier "i".
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(79): (vcom-1600) No feasible entries for subprogram "TO_UNSIGNED".
+#    Visible subprograms are:
+#       (explicit) NUMERIC_STD.TO_UNSIGNED[NATURAL, NATURAL return UNRESOLVED_UNSIGNED] at vhdl_src/ieee/mti_numeric_std.vhd(1464)
+#       (explicit) NUMERIC_STD.TO_UNSIGNED[NATURAL, UNRESOLVED_UNSIGNED return UNRESOLVED_UNSIGNED] at vhdl_src/ieee/mti_numeric_std.vhd(1478)
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(79): (vcom-1583) Illegal type conversion from 'unknown' to 'ieee.std_logic_1164.STD_LOGIC_VECTOR' (operand type is not known).
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(85): VHDL Compiler exiting
+# End time: 17:45:33 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:46:00 on Sep 22,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# End time: 17:46:00 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do /home/jagaul/cpre381/Lab2/Memory/tb_dmem.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:46:19 on Sep 22,2025
+# vcom -reportprogress 300 -2008 mem.vhd tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# -- Loading package std_logic_textio
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# End time: 17:46:19 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" work.tb_dmem 
+# Start time: 17:46:19 on Sep 22,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.tb_dmem(mixed)#1
+# Loading work.mem(rtl)#1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_dmem/dmem
+# 0 ns
+# 525 ns
+quit -sim
+# End time: 17:52:05 on Sep 22,2025, Elapsed time: 0:05:46
+# Errors: 0, Warnings: 2
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:52:09 on Sep 22,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(81): (vcom-1136) Unknown identifier "j".
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(81): (vcom-1600) No feasible entries for subprogram "TO_UNSIGNED".
+#    Visible subprograms are:
+#       (explicit) NUMERIC_STD.TO_UNSIGNED[NATURAL, NATURAL return UNRESOLVED_UNSIGNED] at vhdl_src/ieee/mti_numeric_std.vhd(1464)
+#       (explicit) NUMERIC_STD.TO_UNSIGNED[NATURAL, UNRESOLVED_UNSIGNED return UNRESOLVED_UNSIGNED] at vhdl_src/ieee/mti_numeric_std.vhd(1478)
+# ** Error: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(81): (vcom-1583) Illegal type conversion from 'unknown' to 'ieee.std_logic_1164.STD_LOGIC_VECTOR' (operand type is not known).
+# ** Note: /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd(92): VHDL Compiler exiting
+# End time: 17:52:09 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:52:33 on Sep 22,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# End time: 17:52:33 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Load canceled
+do /home/jagaul/cpre381/Lab2/Memory/tb_dmem.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:52:44 on Sep 22,2025
+# vcom -reportprogress 300 -2008 mem.vhd tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# -- Loading package std_logic_textio
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# End time: 17:52:44 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" work.tb_dmem 
+# Start time: 17:52:44 on Sep 22,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.tb_dmem(mixed)#1
+# Loading work.mem(rtl)#1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_dmem/dmem
+# 0 ns
+# 525 ns
+quit -sim
+# End time: 17:54:13 on Sep 22,2025, Elapsed time: 0:01:29
+# Errors: 0, Warnings: 2
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:54:16 on Sep 22,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# End time: 17:54:16 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:55:14 on Sep 22,2025
+# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Lab2/Memory/tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_textio
+# -- Loading package NUMERIC_STD
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# End time: 17:55:14 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do /home/jagaul/cpre381/Lab2/Memory/tb_dmem.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 17:55:20 on Sep 22,2025
+# vcom -reportprogress 300 -2008 mem.vhd tb_dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# -- Loading package std_logic_textio
+# -- Loading package ENV
+# -- Compiling entity tb_dmem
+# -- Compiling architecture mixed of tb_dmem
+# End time: 17:55:20 on Sep 22,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" work.tb_dmem 
+# Start time: 17:55:20 on Sep 22,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading ieee.numeric_std(body)
+# Loading std.env(body)
+# Loading work.tb_dmem(mixed)#1
+# Loading work.mem(rtl)#1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_dmem/dmem
+# 0 ns
+# 525 ns
+run 100
+run 100
+quit -sim
+# End time: 17:58:53 on Sep 22,2025, Elapsed time: 0:03:33
+# Errors: 0, Warnings: 2
+quit
