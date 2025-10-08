@@ -1,8 +1,12 @@
+# Work folders
 work/
 
+# Simulation files
 *.ini
 *.opt
 *.wlf
 *.bak
 
+# Temporary simulation files
 wlft*
+
