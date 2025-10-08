@@ -12,73 +12,1039 @@
 # // of the Customer's facilities without the express written permission of SISW,
 # // and may not be used in any way not expressly authorized by SISW.
 # //
-vlib work
-vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/InstructionMemory/inst_mem.vhd
+do compile.do
 # QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-# Start time: 14:02:10 on Oct 08,2025
-# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/InstructionMemory/inst_mem.vhd 
+# Start time: 15:01:02 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
-# -- Compiling entity inst_mem
-# ** Error: /home/jagaul/cpre381/Project1/InstructionMemory/inst_mem.vhd(24): near "{": (vcom-1576) expecting '('.
-# ** Note: /home/jagaul/cpre381/Project1/InstructionMemory/inst_mem.vhd(24): VHDL Compiler exiting
-# End time: 14:02:10 on Oct 08,2025, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/InstructionMemory/inst_mem.vhd
-# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-# Start time: 14:03:58 on Oct 08,2025
-# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/InstructionMemory/inst_mem.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity inst_mem
-# -- Compiling architecture structural of inst_mem
-# ** Error: /home/jagaul/cpre381/Project1/InstructionMemory/inst_mem.vhd(49): (vcom-1136) Unknown identifier "clk".
-# ** Error: /home/jagaul/cpre381/Project1/InstructionMemory/inst_mem.vhd(49): (vcom-1484) Unknown formal identifier "i_clk".
-# ** Note: /home/jagaul/cpre381/Project1/InstructionMemory/inst_mem.vhd(52): VHDL Compiler exiting
-# End time: 14:03:58 on Oct 08,2025, Elapsed time: 0:00:00
-# Errors: 2, Warnings: 0
-vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/InstructionMemory/inst_mem.vhd
-# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-# Start time: 14:04:42 on Oct 08,2025
-# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/InstructionMemory/inst_mem.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity inst_mem
-# -- Compiling architecture structural of inst_mem
-# ** Error: /home/jagaul/cpre381/Project1/InstructionMemory/inst_mem.vhd(51): Integer literal 0 is not of type ieee.std_logic_1164.STD_LOGIC.
-# ** Error: /home/jagaul/cpre381/Project1/InstructionMemory/inst_mem.vhd(52): (vcom-1035) Formal port "data" has OPEN or no actual associated with it.
-# ** Note: /home/jagaul/cpre381/Project1/InstructionMemory/inst_mem.vhd(53): VHDL Compiler exiting
-# End time: 14:04:42 on Oct 08,2025, Elapsed time: 0:00:00
-# Errors: 2, Warnings: 0
-vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/InstructionMemory/inst_mem.vhd
-# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-# Start time: 14:09:08 on Oct 08,2025
-# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/InstructionMemory/inst_mem.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity inst_mem
-# -- Compiling architecture structural of inst_mem
-# ** Error: /home/jagaul/cpre381/Project1/InstructionMemory/inst_mem.vhd(51): near ";": (vcom-1576) expecting ',' or ')'.
-# ** Note: /home/jagaul/cpre381/Project1/InstructionMemory/inst_mem.vhd(54): VHDL Compiler exiting
-# End time: 14:09:08 on Oct 08,2025, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/InstructionMemory/inst_mem.vhd
-# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-# Start time: 14:09:22 on Oct 08,2025
-# vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/InstructionMemory/inst_mem.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity inst_mem
-# -- Compiling architecture structural of inst_mem
-# End time: 14:09:22 on Oct 08,2025, Elapsed time: 0:00:00
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:01:02 on Oct 08,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:01:02 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# End time: 15:01:02 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:01:13 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:01:13 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:01:13 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# End time: 15:01:13 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:01:13 on Oct 08,2025
+# vcom -reportprogress 300 -work work tb_inst_mem.vhd 
+# -- Loading package STANDARD
+# ** Error (suppressible): tb_inst_mem.vhd(1): (vcom-1491) Empty source files.
+# End time: 15:01:13 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+# Error in macro ./test.do line 5
+# /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -reportprogress 300 -work work tb_inst_mem.vhd"
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:18:53 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:18:53 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:18:53 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# End time: 15:18:53 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:18:53 on Oct 08,2025
+# vcom -reportprogress 300 -work work tb_inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_inst_mem
+# -- Compiling architecture behaviour of tb_inst_mem
+# ** Error: tb_inst_mem.vhd(42): (vcom-1136) Unknown identifier "i_clk".
+# ** Error: tb_inst_mem.vhd(43): (vcom-1136) Unknown identifier "i_num".
+# ** Error: tb_inst_mem.vhd(44): (vcom-1136) Unknown identifier "o_inst".
+# ** Error: tb_inst_mem.vhd(38): Type error resolving infix expression "<=" as type std.STANDARD.NATURAL.
+# ** Error: tb_inst_mem.vhd(39): Type error resolving infix expression "<=" as type std.STANDARD.NATURAL.
+# ** Error: tb_inst_mem.vhd(42): (vcom-1436) Actual expression (infix expression) of formal "i_clk" is not globally static.
+# ** Error: tb_inst_mem.vhd(43): (vcom-1436) Actual expression (infix expression) of formal "i_num" is not globally static.
+# ** Error: tb_inst_mem.vhd(44): (vcom-1454) Formal "o_inst" of mode OUT cannot be associated with an expression.
+# ** Error: tb_inst_mem.vhd(50): Illegal target for signal assignment.
+# ** Error: tb_inst_mem.vhd(50): (vcom-1136) Unknown identifier "s_iclk".
+# ** Error: tb_inst_mem.vhd(53): Illegal target for signal assignment.
+# ** Error: tb_inst_mem.vhd(53): (vcom-1136) Unknown identifier "s_iclk".
+# ** Note: tb_inst_mem.vhd(69): VHDL Compiler exiting
+# End time: 15:18:53 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 12, Warnings: 0
+# ** Error: /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+# Error in macro ./test.do line 5
+# /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -reportprogress 300 -work work tb_inst_mem.vhd"
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:19:21 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:19:21 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:19:21 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# End time: 15:19:21 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:19:21 on Oct 08,2025
+# vcom -reportprogress 300 -work work tb_inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_inst_mem
+# -- Compiling architecture behaviour of tb_inst_mem
+# ** Error: tb_inst_mem.vhd(50): Illegal target for signal assignment.
+# ** Error: tb_inst_mem.vhd(50): (vcom-1136) Unknown identifier "s_iclk".
+# ** Error: tb_inst_mem.vhd(53): Illegal target for signal assignment.
+# ** Error: tb_inst_mem.vhd(53): (vcom-1136) Unknown identifier "s_iclk".
+# ** Note: tb_inst_mem.vhd(69): VHDL Compiler exiting
+# End time: 15:19:21 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 4, Warnings: 0
+# ** Error: /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+# Error in macro ./test.do line 5
+# /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -reportprogress 300 -work work tb_inst_mem.vhd"
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:19:35 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:19:35 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:19:35 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# End time: 15:19:35 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:19:35 on Oct 08,2025
+# vcom -reportprogress 300 -work work tb_inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_inst_mem
+# -- Compiling architecture behaviour of tb_inst_mem
+# End time: 15:19:35 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -gui work.tb_inst_mem.vhd -voptargs="+acc" 
+# Start time: 15:19:35 on Oct 08,2025
+# ** Error (suppressible): (vsim-19) Failed to access library 'work.tb_inst_mem' at "work.tb_inst_mem".
+# No such file or directory. (errno = ENOENT)
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./test.do PAUSED at line 7
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:19:56 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:19:56 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:19:56 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# End time: 15:19:56 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:19:56 on Oct 08,2025
+# vcom -reportprogress 300 -work work tb_inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_inst_mem
+# -- Compiling architecture behaviour of tb_inst_mem
+# End time: 15:19:56 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -gui work.tb_inst_mem.vhd -voptargs="+acc" 
+# Start time: 15:19:35 on Oct 08,2025
+# ** Error (suppressible): (vsim-19) Failed to access library 'work.tb_inst_mem' at "work.tb_inst_mem".
+# No such file or directory. (errno = ENOENT)
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./test.do PAUSED at line 7
+vcom -reportprogress 300 -work work /home/esliandy/Documents/github/CPRE381_Labs/Project1/InstructionMemory/tb_inst_mem.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:20:40 on Oct 08,2025
+# vcom -reportprogress 300 -work work /home/esliandy/Documents/github/CPRE381_Labs/Project1/InstructionMemory/tb_inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_inst_mem
+# -- Compiling architecture behaviour of tb_inst_mem
+# End time: 15:20:40 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Load canceled
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:20:57 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:20:57 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:20:57 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# End time: 15:20:57 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:20:57 on Oct 08,2025
+# vcom -reportprogress 300 -work work tb_inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_inst_mem
+# -- Compiling architecture behaviour of tb_inst_mem
+# End time: 15:20:57 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -gui work.tb_inst_mem -voptargs="+acc" 
+# Start time: 15:19:35 on Oct 08,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Warning: inst_mem.vhd(55): (vopt-1549) At instance mem_module the actual expression and the port 'data' of component 'work.inst_mem(structural).mem' have different sizes:  ([0,32]).
+#         Region: /tb_inst_mem/testbench/mem_module
+# ** Error (suppressible): inst_mem.vhd(55): (vopt-1549) At instance mem_module the actual expression and the port 'data' of entity 'work.mem' have different sizes:  ([0,32]).
+#         Region: /tb_inst_mem/testbench/mem_module
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=3, Warnings=2.
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./test.do PAUSED at line 7
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:22:00 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:22:00 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:22:00 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# ** Error: inst_mem.vhd(55): near "<=": (vcom-1576) expecting => or '|' or '!'.
+# ** Note: inst_mem.vhd(60): VHDL Compiler exiting
+# End time: 15:22:00 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+# Error in macro ./compile.do line 5
+# /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -reportprogress 300 -work work inst_mem.vhd"
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:22:12 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:22:12 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:22:12 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# ** Error: inst_mem.vhd(55): near "<=": (vcom-1576) expecting => or '|' or '!'.
+# ** Note: inst_mem.vhd(60): VHDL Compiler exiting
+# End time: 15:22:12 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+# Error in macro ./compile.do line 5
+# /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -reportprogress 300 -work work inst_mem.vhd"
+.main clear
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:22:21 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:22:21 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:22:21 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# ** Error: inst_mem.vhd(55): near "<=": (vcom-1576) expecting => or '|' or '!'.
+# ** Note: inst_mem.vhd(60): VHDL Compiler exiting
+# End time: 15:22:21 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+# Error in macro ./compile.do line 5
+# /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -reportprogress 300 -work work inst_mem.vhd"
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:22:55 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:22:55 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:22:55 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# ** Error: inst_mem.vhd(55): near "=>": (vcom-1576) expecting ',' or ')'.
+# ** Note: inst_mem.vhd(60): VHDL Compiler exiting
+# End time: 15:22:55 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+# Error in macro ./compile.do line 5
+# /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -reportprogress 300 -work work inst_mem.vhd"
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:23:45 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:23:45 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:23:45 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# End time: 15:23:45 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:23:45 on Oct 08,2025
+# vcom -reportprogress 300 -work work tb_inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_inst_mem
+# -- Compiling architecture behaviour of tb_inst_mem
+# End time: 15:23:45 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -gui work.tb_inst_mem -voptargs="+acc" 
+# Start time: 15:19:35 on Oct 08,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Error (suppressible): tb_inst_mem.vhd(62): (vopt-1272) Length of expected is 10; length of actual is 32.
+# ** Note: tb_inst_mem.vhd(69): Vopt Compiler exiting
+# ** Error: (vopt-2064) Compiler back-end code generation process terminated with code 2.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=9, Warnings=3.
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./test.do PAUSED at line 7
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:25:04 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:25:04 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:25:04 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# End time: 15:25:04 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:25:04 on Oct 08,2025
+# vcom -reportprogress 300 -work work tb_inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_inst_mem
+# -- Compiling architecture behaviour of tb_inst_mem
+# End time: 15:25:04 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -gui work.tb_inst_mem -voptargs="+acc" 
+# Start time: 15:19:35 on Oct 08,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=9, Warnings=4.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_inst_mem(behaviour)#1
+# Loading work.inst_mem(structural)#1
+# Loading work.mem(rtl)#1
+quit -sim
+# End time: 15:25:22 on Oct 08,2025, Elapsed time: 0:05:47
+# Errors: 9, Warnings: 4
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:25:24 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:25:24 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:25:24 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# End time: 15:25:24 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:25:24 on Oct 08,2025
+# vcom -reportprogress 300 -work work tb_inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_inst_mem
+# -- Compiling architecture behaviour of tb_inst_mem
+# End time: 15:25:24 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -gui work.tb_inst_mem -voptargs="+acc" 
+# Start time: 15:25:24 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_inst_mem(behaviour)#1
+# Loading work.inst_mem(structural)#1
+# Loading work.mem(rtl)#1
+# ** UI-Msg (Error) (suppressible): (vsim-4008) Object '/tb_inst_mem/testbench/mem_module/g_memory/ram' not found.
+# Error in macro ./test.do line 8
+# ** UI-Msg (Error) (suppressible): (vsim-4008) Object '/tb_inst_mem/testbench/mem_module/g_memory/ram' not found.
+# 
+#     while executing
+# "mem load -infile inst_mem.hex -format hex /tb_inst_mem/testbench/mem_module/g_memory/ram"
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:25:54 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:25:54 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:25:54 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# End time: 15:25:54 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:25:54 on Oct 08,2025
+# vcom -reportprogress 300 -work work tb_inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_inst_mem
+# -- Compiling architecture behaviour of tb_inst_mem
+# End time: 15:25:54 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 15:25:54 on Oct 08,2025, Elapsed time: 0:00:30
+# Errors: 0, Warnings: 0
+# vsim -gui work.tb_inst_mem -voptargs="+acc" 
+# Start time: 15:25:54 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_inst_mem(behaviour)#1
+# Loading work.inst_mem(structural)#1
+# Loading work.mem(rtl)#1
+add wave -position insertpoint  \
+sim:/tb_inst_mem/testbench/mem_module/ram
+add wave -position insertpoint  \
+sim:/tb_inst_mem/clock
+# Causality operation skipped due to absence of debug database file
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_inst_mem/testbench/mem_module
+add wave -position insertpoint  \
+sim:/tb_inst_mem/s_inum
+add wave -position insertpoint  \
+sim:/tb_inst_mem/s_oinst
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:29:31 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:29:31 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:29:31 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# End time: 15:29:31 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:29:31 on Oct 08,2025
+# vcom -reportprogress 300 -work work tb_inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_inst_mem
+# -- Compiling architecture behaviour of tb_inst_mem
+# End time: 15:29:31 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 15:29:31 on Oct 08,2025, Elapsed time: 0:03:37
+# Errors: 0, Warnings: 1
+# vsim -gui work.tb_inst_mem -voptargs="+acc" 
+# Start time: 15:29:31 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_inst_mem(behaviour)#1
+# Loading work.inst_mem(structural)#1
+# Loading work.mem(rtl)#1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_inst_mem/testbench/mem_module
+# 0 ns
+# 105 ns
+add wave -position insertpoint  \
+sim:/tb_inst_mem/s_clk
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:30:00 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:30:00 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:30:00 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# End time: 15:30:00 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:30:00 on Oct 08,2025
+# vcom -reportprogress 300 -work work tb_inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_inst_mem
+# -- Compiling architecture behaviour of tb_inst_mem
+# End time: 15:30:00 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 15:30:00 on Oct 08,2025, Elapsed time: 0:00:29
+# Errors: 0, Warnings: 1
+# vsim -gui work.tb_inst_mem -voptargs="+acc" 
+# Start time: 15:30:00 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_inst_mem(behaviour)#1
+# Loading work.inst_mem(structural)#1
+# Loading work.mem(rtl)#1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_inst_mem/testbench/mem_module
+# 0 ns
+# 105 ns
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:30:37 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:30:37 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:30:37 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# End time: 15:30:37 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:30:37 on Oct 08,2025
+# vcom -reportprogress 300 -work work tb_inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_inst_mem
+# -- Compiling architecture behaviour of tb_inst_mem
+# End time: 15:30:38 on Oct 08,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 15:30:38 on Oct 08,2025, Elapsed time: 0:00:38
+# Errors: 0, Warnings: 1
+# vsim -gui work.tb_inst_mem -voptargs="+acc" 
+# Start time: 15:30:38 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_inst_mem(behaviour)#1
+# Loading work.inst_mem(structural)#1
+# Loading work.mem(rtl)#1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_inst_mem/testbench/mem_module
+# 0 ns
+# 105 ns
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:30:55 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:30:55 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:30:55 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# End time: 15:30:55 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:30:55 on Oct 08,2025
+# vcom -reportprogress 300 -work work tb_inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_inst_mem
+# -- Compiling architecture behaviour of tb_inst_mem
+# End time: 15:30:55 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 15:30:55 on Oct 08,2025, Elapsed time: 0:00:17
+# Errors: 0, Warnings: 1
+# vsim -gui work.tb_inst_mem -voptargs="+acc" 
+# Start time: 15:30:55 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_inst_mem(behaviour)#1
+# Loading work.inst_mem(structural)#1
+# Loading work.mem(rtl)#1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_inst_mem/testbench/mem_module
+# 0 ns
+# 105 ns
+DO TES
+# invalid command name "DO"
+do test.do
+# work
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:32:18 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:32:18 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:32:18 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# End time: 15:32:18 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:32:19 on Oct 08,2025
+# vcom -reportprogress 300 -work work tb_inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_inst_mem
+# -- Compiling architecture behaviour of tb_inst_mem
+# End time: 15:32:19 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 15:32:19 on Oct 08,2025, Elapsed time: 0:01:24
+# Errors: 0, Warnings: 1
+# vsim -gui work.tb_inst_mem -voptargs="+acc" 
+# Start time: 15:32:19 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_inst_mem(behaviour)#1
+# Loading work.inst_mem(structural)#1
+# Loading work.mem(rtl)#1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_inst_mem/testbench/mem_module
+# 0 ns
+# 105 ns
+do test.do
+# work
+# work
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:32:41 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:32:41 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:32:41 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# End time: 15:32:41 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:32:41 on Oct 08,2025
+# vcom -reportprogress 300 -work work tb_inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_inst_mem
+# -- Compiling architecture behaviour of tb_inst_mem
+# End time: 15:32:41 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 15:32:41 on Oct 08,2025, Elapsed time: 0:00:22
+# Errors: 0, Warnings: 1
+# vsim -gui work.tb_inst_mem -voptargs="+acc" 
+# Start time: 15:32:41 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_inst_mem(behaviour)#1
+# Loading work.inst_mem(structural)#1
+# Loading work.mem(rtl)#1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_inst_mem/testbench/mem_module
+# 0 ns
+# 105 ns
+do test.do
+# work
+# work
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:35:52 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:35:52 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:35:52 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# End time: 15:35:53 on Oct 08,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:35:53 on Oct 08,2025
+# vcom -reportprogress 300 -work work tb_inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_inst_mem
+# -- Compiling architecture behaviour of tb_inst_mem
+# End time: 15:35:53 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 15:35:53 on Oct 08,2025, Elapsed time: 0:03:12
+# Errors: 0, Warnings: 1
+# vsim -gui work.tb_inst_mem -voptargs="+acc" 
+# Start time: 15:35:53 on Oct 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_inst_mem(behaviour)#1
+# Loading work.inst_mem(structural)#1
+# Loading work.mem(rtl)#1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_inst_mem/testbench/mem_module
+# 0 ns
+# 105 ns
+do test.do
+# work
+# work
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:38:10 on Oct 08,2025
+# vcom -reportprogress 300 -work work mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mem
+# -- Compiling architecture rtl of mem
+# End time: 15:38:11 on Oct 08,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:38:11 on Oct 08,2025
+# vcom -reportprogress 300 -work work inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity inst_mem
+# -- Compiling architecture structural of inst_mem
+# End time: 15:38:11 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 15:38:11 on Oct 08,2025
+# vcom -reportprogress 300 -work work tb_inst_mem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_inst_mem
+# -- Compiling architecture behaviour of tb_inst_mem
+# End time: 15:38:11 on Oct 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 15:38:11 on Oct 08,2025, Elapsed time: 0:02:18
+# Errors: 0, Warnings: 1
+# vsim -gui work.tb_inst_mem -voptargs="+acc" 
+# Start time: 15:38:11 on Oct 08,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_inst_mem(behaviour)#1
+# Loading work.inst_mem(structural)#1
+# Loading work.mem(rtl)#1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_inst_mem/testbench/mem_module
+# 0 ns
+# 105 ns

@@ -11,18 +11,15 @@
 // where h is a hexadecimal character.  Spaces between the @ and the address 
 // character are not allowed.  It shall be an error if there are too many 
 // words in the file or if an address is outside the bounds of the array.
-// 
-FFFFFFFF // Loads -1 at address 0
-00000002 //Loads 2
-FFFFFFFD //Loads -3
-00000004 //Loads 4
-00000005 //Loads 5
-00000006 //Loads 6
-FFFFFFF9 //Loads -7
-FFFFFFF8 //Loads -8
-00000009 //Loads 9
-FFFFFFF6 // Loads -10 at address 9
+//
 
-@15      // Specifies the following values will be loaded starting at address 0x15 (remember, this is a .hex file so the values are in hex) or 21 in decimal
-0000a000 // Loads at address 0x15
-0000b000 // Loads at address 0x16
+00000000 // Loads   0       at address      0
+00000123 // Loads   291     at address      1
+00000456 // Loads   1110    at address      2
+00000000 // Loads   0       at address      3
+00000101 // Loads   257     at address      4
+00000050 // Loads   80      at address      5
+00000000 // Loads   0       at address      6
+00000000 // Loads   0       at address      7
+00000000 // Loads   0       at address      8
+00000000 // Loads   0       at address      9
