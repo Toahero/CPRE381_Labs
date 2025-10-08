@@ -1,0 +1,8 @@
+work/
+
+*.ini
+*.opt
+*.wlf
+*.bak
+
+wlft*
