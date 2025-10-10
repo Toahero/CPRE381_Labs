@@ -37,6 +37,7 @@ architecture dataflow of ControlUnit is
 begin
     with opCode select
         ALU_Src <=  '0' when "0110011", --R format does not use an immediate
+                    '0' when "1100011",
                     '1' when others;    --All other instruction formats use an immediate
                 
     with opCode select
@@ -58,8 +59,8 @@ begin
                     '1' when others;
 
     with opCode select
-        Branch  <=  '0' when "1100011", --B type instruction
-                    '1' when others;
+        Branch  <=  '1' when "1100011", --B type instruction
+                    '0' when others;
 
     with opCode select
         ALU_OP  <=  std_logic_vector(to_unsigned(0, ALU_OP_SIZE)) when "0110011", --Register Arithmetic (R-Type)
@@ -73,4 +74,3 @@ begin
                     std_logic_vector(to_unsigned(8, ALU_OP_SIZE)) when others; --Use for halting?
 
 end dataflow;
-            
