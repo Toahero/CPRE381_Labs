@@ -20,12 +20,14 @@ entity ALU_Control_v1 is
     port(
         inst_type   : in std_logic_vector(ALU_OP_SIZE-1 downto 0);
         funct3      : in std_logic_vector(2 downto 0);
-        funct7      : in std_logic_vector(3 downto 0);
+        funct7      : in std_logic_vector(6 downto 0);
 
         o_sub       : out std_logic);
 end ALU_Control_v1;
 
 architecture dataflow of ALU_Control_v1 is
 begin
-    o_sub <= '1' when (inst_type = x0  AND funct3 = x0 AND funct7 = x20) else
+    o_sub <= '1' when (inst_type = "0000" AND funct3 = "000" AND funct7 = "0000010") else
         '0';
+
+end dataflow;
