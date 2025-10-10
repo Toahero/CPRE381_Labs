@@ -56,8 +56,8 @@ begin
                     '1' when others;
 
     with opCode select
-        Branch  <=  '0' when "1100011", --B type instruction
-                    '1' when others;
+        Branch  <=  '1' when "1100011", --B type instruction
+                    '0' when others;
 
     ALU_OP  <=
             "001" when (opCode = "0110011") else --R type Instruction
@@ -69,4 +69,3 @@ begin
             "110" when (opCode = "1101111") else --UJ Type Instruction
             "000"; --Invalid opCode (Maybe also use for halt?)
 end dataflow;
-            

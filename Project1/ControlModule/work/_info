@@ -8,38 +8,38 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 d/home/jagaul/cpre381/Project1/ControlModule
+d/home/jagaul/cpre381/Project1/ControlModule
 Econtrolunit
-Z1 w1759960885
-Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 6
-R0
-Z4 8/home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd
-Z5 F/home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd
+Z0 w1760115993
+Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z2 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 10
+Z3 d/home/esliandy/Documents/github/CPRE381_Labs/Project1/ControlModule
+Z4 8ControlUnit.vhd
+Z5 FControlUnit.vhd
 l0
 L16 1
 VFmI3gUVOKI7mF@@_QcD=42
 !s100 :DCJjZjZKdQ4YBlE[QY`W1
 Z6 OL;C;2025.1_2;82
 32
-Z7 !s110 1759960887
+Z7 !s110 1760119162
 !i10b 1
-Z8 !s108 1759960887.000000
-Z9 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd|
-Z10 !s107 /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd|
+Z8 !s108 1760119162.000000
+Z9 !s90 -reportprogress|300|-work|work|ControlUnit.vhd|
+Z10 !s107 ControlUnit.vhd|
 !i113 0
 Z11 o-work work
 Z12 tExplicit 1 CvgOpt 0
 Adataflow
+R1
 R2
-R3
-Z13 DEx4 work 11 controlunit 0 22 FmI3gUVOKI7mF@@_QcD=42
-!i122 6
+DEx4 work 11 controlunit 0 22 FmI3gUVOKI7mF@@_QcD=42
+!i122 10
 l36
-Z14 L34 38
-Z15 VZ;CL:DZ3_GC5F<A>iD`Tc3
-Z16 !s100 =YH@BX<=KRJJ43<][871W1
+L34 38
+VZ;CL:DZ3_GC5F<A>iD`Tc3
+!s100 =YH@BX<=KRJJ43<][871W1
 R6
 32
 R7
@@ -47,6 +47,52 @@ R7
 R8
 R9
 R10
+!i113 0
+R11
+R12
+Pinstructionpackage
+Z13 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R1
+R2
+!i122 9
+w1760118944
+R3
+8InstructionPackage.vhd
+FInstructionPackage.vhd
+l0
+L5 61
+VQB58aU1DD`YEd?TJA8`9o3
+!s100 cCMQjG8O4B_oFDT2UmN]V1
+R6
+32
+R7
+!i10b 1
+!s108 1760119161.000000
+!s90 -reportprogress|300|-work|work|InstructionPackage.vhd|
+!s107 InstructionPackage.vhd|
+!i113 0
+R11
+R12
+Etb_controlunit
+w1760119002
+R13
+R1
+R2
+!i122 11
+R3
+8tb_ControlUnit.vhd
+Ftb_ControlUnit.vhd
+l0
+L5 1
+V6nm<n8mLzLc^@f[aUd8JG2
+!s100 @SAjf?jj=1^[?cM>HPND91
+R6
+32
+R7
+!i10b 1
+R8
+!s90 -reportprogress|300|-work|work|tb_ControlUnit.vhd|
+!s107 tb_ControlUnit.vhd|
 !i113 0
 R11
 R12
