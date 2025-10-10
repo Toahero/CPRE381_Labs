@@ -1,10 +1,16 @@
+vlib work
+vmap work work
 
-# Dependancies
-vcom -reportprogress 300 -work work depends/AddSub/addSub_n.vhd
-vcom -reportprogress 300 -work work depends/AddSub/fulladder.vhd
-vcom -reportprogress 300 -work work depends/AddSub/rippleAdder_n.vhd
-vcom -reportprogress 300 -work work depends/IsZero/IsZero.vhd
-vcom -reportprogress 300 -work work depends/IsNegative/IsNegative.vhd
+# Compile Dependancies
+cd depends
+
+set compileFiles [exec find . -type f -name compile.do]
+
+foreach f $compileFiles {
+    do $f
+}
+
+cd ../
 
 # Entity
 vcom -reportprogress 300 -work work ALU.vhd

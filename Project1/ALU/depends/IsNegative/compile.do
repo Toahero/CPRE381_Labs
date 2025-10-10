@@ -1,0 +1,1 @@
+vcom -reportprogress 300 -work work IsNegative.vhd
