@@ -25,7 +25,6 @@ architecture structural of Proc1 is
     component ControlUnit is
     port(
         opCode      : in std_logic_vector(6 downto 0); --The Opcode is 7 bits long
-        funt7_imm   : in std_logic_vector(6 downto 0); --Funct7 is 3 bits long
 
         --These have been assigned
         ALU_Src      : out std_logic; --Source an extended immediate
@@ -36,7 +35,7 @@ architecture structural of Proc1 is
         Branch      : out std_logic;
         
         --These have not been assigned   
-        ALU_OP      : out std_logic_vector(2 downto 0));
+        ALU_OP      : out std_logic_vector(3 downto 0));
     end component;
 
    component inst_mem is
@@ -101,5 +100,5 @@ architecture structural of Proc1 is
 	end component;
 
 begin
-	
+
 end structural;

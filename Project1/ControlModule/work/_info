@@ -10,43 +10,45 @@ z2
 cModel Technology
 Z0 d/home/jagaul/cpre381/Project1/ControlModule
 Econtrolunit
-Z1 w1759960885
-Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 7
+Z1 w1760122102
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 10
 R0
-Z4 8/home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd
-Z5 F/home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd
+Z5 8/home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd
+Z6 F/home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd
 l0
-L16 1
-VFmI3gUVOKI7mF@@_QcD=42
-!s100 :DCJjZjZKdQ4YBlE[QY`W1
-Z6 OL;C;2025.1_2;82
+L17 1
+Vb^Y_CZE<XdCTdK1;=2oCd0
+!s100 2ghQnodidK1INW4oLlh<k0
+Z7 OL;C;2025.1_2;82
 32
-Z7 !s110 1759961281
+Z8 !s110 1760122106
 !i10b 1
-Z8 !s108 1759961281.000000
-Z9 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd|
-Z10 !s107 /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd|
+Z9 !s108 1760122106.000000
+Z10 !s90 -reportprogress|300|-work|work|/home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd|
+Z11 !s107 /home/jagaul/cpre381/Project1/ControlModule/ControlUnit.vhd|
 !i113 0
-Z11 o-work work
-Z12 tExplicit 1 CvgOpt 0
+Z12 o-work work
+Z13 tExplicit 1 CvgOpt 0
 Adataflow
 R2
 R3
-Z13 DEx4 work 11 controlunit 0 22 FmI3gUVOKI7mF@@_QcD=42
-!i122 7
-l36
-Z14 L34 38
-Z15 VZ;CL:DZ3_GC5F<A>iD`Tc3
-Z16 !s100 =YH@BX<=KRJJ43<][871W1
-R6
-32
+R4
+DEx4 work 11 controlunit 0 22 b^Y_CZE<XdCTdK1;=2oCd0
+!i122 10
+l38
+L36 41
+VhIG_Lkf@S=zSOPB@<PdOC2
+!s100 1DbXLie<FoNmCL78LUMJ:1
 R7
-!i10b 1
+32
 R8
+!i10b 1
 R9
 R10
-!i113 0
 R11
+!i113 0
 R12
+R13
