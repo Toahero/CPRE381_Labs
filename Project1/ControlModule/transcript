@@ -77,3 +77,912 @@ do test.do
 # Error: Error loading design
 #        Pausing macro execution
 # MACRO ./test.do PAUSED at line 7
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:30:01 on Oct 10,2025
+# vcom -reportprogress 300 -work work InstructionPackage.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package InstructionPackage
+# ** Error: InstructionPackage.vhd(92): (vcom-1294) Declaration with designator "OPCODE_LB" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_LB" is at InstructionPackage.vhd(36).
+# ** Error: InstructionPackage.vhd(93): (vcom-1294) Declaration with designator "OPCODE_LH" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_LH" is at InstructionPackage.vhd(37).
+# ** Error: InstructionPackage.vhd(94): (vcom-1294) Declaration with designator "OPCODE_LW" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_LW" is at InstructionPackage.vhd(38).
+# ** Error: InstructionPackage.vhd(95): (vcom-1294) Declaration with designator "OPCODE_LBU" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_LBU" is at InstructionPackage.vhd(39).
+# ** Error: InstructionPackage.vhd(96): (vcom-1294) Declaration with designator "OPCODE_LHU" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_LHU" is at InstructionPackage.vhd(40).
+# ** Error: InstructionPackage.vhd(99): (vcom-1294) Declaration with designator "OPCODE_SB" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_SB" is at InstructionPackage.vhd(43).
+# ** Error: InstructionPackage.vhd(100): (vcom-1294) Declaration with designator "OPCODE_SH" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_SH" is at InstructionPackage.vhd(44).
+# ** Error: InstructionPackage.vhd(101): (vcom-1294) Declaration with designator "OPCODE_SW" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_SW" is at InstructionPackage.vhd(45).
+# ** Error: InstructionPackage.vhd(104): (vcom-1294) Declaration with designator "OPCODE_BEQ" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_BEQ" is at InstructionPackage.vhd(48).
+# ** Error: InstructionPackage.vhd(105): (vcom-1294) Declaration with designator "OPCODE_BNE" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_BNE" is at InstructionPackage.vhd(49).
+# ** Error: InstructionPackage.vhd(106): (vcom-1294) Declaration with designator "OPCODE_BLT" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_BLT" is at InstructionPackage.vhd(50).
+# ** Error: InstructionPackage.vhd(107): (vcom-1294) Declaration with designator "OPCODE_BGE" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_BGE" is at InstructionPackage.vhd(51).
+# ** Error: InstructionPackage.vhd(108): (vcom-1294) Declaration with designator "OPCODE_BLTU" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_BLTU" is at InstructionPackage.vhd(52).
+# ** Error: InstructionPackage.vhd(109): (vcom-1294) Declaration with designator "OPCODE_BGEU" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_BGEU" is at InstructionPackage.vhd(53).
+# ** Error: InstructionPackage.vhd(112): (vcom-1294) Declaration with designator "OPCODE_JAL" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_JAL" is at InstructionPackage.vhd(56).
+# ** Error: InstructionPackage.vhd(115): (vcom-1294) Declaration with designator "OPCODE_JALR" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_JALR" is at InstructionPackage.vhd(59).
+# ** Error: InstructionPackage.vhd(118): (vcom-1294) Declaration with designator "OPCODE_ECALL" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_ECALL" is at InstructionPackage.vhd(62).
+# ** Error: InstructionPackage.vhd(119): (vcom-1294) Declaration with designator "OPCODE_EBREAK" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_EBREAK" is at InstructionPackage.vhd(63).
+# ** Note: InstructionPackage.vhd(122): VHDL Compiler exiting
+# End time: 13:30:02 on Oct 10,2025, Elapsed time: 0:00:01
+# Errors: 18, Warnings: 0
+# ** Error: /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+# Error in macro ./compile.do line 2
+# /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -reportprogress 300 -work work InstructionPackage.vhd"
+do compile.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:30:16 on Oct 10,2025
+# vcom -reportprogress 300 -work work InstructionPackage.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package InstructionPackage
+# ** Error: InstructionPackage.vhd(92): (vcom-1294) Declaration with designator "OPCODE_LB" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_LB" is at InstructionPackage.vhd(36).
+# ** Error: InstructionPackage.vhd(93): (vcom-1294) Declaration with designator "OPCODE_LH" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_LH" is at InstructionPackage.vhd(37).
+# ** Error: InstructionPackage.vhd(94): (vcom-1294) Declaration with designator "OPCODE_LW" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_LW" is at InstructionPackage.vhd(38).
+# ** Error: InstructionPackage.vhd(95): (vcom-1294) Declaration with designator "OPCODE_LBU" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_LBU" is at InstructionPackage.vhd(39).
+# ** Error: InstructionPackage.vhd(96): (vcom-1294) Declaration with designator "OPCODE_LHU" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_LHU" is at InstructionPackage.vhd(40).
+# ** Error: InstructionPackage.vhd(99): (vcom-1294) Declaration with designator "OPCODE_SB" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_SB" is at InstructionPackage.vhd(43).
+# ** Error: InstructionPackage.vhd(100): (vcom-1294) Declaration with designator "OPCODE_SH" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_SH" is at InstructionPackage.vhd(44).
+# ** Error: InstructionPackage.vhd(101): (vcom-1294) Declaration with designator "OPCODE_SW" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_SW" is at InstructionPackage.vhd(45).
+# ** Error: InstructionPackage.vhd(104): (vcom-1294) Declaration with designator "OPCODE_BEQ" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_BEQ" is at InstructionPackage.vhd(48).
+# ** Error: InstructionPackage.vhd(105): (vcom-1294) Declaration with designator "OPCODE_BNE" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_BNE" is at InstructionPackage.vhd(49).
+# ** Error: InstructionPackage.vhd(106): (vcom-1294) Declaration with designator "OPCODE_BLT" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_BLT" is at InstructionPackage.vhd(50).
+# ** Error: InstructionPackage.vhd(107): (vcom-1294) Declaration with designator "OPCODE_BGE" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_BGE" is at InstructionPackage.vhd(51).
+# ** Error: InstructionPackage.vhd(108): (vcom-1294) Declaration with designator "OPCODE_BLTU" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_BLTU" is at InstructionPackage.vhd(52).
+# ** Error: InstructionPackage.vhd(109): (vcom-1294) Declaration with designator "OPCODE_BGEU" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_BGEU" is at InstructionPackage.vhd(53).
+# ** Error: InstructionPackage.vhd(112): (vcom-1294) Declaration with designator "OPCODE_JAL" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_JAL" is at InstructionPackage.vhd(56).
+# ** Error: InstructionPackage.vhd(115): (vcom-1294) Declaration with designator "OPCODE_JALR" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_JALR" is at InstructionPackage.vhd(59).
+# ** Error: InstructionPackage.vhd(118): (vcom-1294) Declaration with designator "OPCODE_ECALL" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_ECALL" is at InstructionPackage.vhd(62).
+# ** Error: InstructionPackage.vhd(119): (vcom-1294) Declaration with designator "OPCODE_EBREAK" already exists in this region.
+# ** =====> Prior declaration of "OPCODE_EBREAK" is at InstructionPackage.vhd(63).
+# ** Note: InstructionPackage.vhd(122): VHDL Compiler exiting
+# End time: 13:30:16 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 18, Warnings: 0
+# ** Error: /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+# Error in macro ./compile.do line 2
+# /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -reportprogress 300 -work work InstructionPackage.vhd"
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:31:29 on Oct 10,2025
+# vcom -reportprogress 300 -work work InstructionPackage.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package InstructionPackage
+# ** Error: InstructionPackage.vhd(111): near "FUNCT3": (vcom-1576) expecting END.
+# ** Note: InstructionPackage.vhd(111): VHDL Compiler exiting
+# End time: 13:31:29 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+# Error in macro ./compile.do line 2
+# /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -reportprogress 300 -work work InstructionPackage.vhd"
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:31:46 on Oct 10,2025
+# vcom -reportprogress 300 -work work InstructionPackage.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package InstructionPackage
+# End time: 13:31:46 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:31:46 on Oct 10,2025
+# vcom -reportprogress 300 -work work ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# End time: 13:31:46 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:31:46 on Oct 10,2025
+# vcom -reportprogress 300 -work work tb_ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package InstructionPackage
+# -- Compiling entity tb_ControlUnit
+# -- Compiling architecture behaviour of tb_ControlUnit
+# ** Error: tb_ControlUnit.vhd(33): near "s_i_opCode": (vcom-1576) expecting BEGIN.
+# ** Note: tb_ControlUnit.vhd(33): VHDL Compiler exiting
+# End time: 13:31:46 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+# Error in macro ./test.do line 5
+# /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -reportprogress 300 -work work tb_ControlUnit.vhd"
+do tes
+# Cannot open macro file: tes
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:32:15 on Oct 10,2025
+# vcom -reportprogress 300 -work work InstructionPackage.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package InstructionPackage
+# End time: 13:32:15 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:32:15 on Oct 10,2025
+# vcom -reportprogress 300 -work work ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# End time: 13:32:15 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:32:15 on Oct 10,2025
+# vcom -reportprogress 300 -work work tb_ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package InstructionPackage
+# -- Compiling entity tb_ControlUnit
+# -- Compiling architecture behaviour of tb_ControlUnit
+# ** Error: tb_ControlUnit.vhd(46): near ":": (vcom-1576) expecting ',' or ')'.
+# ** Error: tb_ControlUnit.vhd(57): Statement cannot be labeled.
+# ** Error: tb_ControlUnit.vhd(66): Constant "OPCODE_ADD" is type ieee.NUMERIC_STD.UNSIGNED; expecting type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: tb_ControlUnit.vhd(76): Constant "OPCODE_ADDI" is type ieee.NUMERIC_STD.UNSIGNED; expecting type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: tb_ControlUnit.vhd(86): Constant "OPCODE_ADDI" is type ieee.NUMERIC_STD.UNSIGNED; expecting type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error (suppressible): tb_ControlUnit.vhd(34): (vcom-1272) Length of expected is 7; length of actual is 6.
+# ** Error (suppressible): tb_ControlUnit.vhd(62): (vcom-1272) Length of expected is 7; length of actual is 6.
+# ** Note: tb_ControlUnit.vhd(98): VHDL Compiler exiting
+# End time: 13:32:15 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 7, Warnings: 0
+# ** Error: /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+# Error in macro ./test.do line 5
+# /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -reportprogress 300 -work work tb_ControlUnit.vhd"
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:33:45 on Oct 10,2025
+# vcom -reportprogress 300 -work work InstructionPackage.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package InstructionPackage
+# End time: 13:33:45 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:33:45 on Oct 10,2025
+# vcom -reportprogress 300 -work work ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# End time: 13:33:45 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:33:45 on Oct 10,2025
+# vcom -reportprogress 300 -work work tb_ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package InstructionPackage
+# -- Compiling entity tb_ControlUnit
+# -- Compiling architecture behaviour of tb_ControlUnit
+# ** Error: tb_ControlUnit.vhd(55): Signal "s_ALU_OP" is type ieee.std_logic_1164.STD_LOGIC; expecting type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: tb_ControlUnit.vhd(67): Constant "OPCODE_ADD" is type ieee.NUMERIC_STD.UNSIGNED; expecting type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: tb_ControlUnit.vhd(77): Constant "OPCODE_ADDI" is type ieee.NUMERIC_STD.UNSIGNED; expecting type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: tb_ControlUnit.vhd(87): Constant "OPCODE_ADDI" is type ieee.NUMERIC_STD.UNSIGNED; expecting type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error (suppressible): tb_ControlUnit.vhd(34): (vcom-1272) Length of expected is 7; length of actual is 6.
+# ** Error (suppressible): tb_ControlUnit.vhd(63): (vcom-1272) Length of expected is 7; length of actual is 6.
+# ** Note: tb_ControlUnit.vhd(99): VHDL Compiler exiting
+# End time: 13:33:45 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 6, Warnings: 0
+# ** Error: /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+# Error in macro ./test.do line 5
+# /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -reportprogress 300 -work work tb_ControlUnit.vhd"
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:34:14 on Oct 10,2025
+# vcom -reportprogress 300 -work work InstructionPackage.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package InstructionPackage
+# End time: 13:34:14 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:34:14 on Oct 10,2025
+# vcom -reportprogress 300 -work work ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# End time: 13:34:14 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:34:14 on Oct 10,2025
+# vcom -reportprogress 300 -work work tb_ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package InstructionPackage
+# -- Compiling entity tb_ControlUnit
+# -- Compiling architecture behaviour of tb_ControlUnit
+# ** Error: tb_ControlUnit.vhd(67): Constant "OPCODE_ADD" is type ieee.NUMERIC_STD.UNSIGNED; expecting type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: tb_ControlUnit.vhd(77): Constant "OPCODE_ADDI" is type ieee.NUMERIC_STD.UNSIGNED; expecting type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: tb_ControlUnit.vhd(87): Constant "OPCODE_ADDI" is type ieee.NUMERIC_STD.UNSIGNED; expecting type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error (suppressible): tb_ControlUnit.vhd(34): (vcom-1272) Length of expected is 7; length of actual is 6.
+# ** Error (suppressible): tb_ControlUnit.vhd(63): (vcom-1272) Length of expected is 7; length of actual is 6.
+# ** Note: tb_ControlUnit.vhd(99): VHDL Compiler exiting
+# End time: 13:34:14 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 5, Warnings: 0
+# ** Error: /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+# Error in macro ./test.do line 5
+# /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -reportprogress 300 -work work tb_ControlUnit.vhd"
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:35:52 on Oct 10,2025
+# vcom -reportprogress 300 -work work InstructionPackage.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package InstructionPackage
+# End time: 13:35:53 on Oct 10,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:35:53 on Oct 10,2025
+# vcom -reportprogress 300 -work work ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# End time: 13:35:53 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:35:53 on Oct 10,2025
+# vcom -reportprogress 300 -work work tb_ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package InstructionPackage
+# -- Compiling entity tb_ControlUnit
+# -- Compiling architecture behaviour of tb_ControlUnit
+# ** Error: tb_ControlUnit.vhd(77): Constant "OPCODE_ADDI" is type ieee.NUMERIC_STD.UNSIGNED; expecting type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: tb_ControlUnit.vhd(87): Constant "OPCODE_ADDI" is type ieee.NUMERIC_STD.UNSIGNED; expecting type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error (suppressible): tb_ControlUnit.vhd(34): (vcom-1272) Length of expected is 7; length of actual is 6.
+# ** Error (suppressible): tb_ControlUnit.vhd(63): (vcom-1272) Length of expected is 7; length of actual is 6.
+# ** Note: tb_ControlUnit.vhd(99): VHDL Compiler exiting
+# End time: 13:35:53 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 4, Warnings: 0
+# ** Error: /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+# Error in macro ./test.do line 5
+# /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -reportprogress 300 -work work tb_ControlUnit.vhd"
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:37:10 on Oct 10,2025
+# vcom -reportprogress 300 -work work InstructionPackage.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package InstructionPackage
+# End time: 13:37:10 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:37:10 on Oct 10,2025
+# vcom -reportprogress 300 -work work ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# End time: 13:37:10 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:37:10 on Oct 10,2025
+# vcom -reportprogress 300 -work work tb_ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package InstructionPackage
+# -- Compiling entity tb_ControlUnit
+# -- Compiling architecture behaviour of tb_ControlUnit
+# ** Error (suppressible): tb_ControlUnit.vhd(34): (vcom-1272) Length of expected is 7; length of actual is 6.
+# ** Error (suppressible): tb_ControlUnit.vhd(63): (vcom-1272) Length of expected is 7; length of actual is 6.
+# ** Note: tb_ControlUnit.vhd(99): VHDL Compiler exiting
+# End time: 13:37:10 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# ** Error: /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+# Error in macro ./test.do line 5
+# /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -reportprogress 300 -work work tb_ControlUnit.vhd"
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:37:55 on Oct 10,2025
+# vcom -reportprogress 300 -work work InstructionPackage.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package InstructionPackage
+# End time: 13:37:55 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:37:55 on Oct 10,2025
+# vcom -reportprogress 300 -work work ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# End time: 13:37:55 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:37:55 on Oct 10,2025
+# vcom -reportprogress 300 -work work tb_ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package InstructionPackage
+# -- Compiling entity tb_ControlUnit
+# -- Compiling architecture behaviour of tb_ControlUnit
+# End time: 13:37:55 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -gui work.tb_ControlUnit -voptargs="+acc" 
+# Start time: 12:59:22 on Oct 10,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=10, Warnings=2.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.instructionpackage
+# Loading work.tb_controlunit(behaviour)#1
+# Loading work.controlunit(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_controlunit/s_i_opCode \
+sim:/tb_controlunit/s_i_funt7_imm \
+sim:/tb_controlunit/s_ALU_Src \
+sim:/tb_controlunit/s_Mem_We \
+sim:/tb_controlunit/s_Jump \
+sim:/tb_controlunit/s_MemToReg \
+sim:/tb_controlunit/s_Reg_WE \
+sim:/tb_controlunit/s_Branch \
+sim:/tb_controlunit/s_ALU_OP
+run
+# Causality operation skipped due to absence of debug database file
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:42:23 on Oct 10,2025
+# vcom -reportprogress 300 -work work InstructionPackage.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package InstructionPackage
+# End time: 13:42:23 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:42:23 on Oct 10,2025
+# vcom -reportprogress 300 -work work ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# End time: 13:42:23 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:42:23 on Oct 10,2025
+# vcom -reportprogress 300 -work work tb_ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package InstructionPackage
+# -- Compiling entity tb_ControlUnit
+# -- Compiling architecture behaviour of tb_ControlUnit
+# End time: 13:42:23 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 13:42:23 on Oct 10,2025, Elapsed time: 0:43:01
+# Errors: 10, Warnings: 2
+# vsim -gui work.tb_ControlUnit -voptargs="+acc" 
+# Start time: 13:42:23 on Oct 10,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.instructionpackage
+# Loading work.tb_controlunit(behaviour)#1
+# Loading work.controlunit(dataflow)#1
+run
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:51:40 on Oct 10,2025
+# vcom -reportprogress 300 -work work InstructionPackage.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package InstructionPackage
+# End time: 13:51:40 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:51:40 on Oct 10,2025
+# vcom -reportprogress 300 -work work ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# End time: 13:51:40 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:51:40 on Oct 10,2025
+# vcom -reportprogress 300 -work work tb_ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package InstructionPackage
+# -- Compiling entity tb_ControlUnit
+# -- Compiling architecture behaviour of tb_ControlUnit
+# End time: 13:51:40 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 13:51:40 on Oct 10,2025, Elapsed time: 0:09:17
+# Errors: 0, Warnings: 0
+# vsim -gui work.tb_ControlUnit -voptargs="+acc" 
+# Start time: 13:51:40 on Oct 10,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.instructionpackage
+# Loading work.tb_controlunit(behaviour)#1
+# Loading work.controlunit(dataflow)#1
+run
+# ** Failure: Test Case 3 Failed
+#    Time: 42 ns  Iteration: 0  Process: /tb_controlunit/tests File: tb_ControlUnit.vhd
+# Break in Process tests at tb_ControlUnit.vhd line 92
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:52:08 on Oct 10,2025
+# vcom -reportprogress 300 -work work InstructionPackage.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package InstructionPackage
+# End time: 13:52:08 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:52:08 on Oct 10,2025
+# vcom -reportprogress 300 -work work ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# End time: 13:52:08 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:52:08 on Oct 10,2025
+# vcom -reportprogress 300 -work work tb_ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package InstructionPackage
+# -- Compiling entity tb_ControlUnit
+# -- Compiling architecture behaviour of tb_ControlUnit
+# End time: 13:52:08 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 13:52:08 on Oct 10,2025, Elapsed time: 0:00:28
+# Errors: 1, Warnings: 1
+# vsim -gui work.tb_ControlUnit -voptargs="+acc" 
+# Start time: 13:52:08 on Oct 10,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.instructionpackage
+# Loading work.tb_controlunit(behaviour)#1
+# Loading work.controlunit(dataflow)#1
+# ** Failure: Test Case 3 Failed
+#    Time: 42 ns  Iteration: 0  Process: /tb_controlunit/tests File: tb_ControlUnit.vhd
+# Break in Process tests at tb_ControlUnit.vhd line 92
+# ** Error: unknown or ambiguous subcommand "fullzoom": must be activecursor, add, addcursor, clipboard, collapse, configcursor, create, cursor, cursorconfig, cursortime, deletecursor, edit, editwrite, expand, export, exportvcd, group, guiObjGetUPFInfo, guiObjHasUPFInfo, import, interrupt, map, modify, overlay, pah, positioncursor, refresh, seecursor, seetime, sort, ungroup, write, zoom, zoomcursor, zoomfull, zoomin, zoomlast, zoomout, or zoomrange
+# Error in macro ./test.do line 21
+# unknown or ambiguous subcommand "fullzoom": must be activecursor, add, addcursor, clipboard, collapse, configcursor, create, cursor, cursorconfig, cursortime, deletecursor, edit, editwrite, expand, export, exportvcd, group, guiObjGetUPFInfo, guiObjHasUPFInfo, import, interrupt, map, modify, overlay, pah, positioncursor, refresh, seecursor, seetime, sort, ungroup, write, zoom, zoomcursor, zoomfull, zoomin, zoomlast, zoomout, or zoomrange
+#     while executing
+# "wave fullzoom"
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:52:21 on Oct 10,2025
+# vcom -reportprogress 300 -work work InstructionPackage.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package InstructionPackage
+# End time: 13:52:21 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:52:21 on Oct 10,2025
+# vcom -reportprogress 300 -work work ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# End time: 13:52:21 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:52:21 on Oct 10,2025
+# vcom -reportprogress 300 -work work tb_ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package InstructionPackage
+# -- Compiling entity tb_ControlUnit
+# -- Compiling architecture behaviour of tb_ControlUnit
+# End time: 13:52:21 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 13:52:21 on Oct 10,2025, Elapsed time: 0:00:13
+# Errors: 2, Warnings: 0
+# vsim -gui work.tb_ControlUnit -voptargs="+acc" 
+# Start time: 13:52:21 on Oct 10,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.instructionpackage
+# Loading work.tb_controlunit(behaviour)#1
+# Loading work.controlunit(dataflow)#1
+# ** Failure: Test Case 3 Failed
+#    Time: 42 ns  Iteration: 0  Process: /tb_controlunit/tests File: tb_ControlUnit.vhd
+# Break in Process tests at tb_ControlUnit.vhd line 92
+# ** Error: unknown or ambiguous subcommand "fullzoom": must be activecursor, add, addcursor, clipboard, collapse, configcursor, create, cursor, cursorconfig, cursortime, deletecursor, edit, editwrite, expand, export, exportvcd, group, guiObjGetUPFInfo, guiObjHasUPFInfo, import, interrupt, map, modify, overlay, pah, positioncursor, refresh, seecursor, seetime, sort, ungroup, write, zoom, zoomcursor, zoomfull, zoomin, zoomlast, zoomout, or zoomrange
+# Error in macro ./test.do line 21
+# unknown or ambiguous subcommand "fullzoom": must be activecursor, add, addcursor, clipboard, collapse, configcursor, create, cursor, cursorconfig, cursortime, deletecursor, edit, editwrite, expand, export, exportvcd, group, guiObjGetUPFInfo, guiObjHasUPFInfo, import, interrupt, map, modify, overlay, pah, positioncursor, refresh, seecursor, seetime, sort, ungroup, write, zoom, zoomcursor, zoomfull, zoomin, zoomlast, zoomout, or zoomrange
+#     while executing
+# "wave fullzoom"
+DO TES
+# invalid command name "DO"
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:55:32 on Oct 10,2025
+# vcom -reportprogress 300 -work work InstructionPackage.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package InstructionPackage
+# End time: 13:55:32 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:55:32 on Oct 10,2025
+# vcom -reportprogress 300 -work work ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# End time: 13:55:32 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:55:32 on Oct 10,2025
+# vcom -reportprogress 300 -work work tb_ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package InstructionPackage
+# -- Compiling entity tb_ControlUnit
+# -- Compiling architecture behaviour of tb_ControlUnit
+# End time: 13:55:32 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 13:55:32 on Oct 10,2025, Elapsed time: 0:03:11
+# Errors: 2, Warnings: 0
+# vsim -gui work.tb_ControlUnit -voptargs="+acc" 
+# Start time: 13:55:32 on Oct 10,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.instructionpackage
+# Loading work.tb_controlunit(behaviour)#1
+# Loading work.controlunit(dataflow)#1
+# ** Failure: Test Case 5 Failed
+#    Time: 62 ns  Iteration: 0  Process: /tb_controlunit/tests File: tb_ControlUnit.vhd
+# Break in Process tests at tb_ControlUnit.vhd line 109
+# ** Error: unknown or ambiguous subcommand "fullzoom": must be activecursor, add, addcursor, clipboard, collapse, configcursor, create, cursor, cursorconfig, cursortime, deletecursor, edit, editwrite, expand, export, exportvcd, group, guiObjGetUPFInfo, guiObjHasUPFInfo, import, interrupt, map, modify, overlay, pah, positioncursor, refresh, seecursor, seetime, sort, ungroup, write, zoom, zoomcursor, zoomfull, zoomin, zoomlast, zoomout, or zoomrange
+# Error in macro ./test.do line 21
+# unknown or ambiguous subcommand "fullzoom": must be activecursor, add, addcursor, clipboard, collapse, configcursor, create, cursor, cursorconfig, cursortime, deletecursor, edit, editwrite, expand, export, exportvcd, group, guiObjGetUPFInfo, guiObjHasUPFInfo, import, interrupt, map, modify, overlay, pah, positioncursor, refresh, seecursor, seetime, sort, ungroup, write, zoom, zoomcursor, zoomfull, zoomin, zoomlast, zoomout, or zoomrange
+#     while executing
+# "wave fullzoom"
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 14:00:15 on Oct 10,2025
+# vcom -reportprogress 300 -work work InstructionPackage.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package InstructionPackage
+# End time: 14:00:15 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 14:00:15 on Oct 10,2025
+# vcom -reportprogress 300 -work work ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# End time: 14:00:15 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 14:00:15 on Oct 10,2025
+# vcom -reportprogress 300 -work work tb_ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package InstructionPackage
+# -- Compiling entity tb_ControlUnit
+# -- Compiling architecture behaviour of tb_ControlUnit
+# End time: 14:00:15 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 14:00:15 on Oct 10,2025, Elapsed time: 0:04:43
+# Errors: 2, Warnings: 1
+# vsim -gui work.tb_ControlUnit -voptargs="+acc" 
+# Start time: 14:00:15 on Oct 10,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.instructionpackage
+# Loading work.tb_controlunit(behaviour)#1
+# Loading work.controlunit(dataflow)#1
+# ** Failure: Test Case 5 Failed
+#    Time: 62 ns  Iteration: 0  Process: /tb_controlunit/tests File: tb_ControlUnit.vhd
+# Break in Process tests at tb_ControlUnit.vhd line 113
+# ** Error: unknown or ambiguous subcommand "fullzoom": must be activecursor, add, addcursor, clipboard, collapse, configcursor, create, cursor, cursorconfig, cursortime, deletecursor, edit, editwrite, expand, export, exportvcd, group, guiObjGetUPFInfo, guiObjHasUPFInfo, import, interrupt, map, modify, overlay, pah, positioncursor, refresh, seecursor, seetime, sort, ungroup, write, zoom, zoomcursor, zoomfull, zoomin, zoomlast, zoomout, or zoomrange
+# Error in macro ./test.do line 21
+# unknown or ambiguous subcommand "fullzoom": must be activecursor, add, addcursor, clipboard, collapse, configcursor, create, cursor, cursorconfig, cursortime, deletecursor, edit, editwrite, expand, export, exportvcd, group, guiObjGetUPFInfo, guiObjHasUPFInfo, import, interrupt, map, modify, overlay, pah, positioncursor, refresh, seecursor, seetime, sort, ungroup, write, zoom, zoomcursor, zoomfull, zoomin, zoomlast, zoomout, or zoomrange
+#     while executing
+# "wave fullzoom"
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 14:02:48 on Oct 10,2025
+# vcom -reportprogress 300 -work work InstructionPackage.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package InstructionPackage
+# End time: 14:02:48 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 14:02:48 on Oct 10,2025
+# vcom -reportprogress 300 -work work ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# End time: 14:02:48 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 14:02:48 on Oct 10,2025
+# vcom -reportprogress 300 -work work tb_ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package InstructionPackage
+# -- Compiling entity tb_ControlUnit
+# -- Compiling architecture behaviour of tb_ControlUnit
+# End time: 14:02:48 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 14:02:49 on Oct 10,2025, Elapsed time: 0:02:34
+# Errors: 2, Warnings: 1
+# vsim -gui work.tb_ControlUnit -voptargs="+acc" 
+# Start time: 14:02:49 on Oct 10,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.instructionpackage
+# Loading work.tb_controlunit(behaviour)#1
+# Loading work.controlunit(dataflow)#1
+# ** Failure: Test Case 5 Failed
+#    Time: 62 ns  Iteration: 0  Process: /tb_controlunit/tests File: tb_ControlUnit.vhd
+# Break in Process tests at tb_ControlUnit.vhd line 113
+# ** Error: unknown or ambiguous subcommand "fullzoom": must be activecursor, add, addcursor, clipboard, collapse, configcursor, create, cursor, cursorconfig, cursortime, deletecursor, edit, editwrite, expand, export, exportvcd, group, guiObjGetUPFInfo, guiObjHasUPFInfo, import, interrupt, map, modify, overlay, pah, positioncursor, refresh, seecursor, seetime, sort, ungroup, write, zoom, zoomcursor, zoomfull, zoomin, zoomlast, zoomout, or zoomrange
+# Error in macro ./test.do line 21
+# unknown or ambiguous subcommand "fullzoom": must be activecursor, add, addcursor, clipboard, collapse, configcursor, create, cursor, cursorconfig, cursortime, deletecursor, edit, editwrite, expand, export, exportvcd, group, guiObjGetUPFInfo, guiObjHasUPFInfo, import, interrupt, map, modify, overlay, pah, positioncursor, refresh, seecursor, seetime, sort, ungroup, write, zoom, zoomcursor, zoomfull, zoomin, zoomlast, zoomout, or zoomrange
+#     while executing
+# "wave fullzoom"
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 14:04:43 on Oct 10,2025
+# vcom -reportprogress 300 -work work InstructionPackage.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package InstructionPackage
+# End time: 14:04:43 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 14:04:43 on Oct 10,2025
+# vcom -reportprogress 300 -work work ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# End time: 14:04:43 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 14:04:43 on Oct 10,2025
+# vcom -reportprogress 300 -work work tb_ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package InstructionPackage
+# -- Compiling entity tb_ControlUnit
+# -- Compiling architecture behaviour of tb_ControlUnit
+# End time: 14:04:43 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 14:04:43 on Oct 10,2025, Elapsed time: 0:01:54
+# Errors: 2, Warnings: 0
+# vsim -gui work.tb_ControlUnit -voptargs="+acc" 
+# Start time: 14:04:43 on Oct 10,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.instructionpackage
+# Loading work.tb_controlunit(behaviour)#1
+# Loading work.controlunit(dataflow)#1
+# ** Error: unknown or ambiguous subcommand "fullzoom": must be activecursor, add, addcursor, clipboard, collapse, configcursor, create, cursor, cursorconfig, cursortime, deletecursor, edit, editwrite, expand, export, exportvcd, group, guiObjGetUPFInfo, guiObjHasUPFInfo, import, interrupt, map, modify, overlay, pah, positioncursor, refresh, seecursor, seetime, sort, ungroup, write, zoom, zoomcursor, zoomfull, zoomin, zoomlast, zoomout, or zoomrange
+# Error in macro ./test.do line 21
+# unknown or ambiguous subcommand "fullzoom": must be activecursor, add, addcursor, clipboard, collapse, configcursor, create, cursor, cursorconfig, cursortime, deletecursor, edit, editwrite, expand, export, exportvcd, group, guiObjGetUPFInfo, guiObjHasUPFInfo, import, interrupt, map, modify, overlay, pah, positioncursor, refresh, seecursor, seetime, sort, ungroup, write, zoom, zoomcursor, zoomfull, zoomin, zoomlast, zoomout, or zoomrange
+#     while executing
+# "wave fullzoom"
+do test.do
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 14:04:56 on Oct 10,2025
+# vcom -reportprogress 300 -work work InstructionPackage.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package InstructionPackage
+# End time: 14:04:56 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 14:04:56 on Oct 10,2025
+# vcom -reportprogress 300 -work work ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ControlUnit
+# -- Compiling architecture dataflow of ControlUnit
+# End time: 14:04:56 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 14:04:56 on Oct 10,2025
+# vcom -reportprogress 300 -work work tb_ControlUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package InstructionPackage
+# -- Compiling entity tb_ControlUnit
+# -- Compiling architecture behaviour of tb_ControlUnit
+# End time: 14:04:56 on Oct 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 14:04:56 on Oct 10,2025, Elapsed time: 0:00:13
+# Errors: 1, Warnings: 1
+# vsim -gui work.tb_ControlUnit -voptargs="+acc" 
+# Start time: 14:04:56 on Oct 10,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.instructionpackage
+# Loading work.tb_controlunit(behaviour)#1
+# Loading work.controlunit(dataflow)#1
+# 0 ns
+# 105 ns

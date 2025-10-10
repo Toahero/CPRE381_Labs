@@ -36,6 +36,7 @@ architecture dataflow of ControlUnit is
 begin
     with opCode select
         ALU_Src <=  '0' when "0110011", --R format does not use an immediate
+                    '0' when "1100011",
                     '1' when others;    --All other instruction formats use an immediate
                 
     with opCode select
@@ -53,6 +54,7 @@ begin
     
     with opCode select
         Reg_WE  <=  '0' when "0100011", --S type instruction
+                    '0' when "1100011",
                     '1' when others;
 
     with opCode select

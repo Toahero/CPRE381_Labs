@@ -1,6 +1,16 @@
 m255
 K4
 z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
 !s11e MIXED_VERSIONS
 13
 !s112 1.1
@@ -8,91 +18,128 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-d/home/jagaul/cpre381/Project1/ControlModule
+Z2 d/home/jagaul/cpre381/Project1/ControlModule
+T_opt
+!s110 1760123084
+VAb62fz8[mF_l0XcZ7UIHH1
+04 14 9 work tb_controlunit behaviour 1
+=1-000ae431a4f1-68e958cc-e78-564d
+R1
+!s12f OEM100
+!s12b OEM100
+!s124 OEM100
+!s135 nogc
+o-quiet -auto_acc_if_foreign -work work +acc
+tCvgOpt 0
+n@_opt
+OL;O;2025.1_2;82
+R2
 Econtrolunit
-Z0 w1760115993
-Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z2 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 10
-Z3 d/home/esliandy/Documents/github/CPRE381_Labs/Project1/ControlModule
-Z4 8ControlUnit.vhd
-Z5 FControlUnit.vhd
+Z3 w1760123079
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 58
+Z6 d/home/esliandy/Documents/github/CPRE381_Labs/Project1/ControlModule
+Z7 8ControlUnit.vhd
+Z8 FControlUnit.vhd
 l0
 L16 1
 VFmI3gUVOKI7mF@@_QcD=42
 !s100 :DCJjZjZKdQ4YBlE[QY`W1
-Z6 OL;C;2025.1_2;82
+Z9 OL;C;2025.1_2;82
 32
-Z7 !s110 1760119162
+Z10 !s110 1760123096
 !i10b 1
-Z8 !s108 1760119162.000000
-Z9 !s90 -reportprogress|300|-work|work|ControlUnit.vhd|
-Z10 !s107 ControlUnit.vhd|
+Z11 !s108 1760123096.000000
+Z12 !s90 -reportprogress|300|-work|work|ControlUnit.vhd|
+Z13 !s107 ControlUnit.vhd|
 !i113 0
-Z11 o-work work
-Z12 tExplicit 1 CvgOpt 0
+Z14 o-work work
+Z15 tExplicit 1 CvgOpt 0
 Adataflow
-R1
-R2
+R4
+R5
 DEx4 work 11 controlunit 0 22 FmI3gUVOKI7mF@@_QcD=42
-!i122 10
+!i122 58
 l36
-L34 38
-VZ;CL:DZ3_GC5F<A>iD`Tc3
-!s100 =YH@BX<=KRJJ43<][871W1
-R6
-32
-R7
-!i10b 1
-R8
+L34 40
+VO=_<3WRAfKVk>7P8d7;mz0
+!s100 ;^]J<oRBCBIX^6237clST3
 R9
+32
 R10
-!i113 0
+!i10b 1
 R11
 R12
+R13
+!i113 0
+R14
+R15
 Pinstructionpackage
-Z13 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
-R1
-R2
-!i122 9
-w1760118944
-R3
+Z16 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R4
+R5
+!i122 57
+w1760122526
+R6
 8InstructionPackage.vhd
 FInstructionPackage.vhd
 l0
-L5 61
-VQB58aU1DD`YEd?TJA8`9o3
-!s100 cCMQjG8O4B_oFDT2UmN]V1
-R6
+L5 115
+V32k9IHN8SLP9D3iCVBTzT0
+!s100 Z`KbXXk>M=1USKTUWWM5m3
+R9
 32
-R7
+R10
 !i10b 1
-!s108 1760119161.000000
+R11
 !s90 -reportprogress|300|-work|work|InstructionPackage.vhd|
 !s107 InstructionPackage.vhd|
 !i113 0
-R11
-R12
+R14
+R15
 Etb_controlunit
-w1760119002
-R13
-R1
-R2
-!i122 11
-R3
-8tb_ControlUnit.vhd
-Ftb_ControlUnit.vhd
-l0
-L5 1
-V6nm<n8mLzLc^@f[aUd8JG2
-!s100 @SAjf?jj=1^[?cM>HPND91
+Z17 w1760122960
+Z18 DPx4 work 18 instructionpackage 0 22 32k9IHN8SLP9D3iCVBTzT0
+R16
+R4
+R5
+!i122 59
 R6
+Z19 8tb_ControlUnit.vhd
+Z20 Ftb_ControlUnit.vhd
+l0
+L7 1
+V;5dhf19[TV70Nz_lVzH0H0
+!s100 n^1CnGZV2[8^APQ`@[8QV1
+R9
 32
-R7
+R10
 !i10b 1
-R8
-!s90 -reportprogress|300|-work|work|tb_ControlUnit.vhd|
-!s107 tb_ControlUnit.vhd|
-!i113 0
 R11
-R12
+Z21 !s90 -reportprogress|300|-work|work|tb_ControlUnit.vhd|
+Z22 !s107 tb_ControlUnit.vhd|
+!i113 0
+R14
+R15
+Abehaviour
+R18
+R16
+R4
+R5
+Z23 DEx4 work 14 tb_controlunit 0 22 ;5dhf19[TV70Nz_lVzH0H0
+!i122 59
+l43
+Z24 L13 127
+Z25 Ve1H@<<OEDX>T>P9>cSdUz3
+Z26 !s100 jih30JoYTm=cEYYVkh3^K1
+R9
+32
+R10
+!i10b 1
+R11
+R21
+R22
+!i113 0
+R14
+R15

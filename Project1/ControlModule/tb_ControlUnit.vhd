@@ -30,28 +30,29 @@ architecture behaviour of tb_ControlUnit is
         );
     end component;
 
-    s_i_opCode      : std_logic_vector(6 downto 0);
-    s_i_funt7_imm   : std_logic_vector(6 downto 0) := "000000";
-    s_ALU_Src       : std_logic;
-    s_Mem_We        : std_logic;
-    s_Jump          : std_logic;
-    s_MemToReg      : std_logic;
-    s_Reg_WE        : std_logic;
-    s_Branch        : std_logic;
+    signal s_i_opCode      : std_logic_vector(6 downto 0);
+    signal s_i_funt7_imm   : std_logic_vector(6 downto 0) := "0000000";
+    signal s_ALU_Src       : std_logic;
+    signal s_Mem_We        : std_logic;
+    signal s_Jump          : std_logic;
+    signal s_MemToReg      : std_logic;
+    signal s_Reg_WE        : std_logic;
+    signal s_Branch        : std_logic;
+    signal s_ALU_OP        : std_logic_vector(2 downto 0);
 
 begin
 
     testbench : ControlUnit
         port map(
-            opCode      : in std_logic_vector(6 downto 0),
-            funt7_imm   : in std_logic_vector(6 downto 0),
-            ALU_Src     : out std_logic,
-            Mem_We      : out std_logic,
-            Jump        : out std_logic,
-            MemToReg    : out std_logic,
-            Reg_WE      : out std_logic,
-            Branch      : out std_logic,
-            ALU_OP      : out std_logic_vector(2 downto 0)
+            opCode      => s_i_opCode,
+            funt7_imm   => s_i_funt7_imm,
+            ALU_Src     => s_ALU_Src,
+            Mem_We      => s_Mem_We,
+            Jump        => s_Jump,
+            MemToReg    => s_MemToReg,
+            Reg_WE      => s_Reg_WE,
+            Branch      => s_Branch,
+            ALU_OP      => s_ALU_OP
         );
 
     tests : process
@@ -59,7 +60,7 @@ begin
         wait for (clock / 4);
 
         -- Base State
-        s_i_opCode      <= "000000";
+        s_i_opCode      <= "0000000";
         wait for clock;
 
         -- Test Case 1
@@ -81,11 +82,56 @@ begin
         assert s_MemToReg   = '0' report "Test Case 2 Failed" severity FAILURE;
         assert s_Reg_WE     = '1' report "Test Case 2 Failed" severity FAILURE;
         assert s_Branch     = '0' report "Test Case 2 Failed" severity FAILURE;
-    
-        -- Test Case 2
-        s_i_opCode      <= OPCODE_ADDI;
+
+        -- Test Case 3
+        s_i_opCode          <= OPCODE_LB;
         wait for clock;
-        assert s_ALU_Src = '0' report "Test Case 2 Failed" severity FAILURE;
+        assert s_ALU_Src    = '1' report "Test Case 3 Failed" severity FAILURE;
+        assert s_Mem_We     = '0' report "Test Case 3 Failed" severity FAILURE;
+        assert s_Jump       = '0' report "Test Case 3 Failed" severity FAILURE;
+        assert s_MemToReg   = '1' report "Test Case 3 Failed" severity FAILURE;
+        assert s_Reg_WE     = '1' report "Test Case 3 Failed" severity FAILURE;
+        assert s_Branch     = '0' report "Test Case 3 Failed" severity FAILURE;
+
+        -- Test Case 4
+        s_i_opCode          <= OPCODE_SB;
+        wait for clock;
+        assert s_ALU_Src    = '1' report "Test Case 4 Failed" severity FAILURE;
+        assert s_Mem_We     = '1' report "Test Case 4 Failed" severity FAILURE;
+        assert s_Jump       = '0' report "Test Case 4 Failed" severity FAILURE;
+        assert s_MemToReg   = '0' report "Test Case 4 Failed" severity FAILURE;
+        assert s_Reg_WE     = '0' report "Test Case 4 Failed" severity FAILURE;
+        assert s_Branch     = '0' report "Test Case 4 Failed" severity FAILURE;
+
+        -- Test Case 5
+        s_i_opCode          <= OPCODE_BEQ;
+        wait for clock;
+        assert s_ALU_Src    = '0' report "Test Case 5 Failed" severity FAILURE;
+        assert s_Mem_We     = '0' report "Test Case 5 Failed" severity FAILURE;
+        assert s_Jump       = '0' report "Test Case 5 Failed" severity FAILURE;
+        assert s_MemToReg   = '0' report "Test Case 5 Failed" severity FAILURE;
+        assert s_Reg_WE     = '0' report "Test Case 5 Failed" severity FAILURE;
+        assert s_Branch     = '1' report "Test Case 5 Failed" severity FAILURE;
+
+        -- Test Case 6
+        s_i_opCode          <= OPCODE_JAL;
+        wait for clock;
+        assert s_ALU_Src    = '1' report "Test Case 6 Failed" severity FAILURE;
+        assert s_Mem_We     = '0' report "Test Case 6 Failed" severity FAILURE;
+        assert s_Jump       = '1' report "Test Case 6 Failed" severity FAILURE;
+        assert s_MemToReg   = '0' report "Test Case 6 Failed" severity FAILURE;
+        assert s_Reg_WE     = '1' report "Test Case 6 Failed" severity FAILURE;
+        assert s_Branch     = '0' report "Test Case 6 Failed" severity FAILURE;
+
+        -- Test Case 7
+        s_i_opCode          <= OPCODE_JALR;
+        wait for clock;
+        assert s_ALU_Src    = '1' report "Test Case 7 Failed" severity FAILURE;
+        assert s_Mem_We     = '0' report "Test Case 7 Failed" severity FAILURE;
+        assert s_Jump       = '1' report "Test Case 7 Failed" severity FAILURE;
+        assert s_MemToReg   = '0' report "Test Case 7 Failed" severity FAILURE;
+        assert s_Reg_WE     = '1' report "Test Case 7 Failed" severity FAILURE;
+        assert s_Branch     = '0' report "Test Case 7 Failed" severity FAILURE;
 
         wait;
     end process;
