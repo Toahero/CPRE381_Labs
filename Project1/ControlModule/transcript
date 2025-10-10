@@ -23,3 +23,17 @@ vcom -reportprogress 300 -work work /home/jagaul/cpre381/Project1/ControlModule/
 # -- Compiling architecture dataflow of ControlUnit
 # End time: 17:08:01 on Oct 08,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
+# End time: 14:04:56 on Oct 10,2025, Elapsed time: 0:00:13
+# Errors: 1, Warnings: 1
+# vsim -gui work.tb_ControlUnit -voptargs="+acc" 
+# Start time: 14:04:56 on Oct 10,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.instructionpackage
+# Loading work.tb_controlunit(behaviour)#1
+# Loading work.controlunit(dataflow)#1
+# 0 ns
+# 105 ns

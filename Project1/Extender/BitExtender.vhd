@@ -15,6 +15,6 @@ end BitExtender;
 architecture behaviour of BitExtender is
 begin
 
-
+    
 
 end behaviour ; -- behaviour

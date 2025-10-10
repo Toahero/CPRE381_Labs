@@ -13,13 +13,13 @@
 // words in the file or if an address is outside the bounds of the array.
 //
 
-00000000 // Loads   0       at address      0
-00000123 // Loads   291     at address      1
-00000456 // Loads   1110    at address      2
-00000000 // Loads   0       at address      3
-00000101 // Loads   257     at address      4
-00000050 // Loads   80      at address      5
-00000000 // Loads   0       at address      6
-00000000 // Loads   0       at address      7
-00000000 // Loads   0       at address      8
-00000000 // Loads   0       at address      9
+00000000    // Loads   0       at address      0
+00000123    // Loads   291     at address      1
+00000456    // Loads   1110    at address      2
+00000000    // Loads   0       at address      3
+00000101    // Loads   257     at address      4
+00000050    // Loads   80      at address      5
+00000000    // Loads   0       at address      6
+00000000    // Loads   0       at address      7
+00000000    // Loads   0       at address      8
+00000000    // Loads   0       at address      9
