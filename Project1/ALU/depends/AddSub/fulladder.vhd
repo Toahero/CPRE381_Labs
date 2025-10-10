@@ -18,8 +18,8 @@ use IEEE.std_logic_1164.all;
 
 --Entity Declaration
 entity fullAdder is
-	Port(	i_A	:	in std_logic;
-		i_B	:	in std_logic;
+	Port(	i_X	:	in std_logic;
+		i_Y	:	in std_logic;
 		i_Cin	:	in std_logic;
 
 		o_S	:	out std_logic;
@@ -47,8 +47,27 @@ architecture structural of fullAdder is
 			o_F		: out std_logic);
 	end component;
 
-signal	A_xor_B, A_and_B, AB_and_Cin : std_logic;
+signal	X_xor_Y, X_and_Y, XY_and_Cin : std_logic;
 
 --Adder
 begin
-	x1: andg2 port map(	i_
+	x1: xorg2 port map(	i_A => i_X,
+				i_B => i_Y,
+				o_F => X_xor_Y);
+
+	x2: xorg2 port map(	i_A => X_xor_Y,
+				i_B => i_Cin,
+				o_F => o_S);
+
+	x3: andg2 port map(	i_A => X_xor_Y,
+				i_B => i_Cin,
+				o_F => XY_and_Cin);
+
+	x4: andg2 port map(	i_A => i_X,
+				i_B => i_Y,
+				o_F => X_and_Y);
+
+	x5: org2 port map(	i_A => XY_and_Cin,
+				i_B => X_and_Y,
+				o_F => o_Cout);
+end structural;

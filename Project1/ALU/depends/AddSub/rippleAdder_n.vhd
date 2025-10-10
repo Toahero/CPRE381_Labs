@@ -9,7 +9,7 @@
 -------------------------------------------------------------------------
 -- DESCRIPTION: This file contains a ripple carry adder
 
---Dependencies: fulladder.vhd
+--Dependencies: fulladder.vhd, xorg2.vhd
 
 --9/2/25 by JAG: Initially Created
 -------------------------------------------------------------------------
@@ -25,8 +25,8 @@ entity rippleAdder_n is
 	i_A         : in std_logic_vector(N-1 downto 0);
 	i_B         : in std_logic_vector(N-1 downto 0);
 
-	o_Carry		: out std_logic;
-	o_Sum          : out std_logic_vector(N-1 downto 0));
+	o_OF	: out std_logic;
+	o_Sum	: out std_logic_vector(N-1 downto 0));
 
 
 end rippleAdder_n;
@@ -42,6 +42,12 @@ architecture structural of rippleAdder_n is
 			o_S	: out std_logic;
 			o_Cout	: out std_logic);
 	end component;
+
+	component xorg2 is
+		Port(	i_A	: in std_logic;
+			i_B	: in std_logic;
+			o_F	: out std_logic);
+		end component;
 
 signal w_Carry	: std_logic_vector(N downto 0);
 signal testVector : std_logic;
@@ -61,7 +67,10 @@ for i in 0 to N-1 generate
 --Tie the in carry bit to w_Carry(0)	
 	w_Carry(0) <= i_Carry;
 
-	--Tie the out carry bit to w_Carry(n)
-	o_Carry <= w_Carry(N);
+--Tie the w_Carry (n-1) and (n) bits to an xor gate, tie the output to o_OF
+	OF_GATE: xorg2 port map(
+		i_A	=> w_Carry(n-1),
+		i_B	=> w_Carry(n),
+		o_F	=> o_OF);
 
 end structural;

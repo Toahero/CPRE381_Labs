@@ -24,7 +24,7 @@ entity addSub_n is
 	port(	nAdd_Sub	: in std_logic;
 		i_A		: in std_logic_vector(Comp_Width-1 downto 0);
 		i_B		: in std_logic_vector(Comp_Width-1 downto 0);
-		o_Cout		: out std_logic;
+		o_overflow	: out std_logic;
 		o_Sum		: out std_logic_vector(Comp_Width-1 downto 0));
 end addSub_n;
 
@@ -36,7 +36,7 @@ architecture structural of addSub_n is
 		port(	i_Carry	: in std_logic;
 			i_A	: in std_logic_vector(N-1 downto 0);
 			i_B	: in std_logic_vector(N-1 downto 0);
-			o_Carry	: out std_logic;
+			o_OF	: out std_logic;
 			o_Sum	: out std_logic_vector(N-1 downto 0)
 		);
 	end component;
@@ -80,7 +80,7 @@ begin
 	  port MAP(	i_Carry	=> nAdd_Sub,
 			i_A	=> i_A,
 			i_B	=> muxB,
-			o_Carry => o_Cout,
+			o_OF	=> o_Overflow,
 			o_Sum	=> o_Sum); 
 end structural;
 			
