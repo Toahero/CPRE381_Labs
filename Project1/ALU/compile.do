@@ -1,7 +1,7 @@
 vlib work
 vmap work work
 
-# Compile Dependancies
+# Compile Dependencies
 cd depends
 
 set compileFiles [exec find . -type f -name compile.do]
@@ -12,5 +12,9 @@ foreach f $compileFiles {
 
 cd ../
 
-# Entity
-vcom -reportprogress 300 -work work ALU.vhd
+# Compile all .vhd files recursively
+set vhdFiles [exec find . -type f -name "*.vhd"]
+
+foreach file $vhdFiles {
+    vcom -reportprogress 300 -work work $file
+}

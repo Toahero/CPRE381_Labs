@@ -7,7 +7,7 @@ entity IsNegative is
         WIDTH           : integer := 32
     );
     port(
-        i_Value         : in std_logic_vector(WIDTH downto 0);
+        i_Value         : in std_logic_vector(WIDTH - 1 downto 0);
         o_IsNegative    : out std_logic
     );
 end IsNegative;

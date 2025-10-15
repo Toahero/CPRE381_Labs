@@ -52,10 +52,20 @@ begin
         s_iB    <= x"00000000";
         s_iSub  <= '0';
         wait for clock;
-        assert s_oResult    = x"00000000"   report "Invalid Base State" severity FAILURE;
-        assert s_fZero      = '0'           report "Invalid Base State" severity FAILURE;
-        assert s_fOverflow  = '0'           report "Invalid Base State" severity FAILURE;
-        assert s_fNegative  = '0'           report "Invalid Base State" severity FAILURE;
+        assert s_oResult    = x"00000000"    report "Invalid Base State" severity FAILURE;
+        assert s_fZero      =  '1'           report "Invalid Base State" severity FAILURE;
+        assert s_fOverflow  =  '0'           report "Invalid Base State" severity FAILURE;
+        assert s_fNegative  =  '0'           report "Invalid Base State" severity FAILURE;
+
+        -- Test Case 1
+        s_iA    <= x"00000000";
+        s_iB    <= x"00000000";
+        s_iSub  <= '0';
+        wait for clock;
+        assert s_oResult    = x"00000000"    report "Test Case 2 Failed" severity FAILURE;
+        assert s_fZero      =  '1'           report "Test Case 2 Failed" severity FAILURE;
+        assert s_fOverflow  =  '0'           report "Test Case 2 Failed" severity FAILURE;
+        assert s_fNegative  =  '0'           report "Test Case 2 Failed" severity FAILURE;
 
         wait;
     end process; -- tests

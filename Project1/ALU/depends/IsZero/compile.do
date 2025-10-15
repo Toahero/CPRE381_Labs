@@ -1,1 +1,0 @@
-vcom -reportprogress 300 -work work IsZero.vhd

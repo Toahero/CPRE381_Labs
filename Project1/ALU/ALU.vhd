@@ -54,6 +54,8 @@ architecture behaviour of ALU is
 
 begin
 
+    o_Result <= s_AddSubResult;
+
     g_AddSub : addSub_n
         generic map(
             Comp_Width      => 32
