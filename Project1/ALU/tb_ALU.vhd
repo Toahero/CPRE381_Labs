@@ -75,7 +75,7 @@ begin
         assert s_oResult    = x"00000001"    report "Test Case 2 Failed" severity FAILURE;
         assert s_fZero      =  '0'           report "Test Case 2 Failed" severity FAILURE;
         assert s_fOverflow  =  '0'           report "Test Case 2 Failed" severity FAILURE;
-        assert s_fNegative  =  '1'           report "Test Case 2 Failed" severity FAILURE;
+        assert s_fNegative  =  '0'           report "Test Case 2 Failed" severity FAILURE;
 
         wait;
     end process; -- tests

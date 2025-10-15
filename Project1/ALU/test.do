@@ -10,3 +10,4 @@ vsim -gui work.tb_ALU -voptargs=+acc
 # add wave -noupdate -divider {Clock}
 # add wave -label {Clock} -position insertpoint sim:/tb_inst_mem/s_clk
 
+run 100 ns
