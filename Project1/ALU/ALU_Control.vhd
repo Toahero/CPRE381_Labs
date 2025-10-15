@@ -17,5 +17,6 @@ entity ALU_Control is
     generic (ALU_OP_SIZE : positive := 4);
     port(
         inst_type   : in std_logic_vector(ALU_OP_SIZE-1 downto 0);
-        funct3      : in std_logic_vector(2 downto 0);
-    )
+        funct3      : in std_logic_vector(2 downto 0)
+    );
+end entity;
