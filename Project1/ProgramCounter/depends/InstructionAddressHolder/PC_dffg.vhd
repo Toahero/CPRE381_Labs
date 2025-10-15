@@ -20,17 +20,19 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity dffg is
-
+entity PC_dffg is
+  generic(
+    RESET_VALUE : std_logic := '0'
+  );
   port(i_CLK        : in std_logic;     -- Clock input
        i_RST        : in std_logic;     -- Reset input
        i_WE         : in std_logic;     -- Write enable input
        i_D          : in std_logic;     -- Data value input
        o_Q          : out std_logic);   -- Data value output
 
-end dffg;
+end PC_dffg;
 
-architecture mixed of dffg is
+architecture mixed of PC_dffg is
   signal s_D    : std_logic;    -- Multiplexed input to the FF
   signal s_Q    : std_logic;    -- Output of the FF
 
@@ -51,7 +53,7 @@ begin
   process (i_CLK, i_RST)
   begin
     if (i_RST = '1') then
-      s_Q <= '0'; -- Use "(others => '0')" for N-bit values
+      s_Q <= RESET_VALUE; -- Use "(others => '0')" for N-bit values
     elsif (rising_edge(i_CLK)) then
       s_Q <= s_D;
     end if;
