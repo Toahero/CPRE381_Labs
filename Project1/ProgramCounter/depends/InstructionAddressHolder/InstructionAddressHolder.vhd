@@ -49,7 +49,10 @@ begin
             i_Clock => i_Clock,
             i_Operation => '1',
             i_Reset => i_Reset,
-            i_ResetValue => 
+            i_ResetValue => x"800",
+
+            i_Data => i_NextInstructionAddress,
+            o_Out => o_CurrentInstructionAddress
         );
 
-end behaviour; -- behaviour
+end behaviour;

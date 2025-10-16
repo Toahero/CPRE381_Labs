@@ -23,12 +23,10 @@ end PCRegister;
 architecture behaviour of PCRegister is
 
     component PC_dffg is
-        generic(
-            RESET_VALUE : std_logic := '0'
-        );
         port(
             i_CLK        : in std_logic;     -- Clock input
             i_RST        : in std_logic;     -- Reset input
+            i_RSTV       : in std_logic;     -- Reset value
             i_WE         : in std_logic;     -- Write enable input
             i_D          : in std_logic;     -- Data value input
             o_Q          : out std_logic     -- Data value output
@@ -42,12 +40,10 @@ begin
 
     generated: for i in 0 to WIDTH - 1 generate
         FlipFlop : PC_dffg
-            generic map(
-                RESET_VALUE => i_ResetValue(i)
-            )
             port map(
                 i_CLK   => i_Clock,
                 i_RST   => i_Reset,
+                i_RSTV  => i_ResetValue(i),
                 
                 i_WE    => s_WriteEnabled,
                 i_D     => i_Data(i),
@@ -56,4 +52,4 @@ begin
             );
     
     end generate generated;
-end behaviour; -- behaviour
+end behaviour;
