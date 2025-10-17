@@ -1,0 +1,86 @@
+-------------------------------------------------------------------------
+-- James Gaul
+-- CPRE 381
+-- Iowa State University
+-------------------------------------------------------------------------
+
+
+-- addSub_n.vhd
+-------------------------------------------------------------------------
+-- DESCRIPTION: This file contains a structural VDHL adder/subtractor
+
+--Dependencies: rippleadder_n.vhd, mux2t1_N.vhd, onesComp_n.vhd
+
+--9/2/25 by JAG: Initially Created
+-------------------------------------------------------------------------
+
+--Library Declaration
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+--Entity Declaration
+entity addSub_n is
+	generic(Comp_Width : integer); -- Generic of type integer for input/output data width.
+	port(	nAdd_Sub	: in std_logic;
+		i_A		: in std_logic_vector(Comp_Width-1 downto 0);
+		i_B		: in std_logic_vector(Comp_Width-1 downto 0);
+		o_overflow	: out std_logic;
+		o_Sum		: out std_logic_vector(Comp_Width-1 downto 0));
+end addSub_n;
+
+architecture structural of addSub_n is
+
+	--Ripple Adder
+	component rippleAdder_n is
+		generic(N : integer);
+		port(	i_Carry	: in std_logic;
+			i_A	: in std_logic_vector(N-1 downto 0);
+			i_B	: in std_logic_vector(N-1 downto 0);
+			o_OF	: out std_logic;
+			o_Sum	: out std_logic_vector(N-1 downto 0)
+		);
+	end component;
+	
+	--2t1 Multiplexer
+	component mux2t1_N is
+  		generic(N : integer); -- Generic of type integer for input/output data width.
+  		port(	i_S          : in std_logic;
+			i_D0         : in std_logic_vector(N-1 downto 0);
+			i_D1         : in std_logic_vector(N-1 downto 0);
+			o_O          : out std_logic_vector(N-1 downto 0)
+		);
+	end component;
+	
+	--Ones Complement
+	component onesComp_n is
+		generic(N 	: integer);
+		port(	i_D	: in std_logic_vector(N-1 downto 0);
+	 	    	o_O	: out std_logic_vector(N-1 downto 0));
+   	end component;
+	
+signal not_B : std_logic_vector(Comp_Width-1 downto 0);
+signal muxB : std_logic_vector(Comp_Width-1 downto 0);
+
+begin
+	g_Comp: onesComp_n
+		generic MAP(N 	=> Comp_Width)
+		port MAP(
+			i_D	=> i_B,
+			o_O	=> not_B);
+
+	g_Mux: mux2t1_N
+	  generic MAP(	N	=> Comp_Width)
+	  port MAP(	i_S	=> nAdd_Sub,
+			i_D0	=> i_B,
+			i_D1	=> not_B,
+			o_O	=> muxB);
+
+	g_Rip: rippleAdder_n
+	  generic MAP(	N	=> Comp_Width)
+	  port MAP(	i_Carry	=> nAdd_Sub,
+			i_A	=> i_A,
+			i_B	=> muxB,
+			o_OF	=> o_Overflow,
+			o_Sum	=> o_Sum); 
+end structural;
+			

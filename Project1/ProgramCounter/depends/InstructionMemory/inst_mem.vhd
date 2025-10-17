@@ -50,8 +50,8 @@ begin
 
     mem_module: mem
         generic map(
-            DATA_WIDTH  => 32,
-            ADDR_WIDTH  => 10
+            DATA_WIDTH  => DATA_WIDTH,
+            ADDR_WIDTH  => ADDR_WIDTH
         )
         port map(
             clk     => i_clk,
