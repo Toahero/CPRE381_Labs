@@ -1,0 +1,102 @@
+-------------------------------------------------------------------------
+-- James Gaul
+-- CPRE 381
+-- Iowa State University
+-------------------------------------------------------------------------
+--Dependencies: RegFile.vhd, addSun_n.vhd, mux2t1_N.vhd
+--RISC-V Register system
+--Datapath1.vhd
+-------------------------------------------------------------------------
+--9/19/25 by JAG: Initially Created
+-------------------------------------------------------------------------
+Library IEEE;
+use IEEE.std_logic_1164.all;
+
+
+entity Datapath1 is
+	port(	clock	: in std_logic;
+		reset	: in std_logic;
+		
+		ALUSrc	: in std_logic;
+		ValIn	: in std_logic_vector(31 downto 0);
+
+		AddSub	: in std_logic;
+
+		WrEn	: in std_logic;
+		Rd	: in std_logic_vector(4 downto 0);
+	
+		RS1	: in std_logic_vector(4 downto 0);
+		RS2	: in std_logic_vector(4 downto 0));
+
+end Datapath1;
+
+architecture structural of Datapath1 is
+	
+   component RegFile is
+	port(	clock	: in std_logic;
+		reset	: in std_logic;
+
+		RS1Sel	: in std_logic_vector(4 downto 0);
+		RS1	: out std_logic_vector(31 downto 0);
+
+		RS2Sel	: in std_logic_vector(4 downto 0);
+		RS2	: out std_logic_vector(31 downto 0);
+
+		WrEn	: in std_logic;
+		RdSel	: in std_logic_vector(4 downto 0);
+		Rd	: in std_logic_vector(31 downto 0));
+   end component;
+
+   component addSub_n is
+	generic(Comp_Width : integer); -- Generic of type integer for input/output data width.
+	port(	nAdd_Sub	: in std_logic;
+		i_A		: in std_logic_vector(Comp_Width-1 downto 0);
+		i_B		: in std_logic_vector(Comp_Width-1 downto 0);
+		o_overflow	: out std_logic;
+		o_Sum		: out std_logic_vector(Comp_Width-1 downto 0));
+   end component;
+
+   component mux2t1_N is
+ 	generic(N : integer); -- Generic of type integer for input/output data width. Default value is 32.
+ 	port(	i_S          : in std_logic;
+		i_D0         : in std_logic_vector(N-1 downto 0);
+		i_D1         : in std_logic_vector(N-1 downto 0);
+		o_O          : out std_logic_vector(N-1 downto 0));
+   end component;
+
+   	signal s_ovflow		: std_logic;
+	signal s_muxOut		: std_logic_vector(31 downto 0);
+	signal s_RS1_Val	: std_logic_vector(31 downto 0);
+	signal s_RS2_Val	: std_logic_vector(31 downto 0);
+	signal s_Sum_Val	: std_logic_vector(31 downto 0);
+
+begin
+	g_mux:	mux2t1_N
+		generic map( N => 32)
+		port map(	i_S	=> ALUSrc,
+				i_D0	=> s_RS2_Val,
+				i_D1	=> ValIn,
+				o_O	=> s_muxOut);
+
+	g_addSub: addSub_n
+		generic map(	Comp_Width 	=> 32)
+		port map(	nAdd_Sub	=> AddSub,
+				i_A		=> s_RS1_Val,
+				i_B		=> s_muxOut,
+				o_overflow	=> s_ovflow,
+				o_Sum		=> s_Sum_Val);
+
+	g_Reg:	RegFile
+		port map(	clock	=> clock,
+				reset	=> reset,
+
+				RS1Sel	=> RS1,
+				RS1	=> s_RS1_Val,
+
+				RS2Sel	=> RS2,
+				RS2	=> s_RS2_Val,
+
+				WrEn	=> WrEn,
+				RdSel	=> Rd,
+				Rd	=> s_Sum_Val);
+end structural;
