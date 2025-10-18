@@ -12,7 +12,7 @@ entity ProgramCounter is
         i_Reset : in std_logic;
 
         i_Opcode : in std_logic_vector(5 downto 0);
-        i_Funct3 : in std_logic_vector(3 downto 0);
+        i_Funct3 : in std_logic_vector(2 downto 0);
         i_Immediate : in std_logic_vector(31 downto 0);
 
         o_CurrentInstruction : out std_logic_vector((INST_WIDTH - 1) downto 0)
