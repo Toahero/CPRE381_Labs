@@ -78,7 +78,7 @@ begin
         s_iA         <= x"00000000";
         s_iB         <= x"00000000";
         s_iOppSel    <= b"00";
-        s_iOutSel    <= c_AddSubOutSel;
+        s_iOutSel    <= '0';
         s_iModSel    <= '0';
         wait for clock;
         assert s_oResult    = x"00000000"   report "Invalid Base State" severity WARNING;
@@ -86,6 +86,71 @@ begin
         assert s_fovflw     = '0'           report "Invalid Base State" severity FAILURE;
         assert s_fzero      = '1'           report "Invalid Base State" severity FAILURE;
         assert s_fnegative  = '0'           report "Invalid Base State" severity FAILURE;
+
+        -- Test Case 1
+        s_iA         <= x"00000001";
+        s_iB         <= x"00000000";
+        s_iOppSel    <= b"00";
+        s_iOutSel    <= c_AddSubOutSel;
+        s_iModSel    <= '0';
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test Case 1 Failed" severity WARNING;
+        assert s_ooutput    = x"00000001"   report "Test Case 1 Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test Case 1 Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test Case 1 Failed" severity FAILURE;
+        assert s_fnegative  = '0'           report "Test Case 1 Failed" severity FAILURE;
+
+        -- Test Case 2
+        s_iA         <= x"00000000";
+        s_iB         <= x"00000001";
+        s_iOppSel    <= b"00";
+        s_iOutSel    <= c_AddSubOutSel;
+        s_iModSel    <= '0';
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test Case 2 Failed" severity WARNING;
+        assert s_ooutput    = x"00000001"   report "Test Case 2 Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test Case 2 Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test Case 2 Failed" severity FAILURE;
+        assert s_fnegative  = '0'           report "Test Case 2 Failed" severity FAILURE;
+
+        -- Test Case 3
+        s_iA         <= x"00000001";
+        s_iB         <= x"00000001";
+        s_iOppSel    <= b"00";
+        s_iOutSel    <= c_AddSubOutSel;
+        s_iModSel    <= '0';
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test Case 3 Failed" severity WARNING;
+        assert s_ooutput    = x"00000002"   report "Test Case 3 Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test Case 3 Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test Case 3 Failed" severity FAILURE;
+        assert s_fnegative  = '0'           report "Test Case 3 Failed" severity FAILURE;
+
+        -- Test Case 4
+        s_iA         <= x"00000001";
+        s_iB         <= x"00000001";
+        s_iOppSel    <= b"01";
+        s_iOutSel    <= c_AddSubOutSel;
+        s_iModSel    <= '0';
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test Case 4 Failed" severity WARNING;
+        assert s_ooutput    = x"00000000"   report "Test Case 4 Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test Case 4 Failed" severity FAILURE;
+        assert s_fzero      = '1'           report "Test Case 4 Failed" severity FAILURE;
+        assert s_fnegative  = '0'           report "Test Case 4 Failed" severity FAILURE;
+
+        -- Test Case 5
+        s_iA         <= x"80000000";
+        s_iB         <= x"80000000";
+        s_iOppSel    <= b"00";
+        s_iOutSel    <= c_AddSubOutSel;
+        s_iModSel    <= '0';
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test Case 5 Failed" severity WARNING;
+        assert s_ooutput    = x"00000000"   report "Test Case 5 Failed" severity FAILURE;
+        assert s_fovflw     = '1'           report "Test Case 5 Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test Case 5 Failed" severity FAILURE;
+        assert s_fnegative  = '0'           report "Test Case 5 Failed" severity FAILURE;
 
         wait;
     end process;

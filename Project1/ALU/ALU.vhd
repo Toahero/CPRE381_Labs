@@ -50,7 +50,6 @@ architecture behaviour of ALU is
         );
     end component;
 
-
     component IsNegative is
         generic(
             WIDTH           : integer := 32
