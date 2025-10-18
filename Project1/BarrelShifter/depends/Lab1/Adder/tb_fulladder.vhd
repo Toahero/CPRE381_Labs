@@ -1,0 +1,129 @@
+-------------------------------------------------------------------------
+-- James Gaul
+-- CPRE 381
+-- Iowa State University
+-------------------------------------------------------------------------
+
+
+-- tbfullAdder.vhd
+-------------------------------------------------------------------------
+-- DESCRIPTION: This file contains a structural VDHL full adder
+
+--9/2/25 by JAG: Initially Created
+-------------------------------------------------------------------------
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity tb_fullAdder is
+  generic(gCLK_HPER   : time := 10 ns;   -- Generic for half of the clock cycle period
+          DATA_WIDTH  : integer := 8); 
+end tb_fullAdder;
+
+architecture behavior of tb_fullAdder is
+
+	--Define total clock period time
+	constant cCLK_PER  : time := gCLK_HPER * 2;
+
+    -- Component Declaration of the Unit Under Test (UUT)
+    component fullAdder
+        Port(
+            i_X    : in std_logic;
+            i_Y    : in std_logic;
+            i_Cin  : in std_logic;
+            
+	    o_S    : out std_logic;
+            o_Cout : out std_logic
+        );
+    end component;
+
+--Standard signal
+signal CLK	: std_logic := '0';
+
+    -- Signals to connect to the UUT
+    signal i_X, i_Y, i_Cin : std_logic := '0';
+    signal o_S, o_Cout     : std_logic;
+
+begin
+
+    -- Instantiate the Unit Under Test (UUT)
+    uut: fullAdder port map (
+        i_X    => i_X,
+        i_Y    => i_Y,
+        i_Cin  => i_Cin,
+        o_S    => o_S,
+        o_Cout => o_Cout
+    );
+
+	--Setup the test bench clock
+	  P_CLK: process
+	  begin
+ 	   CLK <= '1';         -- clock starts at 1
+ 	   wait for gCLK_HPER; -- after half a cycle
+ 	   CLK <= '0';         -- clock becomes a 0 (negative edge)
+	    wait for gCLK_HPER; -- after half a cycle, process begins evaluation again
+	  end process;
+
+P_TEST_CASES: process
+  begin
+    wait for gCLK_HPER/2; -- for waveform clarity, I prefer not to change inputs on clk edges
+
+--Case 000
+	i_X	<= '0';	
+	i_Y	<= '0';
+	i_Cin	<= '0';
+	
+	wait for gCLK_HPER*2;
+
+--Case 001
+	i_X	<= '0';	
+	i_Y	<= '0';
+	i_Cin	<= '1';
+	
+	wait for gCLK_HPER*2;
+
+--Case 010
+	i_X	<= '0';	
+	i_Y	<= '1';
+	i_Cin	<= '0';
+	
+	wait for gCLK_HPER*2;
+
+--Case 011
+	i_X	<= '0';	
+	i_Y	<= '1';
+	i_Cin	<= '1';
+	
+	wait for gCLK_HPER*2;
+
+--Case 100
+	i_X	<= '1';	
+	i_Y	<= '0';
+	i_Cin	<= '0';
+	
+	wait for gCLK_HPER*2;
+
+--Case 101
+	i_X	<= '1';	
+	i_Y	<= '0';
+	i_Cin	<= '1';
+	
+	wait for gCLK_HPER*2;
+
+--Case 110
+	i_X	<= '1';	
+	i_Y	<= '1';
+	i_Cin	<= '0';
+	
+	wait for gCLK_HPER*2;
+
+--Case 111
+	i_X	<= '1';	
+	i_Y	<= '1';
+	i_Cin	<= '1';
+	
+	wait for gCLK_HPER*2;
+
+wait;
+end process;
+end behavior;

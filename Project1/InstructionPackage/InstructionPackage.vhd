@@ -105,38 +105,38 @@ package InstructionPackage is
     constant FUNCT3_SW                : std_logic_vector(2 downto 0) := "010";
 
     -- 1100011 --
-    constant FUNCT3_BEQ               : std_logic_vector(2 downto 0) := "000";
-    constant FUNCT3_BNE               : std_logic_vector(2 downto 0) := "001";
-    constant FUNCT3_BLT               : std_logic_vector(2 downto 0) := "100";
-    constant FUNCT3_BGE               : std_logic_vector(2 downto 0) := "101";
-    constant FUNCT3_BLTU              : std_logic_vector(2 downto 0) := "110";
-    constant FUNCT3_BGEU              : std_logic_vector(2 downto 0) := "111";
+    constant FUNCT3_BEQ                : std_logic_vector(2 downto 0) := "000";
+    constant FUNCT3_BNE                : std_logic_vector(2 downto 0) := "001";
+    constant FUNCT3_BLT                : std_logic_vector(2 downto 0) := "100";
+    constant FUNCT3_BGE                : std_logic_vector(2 downto 0) := "101";
+    constant FUNCT3_BLTU               : std_logic_vector(2 downto 0) := "110";
+    constant FUNCT3_BGEU               : std_logic_vector(2 downto 0) := "111";
 
     -- 1100111 --
-    constant FUNCT3_JALR              : std_logic_vector(2 downto 0) := "000";
+    constant FUNCT3_JALR               : std_logic_vector(2 downto 0) := "000";
 
     -- 1110011 --
-    constant FUNCT3_ECALL             : std_logic_vector(2 downto 0) := "000";
-    constant FUNCT3_EBREAK            : std_logic_vector(2 downto 0) := "000";
+    constant FUNCT3_ECALL              : std_logic_vector(2 downto 0) := "000";
+    constant FUNCT3_EBREAK             : std_logic_vector(2 downto 0) := "000";
 
                         --------------
                         --  FUNCT7  --
                         --------------
     -- 0110011
-    constant FUNCT7_ADD               : std_logic_vector(6 downto 0) := "0000000";
-    constant FUNCT7_SUB               : std_logic_vector(6 downto 0) := "0100000";
-    constant FUNCT7_XOR               : std_logic_vector(6 downto 0) := "0000000";
-    constant FUNCT7_OR                : std_logic_vector(6 downto 0) := "0000000";
-    constant FUNCT7_AND               : std_logic_vector(6 downto 0) := "0000000";
-    constant FUNCT7_SLL               : std_logic_vector(6 downto 0) := "0000000";
-    constant FUNCT7_SRL               : std_logic_vector(6 downto 0) := "0000000";
-    constant FUNCT7_SRA               : std_logic_vector(6 downto 0) := "0100000";
-    constant FUNCT7_SLT               : std_logic_vector(6 downto 0) := "0000000";
-    constant FUNCT7_SLTU              : std_logic_vector(6 downto 0) := "0000000";
+    constant FUNCT7_ADD               : std_logic_vector(2 downto 0) := "0000000";
+    constant FUNCT7_SUB               : std_logic_vector(2 downto 0) := "0100000";
+    constant FUNCT7_XOR               : std_logic_vector(2 downto 0) := "0000000";
+    constant FUNCT7_OR                : std_logic_vector(2 downto 0) := "0000000";
+    constant FUNCT7_AND               : std_logic_vector(2 downto 0) := "0000000";
+    constant FUNCT7_SLL               : std_logic_vector(2 downto 0) := "0000000";
+    constant FUNCT7_SRL               : std_logic_vector(2 downto 0) := "0000000";
+    constant FUNCT7_SRA               : std_logic_vector(2 downto 0) := "0100000";
+    constant FUNCT7_SLT               : std_logic_vector(2 downto 0) := "0000000";
+    constant FUNCT7_SLTU              : std_logic_vector(2 downto 0) := "0000000";
 
     -- 0010011 --
-    constant FUNCT7_SLLI              : std_logic_vector(6 downto 0) := "0000000";
-    constant FUNCT7_SRLI              : std_logic_vector(6 downto 0) := "0000000";
-    constant FUNCT7_SRAI              : std_logic_vector(6 downto 0) := "0100000";
+    constant FUNCT7_SLLI              : std_logic_vector(2 downto 0) := "0000000";
+    constant FUNCT7_SRLI              : std_logic_vector(2 downto 0) := "0000000";
+    constant FUNCT7_SRAI              : std_logic_vector(2 downto 0) := "0100000";
 
 end package InstructionPackage;
