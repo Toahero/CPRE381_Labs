@@ -96,7 +96,7 @@ begin
             nAdd_Sub    => i_OppSel(0),
             i_A		    => i_A,
             i_B		    => i_B,
-            o_overflow	=> open,
+            o_overflow	=> f_ovflw,
             o_Sum		=> s_AddSubOutput
         );
     
@@ -107,7 +107,7 @@ begin
         )
         port map(
             i_valueIn => i_A,
-            i_shiftCount => i_B,
+            i_shiftCount => i_B(4 downto 0),
             i_arithmetic => i_OppSel(0),
             i_shiftLeft => i_OppSel(1),
 
