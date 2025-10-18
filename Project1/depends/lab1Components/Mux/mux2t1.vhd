@@ -1,0 +1,66 @@
+-------------------------------------------------------------------------
+-- James Gaul
+-- CPRE 381
+-- Iowa State University
+-------------------------------------------------------------------------
+
+
+-- Mux2to1.vhd
+-------------------------------------------------------------------------
+-- DESCRIPTION: This file contains a structural VDHL 2 to 1 multiplexer
+
+--8/31/25 by JAG: Initially Created
+-------------------------------------------------------------------------
+
+--Library Declaration
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+
+--Entity Declaration
+entity mux2t1 is
+	Port(	i_D0	:	in std_logic;
+		i_D1	:	in std_logic;
+		i_S	:	in std_logic;
+		o_O	:	out std_logic);
+end mux2t1;
+
+--Architecture
+architecture structural of mux2t1 is
+	--NOT Gate
+	component invg is
+		Port(	i_A	: in std_logic;
+			o_F	: out std_logic);
+	end component;
+
+	--AND Gate
+	component andg2 is
+		Port(	i_A, i_B	: in std_logic;
+			o_F		: out std_logic);
+	end component;
+	
+	--OR Gate
+	component org2 is
+		Port(	i_A, i_B	: in std_logic;
+			o_F		: out std_logic);
+	end component;
+
+signal not_S, nS_and_A, S_and_B : std_logic;
+	--Multiplexer
+begin
+	x1: invg port map(	i_A => i_S,
+				o_F => not_S);
+
+	x2: andg2 port map(	i_A => not_S,
+				i_B => i_D0,
+				o_F => nS_and_A);
+
+	x3: andg2 port map(	i_A => i_S,
+				i_B => i_D1,
+				o_F => S_and_B);
+
+	x4: org2 port map(	i_A => nS_and_A,
+				i_B => S_and_B,
+				o_F => o_O);
+end structural;
+	

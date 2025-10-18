@@ -15,10 +15,10 @@ use IEEE.std_logic_1164.all;
 
 
 entity DatapathV1 is
-	clock	: in std_logic;
-	reset	: in std_logic;
+	port(clock	: in std_logic;
+	    reset	: in std_logic;
 
-    RiscV_Inst : in std_logic_vector(31 downto 0);
+        RiscV_Inst : in std_logic_vector(31 downto 0));
 end DatapathV1;
 
 architecture structural of DatapathV1 is
@@ -130,7 +130,7 @@ architecture structural of DatapathV1 is
     signal s_NegFlag    : std_logic;
 
     --Immediate Value
-    signal s_immExt     : std_logic_vector(31 downto 0)
+    signal s_immExt     : std_logic_vector(31 downto 0);
 
 
 
@@ -143,7 +143,7 @@ begin
             Jump        => s_Jump,
             MemToReg    => s_MemToReg,
             Reg_WE      => s_Reg_WE,
-            s_Branch    => s_Branch,
+            Branch    => s_Branch,
             ALU_OP      => s_ALU_OP);
     
     g_Reg:  RegFile
@@ -185,7 +185,7 @@ begin
             i_Sub       => s_AddSub,
             o_Result    => s_ALUres,
             f_Zero      => s_ZeroFlag,
-            f_Overflow  => s_OvFlFlag
+            f_Overflow  => s_OvFlFlag,
             f_Negative  => s_NegFlag);
 
     g_BvalMux: mux2t1_N

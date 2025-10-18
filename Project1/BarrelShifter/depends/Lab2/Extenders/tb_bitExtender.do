@@ -1,0 +1,23 @@
+#tb_bitExtender16t32
+
+# compile all code in src folder
+#vcom -2008 *.vhd
+
+# start simulation with all signals shown
+#vsim -voptargs=+acc work.tb_bitExtender16t32
+
+add wave -noupdate -divider "Standard Inputs"
+add wave -noupdate -label Clock    /tb_bitExtender16t32/CLK
+
+# Add Input Signals
+add wave -noupdate -divider "Input Signals"
+add wave -noupdate  -label Polarity  /tb_bitExtender16t32/s_sw
+add wave -noupdate -label Input -radix decimal  /tb_bitExtender16t32/s_16bit
+
+#Add Output Signals
+add wave -noupdate -divider "Output Signals"
+add wave -noupdate  -label Output -radix decimal /tb_bitExtender16t32/s_32bit
+
+run 200
+
+wave zoom full
