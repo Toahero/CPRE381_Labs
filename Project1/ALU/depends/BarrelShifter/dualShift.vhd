@@ -14,14 +14,17 @@ Library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity dualShift is
-    generic(DATA_WIDTH  : positive;
-            CNT_WIDTH   : positive);
+    generic(
+        DATA_WIDTH  : positive;
+        CNT_WIDTH   : positive
+    );
     port(
         i_valueIn     : in std_logic_vector(DATA_WIDTH-1 downto 0);
-        i_shiftCount      : in std_logic_vector(CNT_WIDTH-1 downto 0); --The number of bits to be shifted
-        i_arithmetic       : in std_logic;
-        i_shiftLeft     : in std_logic; --0 for shift right, 1 for shift left
-        o_valueOut    : out std_logic_vector(DATA_WIDTH-1 downto 0));
+        i_shiftCount  : in std_logic_vector(CNT_WIDTH-1 downto 0); --The number of bits to be shifted
+        i_arithmetic  : in std_logic;
+        i_shiftLeft   : in std_logic; --0 for shift right, 1 for shift left
+        o_valueOut    : out std_logic_vector(DATA_WIDTH-1 downto 0)
+    );
 end dualShift;
 
 architecture mixed of dualShift is

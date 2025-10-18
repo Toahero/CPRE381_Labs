@@ -5,9 +5,9 @@
 -------------------------------------------------------------------------
 
 
--- xorg2.vhd
+-- andg2.vhd
 -------------------------------------------------------------------------
--- DESCRIPTION: This file contains an implementation of a 2-input XOR 
+-- DESCRIPTION: This file contains an implementation of a 2-input AND 
 -- gate.
 --
 --
@@ -20,17 +20,17 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity xorg2 is
+entity andg2 is
 
   port(i_A          : in std_logic;
        i_B          : in std_logic;
        o_F          : out std_logic);
 
-end xorg2;
+end andg2;
 
-architecture dataflow of xorg2 is
+architecture dataflow of andg2 is
 begin
 
-  o_F <= i_A xor i_B;
+  o_F <= i_A and i_B;
   
 end dataflow;
