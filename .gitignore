@@ -6,6 +6,7 @@ work/
 *.opt
 *.wlf
 *.bak
+*.nfs*
 
 # Temporary simulation files
 wlft*
