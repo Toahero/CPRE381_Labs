@@ -26,14 +26,20 @@ entity ControlUnit is
         MemToReg    : out std_logic; --Write a memory value into a register
         Reg_WE      : out std_logic;
         Branch      : out std_logic;
-
+        HaltProg    : out std_logic;
         ALU_OP      : out std_logic_vector(ALU_OP_SIZE-1 downto 0));
+        
 
     end ControlUnit;
 
 architecture dataflow of ControlUnit is
     
 begin
+
+    with opCode select
+        HaltProg <= '1' when "1110011"
+                    '0' when others;
+
     with opCode select
         ALU_Src <=  '0' when "0110011", --R format does not use an immediate
                     '0' when "1100011",

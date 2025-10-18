@@ -83,7 +83,7 @@ component ControlUnit is
         MemToReg    : out std_logic; --Write a memory value into a register
         Reg_WE      : out std_logic;
         Branch      : out std_logic;
-
+        HaltProg    : out std_logic;
         ALU_OP      : out std_logic_vector(ALU_OP_SIZE-1 downto 0));
 
 end component;
@@ -176,6 +176,7 @@ begin
         MemToReg    => s_memToReg, --Write a memory value into a register
         Reg_WE      => s_RegWr,
         Branch      => s_branchEn,
+        HaltProg    => s_Halt,
         ALU_OP      => s_ALU_OP
     );
 
