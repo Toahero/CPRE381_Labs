@@ -72,23 +72,69 @@ architecture structure of RISCV_Processor is
   --       requires below this comment
 
 component ControlUnit is
-        port(
-            opCode      : in std_logic_vector(6 downto 0); --The Opcode is 7 bits long
-            funt7_imm   : in std_logic_vector(6 downto 0); --Funct7 is 3 bits long
-    
-            --These have been assigned
-            ALU_Src     : out std_logic; --Source an extended immediate
-            Mem_We      : out std_logic; --Enable writing to memory
-            Jump        : out std_logic; --Execute a jump
-            MemToReg    : out std_logic; --Write a memory value into a register
-            Reg_WE      : out std_logic;
-            Branch      : out std_logic;
-            
-            ALU_OP      : out std_logic_vector(2 downto 0)
-        );
-    end component;
+    generic (ALU_OP_SIZE : positive := 4);
+    port(
+        opCode      : in std_logic_vector(6 downto 0); --The Opcode is 7 bits long
 
-    
+        --These have been assigned
+        ALU_Src      : out std_logic; --Source an extended immediate
+        Mem_We      : out std_logic; --Enable writing to memory
+        Jump        : out std_logic; --Execute a jump
+        MemToReg    : out std_logic; --Write a memory value into a register
+        Reg_WE      : out std_logic;
+        Branch      : out std_logic;
+
+        ALU_OP      : out std_logic_vector(ALU_OP_SIZE-1 downto 0));
+
+end component;
+
+component RegFile is
+    port(	clock	: in std_logic;
+        reset	: in std_logic;
+
+        RS1Sel	: in std_logic_vector(4 downto 0);
+        RS1	: out std_logic_vector(31 downto 0);
+
+        RS2Sel	: in std_logic_vector(4 downto 0);
+        RS2	: out std_logic_vector(31 downto 0);
+
+        WrEn	: in std_logic;
+        RdSel	: in std_logic_vector(4 downto 0);
+        Rd	: in std_logic_vector(31 downto 0));
+end component;
+
+component mux2t1_N is
+  generic(N : integer);
+  port(	i_S          : in std_logic;
+      i_D0         : in std_logic_vector(N-1 downto 0);
+      i_D1         : in std_logic_vector(N-1 downto 0);
+      o_O          : out std_logic_vector(N-1 downto 0));
+end component;
+
+component BitExtender20t32
+	port(	i_sw	: in std_logic;
+		i_20bit	: in std_logic_vector(19 downto 0);
+		o_32bit	: out std_logic_vector(31 downto 0));
+end component;
+
+
+--Signals
+  --Control
+signal s_ALU_Src  : std_logic;
+signal s_Jump     : std_logic;
+signal s_memToReg : std_logic;
+signal s_branchEn : std_logic;
+signal s_ALU_OP   : std_logic_vector(3 downto 0);
+  --Register
+signal s_RS1Addr  : std_logic_vector(4 downto 0);
+signal s_RS1Data  : std_logic_vector(DATA_WIDTH-1 downto 0);
+signal s_RS2Addr  : std_logic_vector(4 downto 0);
+signal s_RS2Data  : std_logic_vector(DATA_WIDTH-1 downto 0);
+
+  --B value Mux
+signal s_immExt   : std_logic_vector(DATA_WIDTH-1 downto 0);
+signal s_ALU_B    : std_logic_vector(DATA_WIDTH-1 downto 0);
+
 begin
 
   -- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory. If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be all zeros.
@@ -120,7 +166,58 @@ begin
 
   -- TODO: Implement the rest of your processor below this comment! 
 
-  
+  Control : ControlUnit
+    generic map (ALU_OP_SIZE => 4)
+    port map(
+        opCode      => s_Inst(6 downto 0),
+        ALU_Src     => s_ALU_Src,
+        Mem_We      => s_DMemWr,
+        Jump        => s_Jump,
+        MemToReg    => s_memToReg, --Write a memory value into a register
+        Reg_WE      => s_RegWr,
+        Branch      => s_branchEn,
+        ALU_OP      => s_ALU_OP
+    );
+
+  g_Reg:  RegFile
+    port map(  
+      clock   => iCLK,
+      reset   => iRST,
+
+      RS1Sel  => s_RS1Addr,
+      RS1     => s_RS1Data,
+
+      RS2Sel  => s_RS2Addr,
+      RS2     => s_RS2Data,
+      
+      WrEn    => s_RegWr,
+      RdSel   => s_RegWrAddr,
+      Rd      => s_RegWrData
+    );
+
+  ImmExtender:  bitExtender20t32
+    port map(
+      i_sw  => s_Inst(DATA_WIDTH - 1),
+      i_20bit => s_Inst(DATA_WIDTH-1 downto 12),
+      o_32bit => s_immExt
+    );
+
+  bValMux:  mux2t1_N
+    generic map(N => DATA_WIDTH-1)  
+    port map(
+      i_S => s_ALU_Src,
+      i_D0 => s_RS2Data,
+      i_D1 => s_immExt,
+      o_O => s_ALU_B
+    );
+
+  DestMux: mux2t1_N
+      generic map(N => DATA_WIDTH-1)
+      port map(
+        i_S => s_memToReg,
+        i_D0 => s_DMemAddr,
+        i_D1 => s_DmemOut,
+        o_O => s_RegWrData
+      );
 
 end structure;
-
