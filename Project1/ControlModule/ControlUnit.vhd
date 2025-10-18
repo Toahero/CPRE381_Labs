@@ -26,8 +26,7 @@ entity ControlUnit is
         MemToReg    : out std_logic; --Write a memory value into a register
         Reg_WE      : out std_logic;
         Branch      : out std_logic;
-        
-        --These have not been assigned   
+
         ALU_OP      : out std_logic_vector(ALU_OP_SIZE-1 downto 0));
 
     end ControlUnit;
