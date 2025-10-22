@@ -88,6 +88,27 @@ component ControlUnit is
 
 end component;
 
+component ALU is
+  port(
+      i_A : in std_logic_vector(31 downto 0);
+      i_B : in std_logic_vector(31 downto 0);
+
+      i_OutSel : in std_logic;
+      i_ModSel : in std_logic_vector(1 downto 0);
+
+      i_OppSel : in std_logic_vector(1 downto 0);
+
+      o_Result : out std_logic_vector(31 downto 0);
+      o_output : out std_logic_vector(31 downto 0);
+
+      f_ovflw : out std_logic;
+      f_zero : out std_logic;
+      f_negative : out std_logic
+  );
+end component;
+
+
+
 component RegFile is
     port(	clock	: in std_logic;
         reset	: in std_logic;
@@ -147,6 +168,8 @@ component Iterator is
 end component;
 
 
+
+
 --Signals
   --Control
 signal s_ALU_Src  : std_logic;
@@ -167,9 +190,18 @@ signal s_ALU_B    : std_logic_vector(DATA_WIDTH-1 downto 0);
 --Iterator Signals
 signal s_BranchCode : std_logic;
 
---ALU Flags
-signal s_FlagZero   : std_logic := '0';
-signal s_FlagNeg    : std_logic := '0';
+--ALU Signals
+signal s_OppSel    : std_logic_vector(1 downto 0);
+signal s_ALU_Out   : std_logic_vector(DATA_WIDTH-1 downto 0);
+
+  --Temporary Signals
+signal s_OutSel  : std_logic;
+signal s_ModSel    : std_logic_vector(1 downto 0);
+
+  --ALU Flags
+signal s_FlagZero   : std_logic;
+signal s_FlagNeg    : std_logic;
+signal s_Flag_Ovflw  : std_logic;
 
 begin
 
@@ -244,6 +276,19 @@ begin
         HaltProg    => s_Halt,
         ALU_OP      => s_ALU_OP
     );
+
+    ALU_Module : ALU
+        port map(
+            i_A         => s_RS1Data,
+            i_B         => s_ALU_B,
+            i_OutSel    => s_OutSel,
+            i_ModSel    => s_ModSel,
+            i_OppSel    => s_OppSel,
+            o_Result    => s_ALU_Out,
+            o_output    => oALUOut,
+            f_ovflw     => s_Flag_Ovflw,
+            f_zero      => s_FlagZero,
+            f_negative  => s_FlagNeg);
 
   g_Reg:  RegFile
     port map(  
