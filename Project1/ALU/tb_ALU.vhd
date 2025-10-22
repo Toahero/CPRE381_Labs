@@ -45,10 +45,10 @@ begin
 
     p_clock : process
     begin
-        wait for (clock / 4);
+        wait for (clock / 2);
         s_Clock <= '0';
 
-        wait for (clock / 4);
+        wait for (clock / 2);
         s_Clock <= '1';        
     end process ; -- p_clock
 
@@ -88,6 +88,19 @@ begin
                                 --------------------
                                 --- AddSub Tests ---
                                 --------------------
+        -- Base State
+        s_iA         <= x"00000000";
+        s_iB         <= x"00000000";
+        s_iOppSel    <= b"00";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"00";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Invalid Base State (a)" severity WARNING;
+        assert s_ooutput    = x"00000000"   report "Invalid Base State (b)" severity FAILURE;
+        assert s_fovflw     = '0'           report "Invalid Base State (c)" severity FAILURE;
+        assert s_fzero      = '1'           report "Invalid Base State (d)" severity FAILURE;
+        assert s_fnegative  = '0'           report "Invalid Base State (e)" severity FAILURE;
+
         -- Test Case 1
         s_iA         <= x"00000001";
         s_iB         <= x"00000000";
@@ -168,15 +181,15 @@ begin
 
 
 
-                                ----------------------------
-                                --- Barell Shifter Tests ---
-                                ----------------------------
+                                -----------------------------
+                                --- Barrell Shifter Tests ---
+                                -----------------------------
         -- Base State
         s_iA         <= x"00000000";
         s_iB         <= x"00000000";
         s_iOppSel    <= b"00";
         s_iOutSel    <= '0';
-        s_iModSel    <= b"00";
+        s_iModSel    <= b"10";
         wait for clock;
         assert s_oResult    = x"00000000"   report "Invalid Base State (a)" severity WARNING;
         assert s_ooutput    = x"00000000"   report "Invalid Base State (b)" severity FAILURE;
@@ -234,20 +247,283 @@ begin
         assert s_ooutput    = x"C0000000"   report "Test 10b Failed" severity FAILURE;
         assert s_fovflw     = '0'           report "Test 10c Failed" severity FAILURE;
         assert s_fzero      = '0'           report "Test 10d Failed" severity FAILURE;
-        assert s_fnegative  = '0'           report "Test 10e Failed" severity FAILURE;
+        assert s_fnegative  = '1'           report "Test 10e Failed" severity FAILURE;
 
         -- Test Case 11
         s_iA         <= x"80000000";
-        s_iB         <= x"00000001";
+        s_iB         <= x"00000004";
         s_iOppSel    <= b"01";
         s_iOutSel    <= '0';
         s_iModSel    <= b"10";
         wait for clock;
         assert s_oResult    = x"00000000"   report "Test 11a Failed" severity WARNING;
-        assert s_ooutput    = x"C0000000"   report "Test 11b Failed" severity FAILURE;
+        assert s_ooutput    = x"F8000000"   report "Test 11b Failed" severity FAILURE;
         assert s_fovflw     = '0'           report "Test 11c Failed" severity FAILURE;
         assert s_fzero      = '0'           report "Test 11d Failed" severity FAILURE;
-        assert s_fnegative  = '0'           report "Test 11e Failed" severity FAILURE;
+        assert s_fnegative  = '1'           report "Test 11e Failed" severity FAILURE;
+
+        -- Test Case 12
+        s_iA         <= x"80000000";
+        s_iB         <= x"0000000C";
+        s_iOppSel    <= b"01";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"10";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test 12a Failed" severity WARNING;
+        assert s_ooutput    = x"FFF80000"   report "Test 12b Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test 12c Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test 12d Failed" severity FAILURE;
+        assert s_fnegative  = '1'           report "Test 12e Failed" severity FAILURE;
+
+        -- Test Case 13
+        s_iA         <= x"80000000";
+        s_iB         <= x"00000008";
+        s_iOppSel    <= b"01";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"10";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test 13a Failed" severity WARNING;
+        assert s_ooutput    = x"FF800000"   report "Test 13b Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test 13c Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test 13d Failed" severity FAILURE;
+        assert s_fnegative  = '1'           report "Test 13e Failed" severity FAILURE;
+
+        -- Test Case 14
+        s_iA         <= x"000FF000";
+        s_iB         <= x"00000004";
+        s_iOppSel    <= b"11";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"10";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test 14a Failed" severity WARNING;
+        assert s_ooutput    = x"00FF0000"   report "Test 14b Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test 14c Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test 14d Failed" severity FAILURE;
+        assert s_fnegative  = '0'           report "Test 14e Failed" severity FAILURE;
+
+        -- Test Case 15
+        s_iA         <= x"000FF000";
+        s_iB         <= x"00000008";
+        s_iOppSel    <= b"11";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"10";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test 15a Failed" severity WARNING;
+        assert s_ooutput    = x"0FF00000"   report "Test 15b Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test 15c Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test 15d Failed" severity FAILURE;
+        assert s_fnegative  = '0'           report "Test 15e Failed" severity FAILURE;
+
+        -- Test Case 16
+        s_iA         <= x"000FF000";
+        s_iB         <= x"0000000C";
+        s_iOppSel    <= b"11";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"10";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test 16a Failed" severity WARNING;
+        assert s_ooutput    = x"FF000000"   report "Test 16b Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test 16c Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test 16d Failed" severity FAILURE;
+        assert s_fnegative  = '1'           report "Test 16e Failed" severity FAILURE;
+        
+        -- Test Case 17
+        s_iA         <= x"000FF000";
+        s_iB         <= x"00000004";
+        s_iOppSel    <= b"00";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"10";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test 17a Failed" severity WARNING;
+        assert s_ooutput    = x"0000FF00"   report "Test 17b Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test 17c Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test 17d Failed" severity FAILURE;
+        assert s_fnegative  = '0'           report "Test 17e Failed" severity FAILURE;
+
+        -- Test Case 18
+        s_iA         <= x"000FF000";
+        s_iB         <= x"00000008";
+        s_iOppSel    <= b"00";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"10";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test 18a Failed" severity WARNING;
+        assert s_ooutput    = x"00000FF0"   report "Test 18b Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test 18c Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test 18d Failed" severity FAILURE;
+        assert s_fnegative  = '0'           report "Test 18e Failed" severity FAILURE;
+
+        -- Test Case 19
+        s_iA         <= x"000FF000";
+        s_iB         <= x"0000000C";
+        s_iOppSel    <= b"00";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"10";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test 19a Failed" severity WARNING;
+        assert s_ooutput    = x"000000FF"   report "Test 19b Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test 19c Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test 19d Failed" severity FAILURE;
+        assert s_fnegative  = '0'           report "Test 19e Failed" severity FAILURE;
+
+                                --------------------------
+                                --- Logic Module Tests ---
+                                --------------------------
+        -- Base State
+        s_iA         <= x"00000000";
+        s_iB         <= x"00000000";
+        s_iOppSel    <= b"00";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"01";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Invalid Base State (a)" severity WARNING;
+        assert s_ooutput    = x"00000000"   report "Invalid Base State (b)" severity FAILURE;
+        assert s_fovflw     = '0'           report "Invalid Base State (c)" severity FAILURE;
+        assert s_fzero      = '1'           report "Invalid Base State (d)" severity FAILURE;
+        assert s_fnegative  = '0'           report "Invalid Base State (e)" severity FAILURE;
+
+        -- Test Case 20
+        s_iA         <= x"00000001";
+        s_iB         <= x"00000001";
+        s_iOppSel    <= b"00";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"01";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test 20a Failed" severity WARNING;
+        assert s_ooutput    = x"00000001"   report "Test 20b Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test 20c Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test 20d Failed" severity FAILURE;
+        assert s_fnegative  = '0'           report "Test 20e Failed" severity FAILURE;
+
+        -- Test Case 21
+        s_iA         <= x"00000001";
+        s_iB         <= x"00000001";
+        s_iOppSel    <= b"01";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"01";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test 21a Failed" severity WARNING;
+        assert s_ooutput    = x"00000001"   report "Test 21b Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test 21c Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test 21d Failed" severity FAILURE;
+        assert s_fnegative  = '0'           report "Test 21e Failed" severity FAILURE;
+
+        -- Test Case 22
+        s_iA         <= x"00000001";
+        s_iB         <= x"00000001";
+        s_iOppSel    <= b"10";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"01";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test 22a Failed" severity WARNING;
+        assert s_ooutput    = x"00000000"   report "Test 22b Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test 22c Failed" severity FAILURE;
+        assert s_fzero      = '1'           report "Test 22d Failed" severity FAILURE;
+        assert s_fnegative  = '0'           report "Test 22e Failed" severity FAILURE;
+
+        -- Test Case 23
+        s_iA         <= x"0000000F";
+        s_iB         <= x"00000000";
+        s_iOppSel    <= b"00";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"01";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test 22a Failed" severity WARNING;
+        assert s_ooutput    = x"00000000"   report "Test 22b Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test 22c Failed" severity FAILURE;
+        assert s_fzero      = '1'           report "Test 22d Failed" severity FAILURE;
+        assert s_fnegative  = '0'           report "Test 22e Failed" severity FAILURE;
+
+        -- Test Case 24
+        s_iA         <= x"0000000F";
+        s_iB         <= x"00000000";
+        s_iOppSel    <= b"01";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"01";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test 24a Failed" severity WARNING;
+        assert s_ooutput    = x"0000000F"   report "Test 24b Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test 24c Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test 24d Failed" severity FAILURE;
+        assert s_fnegative  = '0'           report "Test 24e Failed" severity FAILURE;
+
+        -- Test Case 25
+        s_iA         <= x"0000000F";
+        s_iB         <= x"00000000";
+        s_iOppSel    <= b"10";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"01";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test 25a Failed" severity WARNING;
+        assert s_ooutput    = x"0000000F"   report "Test 25b Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test 25c Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test 25d Failed" severity FAILURE;
+        assert s_fnegative  = '0'           report "Test 25e Failed" severity FAILURE;
+
+        -- Test Case 26
+        s_iA         <= x"F000000F";
+        s_iB         <= x"3000F000";
+        s_iOppSel    <= b"00";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"01";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test 26a Failed" severity WARNING;
+        assert s_ooutput    = x"30000000"   report "Test 26b Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test 26c Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test 26d Failed" severity FAILURE;
+        assert s_fnegative  = '0'           report "Test 26e Failed" severity FAILURE;
+
+        -- Test Case 27
+        s_iA         <= x"F000000F";
+        s_iB         <= x"3000F000";
+        s_iOppSel    <= b"01";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"01";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test 27a Failed" severity WARNING;
+        assert s_ooutput    = x"F000F00F"   report "Test 27b Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test 27c Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test 27d Failed" severity FAILURE;
+        assert s_fnegative  = '1'           report "Test 27e Failed" severity FAILURE;
+
+        -- Test Case 28
+        s_iA         <= x"F000000F";
+        s_iB         <= x"3000F000";
+        s_iOppSel    <= b"10";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"01";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test 28a Failed" severity WARNING;
+        assert s_ooutput    = x"C000F00F"   report "Test 28b Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test 28c Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test 28d Failed" severity FAILURE;
+        assert s_fnegative  = '1'           report "Test 28e Failed" severity FAILURE;
+
+        -- Test Case 29
+        s_iA         <= x"FFFFFFFF";
+        s_iB         <= x"01010101";
+        s_iOppSel    <= b"00";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"01";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test 29a Failed" severity WARNING;
+        assert s_ooutput    = x"01010101"   report "Test 29b Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test 29c Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test 29d Failed" severity FAILURE;
+        assert s_fnegative  = '0'           report "Test 29e Failed" severity FAILURE;
+
+        -- Test Case 30
+        s_iA         <= x"FFFFFFFF";
+        s_iB         <= x"10100101";
+        s_iOppSel    <= b"10";
+        s_iOutSel    <= '0';
+        s_iModSel    <= b"01";
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test 30a Failed" severity WARNING;
+        assert s_ooutput    = x"EFEFFEFE"   report "Test 30b Failed" severity FAILURE;
+        assert s_fovflw     = '0'           report "Test 30c Failed" severity FAILURE;
+        assert s_fzero      = '0'           report "Test 30d Failed" severity FAILURE;
+        assert s_fnegative  = '1'           report "Test 30e Failed" severity FAILURE;
 
         wait;
     end process; -- tests

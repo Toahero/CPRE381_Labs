@@ -18,6 +18,6 @@ architecture behaviour of IsZero is
 
 begin
 
-    o_IsZero <= '1' when (ZERO = i_Value) else '0' ;
+    o_IsZero <= '1' when (ZERO = i_Value) else '0';
 
 end behaviour; -- behaviour
