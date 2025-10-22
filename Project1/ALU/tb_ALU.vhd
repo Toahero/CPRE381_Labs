@@ -149,11 +149,23 @@ begin
         assert s_oResult    = x"00000000"   report "Test Case 5 Failed" severity WARNING;
         assert s_ooutput    = x"00000000"   report "Test Case 5 Failed" severity FAILURE;
         assert s_fovflw     = '1'           report "Test Case 5 Failed" severity FAILURE;
-        assert s_fzero      = '0'           report "Test Case 5 Failed" severity FAILURE;
+        assert s_fzero      = '1'           report "Test Case 5 Failed" severity FAILURE;
         assert s_fnegative  = '0'           report "Test Case 5 Failed" severity FAILURE;
+
+        -- Test Case 6
+        s_iA         <= x"00000000";
+        s_iB         <= x"00000001";
+        s_iOppSel    <= b"01";
+        s_iOutSel    <= c_AddSubOutSel;
+        s_iModSel    <= '0';
+        wait for clock;
+        assert s_oResult    = x"00000000"   report "Test Case 6 Failed" severity WARNING;
+        assert s_ooutput    = x"00000000"   report "Test Case 6 Failed" severity FAILURE;
+        assert s_fovflw     = '1'           report "Test Case 6 Failed" severity FAILURE;
+        assert s_fzero      = '1'           report "Test Case 6 Failed" severity FAILURE;
+        assert s_fnegative  = '0'           report "Test Case 6 Failed" severity FAILURE;
 
         wait;
     end process;
 
-end behaviour ; -- behaviour
-
+end behaviour;
