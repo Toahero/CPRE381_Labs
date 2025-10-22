@@ -25,5 +25,5 @@ add wave -label {Zero} -position insertpoint sim:/tb_alu/s_fzero
 add wave -label {Overflow} -position insertpoint sim:/tb_alu/s_fovflw
 add wave -label {Negative} -position insertpoint sim:/tb_alu/s_fnegative
 
-run 250 ns
+run 150 ns
 wave zoomfull

@@ -87,6 +87,8 @@ begin
         assert s_fzero      = '1'           report "Invalid Base State (d)" severity FAILURE;
         assert s_fnegative  = '0'           report "Invalid Base State (e)" severity FAILURE;
 
+
+
                                 --------------------
                                 --- AddSub Tests ---
                                 --------------------
@@ -168,10 +170,11 @@ begin
         assert s_fzero      = '0'           report "Test 6d Failed" severity FAILURE;
         assert s_fnegative  = '1'           report "Test 6e Failed" severity FAILURE;
 
+
+
                                 ----------------------------
                                 --- Barell Shifter Tests ---
                                 ----------------------------
-
         -- Base State
         s_iA         <= x"00000000";
         s_iB         <= x"00000000";
