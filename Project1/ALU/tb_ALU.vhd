@@ -29,27 +29,41 @@ architecture behaviour of tb_ALU is
         );
     end component;
     
+    signal s_Clock      : std_logic;
     signal s_iA         : std_logic_vector(31 downto 0);
     signal s_iB         : std_logic_vector(31 downto 0);
     signal s_iOutSel    : std_logic;
     signal s_iModSel    : std_logic_vector(1 downto 0);
     signal s_iOppSel    : std_logic_vector(1 downto 0);
     signal s_oResult    : std_logic_vector(31 downto 0);
+    signal s_ooutput    : std_logic_vector(31 downto 0);
     signal s_fZero      : std_logic;
-    signal s_fOverflow  : std_logic;
+    signal s_fovflw     : std_logic;
     signal s_fNegative  : std_logic;
 
 begin
 
+    p_clock : process
+    begin
+        wait for (clock / 4);
+        s_Clock <= '0';
+
+        wait for (clock / 4);
+        s_Clock <= '1';        
+    end process ; -- p_clock
+
     testbench : ALU
         port map(
-            i_A         => s_iA,
-            i_B         => s_iB,
-            i_Sub       => s_iSub,
-            o_Result    => s_oResult,
-            f_Zero      => s_fZero,
-            f_Overflow  => s_fOverflow,
-            f_Negative  => s_fNegative
+            i_A         => s_iA         ,
+            i_B         => s_iB         ,
+            i_OutSel    => s_iOutSel    ,
+            i_ModSel    => s_iModSel    ,
+            i_OppSel    => s_iOppSel    ,
+            o_Result    => s_oResult    ,
+            o_output    => s_ooutput    ,
+            f_ovflw     => s_fovflw     ,
+            f_zero      => s_fzero      ,
+            f_negative  => s_fnegative   
         );
 
     tests : process
@@ -78,7 +92,7 @@ begin
         s_iA         <= x"00000001";
         s_iB         <= x"00000000";
         s_iOppSel    <= b"00";
-        s_iOutSel    <= c_AddSubOutSel;
+        s_iOutSel    <= '0';
         s_iModSel    <= b"00";
         wait for clock;
         assert s_oResult    = x"00000000"   report "Test 1a Failed" severity WARNING;
@@ -91,7 +105,7 @@ begin
         s_iA         <= x"00000000";
         s_iB         <= x"00000001";
         s_iOppSel    <= b"00";
-        s_iOutSel    <= c_AddSubOutSel;
+        s_iOutSel    <= '0';
         s_iModSel    <= b"00";
         wait for clock;
         assert s_oResult    = x"00000000"   report "Test 2a Failed" severity WARNING;
@@ -104,7 +118,7 @@ begin
         s_iA         <= x"00000001";
         s_iB         <= x"00000001";
         s_iOppSel    <= b"00";
-        s_iOutSel    <= c_AddSubOutSel;
+        s_iOutSel    <= '0';
         s_iModSel    <= b"00";
         wait for clock;
         assert s_oResult    = x"00000000"   report "Test 3a Failed" severity WARNING;
@@ -117,7 +131,7 @@ begin
         s_iA         <= x"00000001";
         s_iB         <= x"00000001";
         s_iOppSel    <= b"01";
-        s_iOutSel    <= c_AddSubOutSel;
+        s_iOutSel    <= '0';
         s_iModSel    <= b"00";
         wait for clock;
         assert s_oResult    = x"00000000"   report "Test 4a Failed" severity WARNING;
@@ -130,7 +144,7 @@ begin
         s_iA         <= x"80000000";
         s_iB         <= x"80000000";
         s_iOppSel    <= b"00";
-        s_iOutSel    <= c_AddSubOutSel;
+        s_iOutSel    <= '0';
         s_iModSel    <= b"00";
         wait for clock;
         assert s_oResult    = x"00000000"   report "Test 5a Failed" severity WARNING;
@@ -143,7 +157,7 @@ begin
         s_iA         <= x"00000000";
         s_iB         <= x"00000001";
         s_iOppSel    <= b"01";
-        s_iOutSel    <= c_AddSubOutSel;
+        s_iOutSel    <= '0';
         s_iModSel    <= b"00";
         wait for clock;
         assert s_oResult    = x"00000000"   report "Test 6a Failed" severity WARNING;

@@ -70,13 +70,32 @@ architecture behaviour of ALU is
         );
     end component;
 
-    component IsNegative is
+    component BitMux4t1 is
+        port(
+            i_Selection : in std_logic_vector(1 downto 0);
+    
+            i_D0 : in std_logic;
+            i_D1 : in std_logic;
+            i_D2 : in std_logic;
+            i_D3 : in std_logic;
+    
+            o_Output : out std_logic
+        );
+    end component;
+
+    component Mux4t1 is
         generic(
-            N : integer := 16
+            DATA_WIDTH : integer := 32
         );
         port(
-            i_Value         : in std_logic_vector(WIDTH downto 0);
-            o_IsNegative    : out std_logic
+            i_Selection : in std_logic_vector(1 downto 0);
+    
+            i_D0 : in std_logic_vector((DATA_WIDTH - 1) downto 0);
+            i_D1 : in std_logic_vector((DATA_WIDTH - 1) downto 0);
+            i_D2 : in std_logic_vector((DATA_WIDTH - 1) downto 0);
+            i_D3 : in std_logic_vector((DATA_WIDTH - 1) downto 0);
+    
+            o_Output : out std_logic_vector((DATA_WIDTH - 1) downto 0)
         );
     end component;
 
