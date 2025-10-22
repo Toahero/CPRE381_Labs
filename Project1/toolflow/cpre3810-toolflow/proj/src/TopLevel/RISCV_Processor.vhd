@@ -118,14 +118,13 @@ component BitExtender20t32
 end component;
 
 --Program Counter
-component nBitRegister is
-    generic(Reg_Size	: positive);
+component ProgramCounterSimple is
+    generic(ADD_SIZE	: positive);
     port(   i_CLK  	: in std_logic;
-            i_reset	: in std_logic;
-            i_WrEn	: in std_logic;
-            i_write	: in std_logic_vector(Reg_Size-1 downto 0);
-            o_read 	: out std_logic_vector(Reg_Size-1 downto 0));
-
+            i_RST	: in std_logic;
+            i_halt	: in std_logic;
+            i_nextInst	: in std_logic_vector(ADD_SIZE-1 downto 0);
+            o_CurrInst 	: out std_logic_vector(ADD_SIZE-1 downto 0));
 end component;
 
 --Signals
@@ -176,14 +175,14 @@ begin
 
   -- TODO: Implement the rest of your processor below this comment! 
 
-  --Program Counter Register
-  ProgramCounter: nBitRegister
-      generic map(Reg_Size  => DATA_WIDTH)
-      port map(   iCLK  => iCLK,
-                  iRST  => i_reset,
-                  i_WrEn  => '1',
-                  i_write => s_NextInstAddr,
-                  o_read  => s_iMemAddr);
+  --Program Counter
+  ProgramCounter: ProgramCounterSimple
+      generic map(ADD_SIZE  => DATA_WIDTH)
+      port map(   i_CLK  => iCLK,
+                  i_RST  => iRST,
+                  i_halt  => s_Halt,
+                  i_nextInst => s_NextInstAddr,
+                  o_CurrInst  => s_iMemAddr);
 
   Control : ControlUnit
     generic map (ALU_OP_SIZE => 4)
