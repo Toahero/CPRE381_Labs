@@ -25,7 +25,6 @@ architecture behaviour of tb_ControlUnit is
             Reg_WE      : out std_logic;
             Branch      : out std_logic;
             
-            --These have not been assigned   
             ALU_OP      : out std_logic_vector(2 downto 0)
         );
     end component;

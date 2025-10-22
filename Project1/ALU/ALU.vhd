@@ -28,7 +28,7 @@ architecture behaviour of ALU is
             Comp_Width : integer
         );
         port(
-            nAdd_Sub    : in std_logic;
+            nAdd_Sub	: in std_logic;
             i_A		    : in std_logic_vector(Comp_Width-1 downto 0);
             i_B		    : in std_logic_vector(Comp_Width-1 downto 0);
             o_overflow	: out std_logic;
@@ -70,44 +70,13 @@ architecture behaviour of ALU is
         );
     end component;
 
-    component mux2t1_N is
+    component IsNegative is
         generic(
             N : integer := 16
         );
         port(
-            i_S          : in  std_logic;
-            i_D0         : in  std_logic_vector((N - 1) downto 0);
-            i_D1         : in  std_logic_vector((N - 1) downto 0);
-            o_O          : out std_logic_vector((N - 1) downto 0)
-        );
-    end component;
-    
-    component Mux4t1 is
-        generic(
-            DATA_WIDTH : integer := 32
-        );
-        port(
-            i_Selection : in std_logic_vector(1 downto 0);
-    
-            i_D0 : in std_logic_vector((DATA_WIDTH - 1) downto 0);
-            i_D1 : in std_logic_vector((DATA_WIDTH - 1) downto 0);
-            i_D2 : in std_logic_vector((DATA_WIDTH - 1) downto 0);
-            i_D3 : in std_logic_vector((DATA_WIDTH - 1) downto 0);
-    
-            o_Output : out std_logic_vector((DATA_WIDTH - 1) downto 0)
-        );
-    end component;
-
-    component BitMux4t1 is
-        port(
-            i_Selection : in std_logic_vector(1 downto 0);
-    
-            i_D0 : in std_logic;
-            i_D1 : in std_logic;
-            i_D2 : in std_logic;
-            i_D3 : in std_logic;
-    
-            o_Output : out std_logic
+            i_Value         : in std_logic_vector(WIDTH downto 0);
+            o_IsNegative    : out std_logic
         );
     end component;
 
@@ -124,7 +93,7 @@ begin
 
     g_AddSub : addSub_n
         generic map(
-            Comp_Width => 32
+            Comp_Width      => 32
         )
         port map(
             nAdd_Sub    => i_OppSel(0),

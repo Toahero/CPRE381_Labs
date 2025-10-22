@@ -28,52 +28,34 @@ architecture behaviour of tb_ALU is
             f_negative : out std_logic
         );
     end component;
-
-    signal s_Clock      : std_logic;
-
+    
     signal s_iA         : std_logic_vector(31 downto 0);
     signal s_iB         : std_logic_vector(31 downto 0);
     signal s_iOutSel    : std_logic;
     signal s_iModSel    : std_logic_vector(1 downto 0);
     signal s_iOppSel    : std_logic_vector(1 downto 0);
     signal s_oResult    : std_logic_vector(31 downto 0);
-    signal s_ooutput    : std_logic_vector(31 downto 0);
-    signal s_fovflw     : std_logic;
-    signal s_fzero      : std_logic;
-    signal s_fnegative  : std_logic;
-
-    constant c_AddSubOutSel : std_logic := '0';
-    constant c_BarellShifterOut : std_logic := '1';
+    signal s_fZero      : std_logic;
+    signal s_fOverflow  : std_logic;
+    signal s_fNegative  : std_logic;
 
 begin
 
     testbench : ALU
         port map(
-            i_A         => s_iA         ,
-            i_B         => s_iB         ,
-            i_OutSel    => s_iOutSel    ,
-            i_ModSel    => s_iModSel    ,
-            i_OppSel    => s_iOppSel    ,
-            o_Result    => s_oResult    ,
-            o_output    => s_ooutput    ,
-            f_ovflw     => s_fovflw     ,
-            f_zero      => s_fzero      ,
-            f_negative  => s_fnegative   
+            i_A         => s_iA,
+            i_B         => s_iB,
+            i_Sub       => s_iSub,
+            o_Result    => s_oResult,
+            f_Zero      => s_fZero,
+            f_Overflow  => s_fOverflow,
+            f_Negative  => s_fNegative
         );
-
-    p_clock : process
-    begin
-        wait for (clock / 2);
-        s_Clock <= '0';
-
-        wait for (clock / 2);
-        s_Clock <= '1';
-    end process;
 
     tests : process
     begin
         wait for (clock / 4);
-        
+
         -- Base State
         s_iA         <= x"00000000";
         s_iB         <= x"00000000";
@@ -254,6 +236,6 @@ begin
         assert s_fnegative  = '0'           report "Test 11e Failed" severity FAILURE;
 
         wait;
-    end process;
+    end process; -- tests
 
 end behaviour;

@@ -7,7 +7,7 @@ package InstructionPackage is
                         -------------
                         -- OPCODES --
                         -------------
-    -- 0110011 --
+    -- 0110011
     constant OPCODE_ADD               : std_logic_vector(6 downto 0) := "0110011";
     constant OPCODE_SUB               : std_logic_vector(6 downto 0) := "0110011";
     constant OPCODE_XOR               : std_logic_vector(6 downto 0) := "0110011";
@@ -56,87 +56,64 @@ package InstructionPackage is
     -- 1100111 --
     constant OPCODE_JALR              : std_logic_vector(6 downto 0) := "1100111";
 
-    -- 0110111 --
-    constant OPCODE_LUI               : std_logic_vector(6 downto 0) := "0110111";
-
-    -- 0010111 --
-    constant OPCODE_AUIPC             : std_logic_vector(6 downto 0) := "0010111";
-
     -- 1110011 --
     constant OPCODE_ECALL             : std_logic_vector(6 downto 0) := "1110011";
     constant OPCODE_EBREAK            : std_logic_vector(6 downto 0) := "1110011";
+
 
                         --------------
                         --  FUNCT3  --
                         --------------
     -- 0110011
-    constant FUNCT3_ADD               : std_logic_vector(2 downto 0) := "000";
-    constant FUNCT3_SUB               : std_logic_vector(2 downto 0) := "000";
-    constant FUNCT3_XOR               : std_logic_vector(2 downto 0) := "100";
-    constant FUNCT3_OR                : std_logic_vector(2 downto 0) := "110";
-    constant FUNCT3_AND               : std_logic_vector(2 downto 0) := "111";
-    constant FUNCT3_SLL               : std_logic_vector(2 downto 0) := "001";
-    constant FUNCT3_SRL               : std_logic_vector(2 downto 0) := "101";
-    constant FUNCT3_SRA               : std_logic_vector(2 downto 0) := "101";
-    constant FUNCT3_SLT               : std_logic_vector(2 downto 0) := "010";
-    constant FUNCT3_SLTU              : std_logic_vector(2 downto 0) := "011";
+    constant FUNCT3_ADD               : unsigned := x"0";
+    constant FUNCT3_SUB               : unsigned := x"0";
+    constant FUNCT3_XOR               : unsigned := x"4";
+    constant FUNCT3_OR                : unsigned := x"6";
+    constant FUNCT3_AND               : unsigned := x"7";
+    constant FUNCT3_SLL               : unsigned := x"1";
+    constant FUNCT3_SRL               : unsigned := x"5";
+    constant FUNCT3_SRA               : unsigned := x"5";
+    constant FUNCT3_SLT               : unsigned := x"2";
+    constant FUNCT3_SLTU              : unsigned := x"3";
 
     -- 0010011 --
-    constant FUNCT3_ADDI              : std_logic_vector(2 downto 0) := "000";
-    constant FUNCT3_XORI              : std_logic_vector(2 downto 0) := "100";
-    constant FUNCT3_ORI               : std_logic_vector(2 downto 0) := "110";
-    constant FUNCT3_ANDI              : std_logic_vector(2 downto 0) := "111";
-    constant FUNCT3_SLLI              : std_logic_vector(2 downto 0) := "001";
-    constant FUNCT3_SRLI              : std_logic_vector(2 downto 0) := "101";
-    constant FUNCT3_SRAI              : std_logic_vector(2 downto 0) := "101";
-    constant FUNCT3_SLTI              : std_logic_vector(2 downto 0) := "010";
-    constant FUNCT3_SLTIU             : std_logic_vector(2 downto 0) := "011";
+    constant FUNCT3_ADDI              : unsigned := x"0";
+    constant FUNCT3_XORI              : unsigned := x"4";
+    constant FUNCT3_ORI               : unsigned := x"6";
+    constant FUNCT3_ANDI              : unsigned := x"7";
+    constant FUNCT3_SLLI              : unsigned := x"1";
+    constant FUNCT3_SRLI              : unsigned := x"5";
+    constant FUNCT3_SRAI              : unsigned := x"5";
+    constant FUNCT3_SLTI              : unsigned := x"2";
+    constant FUNCT3_SLTIU             : unsigned := x"3";
 
     -- 0000011 --
-    constant FUNCT3_LB                : std_logic_vector(2 downto 0) := "000";
-    constant FUNCT3_LH                : std_logic_vector(2 downto 0) := "001";
-    constant FUNCT3_LW                : std_logic_vector(2 downto 0) := "010";
-    constant FUNCT3_LBU               : std_logic_vector(2 downto 0) := "100";
-    constant FUNCT3_LHU               : std_logic_vector(2 downto 0) := "101";
+    constant FUNCT3_LB                : unsigned := x"0";
+    constant FUNCT3_LH                : unsigned := x"1";
+    constant FUNCT3_LW                : unsigned := x"2";
+    constant FUNCT3_LBU               : unsigned := x"4";
+    constant FUNCT3_LHU               : unsigned := x"5";
 
     -- 0100011 --
-    constant FUNCT3_SB                : std_logic_vector(2 downto 0) := "000";
-    constant FUNCT3_SH                : std_logic_vector(2 downto 0) := "001";
-    constant FUNCT3_SW                : std_logic_vector(2 downto 0) := "010";
+    constant FUNCT3_SB                : unsigned := x"0";
+    constant FUNCT3_SH                : unsigned := x"1";
+    constant FUNCT3_SW                : unsigned := x"2";
 
     -- 1100011 --
-    constant FUNCT3_BEQ               : std_logic_vector(2 downto 0) := "000";
-    constant FUNCT3_BNE               : std_logic_vector(2 downto 0) := "001";
-    constant FUNCT3_BLT               : std_logic_vector(2 downto 0) := "100";
-    constant FUNCT3_BGE               : std_logic_vector(2 downto 0) := "101";
-    constant FUNCT3_BLTU              : std_logic_vector(2 downto 0) := "110";
-    constant FUNCT3_BGEU              : std_logic_vector(2 downto 0) := "111";
+    constant FUNCT3_BEQ                : unsigned := x"0";
+    constant FUNCT3_BNE                : unsigned := "1100011";
+    constant FUNCT3_BLT                : unsigned := "1100011";
+    constant FUNCT3_BGE                : unsigned := "1100011";
+    constant FUNCT3_BLTU               : unsigned := "1100011";
+    constant FUNCT3_BGEU               : unsigned := "1100011";
+    -- 1101111 --
+    constant FUNCT3_JAL                : unsigned := "1101111";
 
     -- 1100111 --
-    constant FUNCT3_JALR              : std_logic_vector(2 downto 0) := "000";
+    constant FUNCT3_JALR               : unsigned := "1100111";
 
     -- 1110011 --
-    constant FUNCT3_ECALL             : std_logic_vector(2 downto 0) := "000";
-    constant FUNCT3_EBREAK            : std_logic_vector(2 downto 0) := "000";
-
-                        --------------
-                        --  FUNCT7  --
-                        --------------
-    -- 0110011
-    constant FUNCT7_ADD               : std_logic_vector(6 downto 0) := "0000000";
-    constant FUNCT7_SUB               : std_logic_vector(6 downto 0) := "0100000";
-    constant FUNCT7_XOR               : std_logic_vector(6 downto 0) := "0000000";
-    constant FUNCT7_OR                : std_logic_vector(6 downto 0) := "0000000";
-    constant FUNCT7_AND               : std_logic_vector(6 downto 0) := "0000000";
-    constant FUNCT7_SLL               : std_logic_vector(6 downto 0) := "0000000";
-    constant FUNCT7_SRL               : std_logic_vector(6 downto 0) := "0000000";
-    constant FUNCT7_SRA               : std_logic_vector(6 downto 0) := "0100000";
-    constant FUNCT7_SLT               : std_logic_vector(6 downto 0) := "0000000";
-    constant FUNCT7_SLTU              : std_logic_vector(6 downto 0) := "0000000";
-
-    -- 0010011 --
-    constant FUNCT7_SLLI              : std_logic_vector(6 downto 0) := "0000000";
-    constant FUNCT7_SRLI              : std_logic_vector(6 downto 0) := "0000000";
-    constant FUNCT7_SRAI              : std_logic_vector(6 downto 0) := "0100000";
+    constant FUNCT3_ECALL              : unsigned := "1110011";
+    constant FUNCT3_EBREAK             : unsigned := "1110011";
 
 end package InstructionPackage;
