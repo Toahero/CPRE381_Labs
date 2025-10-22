@@ -99,8 +99,23 @@ architecture behaviour of ALU is
         );
     end component;
 
-    signal s_AddSubOutput : std_logic_vector(31 downto 0);
-    signal s_BarrelShifterOutput : std_logic_vector(31 downto 0);
+    component LogicModule is
+        generic(
+            DATA_WIDTH : integer := 32 -- Generic of type integer for input/output data width. Default value is 32.
+        );
+        port(
+            i_aVal       : in std_logic_vector(DATA_WIDTH-1 downto 0);
+            i_bVal       : in std_logic_vector(DATA_WIDTH-1 downto 0);
+            i_OppSel     : in std_logic_vector(1 downto 0);
+            o_Out        : out std_logic_vector(DATA_WIDTH-1 downto 0)
+        );
+    end component;
+
+    signal s_AddSubOutput           : std_logic_vector(31 downto 0);
+    signal s_BarrelShifterOutput    : std_logic_vector(31 downto 0);
+    signal s_LogicOutput            : std_logic_vector(31 downto 0);
+
+    signal s_ALU_Output             : std_logic_vector(31 downto 0);
 
     signal s_Flag_AddSub_Overflow : std_logic;
 
@@ -109,6 +124,7 @@ architecture behaviour of ALU is
 begin
 
     f_ovflw <= s_Flag_Overflow;
+    o_Output <= s_ALU_Output;
 
     g_AddSub : addSub_n
         generic map(
@@ -120,6 +136,17 @@ begin
             i_B		    => i_B,
             o_overflow	=> s_Flag_AddSub_Overflow,
             o_Sum		=> s_AddSubOutput
+        );
+
+    g_Logic : LogicModule
+        generic map(
+            DATA_WIDTH  => 32
+        )
+        port map(
+            i_aVal      => i_A,
+            i_bVal      => i_B,
+            i_OppSel    => i_OppSel,
+            o_Out       => s_LogicOutput
         );
 
     g_BarrelShifter : dualShift
@@ -143,10 +170,10 @@ begin
         port map(
             i_Selection  => i_ModSel,
             i_D0 => s_AddSubOutput,
-            i_D1 => (others => '0'),
+            i_D1 => s_LogicOutput,
             i_D2 => s_BarrelShifterOutput,
             i_D3 => (others => '0'),
-            o_Output  => o_output
+            o_Output  => s_ALU_Output
         );
 
     g_Flag_Select_Overflow : BitMux4t1
@@ -164,7 +191,7 @@ begin
             WIDTH => 32
         )
         port map(
-            i_Value => s_AddSubOutput,
+            i_Value => s_ALU_Output,
             o_IsNegative => f_negative
         );
 
@@ -173,7 +200,7 @@ begin
             WIDTH => 32
         )
         port map(
-            i_Value => s_AddSubOutput,
+            i_Value => s_ALU_Output,
             o_IsZero => f_zero
         );
 

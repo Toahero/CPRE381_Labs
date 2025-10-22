@@ -14,13 +14,15 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity LogicModule is
-  generic(DATA_WIDTH : integer := 32); -- Generic of type integer for input/output data width. Default value is 32.
-  port(
-       i_aVal       : in std_logic_vector(DATA_WIDTH-1 downto 0);
-       i_bVal       : in std_logic_vector(DATA_WIDTH-1 downto 0);
-       i_OppSel     : in std_logic_vector(2 downto 0);
-       o_Out        : out std_logic_vector(DATA_WIDTH-1 downto 0));
-
+    generic(
+        DATA_WIDTH : integer := 32 -- Generic of type integer for input/output data width. Default value is 32.
+    );
+    port(
+        i_aVal       : in std_logic_vector(DATA_WIDTH-1 downto 0);
+        i_bVal       : in std_logic_vector(DATA_WIDTH-1 downto 0);
+        i_OppSel     : in std_logic_vector(2 downto 0);
+        o_Out        : out std_logic_vector(DATA_WIDTH-1 downto 0)
+    );
 end LogicModule;
 
 architecture mixed of LogicModule is
