@@ -26,8 +26,8 @@ entity rippleAdder_n is
 	i_B         : in std_logic_vector(N-1 downto 0);
 
 	o_OF	: out std_logic;
-	o_Sum	: out std_logic_vector(N-1 downto 0));
-
+	o_Sum	: out std_logic_vector(N-1 downto 0)
+  );
 
 end rippleAdder_n;
 
@@ -62,7 +62,8 @@ for i in 0 to N-1 generate
 
 		o_S	=> o_Sum(i),
 		o_Cout	=> w_Carry(i+1));
-	end generate G_NBit_RipAdder;
+	end generate G_NBit_RipAdder
+	;
 
 --Tie the in carry bit to w_Carry(0)	
 	w_Carry(0) <= i_Carry;
