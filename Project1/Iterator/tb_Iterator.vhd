@@ -16,7 +16,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 entity tb_Iterator is
-    generic(gCLK_HPER   : time := 10 ns; );
+    generic(gCLK_HPER   : time := 10 ns);
 end tb_Iterator;
 
 architecture mixed of tb_Iterator is
