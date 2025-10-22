@@ -127,6 +127,26 @@ component ProgramCounterSimple is
             o_CurrInst 	: out std_logic_vector(ADD_SIZE-1 downto 0));
 end component;
 
+component BranchDecoder is
+  port( i_branchEn  : in std_logic;
+        i_funct3    : in std_logic_vector(2 downto 0);
+        i_FlagZero  : in std_logic;
+        i_FlagNeg   : in std_logic;
+        o_branch    : out std_logic);
+end  component;
+
+component Iterator is
+  generic(DATA_WIDTH: integer);
+  port(
+    i_instrNum  :   in std_logic_vector(DATA_WIDTH-1 downto 0);
+    i_OffsetCnt :   in std_logic_vector(DATA_WIDTH-1 downto 0);
+    i_branch    : in std_logic;
+    i_jump      : in std_logic;
+    o_nextInst  : out std_logic_vector(DATA_WIDTH-1 downto 0));
+
+end component;
+
+
 --Signals
   --Control
 signal s_ALU_Src  : std_logic;
@@ -143,6 +163,13 @@ signal s_RS2Data  : std_logic_vector(DATA_WIDTH-1 downto 0);
   --B value Mux
 signal s_immExt   : std_logic_vector(DATA_WIDTH-1 downto 0);
 signal s_ALU_B    : std_logic_vector(DATA_WIDTH-1 downto 0);
+
+--Iterator Signals
+signal s_BranchCode : std_logic;
+
+--ALU Flags
+signal s_FlagZero   : std_logic := '0';
+signal s_FlagNeg    : std_logic := '0';
 
 begin
 
@@ -175,6 +202,8 @@ begin
 
   -- TODO: Implement the rest of your processor below this comment! 
 
+
+  --Fetch Components
   --Program Counter
   ProgramCounter: ProgramCounterSimple
       generic map(ADD_SIZE  => DATA_WIDTH)
@@ -184,6 +213,24 @@ begin
                   i_nextInst => s_NextInstAddr,
                   o_CurrInst  => s_iMemAddr);
 
+  DECODER: BranchDecoder
+    port map(
+        i_branchEn  => s_branchEn,
+        i_funct3    => s_Inst(14 downto 12),
+        i_FlagZero  => s_FlagZero,
+        i_FlagNeg   => s_FlagNeg,
+        o_branch    => s_BranchCode);
+
+  g_Iterator: Iterator
+    generic map(DATA_WIDTH => 32)
+    port map(   i_instrNum => s_iMemAddr,
+                i_OffsetCnt => s_immExt,
+                i_branch    => s_BranchCode,
+                i_jump      => s_Jump,
+                o_nextInst => s_NextInstAddr);
+
+
+  --Control Components
   Control : ControlUnit
     generic map (ALU_OP_SIZE => 4)
     port map(

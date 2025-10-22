@@ -31,7 +31,7 @@ architecture mixed of tb_Iterator is
         );
   end component;
 
-signal CLK  : std_logic := '0';
+signal s_CLK  : std_logic;
 signal s_instrNum   : std_logic_vector(31 downto 0);
 signal s_OffsetCnt  : std_logic_vector(31 downto 0);
 signal s_branch     : std_logic;
@@ -40,22 +40,40 @@ signal s_nextInst   : std_logic_vector(31 downto 0);
 
 begin
     g_Iterator: Iterator
-        generic map(DATA_WIDTH <= 31)
-        port map(   i_instrNum <= s_instrNum,
-                    i_OffsetCnt <= s_OffsetCnt,
-                    i_branch    <= s_branch,
-                    i_jump      <= s_jump,
-                    o_nextInst <= s_nextInst);
+        generic map(DATA_WIDTH => 32)
+        port map(   i_instrNum => s_instrNum,
+                    i_OffsetCnt => s_OffsetCnt,
+                    i_branch    => s_branch,
+                    i_jump      => s_jump,
+                    o_nextInst => s_nextInst);
 
 P_CLK: process
   begin
-    CLK <= '1';         -- clock starts at 1
+    s_CLK <= '1';         -- clock starts at 1
     wait for gCLK_HPER; -- after half a cycle
-    CLK <= '0';         -- clock becomes a 0 (negative edge)
+    s_CLK <= '0';         -- clock becomes a 0 (negative edge)
     wait for gCLK_HPER; -- after half a cycle, process begins evaluation again
   end process;
 
 P_TEST_Instructions: process
 begin
 	wait for gCLK_HPER/2; --Change inputs on clk midpoints
-    
+    s_instrNum <= std_logic_vector(to_signed(20, 32));
+    s_OffsetCnt  <= std_logic_vector(to_signed(12, 32));
+    s_branch     <= '0';
+    s_jump       <= '0';
+
+    wait for gCLK_HPER;
+    s_instrNum <= std_logic_vector(to_signed(30, 32));
+    s_OffsetCnt  <= std_logic_vector(to_signed(12, 32));
+    s_branch     <= '1';
+    s_jump       <= '0';
+
+    wait for gCLK_HPER;
+    s_instrNum <= std_logic_vector(to_signed(40, 32));
+    s_OffsetCnt  <= std_logic_vector(to_signed(113, 32));
+    s_branch     <= '1';
+    s_jump       <= '0';
+    wait;
+end process;
+end mixed;
