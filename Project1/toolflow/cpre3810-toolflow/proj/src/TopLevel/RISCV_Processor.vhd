@@ -83,8 +83,7 @@ component ControlUnit is
         MemToReg    : out std_logic; --Write a memory value into a register
         Reg_WE      : out std_logic;
         Branch      : out std_logic;
-        HaltProg    : out std_logic;
-        ALU_OP      : out std_logic_vector(ALU_OP_SIZE-1 downto 0));
+        HaltProg    : out std_logic);
 
 end component;
 
@@ -182,6 +181,8 @@ end component;
 
 
 --Signals
+signal s_nextInstruction  : std_logic_vector(DATA_WIDTH-1 downto 0);
+
   --Control
 signal s_ALU_Src  : std_logic;
 signal s_Jump     : std_logic;
@@ -253,8 +254,8 @@ begin
       port map(   i_CLK  => iCLK,
                   i_RST  => iRST,
                   i_halt  => s_Halt,
-                  i_nextInst => s_NextInstAddr,
-                  o_CurrInst  => s_iMemAddr);
+                  i_nextInst => s_nextInstruction,
+                  o_CurrInst  => s_NextInstAddr);
 
   DECODER: BranchDecoder
     port map(
@@ -270,7 +271,7 @@ begin
                 i_OffsetCnt => s_immExt,
                 i_branch    => s_BranchCode,
                 i_jump      => s_Jump,
-                o_nextInst => s_NextInstAddr);
+                o_nextInst => s_nextInstruction);
 
 
   --Control Components
@@ -297,7 +298,7 @@ begin
             i_OppSel    => s_OppSel,
             o_Result    => s_ALU_Out,
             o_output    => oALUOut,
-            f_ovflw     => s_Flag_Ovflw,
+            f_ovflw     => s_Ovfl,
             f_zero      => s_FlagZero,
             f_negative  => s_FlagNeg);
 
@@ -333,7 +334,7 @@ begin
     );
 
   bValMux:  mux2t1_N
-    generic map(N => DATA_WIDTH-1)  
+    generic map(N => DATA_WIDTH)  
     port map(
       i_S => s_ALU_Src,
       i_D0 => s_RS2Data,
@@ -342,10 +343,10 @@ begin
     );
 
   DestMux: mux2t1_N
-      generic map(N => DATA_WIDTH-1)
+      generic map(N => DATA_WIDTH)
       port map(
         i_S => s_memToReg,
-        i_D0 => s_DMemAddr,
+        i_D0 => s_ALU_Out,
         i_D1 => s_DmemOut,
         o_O => s_RegWrData
       );

@@ -1,0 +1,1 @@
+mem load -infile Testimem.hex -format hex /RISCV_Processor/IMem
