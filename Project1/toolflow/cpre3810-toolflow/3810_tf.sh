@@ -6,6 +6,8 @@
 #@date 2022.02.10
 #
 
+clear
+
 PYTHON3_VDI=/usr/local/mentor/calibre/bin/python3
 PYTHON3_LAB=/bin/python3
 

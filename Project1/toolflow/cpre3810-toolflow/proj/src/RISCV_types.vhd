@@ -18,6 +18,8 @@ package RISCV_types is
   constant DATA_WIDTH : integer := 32;
   constant ADDR_WIDTH : integer := 10;
 
+  type array32bits32 is array (0 to 31) of std_logic_vector(31 downto 0);
+
   -- Example record type. Declare whatever types you need here
   type control_t is record
     reg_wr : std_logic;

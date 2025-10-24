@@ -29,7 +29,6 @@ entity ControlUnit is
         HaltProg    : out std_logic);
         --ALU_OP      : out std_logic_vector(ALU_OP_SIZE-1 downto 0));
         
-
     end ControlUnit;
 
 architecture dataflow of ControlUnit is

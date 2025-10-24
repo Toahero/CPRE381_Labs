@@ -12,7 +12,8 @@
 
 Library IEEE;
 use IEEE.std_logic_1164.all;
-use work.array32.all;
+
+use work.RISCV_types.all;
 
 entity RegFile is
 	port(	clock	: in std_logic;

@@ -83,8 +83,8 @@ component ControlUnit is
         MemToReg    : out std_logic; --Write a memory value into a register
         Reg_WE      : out std_logic;
         Branch      : out std_logic;
-        HaltProg    : out std_logic;
-        ALU_OP      : out std_logic_vector(ALU_OP_SIZE-1 downto 0));
+        HaltProg    : out std_logic);
+        -- ALU_OP      : out std_logic_vector(ALU_OP_SIZE-1 downto 0));
 
 end component;
 
@@ -333,7 +333,7 @@ begin
     );
 
   bValMux:  mux2t1_N
-    generic map(N => DATA_WIDTH-1)  
+    generic map(N => DATA_WIDTH)  
     port map(
       i_S => s_ALU_Src,
       i_D0 => s_RS2Data,
@@ -342,10 +342,10 @@ begin
     );
 
   DestMux: mux2t1_N
-      generic map(N => DATA_WIDTH-1)
+      generic map(N => DATA_WIDTH)
       port map(
         i_S => s_memToReg,
-        i_D0 => s_DMemAddr,
+        i_D0 => s_ALU_Out,
         i_D1 => s_DmemOut,
         o_O => s_RegWrData
       );
