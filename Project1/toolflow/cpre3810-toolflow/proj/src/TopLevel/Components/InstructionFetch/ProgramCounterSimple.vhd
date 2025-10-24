@@ -24,20 +24,24 @@ entity ProgramCounterSimple is
 end ProgramCounterSimple;
 
 architecture mixed of ProgramCounterSimple is
-    component nBitRegister is
+
+    component PC_nBitRegister is
         generic(Reg_Size	: positive);
-        port(   i_CLK  	: in std_logic;
-                i_reset	: in std_logic;
-                i_WrEn	: in std_logic;
-                i_write	: in std_logic_vector(Reg_Size-1 downto 0);
-                o_read 	: out std_logic_vector(Reg_Size-1 downto 0));
+        port(   
+            i_CLK  	: in std_logic;
+            i_reset	: in std_logic;
+            i_WrEn	: in std_logic;
+            i_write	: in std_logic_vector(Reg_Size-1 downto 0);
+            o_read 	: out std_logic_vector(Reg_Size-1 downto 0)
+        );
+    
     end component;
 
     signal s_NotHalt: std_logic;
 begin
     s_NotHalt <= not i_halt;
 
-    PC_REG: nBitRegister
+    PC_REG: PC_nBitRegister
         generic map(Reg_Size => ADD_SIZE)
         port map(   i_CLK   => i_CLK,
                     i_reset => i_RST,

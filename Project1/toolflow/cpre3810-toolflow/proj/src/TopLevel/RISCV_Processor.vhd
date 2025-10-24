@@ -32,7 +32,6 @@ entity RISCV_Processor is
 
 end  RISCV_Processor;
 
-
 architecture structure of RISCV_Processor is
 
   -- Required data memory signals
