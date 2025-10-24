@@ -284,7 +284,7 @@ begin
         MemToReg    => s_memToReg, --Write a memory value into a register
         Reg_WE      => s_RegWr,
         Branch      => s_branchEn,
-        HaltProg    => s_Halt,
+        HaltProg    => s_Halt
         --ALU_OP      => s_ALU_OP
     );
 
@@ -325,7 +325,7 @@ begin
       Rd      => s_RegWrData
     );
 
-  ImmExtender:  bitExtender20t32
+  ImmExtender:  BitExtender20t32
     port map(
       i_sw  => s_Inst(DATA_WIDTH - 1),
       i_20bit => s_Inst(DATA_WIDTH-1 downto 12),

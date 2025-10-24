@@ -90,16 +90,16 @@ package RISCV_types is
                         --  FUNCT3  --
                         --------------
     -- 0110011
-    constant FUNCT3_ADD               : std_logic_vector(2 downto 0) := b"000";
-    constant FUNCT3_SUB               : std_logic_vector(2 downto 0) := b"000";
-    constant FUNCT3_XOR               : std_logic_vector(2 downto 0) := b"100";
-    constant FUNCT3_OR                : std_logic_vector(2 downto 0) := b"110";
-    constant FUNCT3_AND               : std_logic_vector(2 downto 0) := b"111";
-    constant FUNCT3_SLL               : std_logic_vector(2 downto 0) := b"001";
-    constant FUNCT3_SRL               : std_logic_vector(2 downto 0) := b"101";
-    constant FUNCT3_SRA               : std_logic_vector(2 downto 0) := b"101";
-    constant FUNCT3_SLT               : std_logic_vector(2 downto 0) := b"010";
-    constant FUNCT3_SLTU              : std_logic_vector(2 downto 0) := b"011";
+    constant FUNCT3_ADD               : std_logic_vector(2 downto 0) := "000";
+    constant FUNCT3_SUB               : std_logic_vector(2 downto 0) := "000";
+    constant FUNCT3_XOR               : std_logic_vector(2 downto 0) := "100";
+    constant FUNCT3_OR                : std_logic_vector(2 downto 0) := "110";
+    constant FUNCT3_AND               : std_logic_vector(2 downto 0) := "111";
+    constant FUNCT3_SLL               : std_logic_vector(2 downto 0) := "001";
+    constant FUNCT3_SRL               : std_logic_vector(2 downto 0) := "101";
+    constant FUNCT3_SRA               : std_logic_vector(2 downto 0) := "101";
+    constant FUNCT3_SLT               : std_logic_vector(2 downto 0) := "010";
+    constant FUNCT3_SLTU              : std_logic_vector(2 downto 0) := "011";
 
     -- 0010011 --
     constant FUNCT3_ADDI              : std_logic_vector(2 downto 0) := "000";

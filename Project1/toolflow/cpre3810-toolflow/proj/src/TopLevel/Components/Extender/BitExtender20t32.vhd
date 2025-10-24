@@ -16,13 +16,13 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 -- entity
-entity bitExtender20t32 is
+entity BitExtender20t32 is
 	port(	i_sw	: in std_logic;
 		i_20bit	: in std_logic_vector(19 downto 0);
 		o_32bit	: out std_logic_vector(31 downto 0));
-end bitExtender20t32;
+end BitExtender20t32;
 
-architecture dataflow of bitExtender16t32 is
+architecture dataflow of BitExtender20t32 is
 signal extendVal: std_logic_vector(11 downto 0);
 
 begin
