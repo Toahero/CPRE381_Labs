@@ -107,6 +107,17 @@ component ALU is
   );
 end component;
 
+Component ALU_Control is
+    port(
+        i_Funct3 : in std_logic_vector(2 downto 0);
+        i_Funct7 : in std_logic_vector(6 downto 0);
+
+        o_OutSel : out std_logic;
+        o_ModuleSelect : out std_logic_vector(1 downto 0);
+        o_OperationSelect : out std_logic_vector(1 downto 0)
+    );
+end component;
+
 
 
 component RegFile is
@@ -290,6 +301,14 @@ begin
             f_zero      => s_FlagZero,
             f_negative  => s_FlagNeg);
 
+    ALU_Control_Module: ALU_Control
+      port map(
+        i_Funct3  => s_Inst(14 downto 12),
+        i_Funct7  => s_Inst(31 downto 25),
+        o_OutSel  => s_OutSel,
+        o_ModuleSelect => s_ModSel,
+        o_OperationSelect => s_OppSel
+      );
   g_Reg:  RegFile
     port map(  
       clock   => iCLK,
