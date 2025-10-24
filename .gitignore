@@ -2,7 +2,6 @@
 work/
 
 # Simulation files
-*.ini
 *.opt
 *.wlf
 *.bak
