@@ -88,6 +88,38 @@ component ControlUnit is
 
 end component;
 
+component ALU is
+  port(
+      i_A : in std_logic_vector(31 downto 0);
+      i_B : in std_logic_vector(31 downto 0);
+
+      i_OutSel : in std_logic;
+      i_ModSel : in std_logic_vector(1 downto 0);
+
+      i_OppSel : in std_logic_vector(1 downto 0);
+
+      o_Result : out std_logic_vector(31 downto 0);
+      o_output : out std_logic_vector(31 downto 0);
+
+      f_ovflw : out std_logic;
+      f_zero : out std_logic;
+      f_negative : out std_logic
+  );
+end component;
+
+Component ALU_Control is
+    port(
+        i_Funct3 : in std_logic_vector(2 downto 0);
+        i_Funct7 : in std_logic_vector(6 downto 0);
+
+        o_OutSel : out std_logic;
+        o_ModuleSelect : out std_logic_vector(1 downto 0);
+        o_OperationSelect : out std_logic_vector(1 downto 0)
+    );
+end component;
+
+
+
 component RegFile is
     port(	clock	: in std_logic;
         reset	: in std_logic;
@@ -118,15 +150,36 @@ component BitExtender20t32
 end component;
 
 --Program Counter
-component nBitRegister is
-    generic(Reg_Size	: positive);
+component ProgramCounterSimple is
+    generic(ADD_SIZE	: positive);
     port(   i_CLK  	: in std_logic;
-            i_reset	: in std_logic;
-            i_WrEn	: in std_logic;
-            i_write	: in std_logic_vector(Reg_Size-1 downto 0);
-            o_read 	: out std_logic_vector(Reg_Size-1 downto 0));
+            i_RST	: in std_logic;
+            i_halt	: in std_logic;
+            i_nextInst	: in std_logic_vector(ADD_SIZE-1 downto 0);
+            o_CurrInst 	: out std_logic_vector(ADD_SIZE-1 downto 0));
+end component;
+
+component BranchDecoder is
+  port( i_branchEn  : in std_logic;
+        i_funct3    : in std_logic_vector(2 downto 0);
+        i_FlagZero  : in std_logic;
+        i_FlagNeg   : in std_logic;
+        o_branch    : out std_logic);
+end  component;
+
+component Iterator is
+  generic(DATA_WIDTH: integer);
+  port(
+    i_instrNum  :   in std_logic_vector(DATA_WIDTH-1 downto 0);
+    i_OffsetCnt :   in std_logic_vector(DATA_WIDTH-1 downto 0);
+    i_branch    : in std_logic;
+    i_jump      : in std_logic;
+    o_nextInst  : out std_logic_vector(DATA_WIDTH-1 downto 0));
 
 end component;
+
+
+
 
 --Signals
   --Control
@@ -144,6 +197,22 @@ signal s_RS2Data  : std_logic_vector(DATA_WIDTH-1 downto 0);
   --B value Mux
 signal s_immExt   : std_logic_vector(DATA_WIDTH-1 downto 0);
 signal s_ALU_B    : std_logic_vector(DATA_WIDTH-1 downto 0);
+
+--Iterator Signals
+signal s_BranchCode : std_logic;
+
+--ALU Signals
+signal s_OppSel    : std_logic_vector(1 downto 0);
+signal s_ALU_Out   : std_logic_vector(DATA_WIDTH-1 downto 0);
+
+  --Temporary Signals
+signal s_OutSel  : std_logic;
+signal s_ModSel    : std_logic_vector(1 downto 0);
+
+  --ALU Flags
+signal s_FlagZero   : std_logic;
+signal s_FlagNeg    : std_logic;
+signal s_Flag_Ovflw  : std_logic;
 
 begin
 
@@ -176,15 +245,35 @@ begin
 
   -- TODO: Implement the rest of your processor below this comment! 
 
-  --Program Counter Register
-  ProgramCounter: nBitRegister
-      generic map(Reg_Size  => DATA_WIDTH)
-      port map(   iCLK  => iCLK,
-                  iRST  => i_reset,
-                  i_WrEn  => '1',
-                  i_write => s_NextInstAddr,
-                  o_read  => s_iMemAddr);
 
+  --Fetch Components
+  --Program Counter
+  ProgramCounter: ProgramCounterSimple
+      generic map(ADD_SIZE  => DATA_WIDTH)
+      port map(   i_CLK  => iCLK,
+                  i_RST  => iRST,
+                  i_halt  => s_Halt,
+                  i_nextInst => s_NextInstAddr,
+                  o_CurrInst  => s_iMemAddr);
+
+  DECODER: BranchDecoder
+    port map(
+        i_branchEn  => s_branchEn,
+        i_funct3    => s_Inst(14 downto 12),
+        i_FlagZero  => s_FlagZero,
+        i_FlagNeg   => s_FlagNeg,
+        o_branch    => s_BranchCode);
+
+  g_Iterator: Iterator
+    generic map(DATA_WIDTH => 32)
+    port map(   i_instrNum => s_iMemAddr,
+                i_OffsetCnt => s_immExt,
+                i_branch    => s_BranchCode,
+                i_jump      => s_Jump,
+                o_nextInst => s_NextInstAddr);
+
+
+  --Control Components
   Control : ControlUnit
     generic map (ALU_OP_SIZE => 4)
     port map(
@@ -199,6 +288,27 @@ begin
         ALU_OP      => s_ALU_OP
     );
 
+    ALU_Module : ALU
+        port map(
+            i_A         => s_RS1Data,
+            i_B         => s_ALU_B,
+            i_OutSel    => s_OutSel,
+            i_ModSel    => s_ModSel,
+            i_OppSel    => s_OppSel,
+            o_Result    => s_ALU_Out,
+            o_output    => oALUOut,
+            f_ovflw     => s_Flag_Ovflw,
+            f_zero      => s_FlagZero,
+            f_negative  => s_FlagNeg);
+
+    ALU_Control_Module: ALU_Control
+      port map(
+        i_Funct3  => s_Inst(14 downto 12),
+        i_Funct7  => s_Inst(31 downto 25),
+        o_OutSel  => s_OutSel,
+        o_ModuleSelect => s_ModSel,
+        o_OperationSelect => s_OppSel
+      );
   g_Reg:  RegFile
     port map(  
       clock   => iCLK,

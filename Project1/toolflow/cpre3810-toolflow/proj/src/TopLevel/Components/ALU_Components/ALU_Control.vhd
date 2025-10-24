@@ -6,7 +6,6 @@ use work.InstructionPackage.all;
 
 entity ALU_Control is
     port(
-        i_Opcode : in std_logic_vector(5 downto 0);
         i_Funct3 : in std_logic_vector(2 downto 0);
         i_Funct7 : in std_logic_vector(6 downto 0);
 
@@ -22,12 +21,21 @@ begin
     o_OutSel <= '0';
 
     with i_Funct3 select
-        o_ModuleSelect      <=  "00" when FUNCT3_ADD,   -- FUNCT3_ADD, FUNCT3_SUB, FUNCT3_ADDI
-                                "01" when FUNCT3_XOR,   -- FUNCT3_XOR, FUNCT3_XORI
-                                "01" when FUNCT3_OR,    -- FUNCT3_OR, FUNCT3_ORI
-                                "01" when FUNCT3_AND,   -- FUNCT3_AND, FUNCT3_ANDI
-                                "10" when FUNCT3_SLL,   -- FUNCT3_SLL, FUNCT3_SLLI
-                                "10" when FUNCT3_SRL,   -- FUNCT3_SRL, FUNCT3_SRA, FUNCT3_SRLI, FUNCT3_SRAI
+        o_ModuleSelect      <=  "00" when FUNCT3_ADD,
+                                "00" when FUNCT3_SUB,
+                                "00" when FUNCT3_ADDI,
+                                "01" when FUNCT3_XOR,
+                                "01" when FUNCT3_OR,
+                                "01" when FUNCT3_AND,
+                                "01" when FUNCT3_XORI,
+                                "01" when FUNCT3_ORI,
+                                "01" when FUNCT3_ANDI,
+                                "10" when FUNCT3_SLL,
+                                "10" when FUNCT3_SRL,
+                                "10" when FUNCT3_SRA,
+                                "10" when FUNCT3_SLLI,
+                                "10" when FUNCT3_SRLI,
+                                "10" when FUNCT3_SRAI,
                                 "XX" when others;
     
     o_OperationSelect       <=  "01" when i_Funct7 = FUNCT7_SUB    else
@@ -35,6 +43,6 @@ begin
                                 "01" when i_Funct3 = FUNCT3_SLLI   else
                                 "10" when i_Funct7 = FUNCT7_SRA    else
                                 "10" when i_Funct7 = FUNCT7_SRAI   else
-                                (others => 'X');
+                                (others => '0');
 
 end behaviour;

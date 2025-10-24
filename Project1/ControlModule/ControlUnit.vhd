@@ -37,7 +37,7 @@ architecture dataflow of ControlUnit is
 begin
 
     with opCode select
-        HaltProg <= '1' when "1110011"
+        HaltProg <= '1' when "1110011",
                     '0' when others;
 
     with opCode select
