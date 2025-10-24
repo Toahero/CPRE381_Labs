@@ -6,6 +6,9 @@ work/
 *.wlf
 *.bak
 *.nfs*
+*.log
+*.trace
+*.dbg
 
 # Temporary simulation files
 wlft*

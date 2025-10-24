@@ -24,7 +24,7 @@ entity ProgramCounterSimple is
 end ProgramCounterSimple;
 
 architecture mixed of ProgramCounterSimple is
-
+    
     component PC_nBitRegister is
         generic(Reg_Size	: positive);
         port(   

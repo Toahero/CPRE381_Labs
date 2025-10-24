@@ -13,6 +13,7 @@ entity PC_dffg is
 end PC_dffg;
 
 architecture mixed of PC_dffg is
+  
   signal s_D    : std_logic;    -- Multiplexed input to the FF
   signal s_Q    : std_logic;    -- Output of the FF
 
@@ -39,6 +40,5 @@ begin
     end if;
 
   end process;
-  
   
 end mixed;

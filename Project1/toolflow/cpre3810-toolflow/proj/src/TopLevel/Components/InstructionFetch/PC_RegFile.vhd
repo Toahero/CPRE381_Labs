@@ -26,7 +26,7 @@ architecture structural of PC_nBitRegister is
         );
     end component;
 
-    signal s_ResetValue : std_logic_vector(Reg_Size - 1 downto 0) := x"00000000";
+    signal s_ResetValue : std_logic_vector(Reg_Size - 1 downto 0) := x"00100093";
 
 begin
 	G_NBIT_REG: for i in 0 to Reg_Size-1 generate
