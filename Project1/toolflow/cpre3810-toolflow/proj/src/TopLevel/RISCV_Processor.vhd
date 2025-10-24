@@ -187,7 +187,7 @@ signal s_ALU_Src  : std_logic;
 signal s_Jump     : std_logic;
 signal s_memToReg : std_logic;
 signal s_branchEn : std_logic;
-signal s_ALU_OP   : std_logic_vector(3 downto 0);
+--signal s_ALU_OP   : std_logic_vector(3 downto 0);
   --Register
 signal s_RS1Addr  : std_logic_vector(4 downto 0);
 signal s_RS1Data  : std_logic_vector(DATA_WIDTH-1 downto 0);
@@ -285,7 +285,7 @@ begin
         Reg_WE      => s_RegWr,
         Branch      => s_branchEn,
         HaltProg    => s_Halt,
-        ALU_OP      => s_ALU_OP
+        --ALU_OP      => s_ALU_OP
     );
 
     ALU_Module : ALU

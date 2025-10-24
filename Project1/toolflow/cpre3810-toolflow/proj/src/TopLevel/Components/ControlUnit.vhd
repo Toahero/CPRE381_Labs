@@ -27,7 +27,7 @@ entity ControlUnit is
         Reg_WE      : out std_logic;
         Branch      : out std_logic;
         HaltProg    : out std_logic;
-        ALU_OP      : out std_logic_vector(ALU_OP_SIZE-1 downto 0));
+        --ALU_OP      : out std_logic_vector(ALU_OP_SIZE-1 downto 0));
         
 
     end ControlUnit;
@@ -67,15 +67,15 @@ begin
         Branch  <=  '1' when "1100011", --B type instruction
                     '0' when others;
 
-    with opCode select
-        ALU_OP  <=  std_logic_vector(to_unsigned(0, ALU_OP_SIZE)) when "0110011", --Register Arithmetic (R-Type)
-                    std_logic_vector(to_unsigned(1, ALU_OP_SIZE))  when "0010011", --Immediate Arithmetic (I-Type)
-                    std_logic_vector(to_unsigned(2, ALU_OP_SIZE))  when "0000011", --Load (I-type)
-                    std_logic_vector(to_unsigned(3, ALU_OP_SIZE))  when "0100011", --Store (S type)
-                    std_logic_vector(to_unsigned(4, ALU_OP_SIZE)) when "1100011", --Branch (B-type)
-                    std_logic_vector(to_unsigned(5, ALU_OP_SIZE)) when "1101111", --Jump and Link (J-type)
-                    std_logic_vector(to_unsigned(6, ALU_OP_SIZE)) when "1100111", --Jump and Link Reg (I-type)
-                    std_logic_vector(to_unsigned(7, ALU_OP_SIZE)) when "0110111", --Load Upper Imm (U Type)
-                    std_logic_vector(to_unsigned(8, ALU_OP_SIZE)) when others; --Use for halting?
+ --   with opCode select
+ --       ALU_OP  <=  std_logic_vector(to_unsigned(0, ALU_OP_SIZE)) when "0110011", --Register Arithmetic (R-Type)
+ --                   std_logic_vector(to_unsigned(1, ALU_OP_SIZE))  when "0010011", --Immediate Arithmetic (I-Type)
+  --                  std_logic_vector(to_unsigned(2, ALU_OP_SIZE))  when "0000011", --Load (I-type)
+--                    std_logic_vector(to_unsigned(3, ALU_OP_SIZE))  when "0100011", --Store (S type)
+--                    std_logic_vector(to_unsigned(4, ALU_OP_SIZE)) when "1100011", --Branch (B-type)
+--                    std_logic_vector(to_unsigned(5, ALU_OP_SIZE)) when "1101111", --Jump and Link (J-type)
+--                    std_logic_vector(to_unsigned(6, ALU_OP_SIZE)) when "1100111", --Jump and Link Reg (I-type)
+--                    std_logic_vector(to_unsigned(7, ALU_OP_SIZE)) when "0110111", --Load Upper Imm (U Type)
+--                    std_logic_vector(to_unsigned(8, ALU_OP_SIZE)) when others; --Use for halting?
 
 end dataflow;
