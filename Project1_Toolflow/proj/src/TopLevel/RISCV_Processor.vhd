@@ -138,6 +138,12 @@ architecture structure of RISCV_Processor is
   signal s_Control_Branch               : std_logic;
   signal s_Control_HaltProg             : std_logic;
 
+  component ImmediateExtender is
+    port(
+      i_instruction                     : in std_logic_vector(31 downto 0);
+      o_output                          : out std_logic_vector(31 downto 0)
+    );
+  end component;
 
   component mux2t1_N is
     generic(
@@ -151,9 +157,46 @@ architecture structure of RISCV_Processor is
     );
   end component;
 
+  component ALU_Control is
+    port(
+      i_Opcode                          : in std_logic_vector(6 downto 0);
+      i_Funct3                          : in std_logic_vector(2 downto 0);
+      i_Funct7                          : in std_logic_vector(6 downto 0);
+  
+      o_OutSel                          : out std_logic;
+      o_ModuleSelect                    : out std_logic_vector(1 downto 0);
+      o_OperationSelect                 : out std_logic_vector(1 downto 0)
+    );
+  end component;
+
+  component ALU is
+    port(
+        i_A                             : in std_logic_vector(31 downto 0);
+        i_B                             : in std_logic_vector(31 downto 0);
+        i_OutSel                        : in std_logic;
+        i_ModSel                        : in std_logic_vector(1 downto 0);
+        i_OppSel                        : in std_logic_vector(1 downto 0);
+
+        o_Result                        : out std_logic_vector(31 downto 0);
+        o_output                        : out std_logic_vector(31 downto 0);
+        f_ovflw                         : out std_logic;
+        f_zero                          : out std_logic;
+        f_negative                      : out std_logic
+    );
+  end component;
+  signal s_ALU_Operand1                 : std_logic_vector(DATA_WIDTH - 1 downto 0);
+  signal s_ALU_Operand2                 : std_logic_vector(DATA_WIDTH - 1 downto 0);
+  signal s_ALU_Result                   : std_logic_vector(DATA_WIDTH - 1 downto 0);
+  signal s_ALU_ModuleSelect             : std_logic_vector(1 downto 0);
+  signal s_ALU_OperationSelect          : std_logic_vector(1 downto 0);
+  signal f_ALU_Overflow                 : std_logic;
+  signal f_ALU_Zero                     : std_logic;
+  signal f_ALU_Negative                 : std_logic;
+
 
   signal s_ProgramCounterOut            : std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal s_StdNextInstAddr              : std_logic_vector(DATA_WIDTH - 1 downto 0);
+  signal s_ImmediateValue               : std_logic_vector(DATA_WIDTH - 1 downto 0);
 
 
 
@@ -247,6 +290,23 @@ begin
       HaltProg                          => s_Control_HaltProg
     );
 
+  g_ImmediateGeneration : ImmediateExtender
+    port map(
+      i_instruction                     => s_Instruction,
+      o_output                          => s_ImmediateValue
+    );
+
+  g_Mux_ALU_Operand2 : mux2t1_N
+    generic map(
+      N                                 => 32 -- Generic of type integer for input/output data width. Default value is 32.
+    )
+    port map(
+      i_S                               => s_Control_ALU_Src,
+      i_D0                              => s_RS2,
+      i_D1                              => s_ImmediateValue,
+      o_O                               => s_ALU_Operand2
+    );
+
   g_RegisterFile : RegFile
     port map(
       clock	                            => iCLK,
@@ -265,5 +325,42 @@ begin
   s_RegWr                               <= s_Control_Reg_WE;
   s_RegWrAddr                           <= s_Instruction(11 downto 7);
   s_RegWrData                           <= s_RD_Data;
+
+  g_ALUControl : ALU_Control
+    port map(
+      i_Opcode                          => s_Instruction(6  downto 0 ),
+      i_Funct3                          => s_Instruction(14 downto 12),
+      i_Funct7                          => s_Instruction(31 downto 25),
+
+      o_OutSel                          => open,
+      o_ModuleSelect                    => s_ALU_ModuleSelect,
+      o_OperationSelect                 => s_ALU_OperationSelect
+    );
+
+  g_ALU : ALU
+    port map(
+        i_A                             => s_ALU_Operand1,
+        i_B                             => s_ALU_Operand2,
+        i_OutSel                        => '0',
+        i_ModSel                        => s_ALU_ModuleSelect,
+        i_OppSel                        => s_ALU_OperationSelect,
+
+        o_Result                        => s_ALU_Result,
+        o_output                        => open,
+        f_ovflw                         => f_ALU_Overflow,
+        f_zero                          => f_ALU_Zero,
+        f_negative                      => f_ALU_Negative
+    );
+
+  g_RegisterDataSource : mux2t1_N
+    generic map(
+      N                                 => 32
+    )
+    port map(
+      i_S                               => s_Control_M,
+      i_D0                              => s_RS2,
+      i_D1                              => s_ImmediateValue,
+      o_O                               => s_ALU_Operand2
+    );
 
 end structure;
