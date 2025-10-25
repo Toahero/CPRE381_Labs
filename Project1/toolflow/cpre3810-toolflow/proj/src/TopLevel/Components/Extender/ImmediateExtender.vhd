@@ -89,7 +89,7 @@ begin
         '0' when s_oppCode = "1100011" else
 
         --U type Instructions
-        '0' when s_oppCode = "0110111" else --U type immediates are always extended with zeroes at the back
+        '0' when s_oppCode = "0110111" else --Since U type (upper) values will be bit shifted, simply zero extend
 
         --J type instructions
         '1' when (s_oppCode = "1101111" and (i_instruction(31) = '1')) else --j (jump) type immediates are always signed
@@ -108,7 +108,7 @@ begin
     s_iTypeOut <= s_iTypeExt & s_iTypeIn;
     s_sTypeOut <= s_sTypeExt & s_sTypeIn;
     s_bTypeOut <= s_bTypeExt & s_bTypeIn;
-    s_uTypeOut <= s_uTypeIn & s_uTypeExt; --U type are zero extended on the back
+    s_uTypeOut <= s_uTypeExt & s_uTypeIn; --U type are zero extended on the back
     s_jTypeOut <= s_jTypeExt & s_jTypeIn;
 
 
