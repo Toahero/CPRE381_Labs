@@ -80,7 +80,6 @@ architecture structure of RISCV_Processor is
   end component;
   signal s_SignExtendedDMEM             : std_logic_vector(31 downto 0);
 
-
   component InstructionAddressHolder is
       generic(
           ADDR_WIDTH : integer := 32

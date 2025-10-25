@@ -163,7 +163,7 @@ begin
         port map(
             i_S          => '0',
             i_D0         => i_B,
-            i_D1         => i_BOverride,
+            i_D1         => x"00000000",
             o_O          => s_Operand2
         );
 
