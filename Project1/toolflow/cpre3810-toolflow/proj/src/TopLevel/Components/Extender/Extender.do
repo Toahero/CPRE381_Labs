@@ -19,6 +19,21 @@ add wave -noupdate -divider "I type"
 add wave -noupdate  -label Immediate -radix decimal /tb_ImmediateExtender/ComponentUnderTest/s_iTypeIn
 add wave -noupdate  -label Immediate -radix decimal /tb_ImmediateExtender/ComponentUnderTest/s_iTypeOut
 
-add wave -noupdate -divider "s type"
-add wave -noupdate  -label Immediate -radix decimal /tb_ImmediateExtender/ComponentUnderTest/s_iTypeIn
-add wave -noupdate  -label Immediate -radix decimal /tb_ImmediateExtender/ComponentUnderTest/s_iTypeOut
+add wave -noupdate -divider "S type"
+add wave -noupdate  -label Immediate -radix decimal /tb_ImmediateExtender/ComponentUnderTest/s_STypeIn
+add wave -noupdate  -label Immediate -radix decimal /tb_ImmediateExtender/ComponentUnderTest/s_STypeOut
+
+add wave -noupdate -divider "b type"
+add wave -noupdate  -label Immediate -radix decimal /tb_ImmediateExtender/ComponentUnderTest/s_bTypeIn
+add wave -noupdate  -label Immediate -radix decimal /tb_ImmediateExtender/ComponentUnderTest/s_bTypeOut
+
+add wave -noupdate -divider "u type"
+add wave -noupdate  -label Immediate -radix decimal /tb_ImmediateExtender/ComponentUnderTest/s_uTypeIn
+add wave -noupdate  -label Immediate -radix decimal /tb_ImmediateExtender/ComponentUnderTest/s_uTypeOut
+
+add wave -noupdate -divider "j type"
+add wave -noupdate  -label Immediate -radix decimal /tb_ImmediateExtender/ComponentUnderTest/s_jTypeIn
+add wave -noupdate  -label Immediate -radix decimal /tb_ImmediateExtender/ComponentUnderTest/s_jTypeOut
+
+run 200
+wave zoom full
