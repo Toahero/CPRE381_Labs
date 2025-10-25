@@ -1,1 +1,1 @@
-proj/riscv/auipc_1.s
+proj/riscv/lb_2.s

@@ -308,6 +308,7 @@ begin
       HaltProg                          => s_Control_HaltProg
     );
   s_Halt                                <= s_Control_HaltProg;
+  s_DMemWr                              <= s_Control_Mem_We;
 
   g_ImmediateGeneration : ImmediateExtender
     port map(
@@ -344,6 +345,7 @@ begin
   s_RegWr                               <= s_Control_Reg_WE;
   s_RegWrAddr                           <= s_Instruction(11 downto 7);
   s_RegWrData                           <= s_RD_Data;
+  s_DMemData                            <= s_RS2;
 
   g_ALUControl : ALU_Control
     port map(
@@ -379,6 +381,7 @@ begin
         f_negative                      => f_ALU_Negative
     );
   oALUOut                               <= s_ALU_Result;
+  s_DMemAddr                            <= s_ALU_Result;
 
   g_RegisterDataSource : mux2t1_N
     generic map(
