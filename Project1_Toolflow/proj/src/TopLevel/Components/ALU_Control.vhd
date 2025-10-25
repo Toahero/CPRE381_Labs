@@ -22,7 +22,7 @@ begin
     o_OutSel <= '0';
 
     with i_Funct3 select
-        o_ModuleSelect      <=  "00" when FUNCT3_ADD,   -- FUNCT3_ADD, FUNCT3_SUB, FUNCT3_ADDI
+        o_ModuleSelect      <=  "00" when "000",   -- FUNCT3_ADD, FUNCT3_SUB, FUNCT3_ADDI
                                 "01" when FUNCT3_XOR,   -- FUNCT3_XOR, FUNCT3_XORI
                                 "01" when FUNCT3_OR,    -- FUNCT3_OR, FUNCT3_ORI
                                 "01" when FUNCT3_AND,   -- FUNCT3_AND, FUNCT3_ANDI

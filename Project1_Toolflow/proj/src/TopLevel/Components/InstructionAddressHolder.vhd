@@ -14,6 +14,7 @@ entity InstructionAddressHolder is
         i_Clock : in std_logic;
         i_Reset : in std_logic;
         i_NextInstructionAddress : in std_logic_vector((ADDR_WIDTH - 1) downto 0);
+        i_Halt : in std_logic;
 
         o_CurrentInstructionAddress : out std_logic_vector((ADDR_WIDTH - 1) downto 0)
     );
@@ -37,7 +38,7 @@ architecture behaviour of InstructionAddressHolder is
         );
     end component;
 
-    signal s_ResetValue : std_logic_vector(ADDR_WIDTH - 1 downto 0) := x"FFFFFFFC";
+    signal s_ResetValue : std_logic_vector(ADDR_WIDTH - 1 downto 0) := x"00000000";
     
 begin
 

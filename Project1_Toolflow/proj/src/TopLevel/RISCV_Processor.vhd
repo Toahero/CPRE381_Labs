@@ -78,6 +78,7 @@ architecture structure of RISCV_Processor is
           i_Clock                       : in  std_logic;
           i_Reset                       : in  std_logic;
           i_NextInstructionAddress      : in  std_logic_vector((ADDR_WIDTH - 1) downto 0);
+          i_Halt                        : in std_logic;
   
           o_CurrentInstructionAddress   : out std_logic_vector((ADDR_WIDTH - 1) downto 0)
       );
@@ -256,9 +257,8 @@ begin
   -- TODO: Ensure that s_Ovfl is connected to the overflow output of your ALU
 
   -- TODO: Implement the rest of your processor below this comment!
-  
-  s_NextInstAddr                        <= s_StdNextInstAddr;
-  s_Inst                                <= s_ProgramCounterOut;
+
+  s_NextInstAddr                        <= s_ProgramCounterOut;
 
   g_ProgramCounter : InstructionAddressHolder
       generic map(
@@ -268,11 +268,12 @@ begin
           i_Clock                       => iCLK,
           i_Reset                       => iRST,
           i_NextInstructionAddress      => s_StdNextInstAddr,
+          i_Halt                        => s_Halt,
 
           o_CurrentInstructionAddress   => s_ProgramCounterOut
       );
 
-  g_ProgramCounterConstAdder :  AddSub
+  g_ProgramCounterConstAdder : AddSub
       generic map(
           WIDTH                         => 32
       )
@@ -296,6 +297,7 @@ begin
       Branch                            => s_Control_Branch,
       HaltProg                          => s_Control_HaltProg
     );
+  s_Halt                                <= s_Control_HaltProg;
 
   g_ImmediateGeneration : ImmediateExtender
     port map(
@@ -327,7 +329,7 @@ begin
 
       WrEn	                            => s_Control_Reg_We,
       RdSel	                            => s_RegWrAddr,
-      Rd                                => s_RegWrData
+      Rd                                => s_RD_Data
     );
   s_RegWr                               <= s_Control_Reg_WE;
   s_RegWrAddr                           <= s_Instruction(11 downto 7);
@@ -344,6 +346,7 @@ begin
       o_OperationSelect                 => s_ALU_OperationSelect
     );
 
+  s_ALU_Operand1                        <= s_RS1;
   g_ALU : ALU
     port map(
         i_A                             => s_ALU_Operand1,
@@ -352,12 +355,13 @@ begin
         i_ModSel                        => s_ALU_ModuleSelect,
         i_OppSel                        => s_ALU_OperationSelect,
 
-        o_Result                        => s_ALU_Result,
-        o_output                        => open,
+        o_Result                        => open,
+        o_output                        => s_ALU_Result,
         f_ovflw                         => f_ALU_Overflow,
         f_zero                          => f_ALU_Zero,
         f_negative                      => f_ALU_Negative
     );
+  oALUOut                               <= s_ALU_Result;
 
   g_RegisterDataSource : mux2t1_N
     generic map(
@@ -367,7 +371,7 @@ begin
       i_S                               => s_Control_MemToReg,
       i_D0                              => s_ALU_Result,
       i_D1                              => s_DataMemory,
-      o_O                               => s_RegWrData
+      o_O                               => s_RD_Data
     );
 
 end structure;
