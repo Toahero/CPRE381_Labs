@@ -131,7 +131,7 @@ begin
             Comp_Width      => 32
         )
         port map(
-            nAdd_Sub    => '0',
+            nAdd_Sub    => i_OppSel(0),
             i_A		    => i_A,
             i_B		    => i_B,
             o_overflow	=> s_Flag_AddSub_Overflow,

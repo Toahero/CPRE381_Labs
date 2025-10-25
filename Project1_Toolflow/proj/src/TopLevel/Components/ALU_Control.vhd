@@ -23,18 +23,15 @@ begin
 
     with i_Funct3 select
         o_ModuleSelect      <=  "00" when "000",   -- FUNCT3_ADD, FUNCT3_SUB, FUNCT3_ADDI
-                                "01" when FUNCT3_XOR,   -- FUNCT3_XOR, FUNCT3_XORI
-                                "01" when FUNCT3_OR,    -- FUNCT3_OR, FUNCT3_ORI
-                                "01" when FUNCT3_AND,   -- FUNCT3_AND, FUNCT3_ANDI
-                                "10" when FUNCT3_SLL,   -- FUNCT3_SLL, FUNCT3_SLLI
-                                "10" when FUNCT3_SRL,   -- FUNCT3_SRL, FUNCT3_SRA, FUNCT3_SRLI, FUNCT3_SRAI
+                                "01" when "100",   -- FUNCT3_XOR, FUNCT3_XORI
+                                "01" when "110",    -- FUNCT3_OR, FUNCT3_ORI
+                                "01" when "111",   -- FUNCT3_AND, FUNCT3_ANDI
+                                "10" when "001",   -- FUNCT3_SLL, FUNCT3_SLLI
+                                "10" when "101",   -- FUNCT3_SRL, FUNCT3_SRA, FUNCT3_SRLI, FUNCT3_SRAI
                                 "XX" when others;
     
-    o_OperationSelect       <=  "01" when i_Funct7 = FUNCT7_SUB    else
-                                "01" when i_Funct3 = FUNCT3_SLL    else
-                                "01" when i_Funct3 = FUNCT3_SLLI   else
-                                "10" when i_Funct7 = FUNCT7_SRA    else
-                                "10" when i_Funct7 = FUNCT7_SRAI   else
-                                (others => 'X');
+    o_OperationSelect       <=  "01" when i_Funct7 = "0100000"    else
+                                "01" when i_Funct3 = "001"        else
+                                (others => '0');
 
 end behaviour;
