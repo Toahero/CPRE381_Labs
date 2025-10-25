@@ -22,7 +22,7 @@ entity bitExtender20t32 is
 		o_32bit	: out std_logic_vector(31 downto 0));
 end bitExtender20t32;
 
-architecture dataflow of bitExtender16t32 is
+architecture dataflow of bitExtender20t32 is
 signal extendVal: std_logic_vector(11 downto 0);
 
 begin

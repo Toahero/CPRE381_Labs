@@ -2,11 +2,13 @@
 work/
 
 # Simulation files
-*.ini
 *.opt
 *.wlf
 *.bak
 *.nfs*
+*.log
+*.trace
+*.dbg
 
 # Temporary simulation files
 wlft*

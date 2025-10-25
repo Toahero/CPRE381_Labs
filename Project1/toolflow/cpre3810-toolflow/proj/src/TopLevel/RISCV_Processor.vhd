@@ -32,7 +32,6 @@ entity RISCV_Processor is
 
 end  RISCV_Processor;
 
-
 architecture structure of RISCV_Processor is
 
   -- Required data memory signals
@@ -83,8 +82,8 @@ component ControlUnit is
         MemToReg    : out std_logic; --Write a memory value into a register
         Reg_WE      : out std_logic;
         Branch      : out std_logic;
-        HaltProg    : out std_logic;
-        ALU_OP      : out std_logic_vector(ALU_OP_SIZE-1 downto 0));
+        HaltProg    : out std_logic);
+        -- ALU_OP      : out std_logic_vector(ALU_OP_SIZE-1 downto 0));
 
 end component;
 
@@ -118,8 +117,6 @@ Component ALU_Control is
     );
 end component;
 
-
-
 component RegFile is
     port(	clock	: in std_logic;
         reset	: in std_logic;
@@ -148,6 +145,19 @@ component BitExtender20t32
 		i_20bit	: in std_logic_vector(19 downto 0);
 		o_32bit	: out std_logic_vector(31 downto 0));
 end component;
+
+component BitExtender is
+    generic(
+        INPUT_WIDTH : integer := 12;
+        OUTPUT_WIDTH : integer := 32
+    );
+    port(
+        f_SignExtend : in std_logic;
+        i_Input : in std_logic_vector(INPUT_WIDTH - 1 downto 0);
+        o_Output : out std_logic_vector(OUTPUT_WIDTH - 1 downto 0)
+    );
+end component;
+
 
 --Program Counter
 component ProgramCounterSimple is
@@ -182,16 +192,32 @@ end component;
 
 
 --Signals
+--RISCV Standard Signals
+signal s_funct7 : std_logic_vector(6 downto 0);
+signal s_RS2Addr  : std_logic_vector(4 downto 0);
+signal s_RS1Addr  : std_logic_vector(4 downto 0);
+signal s_funct3   : std_logic_vector(2 downto 0);
+signal s_OppCode  : std_logic_vector(6 downto 0);
+
+signal s_iImm     : std_logic_vector(11 downto 0);
+signal s_sbImm1    : std_logic_vector(6 downto 0);
+signal s_sbImm2    : std_logic_vector(4 downto 0);
+signal s_ujImm     : std_logic_vector(19 downto 0);
+
+--Extended immediate signals
+signal s_iImmExt    : std_logic_vector(DATA_WIDTH-1 downto 0);
+signal s_sbImm1Ext  : std_logic_vector(DATA_WIDTH-1 downto 0);
+signal s_sbImm2Ext  : std_logic_vector(DATA_WIDTH-1 downto 0);
+signal s_ujImmExt   : std_logic_vector(DATA_WIDTH-1 downto 0);
+
   --Control
 signal s_ALU_Src  : std_logic;
 signal s_Jump     : std_logic;
 signal s_memToReg : std_logic;
 signal s_branchEn : std_logic;
-signal s_ALU_OP   : std_logic_vector(3 downto 0);
+--signal s_ALU_OP   : std_logic_vector(3 downto 0);
   --Register
-signal s_RS1Addr  : std_logic_vector(4 downto 0);
 signal s_RS1Data  : std_logic_vector(DATA_WIDTH-1 downto 0);
-signal s_RS2Addr  : std_logic_vector(4 downto 0);
 signal s_RS2Data  : std_logic_vector(DATA_WIDTH-1 downto 0);
 
   --B value Mux
@@ -214,7 +240,7 @@ signal s_FlagZero   : std_logic;
 signal s_FlagNeg    : std_logic;
 signal s_Flag_Ovflw  : std_logic;
 
-begin
+begin                                       -- Begin --
 
   -- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory. If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be all zeros.
   with iInstLd select
@@ -245,7 +271,19 @@ begin
 
   -- TODO: Implement the rest of your processor below this comment! 
 
+    s_funct7    <= s_Inst(31 downto 25);
+    s_RS2Addr   <= s_Inst(24 downto 20);
+    s_RS1Addr   <= s_Inst(19 downto 15);
+    s_funct3    <= s_Inst(14 downto 12);
+    s_RegWrAddr <= s_Inst(11 downto 7);
+    s_OppCode   <= s_Inst(6 downto 0);
 
+    s_iImm      <= s_Inst(31 downto 20);
+    s_sbImm1     <= s_Inst(31 downto 25);
+    s_sbImm2     <= s_Inst(11 downto 7);
+    s_ujImm     <= s_Inst(31 downto 12);
+
+    
   --Fetch Components
   --Program Counter
   ProgramCounter: ProgramCounterSimple
@@ -259,7 +297,7 @@ begin
   DECODER: BranchDecoder
     port map(
         i_branchEn  => s_branchEn,
-        i_funct3    => s_Inst(14 downto 12),
+        i_funct3    => s_funct3,
         i_FlagZero  => s_FlagZero,
         i_FlagNeg   => s_FlagNeg,
         o_branch    => s_BranchCode);
@@ -277,15 +315,15 @@ begin
   Control : ControlUnit
     generic map (ALU_OP_SIZE => 4)
     port map(
-        opCode      => s_Inst(6 downto 0),
+        opCode      => s_OppCode,
         ALU_Src     => s_ALU_Src,
         Mem_We      => s_DMemWr,
         Jump        => s_Jump,
         MemToReg    => s_memToReg, --Write a memory value into a register
         Reg_WE      => s_RegWr,
         Branch      => s_branchEn,
-        HaltProg    => s_Halt,
-        ALU_OP      => s_ALU_OP
+        HaltProg    => s_Halt
+        --ALU_OP      => s_ALU_OP
     );
 
     ALU_Module : ALU
@@ -303,8 +341,8 @@ begin
 
     ALU_Control_Module: ALU_Control
       port map(
-        i_Funct3  => s_Inst(14 downto 12),
-        i_Funct7  => s_Inst(31 downto 25),
+        i_Funct3  => s_funct3,
+        i_Funct7  => s_funct7,
         o_OutSel  => s_OutSel,
         o_ModuleSelect => s_ModSel,
         o_OperationSelect => s_OppSel
@@ -325,7 +363,7 @@ begin
       Rd      => s_RegWrData
     );
 
-  ImmExtender:  bitExtender20t32
+  UJImmExtender:  BitExtender20t32
     port map(
       i_sw  => s_Inst(DATA_WIDTH - 1),
       i_20bit => s_Inst(DATA_WIDTH-1 downto 12),
@@ -333,7 +371,7 @@ begin
     );
 
   bValMux:  mux2t1_N
-    generic map(N => DATA_WIDTH-1)  
+    generic map(N => DATA_WIDTH)  
     port map(
       i_S => s_ALU_Src,
       i_D0 => s_RS2Data,
@@ -342,10 +380,10 @@ begin
     );
 
   DestMux: mux2t1_N
-      generic map(N => DATA_WIDTH-1)
+      generic map(N => DATA_WIDTH)
       port map(
         i_S => s_memToReg,
-        i_D0 => s_DMemAddr,
+        i_D0 => s_ALU_Out,
         i_D1 => s_DmemOut,
         o_O => s_RegWrData
       );

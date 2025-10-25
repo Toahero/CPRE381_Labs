@@ -18,7 +18,7 @@ add wave -noupdate  -label Write_Enable  /tb_RegFile/s_WrEn
 add wave -noupdate -label Rd_Select -radix unsigned  /tb_RegFile/s_RdSel
 add wave -noupdate -label Rd -radix decimal   /tb_RegFile/s_Rd
 
-#Add Internal Signals
+# Add Internal Signals
 add wave -noupdate -label s_WrEn /tb_RegFile/g_REGFILE/s_WrEn
 add wave -noupdate -label Registers -radix decimal /tb_RegFile/g_REGFILE/s_ReadAr
 
