@@ -1,1 +1,1 @@
-proj/riscv/lb_2.s
+proj/riscv/xor_0.s

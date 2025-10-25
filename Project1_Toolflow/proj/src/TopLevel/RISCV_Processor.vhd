@@ -70,6 +70,17 @@ architecture structure of RISCV_Processor is
   -- TODO: You may add any additional signals or components your implementation 
   --       requires below this comment
 
+  component DMEMSignExtender is
+    port(
+      i_Data                            : in std_logic_vector(31 downto 0);
+      i_Funct3                          : in std_logic_vector(2 downto 0);
+
+      o_SignExtendedDMEM                : out std_logic_vector(31 downto 0)
+    );
+  end component;
+  signal s_SignExtendedDMEM             : std_logic_vector(31 downto 0);
+
+
   component InstructionAddressHolder is
       generic(
           ADDR_WIDTH : integer := 32
@@ -268,6 +279,14 @@ begin
 
   -- TODO: Implement the rest of your processor below this comment!
 
+  g_DMEMSignExtender : DMEMSignExtender
+    port map(
+      i_Data                            => s_DataMemory,
+      i_Funct3                          => s_Instruction(14 downto 12),
+
+      o_SignExtendedDMEM                => s_SignExtendedDMEM
+    );
+
   s_NextInstAddr                        <= s_ProgramCounterOut;
 
   g_ProgramCounter : InstructionAddressHolder
@@ -390,7 +409,7 @@ begin
     port map(
       i_S                               => s_Control_MemToReg,
       i_D0                              => s_ALU_Result,
-      i_D1                              => s_DataMemory,
+      i_D1                              => s_SignExtendedDMEM,
       o_O                               => s_RD_Data
     );
 

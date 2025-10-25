@@ -161,7 +161,7 @@ begin
             N            => 32
         )
         port map(
-            i_S          => i_BOverrideEnable,
+            i_S          => '0',
             i_D0         => i_B,
             i_D1         => i_BOverride,
             o_O          => s_Operand2
