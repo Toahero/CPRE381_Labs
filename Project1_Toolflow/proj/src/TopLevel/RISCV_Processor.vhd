@@ -209,6 +209,7 @@ architecture structure of RISCV_Processor is
     );
   end component;
   signal s_Instruction          : std_logic_vector(DATA_WIDTH - 1 downto 0);
+  signal s_DataMemory           : std_logic_vector(DATA_WIDTH - 1 downto 0);
 
 begin
 
@@ -221,7 +222,7 @@ begin
   -- The output of the Instruction Memory doesn't work as expected,
   -- 0's output fine, but 1's output as 'X'. This component turns
   -- anything other than '0' into '1', be it 'X', 'U', or anything else.
-    g_Hack : HACK
+    g_ImemHack : HACK
         port map(
             input_vec                   => s_Inst,
             output_vec                  => s_Instruction
@@ -236,6 +237,12 @@ begin
              we   => iInstLd,
              q    => s_Inst);
   
+    g_DmemHack : HACK
+        port map(
+            input_vec                   => s_DMemOut,
+            output_vec                  => s_DataMemory
+        );
+
   DMem: mem
     generic map(ADDR_WIDTH => ADDR_WIDTH,
                 DATA_WIDTH => N)
@@ -357,10 +364,10 @@ begin
       N                                 => 32
     )
     port map(
-      i_S                               => s_Control_M,
-      i_D0                              => s_RS2,
-      i_D1                              => s_ImmediateValue,
-      o_O                               => s_ALU_Operand2
+      i_S                               => s_Control_MemToReg,
+      i_D0                              => s_ALU_Result,
+      i_D1                              => s_DataMemory,
+      o_O                               => s_RegWrData
     );
 
 end structure;
