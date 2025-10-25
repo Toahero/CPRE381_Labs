@@ -8,6 +8,8 @@
 
 clear
 
+export SALT_LICENSE_SERVER="1717@io.ece.iastate.edu"
+
 PYTHON3_VDI=/usr/local/mentor/calibre/bin/python3
 PYTHON3_LAB=/bin/python3
 
