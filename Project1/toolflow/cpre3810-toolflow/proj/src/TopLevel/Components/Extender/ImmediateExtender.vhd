@@ -70,7 +70,7 @@ begin
     --Set the extension bit
     extBit <=   
         --standard I type instructions
-        '0' when ((s_oppCode = "0010011") and (i_funct3 = "011")) else --sltiu function
+        '0' when ((s_oppCode = "0010011") and (s_funct3 = "011")) else --sltiu function
         '1' when ((s_oppCode = "0010011") and (i_instruction(31) = '1')) else --All other standard I types are sign extended
         '0' when s_oppCode = "0010011" else
 
