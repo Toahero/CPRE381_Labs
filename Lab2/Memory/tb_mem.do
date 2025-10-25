@@ -1,6 +1,6 @@
 #tb_mem.do
-mem load -infile dmem.hex -format hex /tb_dmem/dmem/ram
-
+#mem load -infile dmem.hex -format hex /tb_dmem/dmem/ram
+quit -sim
 # compile all code in src folder
 vcom -2008 *.vhd
 
@@ -23,9 +23,9 @@ add wave -noupdate -label q -radix decimal /tb_dmem/s_q
 add wave -noupdate -divider "Internal Signals"
 
 #Uncomment to display all datapath signals
-add wave -noupdate -radix decimal /tb_dmem/dmem/*
+add wave -noupdate -radix decimal /tb_dmem/dmem/ram
 
-mem load -infile dmem.hex -format hex /tb_dmem/dmem/ram
+mem load -infile imem.hex -format hex /tb_dmem/dmem/ram
 
 run 500
 
