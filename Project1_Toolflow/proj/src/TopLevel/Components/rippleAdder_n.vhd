@@ -34,13 +34,15 @@ end rippleAdder_n;
 architecture structural of rippleAdder_n is
 
 	--Full Adder
-	component fulladder is
-		Port(   i_X	: in std_logic;
-			i_Y	: in std_logic;
-			i_Cin	: in std_logic;
+	component FullAdder is
+    port(
+        i_A : in std_logic;
+        i_B : in std_logic;
+        i_C : in std_logic;
 
-			o_S	: out std_logic;
-			o_Cout	: out std_logic);
+        o_S : out std_logic;
+        o_C : out std_logic
+    );
 	end component;
 
 	component xorg2 is
@@ -56,12 +58,12 @@ G_NBit_RipAdder:
 
 for i in 0 to N-1 generate
 	ADDI: fulladder port map(
-		i_X	=> i_A(i),
-		i_Y	=> i_B(i),
-		i_Cin	=> w_Carry(i),
+		i_A	=> i_A(i),
+		i_B	=> i_B(i),
+		i_C	=> w_Carry(i),
 
 		o_S	=> o_Sum(i),
-		o_Cout	=> w_Carry(i+1));
+		o_C	=> w_Carry(i+1));
 	end generate G_NBit_RipAdder
 	;
 
