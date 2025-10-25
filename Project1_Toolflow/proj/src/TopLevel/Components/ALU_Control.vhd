@@ -39,9 +39,13 @@ begin
                             "10" when i_Funct3 = "101" else   -- FUNCT3_SRL, FUNCT3_SRA, FUNCT3_SRLI, FUNCT3_SRAI
                             "00";
     
-    o_OperationSelect       <=  "01" when i_Funct7 = "0100000"    else -- FUNCT7_SUB, FUNCT7_SRA, FUNCT7_SRAI
-                                "01" when i_Funct3 = "001"        else -- FUNCT3_SLL, FUNCT3_SLLI
-                                "10" when i_Funct3 = "100"        else
-                                (others => '0');
+    o_OperationSelect   <=  "01" when i_Funct7 = "0100000"  and i_Opcode = "0110011"    else -- FUNCT7_SUB, FUNCT7_SRA, FUNCT7_SRAI
+                            "01" when i_Funct3 = "001"      and i_Opcode = "0110011"     else -- FUNCT3_SLL, FUNCT3_SLLI
+                            "01" when i_Funct3 = "110"      and i_Opcode = "0110011" else
+                            "01" when i_Funct3 = "110"      and i_Opcode = "0010011" else
+                            "01" when i_Funct3 = "101"      and i_Funct7(5) and i_Opcode = "0010011" else
+                            "00" when i_Funct3 = "101"      and i_Opcode = "0010011" else
+                            "10" when i_Funct3 = "100"      else
+                            (others => '0');
 
 end behaviour;

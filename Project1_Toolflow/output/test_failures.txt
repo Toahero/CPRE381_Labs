@@ -1,1 +1,1 @@
-proj/riscv/xori_3.s
+proj/riscv/srl1.s
