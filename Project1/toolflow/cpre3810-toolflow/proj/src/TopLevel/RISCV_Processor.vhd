@@ -117,8 +117,6 @@ Component ALU_Control is
     );
 end component;
 
-
-
 component RegFile is
     port(	clock	: in std_logic;
         reset	: in std_logic;
@@ -147,6 +145,19 @@ component BitExtender20t32
 		i_20bit	: in std_logic_vector(19 downto 0);
 		o_32bit	: out std_logic_vector(31 downto 0));
 end component;
+
+component BitExtender is
+    generic(
+        INPUT_WIDTH : integer := 12;
+        OUTPUT_WIDTH : integer := 32
+    );
+    port(
+        f_SignExtend : in std_logic;
+        i_Input : in std_logic_vector(INPUT_WIDTH - 1 downto 0);
+        o_Output : out std_logic_vector(OUTPUT_WIDTH - 1 downto 0)
+    );
+end component;
+
 
 --Program Counter
 component ProgramCounterSimple is
@@ -229,7 +240,7 @@ signal s_FlagZero   : std_logic;
 signal s_FlagNeg    : std_logic;
 signal s_Flag_Ovflw  : std_logic;
 
-begin
+begin                                       -- Begin --
 
   -- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory. If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be all zeros.
   with iInstLd select
@@ -273,7 +284,6 @@ begin
     s_ujImm     <= s_Inst(31 downto 12);
 
     
-
   --Fetch Components
   --Program Counter
   ProgramCounter: ProgramCounterSimple

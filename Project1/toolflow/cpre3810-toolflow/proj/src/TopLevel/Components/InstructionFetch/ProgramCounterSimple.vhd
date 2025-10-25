@@ -41,12 +41,14 @@ architecture mixed of ProgramCounterSimple is
 begin
     s_NotHalt <= not i_halt;
 
+    o_CurrInst <= x"00000000";
+
     PC_REG: PC_nBitRegister
         generic map(Reg_Size => ADD_SIZE)
         port map(   i_CLK   => i_CLK,
                     i_reset => i_RST,
                     i_WrEn  => s_NotHalt,
                     i_write => i_NextInst,
-                    o_read  => o_CurrInst);
+                    o_read  => open);
 
 end mixed;

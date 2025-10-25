@@ -8,7 +8,7 @@ use IEEE.numeric_std.all;
 
 entity InstructionAddressHolder is
     generic(
-        ADDR_WIDTH : integer := 12
+        ADDR_WIDTH : integer := 32
     );
     port(
         i_Clock : in std_logic;
@@ -49,7 +49,7 @@ begin
             i_Clock => i_Clock,
             i_Operation => '1',
             i_Reset => i_Reset,
-            i_ResetValue => x"800",
+            i_ResetValue => x"00000000",
 
             i_Data => i_NextInstructionAddress,
             o_Out => o_CurrentInstructionAddress

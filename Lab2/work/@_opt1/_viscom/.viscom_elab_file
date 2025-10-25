@@ -1,1 +1,0 @@
-/usr/local/mentor/questasim/linux_x86_64/VisualizerRls/bin/viscom -nolock -quiet -jmem_size 19169568 work.tb_datapath2 -quiet -auto_acc_if_foreign -work work +acc -allow_unnamed -o _opt1 -id 1-000ae431a4f1-68d6d3d2-d8f35-97a9 +__betafsm
