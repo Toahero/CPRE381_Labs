@@ -37,8 +37,8 @@ begin
                                 "10" when "101",   -- FUNCT3_SRL, FUNCT3_SRA, FUNCT3_SRLI, FUNCT3_SRAI
                                 "00" when others;
     
-    o_OperationSelect       <=  "01" when i_Funct7 = "0100000"    else
-                                "01" when i_Funct3 = "001"        else
+    o_OperationSelect       <=  "01" when i_Funct7 = "0100000"    else -- FUNCT7_SUB, FUNCT7_SRA, FUNCT7_SRAI
+                                "01" when i_Funct3 = "001"        else -- FUNCT3_SLL, FUNCT3_SLLI
                                 (others => '0');
 
 end behaviour;
