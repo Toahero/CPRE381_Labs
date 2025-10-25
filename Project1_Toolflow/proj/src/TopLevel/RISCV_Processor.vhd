@@ -160,13 +160,15 @@ architecture structure of RISCV_Processor is
 
   component ALU_Control is
     port(
-      i_Opcode                          : in std_logic_vector(6 downto 0);
-      i_Funct3                          : in std_logic_vector(2 downto 0);
-      i_Funct7                          : in std_logic_vector(6 downto 0);
-  
-      o_OutSel                          : out std_logic;
-      o_ModuleSelect                    : out std_logic_vector(1 downto 0);
-      o_OperationSelect                 : out std_logic_vector(1 downto 0)
+      i_Opcode : in std_logic_vector(6 downto 0);
+      i_Funct3 : in std_logic_vector(2 downto 0);
+      i_Funct7 : in std_logic_vector(6 downto 0);
+      i_PCAddr : in std_logic_vector(31 downto 0);
+
+      o_aOverride : out std_logic;
+      o_OvrValue  : out std_logic_vector(31 downto 0);
+      o_ModuleSelect : out std_logic_vector(1 downto 0);
+      o_OperationSelect : out std_logic_vector(1 downto 0)
     );
   end component;
 
@@ -174,6 +176,10 @@ architecture structure of RISCV_Processor is
     port(
         i_A                             : in std_logic_vector(31 downto 0);
         i_B                             : in std_logic_vector(31 downto 0);
+        i_AOverride                     : in std_logic_vector(31 downto 0);
+        i_BOverride                     : in std_logic_vector(31 downto 0);
+        i_AOverrideEnable               : in std_logic;
+        i_BOverrideEnable               : in std_logic;
         i_OutSel                        : in std_logic;
         i_ModSel                        : in std_logic_vector(1 downto 0);
         i_OppSel                        : in std_logic_vector(1 downto 0);
@@ -187,6 +193,10 @@ architecture structure of RISCV_Processor is
   end component;
   signal s_ALU_Operand1                 : std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal s_ALU_Operand2                 : std_logic_vector(DATA_WIDTH - 1 downto 0);
+  signal s_AOverride                    : std_logic_vector(DATA_WIDTH - 1 downto 0);
+  signal s_BOverride                    : std_logic_vector(DATA_WIDTH - 1 downto 0);
+  signal s_AOverrideEnable              : std_logic;
+  signal s_BOverrideEnable              : std_logic;
   signal s_ALU_Result                   : std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal s_ALU_ModuleSelect             : std_logic_vector(1 downto 0);
   signal s_ALU_OperationSelect          : std_logic_vector(1 downto 0);
@@ -340,8 +350,10 @@ begin
       i_Opcode                          => s_Instruction(6  downto 0 ),
       i_Funct3                          => s_Instruction(14 downto 12),
       i_Funct7                          => s_Instruction(31 downto 25),
+      i_PCAddr                          => s_ProgramCounterOut,
 
-      o_OutSel                          => open,
+      o_aOverride                       => s_AOverrideEnable,
+      o_OvrValue                        => s_AOverride,
       o_ModuleSelect                    => s_ALU_ModuleSelect,
       o_OperationSelect                 => s_ALU_OperationSelect
     );
@@ -351,6 +363,11 @@ begin
     port map(
         i_A                             => s_ALU_Operand1,
         i_B                             => s_ALU_Operand2,
+        i_AOverride                     => s_AOverride,
+        i_BOverride                     => x"00000000",
+        i_AOverrideEnable               => s_AOverrideEnable,
+        i_BOverrideEnable               => '0',
+
         i_OutSel                        => '0',
         i_ModSel                        => s_ALU_ModuleSelect,
         i_OppSel                        => s_ALU_OperationSelect,

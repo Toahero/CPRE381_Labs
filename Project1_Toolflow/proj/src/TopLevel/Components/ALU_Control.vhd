@@ -28,14 +28,16 @@ begin
     o_OvrValue  <=  i_PCAddr when "0010111", --auipc function
                     x"00000000" when others;
 
-    with i_Funct3 select
-        o_ModuleSelect      <=  "00" when "000",   -- FUNCT3_ADD, FUNCT3_SUB, FUNCT3_ADDI
-                                "01" when "100",   -- FUNCT3_XOR, FUNCT3_XORI
-                                "01" when "110",    -- FUNCT3_OR, FUNCT3_ORI
-                                "01" when "111",   -- FUNCT3_AND, FUNCT3_ANDI
-                                "10" when "001",   -- FUNCT3_SLL, FUNCT3_SLLI
-                                "10" when "101",   -- FUNCT3_SRL, FUNCT3_SRA, FUNCT3_SRLI, FUNCT3_SRAI
-                                "00" when others;
+    
+    o_ModuleSelect      <=  "00" when i_Opcode = "0110111" else -- LUI
+                            "00" when i_Opcode = "0010111" else -- LUI
+                            "00" when i_Funct3 = "000" else   -- FUNCT3_ADD, FUNCT3_SUB, FUNCT3_ADDI
+                            "01" when i_Funct3 = "100" else   -- FUNCT3_XOR, FUNCT3_XORI
+                            "01" when i_Funct3 = "110" else    -- FUNCT3_OR, FUNCT3_ORI
+                            "01" when i_Funct3 = "111" else   -- FUNCT3_AND, FUNCT3_ANDI
+                            "10" when i_Funct3 = "001" else   -- FUNCT3_SLL, FUNCT3_SLLI
+                            "10" when i_Funct3 = "101" else   -- FUNCT3_SRL, FUNCT3_SRA, FUNCT3_SRLI, FUNCT3_SRAI
+                            "00";
     
     o_OperationSelect       <=  "01" when i_Funct7 = "0100000"    else -- FUNCT7_SUB, FUNCT7_SRA, FUNCT7_SRAI
                                 "01" when i_Funct3 = "001"        else -- FUNCT3_SLL, FUNCT3_SLLI
