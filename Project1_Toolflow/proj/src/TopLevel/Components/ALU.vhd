@@ -7,6 +7,11 @@ entity ALU is
         i_A : in std_logic_vector(31 downto 0);
         i_B : in std_logic_vector(31 downto 0);
 
+        i_AOverride : in std_logic_vector(31 downto 0);
+        i_BOverride : in std_logic_vector(31 downto 0);
+        i_AOverrideEnable : in std_logic;
+        i_BOverrideEnable : in std_logic;
+
         i_OutSel : in std_logic;
         i_ModSel : in std_logic_vector(1 downto 0);
 
@@ -111,6 +116,17 @@ architecture behaviour of ALU is
         );
     end component;
 
+    entity mux2t1_N is
+        generic(N : integer := 16); -- Generic of type integer for input/output data width. Default value is 32.
+        port(
+            i_S          : in std_logic;
+            i_D0         : in std_logic_vector(N-1 downto 0);
+            i_D1         : in std_logic_vector(N-1 downto 0);
+            o_O          : out std_logic_vector(N-1 downto 0)
+        );    
+    end;
+
+
     signal s_AddSubOutput           : std_logic_vector(31 downto 0);
     signal s_BarrelShifterOutput    : std_logic_vector(31 downto 0);
     signal s_LogicOutput            : std_logic_vector(31 downto 0);
@@ -121,10 +137,36 @@ architecture behaviour of ALU is
 
     signal s_Flag_Overflow : std_logic;
 
+    signal s_Operand1 : std_logic_vector(31 downto 0);
+    signal s_Operand2 : std_logic_vector(31 downto 0);
+
 begin
 
     f_ovflw <= s_Flag_Overflow;
     o_Output <= s_ALU_Output;
+
+    g_ASource : mux2t1_N
+        generic map(
+            N : integer := 16
+        )
+        port map(
+            i_S          : i_AOverrideEnable,
+            i_D0         : i_A,
+            i_D1         : i_AOverride,
+            o_O          : s_Operand1
+        );
+
+    g_BSource : mux2t1_N
+        generic map(
+            N : integer := 16
+        )
+        port map(
+            i_S          : i_BOverrideEnable,
+            i_D0         : i_B,
+            i_D1         : i_BOverride,
+            o_O          : s_Operand2
+        );
+
 
     g_AddSub : addSub_n
         generic map(
@@ -132,8 +174,8 @@ begin
         )
         port map(
             nAdd_Sub    => i_OppSel(0),
-            i_A		    => i_A,
-            i_B		    => i_B,
+            i_A		    => s_Operand1,
+            i_B		    => s_Operand2,
             o_overflow	=> s_Flag_AddSub_Overflow,
             o_Sum		=> s_AddSubOutput
         );
