@@ -64,8 +64,8 @@ begin
     
     s_uTypeIn     <= i_instruction(31 downto 12);
 
-    s_jTypeIn     <= i_instruction(31) & i_instruction(18 downto 12) & i_instruction(19) & i_instruction(30 downto 20) & "0";
-
+    --s_jTypeIn     <= i_instruction(31) & i_instruction(18 downto 12) & i_instruction(19) & i_instruction(30 downto 20) & "0";
+    s_jTypeIn     <= i_instruction(31) & i_instruction(19 downto 12) & i_instruction(30 downto 20) & "0";
 
     --Set the extension bit
     extBit <=   --standard I type instructions

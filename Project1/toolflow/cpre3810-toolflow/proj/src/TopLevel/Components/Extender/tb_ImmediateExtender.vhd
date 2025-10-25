@@ -73,7 +73,9 @@ wait for gCLK_HPER;
 s_instruction <= x"FE211CE3";
 wait for gCLK_HPER;
 
-
+--Instruction 6: jal x2, -18 Imm = -18
+s_instruction <= x"FEFFF16F";
+wait for gCLK_HPER;
     wait;
     end process;
 end testbed;
