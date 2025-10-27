@@ -1,3 +1,5 @@
+-- Fully Documented
+
 -------------------------------------------------------------------------
 -- Henry Duwe
 -- Department of Electrical and Computer Engineering

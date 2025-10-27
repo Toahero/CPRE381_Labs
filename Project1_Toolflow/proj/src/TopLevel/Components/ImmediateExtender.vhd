@@ -65,12 +65,14 @@ begin
     s_uTypeIn     <= i_instruction(31 downto 12);
 
     --s_jTypeIn     <= i_instruction(31) & i_instruction(18 downto 12) & i_instruction(19) & i_instruction(30 downto 20) & "0";
-    s_jTypeIn     <= i_instruction(31) & i_instruction(19 downto 12) & i_instruction(30 downto 20) & "0";
+    s_jTypeIn     <= i_instruction(31) &  i_instruction(19 downto 12) & i_instruction(20) &  i_instruction(30 downto 21) &  "0";
 
     --Set the extension bit
-    extBit <=   --standard I type instructions
-        '1' when ((s_oppCode = "0010011") and ((s_funct3 = "000") or (s_funct3 = "011")) and (i_instruction(31) = '1')) else --For ADDI and SLTIU, sign extend.
-        '0' when s_oppCode = "0010011" else --Other standard I type instructions
+    extBit <=   
+        --standard I type instructions
+        '0' when ((s_oppCode = "0010011") and (s_funct3 = "011")) else --sltiu function
+        '1' when ((s_oppCode = "0010011") and (i_instruction(31) = '1')) else --All other standard I types are sign extended
+        '0' when s_oppCode = "0010011" else
 
         --Load I type instructions
         '0' when (s_oppCode = "0000011" and ((s_funct3 = "100") or (s_funct3 = "101"))) else --Unsigned Load instructions
@@ -78,11 +80,12 @@ begin
         '0' when s_oppCode = "0000011" else --Signed Load part 2
 
         --Jump and Link Register instruction
+        '0' when s_oppCode = "1100111" else
         '1' when (s_oppCode = "1100111" and (i_instruction(31) = '1')) else
         '0' when s_oppCode = "1100111" else
         
         --S type instructions
-        '0' when s_oppCode = "0100011" else --Store commands are always unsigned
+        '1' when s_oppCode = "0100011" and (i_instruction(31) = '1') else -- Store commands are signed
         
         --B type instructions
         '1' when (s_oppCode = "1100011" and (i_instruction(31) = '1')) else --B type immediates are always sign extended

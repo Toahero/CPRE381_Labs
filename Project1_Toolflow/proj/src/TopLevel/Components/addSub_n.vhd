@@ -20,10 +20,13 @@ use IEEE.std_logic_1164.all;
 
 --Entity Declaration
 entity addSub_n is
-	generic(Comp_Width : integer); -- Generic of type integer for input/output data width.
-	port(	nAdd_Sub	: in std_logic;
-		i_A		: in std_logic_vector(Comp_Width-1 downto 0);
-		i_B		: in std_logic_vector(Comp_Width-1 downto 0);
+	generic(
+		Comp_Width : integer -- Generic of type integer for input/output data width.
+	);
+	port(
+		nAdd_Sub	: in std_logic;
+		i_A			: in std_logic_vector(Comp_Width-1 downto 0);
+		i_B			: in std_logic_vector(Comp_Width-1 downto 0);
 		o_overflow	: out std_logic;
 		o_Sum		: out std_logic_vector(Comp_Width-1 downto 0));
 end addSub_n;
@@ -32,10 +35,13 @@ architecture structural of addSub_n is
 
 	--Ripple Adder
 	component rippleAdder_n is
-		generic(N : integer);
-		port(	i_Carry	: in std_logic;
-			i_A	: in std_logic_vector(N-1 downto 0);
-			i_B	: in std_logic_vector(N-1 downto 0);
+		generic(
+			N : integer
+		);
+		port(
+			i_Carry	: in std_logic;
+			i_A 	: in std_logic_vector(N-1 downto 0);
+			i_B		: in std_logic_vector(N-1 downto 0);
 			o_OF	: out std_logic;
 			o_Sum	: out std_logic_vector(N-1 downto 0)
 		);
@@ -43,7 +49,9 @@ architecture structural of addSub_n is
 	
 	--2t1 Multiplexer
 	component mux2t1_N is
-  		generic(N : integer); -- Generic of type integer for input/output data width.
+  		generic(
+			N : integer -- Generic of type integer for input/output data width.
+		);
   		port(	i_S          : in std_logic;
 			i_D0         : in std_logic_vector(N-1 downto 0);
 			i_D1         : in std_logic_vector(N-1 downto 0);

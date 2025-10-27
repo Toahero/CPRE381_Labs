@@ -62,9 +62,8 @@ begin
         end generate g_MuxEnd;
         
     end generate g_valShiftArr;
-    
-        --Tie the last vector of Midshift to output
-        o_valOut <= s_midShift(CNT_WIDTH);
-    
+
+    --Tie the last vector of Midshift to output
+    o_valOut <= s_midShift(CNT_WIDTH);    
 
 end mixed;

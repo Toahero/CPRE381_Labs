@@ -60,18 +60,18 @@ begin
             o_F => s_AaB
         );
 
-    g_O21 : andg2
-        port map(
-            i_A => s_AoB,
-            i_B => i_C,
-            o_F => s_O21
-        );
-
     g_AxB : xorg2
         port map(
             i_A => i_A,
             i_B => i_B,
             o_F => s_AxB
+        );
+    
+    g_O21 : andg2
+        port map(
+            i_A => s_AoB,
+            i_B => i_C,
+            o_F => s_O21
         );
 
     g_O2F : org2

@@ -24,6 +24,7 @@ begin
     o_Output <= i_D0 when i_Selection = b"00" else
                 i_D1 when i_Selection = b"01" else
                 i_D2 when i_Selection = b"10" else
-                i_D3 when i_Selection = b"11" else (others => '0');
+                i_D3 when i_Selection = b"11" else
+                (others => '0');
 
 end behaviour;

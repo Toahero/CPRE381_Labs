@@ -1,5 +1,6 @@
 # Work folders
 work/
+output/
 
 # Simulation files
 *.opt

@@ -38,9 +38,16 @@ architecture behaviour of InstructionAddressHolder is
         );
     end component;
 
-    signal s_ResetValue : std_logic_vector(ADDR_WIDTH - 1 downto 0) := x"00000000";
+    signal s_ResetValue : std_logic_vector(ADDR_WIDTH - 1 downto 0) := x"00400000";
+
+    signal s_Halted : std_logic := '0';
     
 begin
+
+    s_Halted    <= 
+                    '1' when    i_Halt = '1' or s_Halted = '1' else
+                    '0' when    i_Halt = '0' else
+                    '0';
 
     g_PCRegister : PCRegister
         generic map(
@@ -48,7 +55,7 @@ begin
         )
         port map(
             i_Clock => i_Clock,
-            i_Operation => '1',
+            i_Operation => not s_Halted,
             i_Reset => i_Reset,
             i_ResetValue => s_ResetValue,
 

@@ -16,7 +16,8 @@ use IEEE.numeric_std.all;
 
 entity ControlUnit is
     port(
-        opCode      : in std_logic_vector(6 downto 0); --The Opcode is 7 bits long
+        i_inst      : in std_logic_vector(31 downto 0);
+        --opCode      : in std_logic_vector(6 downto 0); --The Opcode is 7 bits long
 
         --These have been assigned
         ALU_Src      : out std_logic; --Source an extended immediate
@@ -25,18 +26,27 @@ entity ControlUnit is
         MemToReg    : out std_logic; --Write a memory value into a register
         Reg_WE      : out std_logic;
         Branch      : out std_logic;
-        HaltProg    : out std_logic);
+        HaltProg    : out std_logic;
+        PCOffsetSource : out std_logic
+    );
         --ALU_OP      : out std_logic_vector(ALU_OP_SIZE-1 downto 0));
         
     end ControlUnit;
 
 architecture dataflow of ControlUnit is
-    
+    signal opCode   : std_logic_vector(6 downto 0);
+    signal ecall    : std_logic_vector(11 downto 0);
 begin
+    opCode <= i_inst(6 downto 0);
+    ecall   <= i_inst(31 downto 20);
 
     with opCode select
-        HaltProg <= '1' when "1110011",
+        PCOffsetSource      
+                 <= '1' when "1100111",
                     '0' when others;
+
+        HaltProg <= '1' when (opCode = "1110011") AND (ecall = x"105") else
+                    '0';
 
     with opCode select
         ALU_Src <=  '0' when "0110011", --R format does not use an immediate
@@ -49,22 +59,23 @@ begin
 
     with opCode select
         jump    <= '1' when "1101111", --jal (jump and link)
-		'1' when "1100111", --jalR (jump and link reg)
-		'0' when others;
+		           '1' when "1100111", --jalR (jump and link reg)
+		           '0' when others;
 
     with opCode select
         MemToReg    <=  '1' when "0000011", --Load Instructions
                         '0' when others;
     
     with opCode select
-        Reg_WE  <=  '0' when "0100011", --S type instruction
-                    '0' when "1100011", --B type Instruction
+        Reg_WE  <=  '0' when "0100011", -- S type instruction
+                    '0' when "1100011", -- B type Instruction
+                    '0' when "1110011", -- Halt instruction
                     '1' when others;
 
     with opCode select
         Branch  <=  '1' when "1100011", --B type instruction
                     '0' when others;
-
+                    
  --   with opCode select
  --       ALU_OP  <=  std_logic_vector(to_unsigned(0, ALU_OP_SIZE)) when "0110011", --Register Arithmetic (R-Type)
  --                   std_logic_vector(to_unsigned(1, ALU_OP_SIZE))  when "0010011", --Immediate Arithmetic (I-Type)
