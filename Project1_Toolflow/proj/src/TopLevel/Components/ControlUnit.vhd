@@ -66,11 +66,7 @@ begin
     with opCode select
         Branch  <=  '1' when "1100011", --B type instruction
                     '0' when others;
-
-    with opCode select
-        Jump    <=  '1' when "1100111",
-                    '0' when others;
-
+                    
  --   with opCode select
  --       ALU_OP  <=  std_logic_vector(to_unsigned(0, ALU_OP_SIZE)) when "0110011", --Register Arithmetic (R-Type)
  --                   std_logic_vector(to_unsigned(1, ALU_OP_SIZE))  when "0010011", --Immediate Arithmetic (I-Type)

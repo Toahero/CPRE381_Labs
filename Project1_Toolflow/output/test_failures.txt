@@ -1,3 +1,0 @@
-proj/riscv/jal_1.s
-proj/riscv/jal_2.s
-proj/riscv/jal_3.s
