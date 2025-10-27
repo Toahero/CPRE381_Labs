@@ -134,8 +134,8 @@ architecture structure of RISCV_Processor is
 
   component ControlUnit is
     port(
-      opCode                            : in  std_logic_vector(6 downto 0);
-      
+      --opCode                            : in  std_logic_vector(6 downto 0);
+      i_inst                            : in std_logic_vector(31 downto 0);
       ALU_Src                           : out std_logic;
       Mem_We                            : out std_logic;
       Jump                              : out std_logic;
@@ -361,8 +361,8 @@ begin
 
   g_ControlUnit : ControlUnit
     port map(
-      opCode                            => s_Instruction(6 downto 0),
-
+      --opCode                            => s_Instruction(6 downto 0),
+      i_inst                            => s_Instruction,
       ALU_Src                           => s_Control_ALU_Src,
       Mem_We                            => s_Control_Mem_We,
       Jump                              => s_Control_Jump,

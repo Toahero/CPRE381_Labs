@@ -16,7 +16,8 @@ use IEEE.numeric_std.all;
 
 entity ControlUnit is
     port(
-        opCode      : in std_logic_vector(6 downto 0); --The Opcode is 7 bits long
+        i_inst      : in std_logic_vector(31 downto 0);
+        --opCode      : in std_logic_vector(6 downto 0); --The Opcode is 7 bits long
 
         --These have been assigned
         ALU_Src      : out std_logic; --Source an extended immediate
@@ -33,17 +34,19 @@ entity ControlUnit is
     end ControlUnit;
 
 architecture dataflow of ControlUnit is
-    
+    signal opCode   : std_logic_vector(6 downto 0);
+    signal ecall    : std_logic_vector(11 downto 0);
 begin
+    opCode <= i_inst(6 downto 0);
+    ecall   <= i_inst(31 downto 20);
 
     with opCode select
         PCOffsetSource      
                  <= '1' when "1100111",
                     '0' when others;
 
-    with opCode select
-        HaltProg <= '1' when "1110011",
-                    '0' when others;
+        HaltProg <= '1' when (opCode = "1110011") AND (ecall = x"105") else
+                    '0';
 
     with opCode select
         ALU_Src <=  '0' when "0110011", --R format does not use an immediate
