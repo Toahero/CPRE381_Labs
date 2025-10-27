@@ -57,8 +57,9 @@ begin
                         '0' when others;
     
     with opCode select
-        Reg_WE  <=  '0' when "0100011", --S type instruction
-                    '0' when "1100011", --B type Instruction
+        Reg_WE  <=  '0' when "0100011", -- S type instruction
+                    '0' when "1100011", -- B type Instruction
+                    '0' when "1110011", -- Halt instruction
                     '1' when others;
 
     with opCode select
