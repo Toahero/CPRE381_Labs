@@ -1,6 +1,0 @@
-proj/riscv/sll_1.s
-proj/riscv/sll_2.s
-proj/riscv/sll_3.s
-proj/riscv/slli_0.s
-proj/riscv/slli_1.s
-proj/riscv/slli_2.s

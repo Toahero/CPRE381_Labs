@@ -85,7 +85,7 @@ begin
         '0' when s_oppCode = "1100111" else
         
         --S type instructions
-        '0' when s_oppCode = "0100011" else --Store commands are always unsigned
+        '1' when s_oppCode = "0100011" and (i_instruction(31) = '1') else -- Store commands are signed
         
         --B type instructions
         '1' when (s_oppCode = "1100011" and (i_instruction(31) = '1')) else --B type immediates are always sign extended

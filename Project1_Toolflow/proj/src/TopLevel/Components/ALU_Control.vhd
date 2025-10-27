@@ -29,16 +29,17 @@ begin
                     x"00000000" when others;
 
     
-    o_ModuleSelect      <=  "00" when i_Opcode = "0110111"  else 
-                            "00" when i_Opcode = "0010111"  else 
-                            "00" when i_Funct3 = "000"      else   
-                            "01" when i_Funct3 = "100"      else   
-                            "01" when i_Funct3 = "110"      else   
-                            "01" when i_Funct3 = "111"      else   
-                            "00" when i_Funct3 = "001"      and     i_Opcode = "0000011"    else
-                            "10" when i_Funct3 = "001"      else   
-                            "10" when i_Funct3 = "101"      else   
-                            "00";
+    o_ModuleSelect      <=  
+                            "00" when i_Funct3 = "000"      and     (i_Opcode = "0110011" or i_Opcode = "0010011")  else    -- (i) ADD, SUB
+                            "01" when i_Funct3 = "100"      and     (i_Opcode = "0110011" or i_Opcode = "0010011")  else    -- (i) XOR
+                            "01" when i_Funct3 = "110"      and     (i_Opcode = "0110011" or i_Opcode = "0010011")  else    -- (i) OR
+                            "01" when i_Funct3 = "111"      and     (i_Opcode = "0110011" or i_Opcode = "0010011")  else    -- (i) AND
+                            "10" when i_Funct3 = "001"      and     (i_Opcode = "0110011" or i_Opcode = "0010011")  else    -- (i) SLL
+                            "10" when i_Funct3 = "101"      and     (i_Opcode = "0110011" or i_Opcode = "0010011")  else    -- (i) SRL, SRLA
+                            "00" when i_Opcode = "0110111"                                                          else    -- lui
+                            "00" when i_Opcode = "0000011"                                                          else    -- LB, LH, LW, LBU, LHU
+                            "00" when i_Opcode = "0100011"                                                          else    -- SB, SH, SW
+                            "XX";
     
     o_OperationSelect   <=  "01" when i_Funct7 = "0100000"  and     i_Opcode = "0110011"    else -- FUNCT7_SUB, FUNCT7_SRA, FUNCT7_SRAI
                             "01" when i_Funct3 = "001"      and     i_Opcode = "0110011"    else -- FUNCT3_SLL, FUNCT3_SLLI
