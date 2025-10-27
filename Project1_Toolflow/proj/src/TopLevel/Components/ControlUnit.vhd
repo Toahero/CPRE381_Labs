@@ -25,7 +25,8 @@ entity ControlUnit is
         MemToReg    : out std_logic; --Write a memory value into a register
         Reg_WE      : out std_logic;
         Branch      : out std_logic;
-        HaltProg    : out std_logic
+        HaltProg    : out std_logic;
+        PCOffsetSource : out std_logic
     );
         --ALU_OP      : out std_logic_vector(ALU_OP_SIZE-1 downto 0));
         
@@ -34,6 +35,11 @@ entity ControlUnit is
 architecture dataflow of ControlUnit is
     
 begin
+
+    with opCode select
+        PCOffsetSource      
+                 <= '1' when "1100111",
+                    '0' when others;
 
     with opCode select
         HaltProg <= '1' when "1110011",
@@ -50,8 +56,8 @@ begin
 
     with opCode select
         jump    <= '1' when "1101111", --jal (jump and link)
-		'1' when "1100111", --jalR (jump and link reg)
-		'0' when others;
+		           '1' when "1100111", --jalR (jump and link reg)
+		           '0' when others;
 
     with opCode select
         MemToReg    <=  '1' when "0000011", --Load Instructions

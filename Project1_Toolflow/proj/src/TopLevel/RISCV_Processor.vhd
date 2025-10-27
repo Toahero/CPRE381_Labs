@@ -142,7 +142,8 @@ architecture structure of RISCV_Processor is
       MemToReg                          : out std_logic;
       Reg_WE                            : out std_logic;
       Branch                            : out std_logic;
-      HaltProg                          : out std_logic
+      HaltProg                          : out std_logic;
+      PCOffsetSource                    : out std_logic
     );
   end component;
   signal s_Control_ALU_Src              : std_logic;
@@ -152,6 +153,7 @@ architecture structure of RISCV_Processor is
   signal s_Control_Reg_WE               : std_logic;
   signal s_Control_Branch               : std_logic;
   signal s_Control_HaltProg             : std_logic;
+  signal s_Control_PCOffsetSource       : std_logic;
 
   component ImmediateExtender is
     port(
@@ -331,7 +333,7 @@ begin
       N                                 => 32
     )
     port map(
-        i_S                             => s_Control_Jump,
+        i_S                             => s_Control_PCOffsetSource,
         i_D0                            => s_ProgramCounterOut,
         i_D1                            => s_RS1,
         o_O                             => s_PCAdditionValue
@@ -348,7 +350,6 @@ begin
           o_S                           => s_JumpNextInstructionAddress,
           o_C                           => open
       );
-
 
   s_branchJump <= f_ALU_Branch and s_Control_Branch;
   g_PCNextInstructionSource : mux2t1_N
@@ -372,7 +373,8 @@ begin
       MemToReg                          => s_Control_MemToReg,
       Reg_WE                            => s_Control_Reg_WE,
       Branch                            => s_Control_Branch,
-      HaltProg                          => s_Control_HaltProg
+      HaltProg                          => s_Control_HaltProg,
+      PCOffsetSource                    => s_Control_PCOffsetSource
     );
   s_Halt                                <= s_Control_HaltProg;
   s_DMemWr                              <= s_Control_Mem_We;
