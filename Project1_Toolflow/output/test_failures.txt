@@ -1,0 +1,13 @@
+proj/riscv/bge_3.s
+proj/riscv/blt3.s
+proj/riscv/bne_1.s
+proj/riscv/bne_2.s
+proj/riscv/fibonacci.s
+proj/riscv/grendel.s
+proj/riscv/jal_1.s
+proj/riscv/jal_2.s
+proj/riscv/jalr_1.s
+proj/riscv/bne_3.s
+proj/riscv/simplebranch.s
+proj/riscv/srl1.s
+proj/riscv/srl2.s

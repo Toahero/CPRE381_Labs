@@ -93,6 +93,10 @@ architecture structure of RISCV_Processor is
           o_CurrentInstructionAddress   : out std_logic_vector((ADDR_WIDTH - 1) downto 0)
       );
   end component;
+  signal s_PCNextInstructionAddress     : std_logic_vector(31 downto 0);
+  signal s_StdNextAddress               : std_logic_vector(31 downto 0);
+  signal s_JumpNextInstructionAddress   : std_logic_vector(31 downto 0);
+  signal s_PCAdditionValue              : std_logic_vector(31 downto 0);
 
   component AddSub is
       generic(
@@ -169,20 +173,25 @@ architecture structure of RISCV_Processor is
   end component;
 
   component ALU_Control is
-    port(
-      i_Opcode                          : in  std_logic_vector(6 downto 0);
-      i_Funct3                          : in  std_logic_vector(2 downto 0);
-      i_Funct7                          : in  std_logic_vector(6 downto 0);
-      i_PCAddr                          : in  std_logic_vector(31 downto 0);
-
-      o_aOverride                       : out std_logic;
-      o_OvrValue                        : out std_logic_vector(31 downto 0);
-      o_ModuleSelect                    : out std_logic_vector(1 downto 0);
-      o_OperationSelect                 : out std_logic_vector(1 downto 0);
-      o_Funct3Passthrough               : out std_logic_vector(2 downto 0)
-    );
+      port(
+          i_Opcode                      : in  std_logic_vector(6 downto 0);
+          i_Funct3                      : in  std_logic_vector(2 downto 0);
+          i_Funct7                      : in  std_logic_vector(6 downto 0);
+          i_PCAddr                      : in  std_logic_vector(31 downto 0);
+          o_AOverride                   : out std_logic_vector(31 downto 0);
+          o_BOverride                   : out std_logic_vector(31 downto 0);
+          o_BOverrideEnable             : out std_logic;
+          o_AOverrideEnable             : out std_logic;
+          o_ModuleSelect                : out std_logic_vector(1 downto 0);
+          o_OperationSelect             : out std_logic_vector(1 downto 0);
+          o_Funct3Passthrough           : out std_logic_vector(2 downto 0)
+      );
   end component;
 
+  signal s_ALUControl_AOverride         : std_logic_vector(31 downto 0);
+  signal s_ALUControl_BOverride         : std_logic_vector(31 downto 0);
+  signal s_ALUControl_BOverrideEnable   : std_logic;
+  signal s_ALUControl_AOverrideEnable   : std_logic;
 
   component ALU is
     port(
@@ -205,7 +214,6 @@ architecture structure of RISCV_Processor is
       f_branch                          : out std_logic
     );
   end component;
-
   signal s_ALU_Operand1                 : std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal s_ALU_Operand2                 : std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal s_AOverride                    : std_logic_vector(DATA_WIDTH - 1 downto 0);
@@ -219,7 +227,7 @@ architecture structure of RISCV_Processor is
   signal f_ALU_Overflow                 : std_logic;
   signal f_ALU_Zero                     : std_logic;
   signal f_ALU_Negative                 : std_logic;
-
+  signal f_ALU_branch                   : std_logic;
 
   signal s_ProgramCounterOut            : std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal s_StdNextInstAddr              : std_logic_vector(DATA_WIDTH - 1 downto 0);
@@ -298,7 +306,7 @@ begin
       port map(
           i_Clock                       => iCLK,
           i_Reset                       => iRST,
-          i_NextInstructionAddress      => s_StdNextInstAddr,
+          i_NextInstructionAddress      => s_PCNextInstructionAddress,
           i_Halt                        => s_Halt,
 
           o_CurrentInstructionAddress   => s_ProgramCounterOut
@@ -315,6 +323,40 @@ begin
           o_S                           => s_StdNextInstAddr,
           o_C                           => open
       );
+
+  g_PCAddSource : mux2t1_N
+    generic map(
+      N                                 => 32
+    )
+    port map(
+        i_S                             => s_Control_Jump,
+        i_D0                            => s_ProgramCounterOut,
+        i_D1                            => s_RS1,
+        o_O                             => s_PCAdditionValue
+    );
+
+  g_ProgramCounterJumpAdder : AddSub
+      generic map(
+          WIDTH                         => 32
+      )
+      port map(
+          i_A                           => s_PCAdditionValue,
+          i_B                           => s_ImmediateValue,
+          n_Add_Sub                     => '0',
+          o_S                           => s_JumpNextInstructionAddress,
+          o_C                           => open
+      );
+
+  g_PCNextInstructionSource : mux2t1_N
+    generic map(
+      N                                 => 32
+    )
+    port map(
+      i_S                               => f_ALU_Branch and s_Control_Branch,
+      i_D0                              => s_StdNextInstAddr,
+      i_D1                              => s_JumpNextInstructionAddress,
+      o_O                               => s_PCNextInstructionAddress
+    );
 
   g_ControlUnit : ControlUnit
     port map(
@@ -370,16 +412,18 @@ begin
 
   g_ALUControl : ALU_Control
     port map(
-      i_Opcode                          => s_Instruction(6  downto 0 ),
-      i_Funct3                          => s_Instruction(14 downto 12),
-      i_Funct7                          => s_Instruction(31 downto 25),
-      i_PCAddr                          => s_ProgramCounterOut,
+        i_Opcode                        => s_Instruction(6  downto 0 ),
+        i_Funct3                        => s_Instruction(14 downto 12),
+        i_Funct7                        => s_Instruction(31 downto 25),
+        i_PCAddr                        => s_ProgramCounterOut,
 
-      o_aOverride                       => s_AOverrideEnable,
-      o_OvrValue                        => s_AOverride,
-      o_ModuleSelect                    => s_ALU_ModuleSelect,
-      o_OperationSelect                 => s_ALU_OperationSelect,
-      o_Funct3Passthrough               => s_ALU_BranchCondition
+        o_AOverride                     => s_ALUControl_AOverride,
+        o_BOverride                     => s_ALUControl_BOverride,
+        o_BOverrideEnable               => s_ALUControl_BOverrideEnable,
+        o_AOverrideEnable               => s_ALUControl_AOverrideEnable,
+        o_ModuleSelect                  => s_ALU_ModuleSelect,
+        o_OperationSelect               => s_ALU_OperationSelect,
+        o_Funct3Passthrough             => s_ALU_BranchCondition
     );
 
   s_ALU_Operand1                        <= s_RS1;
@@ -387,10 +431,11 @@ begin
     port map(
         i_A                             => s_ALU_Operand1,
         i_B                             => s_ALU_Operand2,
-        i_AOverride                     => s_AOverride,
-        i_BOverride                     => x"00000000",
-        i_AOverrideEnable               => s_AOverrideEnable,
-        i_BOverrideEnable               => '0',
+
+        i_AOverride                     => s_ALUControl_AOverride,
+        i_BOverride                     => s_ALUControl_BOverride,
+        i_AOverrideEnable               => s_ALUControl_AOverrideEnable,
+        i_BOverrideEnable               => s_ALUControl_BOverrideEnable,
 
         i_OutSel                        => '0',
         i_ModSel                        => s_ALU_ModuleSelect,
@@ -402,7 +447,8 @@ begin
         o_output                        => s_ALU_Result,
         f_ovflw                         => f_ALU_Overflow,
         f_zero                          => f_ALU_Zero,
-        f_negative                      => f_ALU_Negative
+        f_negative                      => f_ALU_Negative,
+        f_branch                        => f_ALU_branch
     );
   oALUOut                               <= s_ALU_Result;
   s_DMemAddr                            <= s_ALU_Result;

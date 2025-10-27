@@ -25,7 +25,8 @@ entity ControlUnit is
         MemToReg    : out std_logic; --Write a memory value into a register
         Reg_WE      : out std_logic;
         Branch      : out std_logic;
-        HaltProg    : out std_logic);
+        HaltProg    : out std_logic
+    );
         --ALU_OP      : out std_logic_vector(ALU_OP_SIZE-1 downto 0));
         
     end ControlUnit;
@@ -64,6 +65,10 @@ begin
 
     with opCode select
         Branch  <=  '1' when "1100011", --B type instruction
+                    '0' when others;
+
+    with opCode select
+        Jump    <=  '1' when "1100111",
                     '0' when others;
 
  --   with opCode select
