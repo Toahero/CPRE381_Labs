@@ -30,11 +30,11 @@ begin
     s_eq            <=  '1'  when    i_A = i_B                          else '0';
     s_ne            <=  not s_eq;
 
-    s_lt            <= '1'  when    to_integer(signed(i_A)) < to_integer(signed(i_B))     else '0';
+    s_lt            <= '1'  when    signed(i_A) < signed(i_B)     else '0';
     s_ge            <= not s_lt;
 
-    s_ltu           <= '1'  when    to_integer(unsigned(i_A)) < to_integer(unsigned(i_B)) else '0';
-    s_geu           <= not s_lt;
+    s_ltu           <= '1'  when    unsigned(i_A) < unsigned(i_B) else '0';
+    s_geu           <= not s_ltu;
 
     o_Result_slt    <=  s_Padding & s_lt    when i_slt_Unsigned = '0'   else 
                         s_Padding & s_ltu   when i_slt_Unsigned = '1'   else

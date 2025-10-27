@@ -42,7 +42,8 @@ begin
                             "10" when i_Funct3 = "101"      and     (i_Opcode = "0110011" or i_Opcode = "0010011")  else    -- (i) SRL, SRA
                             "11" when i_Funct3 = "010"      and     (i_Opcode = "0110011" or i_Opcode = "0010011")  else    -- (i) SLT
                             "11" when i_Funct3 = "011"      and     (i_Opcode = "0110011" or i_Opcode = "0010011")  else    -- (i) SLTU
-                            "00" when i_Opcode = "0110111"                                                          else    -- lui
+                            "00" when i_Opcode = "0110111"                                                          else    -- LUI
+                            "00" when i_Opcode = "0010111"                                                          else    -- AUIPC
                             "00" when i_Opcode = "0000011"                                                          else    -- LB, LH, LW, LBU, LHU
                             "00" when i_Opcode = "0100011"                                                          else    -- SB, SH, SW
                             "XX";
@@ -59,6 +60,7 @@ begin
                             "00" when i_Funct3 = "010"      and     (i_Opcode = "0110011" or i_Opcode = "0010011")                              else    -- (i)  SLT
                             "10" when i_Funct3 = "011"      and     (i_Opcode = "0110011" or i_Opcode = "0010011")                              else    -- (i)  SLTU
                             "00" when i_Opcode = "0110111"                                                                                      else    -- LUI
+                            "00" when i_Opcode = "0010111"                                                                                      else    -- AUIPC
                             "00" when i_Opcode = "0000011"                                                                                      else    -- LB, LH, LW, LBU, LHU
                             "00" when i_Opcode = "0100011"                                                                                      else    -- SB, SH, SW
                             "XX";

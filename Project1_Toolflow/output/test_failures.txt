@@ -1,1 +1,0 @@
-proj/riscv/sltiu_3.s
