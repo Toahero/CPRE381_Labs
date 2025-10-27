@@ -229,6 +229,8 @@ architecture structure of RISCV_Processor is
   signal f_ALU_Negative                 : std_logic;
   signal f_ALU_branch                   : std_logic;
 
+  signal s_branchJump                     : std_logic;
+
   signal s_ProgramCounterOut            : std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal s_StdNextInstAddr              : std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal s_ImmediateValue               : std_logic_vector(DATA_WIDTH - 1 downto 0);
@@ -347,12 +349,14 @@ begin
           o_C                           => open
       );
 
+
+  s_branchJump <= f_ALU_Branch and s_Control_Branch;
   g_PCNextInstructionSource : mux2t1_N
     generic map(
       N                                 => 32
     )
     port map(
-      i_S                               => f_ALU_Branch and s_Control_Branch,
+      i_S                               => s_branchJump OR s_Control_Jump,
       i_D0                              => s_StdNextInstAddr,
       i_D1                              => s_JumpNextInstructionAddress,
       o_O                               => s_PCNextInstructionAddress
