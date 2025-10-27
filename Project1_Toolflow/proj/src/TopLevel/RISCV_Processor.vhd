@@ -218,10 +218,6 @@ architecture structure of RISCV_Processor is
   end component;
   signal s_ALU_Operand1                 : std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal s_ALU_Operand2                 : std_logic_vector(DATA_WIDTH - 1 downto 0);
-  signal s_AOverride                    : std_logic_vector(DATA_WIDTH - 1 downto 0);
-  signal s_BOverride                    : std_logic_vector(DATA_WIDTH - 1 downto 0);
-  signal s_AOverrideEnable              : std_logic;
-  signal s_BOverrideEnable              : std_logic;
   signal s_ALU_Result                   : std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal s_ALU_ModuleSelect             : std_logic_vector(1 downto 0);
   signal s_ALU_OperationSelect          : std_logic_vector(1 downto 0);
