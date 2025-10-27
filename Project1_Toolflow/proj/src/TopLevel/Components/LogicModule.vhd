@@ -46,18 +46,4 @@ begin
                 s_XOR   when i_OppSel = b"11" else
                 (others => '0');
 
---    MUX1: mux2t1_N
---        generic map(N => DATA_WIDTH)
---        port map(   i_S     => i_OppSel(0),
---                    i_D0    => s_AND,
---                    i_D1    => s_OR,
---                    o_O     => s_AndOr);
---
---    MUX2: mux2t1_N
---        generic map(N => DATA_WIDTH)
---        port map(   i_S     => i_OppSel(1),
---                    i_D0    => s_AndOr,
---                    i_D1    => s_XOR,
---                    o_O     => o_Out);
-
 end mixed;

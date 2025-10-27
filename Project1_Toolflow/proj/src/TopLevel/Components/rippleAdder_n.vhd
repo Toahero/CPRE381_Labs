@@ -49,10 +49,10 @@ architecture structural of rippleAdder_n is
 		Port(	i_A	: in std_logic;
 			i_B	: in std_logic;
 			o_F	: out std_logic);
-		end component;
+	end component;
 
-signal w_Carry	: std_logic_vector(N downto 0);
-signal testVector : std_logic;
+	signal w_Carry	: std_logic_vector(N downto 0);
+
 begin
 G_NBit_RipAdder:
 

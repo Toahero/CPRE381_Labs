@@ -81,6 +81,5 @@ begin
                         i_D0    => s_rightShifted,
                         i_D1    => s_LeftShiftFor,
                         o_O     => o_valueOut);
-
     
 end mixed;

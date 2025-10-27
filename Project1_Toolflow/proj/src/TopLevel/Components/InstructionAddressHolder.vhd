@@ -38,7 +38,7 @@ architecture behaviour of InstructionAddressHolder is
         );
     end component;
 
-    signal s_ResetValue : std_logic_vector(ADDR_WIDTH - 1 downto 0) := x"00000000";
+    signal s_ResetValue : std_logic_vector(ADDR_WIDTH - 1 downto 0) := x"00400000";
     
 begin
 
