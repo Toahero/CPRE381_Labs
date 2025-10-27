@@ -4,25 +4,28 @@ use ieee.numeric_std.all;
 
 entity ALU is
     port(
-        i_A : in std_logic_vector(31 downto 0);
-        i_B : in std_logic_vector(31 downto 0);
+        i_A                 : in std_logic_vector(31 downto 0);
+        i_B                 : in std_logic_vector(31 downto 0);
 
-        i_AOverride : in std_logic_vector(31 downto 0);
-        i_BOverride : in std_logic_vector(31 downto 0);
-        i_AOverrideEnable : in std_logic;
-        i_BOverrideEnable : in std_logic;
+        i_AOverride         : in std_logic_vector(31 downto 0);
+        i_BOverride         : in std_logic_vector(31 downto 0);
+        i_BOverrideEnable   : in std_logic;
+        i_AOverrideEnable   : in std_logic;
 
-        i_OutSel : in std_logic;
-        i_ModSel : in std_logic_vector(1 downto 0);
+        i_OutSel            : in std_logic;
+        i_ModSel            : in std_logic_vector(1 downto 0);
 
-        i_OppSel : in std_logic_vector(1 downto 0);
+        i_OppSel            : in std_logic_vector(1 downto 0);
 
-        o_Result : out std_logic_vector(31 downto 0); -- Unused
-        o_output : out std_logic_vector(31 downto 0);
+        i_BranchCond        : in std_logic_vector(2 downto 0); -- Funct3
 
-        f_ovflw : out std_logic;
-        f_zero : out std_logic;
-        f_negative : out std_logic
+        o_Result            : out std_logic_vector(31 downto 0); -- Unused
+        o_output            : out std_logic_vector(31 downto 0);
+
+        f_ovflw             : out std_logic;
+        f_zero              : out std_logic;
+        f_negative          : out std_logic;
+        f_branch            : out std_logic
     );
 end ALU;
 
@@ -41,6 +44,18 @@ architecture behaviour of ALU is
         );
     end component;
 
+    component LogicModule is
+        generic(
+            DATA_WIDTH : integer := 32 -- Generic of type integer for input/output data width. Default value is 32.
+        );
+        port(
+            i_aVal                  : in  std_logic_vector(DATA_WIDTH-1 downto 0);
+            i_bVal                  : in  std_logic_vector(DATA_WIDTH-1 downto 0);
+            i_OppSel                : in  std_logic_vector(1 downto 0);
+            o_Out                   : out std_logic_vector(DATA_WIDTH-1 downto 0)
+        );
+    end component;
+
     component dualShift is
         generic(
             DATA_WIDTH  : positive;
@@ -54,6 +69,20 @@ architecture behaviour of ALU is
             o_valueOut    : out std_logic_vector(DATA_WIDTH-1 downto 0)
         );
     end component;
+
+    component Compare is
+        port(
+            i_A                 : in  std_logic_vector(31 downto 0);
+            i_B                 : in  std_logic_vector(31 downto 0);
+            i_slt_Unsigned      : in  std_logic;
+            i_BranchCondition   : in  std_logic_vector(2 downto 0); -- Funct3
+            
+            o_Result_slt        : out std_logic_vector(31 downto 0);
+            o_Result_Branch     : out std_logic
+        );
+    end component;
+
+
 
     component IsNegative is
         generic(
@@ -104,18 +133,6 @@ architecture behaviour of ALU is
         );
     end component;
 
-    component LogicModule is
-        generic(
-            DATA_WIDTH : integer := 32 -- Generic of type integer for input/output data width. Default value is 32.
-        );
-        port(
-            i_aVal                  : in  std_logic_vector(DATA_WIDTH-1 downto 0);
-            i_bVal                  : in  std_logic_vector(DATA_WIDTH-1 downto 0);
-            i_OppSel                : in  std_logic_vector(1 downto 0);
-            o_Out                   : out std_logic_vector(DATA_WIDTH-1 downto 0)
-        );
-    end component;
-
     component mux2t1_N is
         generic(N : integer := 16); -- Generic of type integer for input/output data width. Default value is 32.
         port(
@@ -130,6 +147,7 @@ architecture behaviour of ALU is
     signal s_AddSubOutput           : std_logic_vector(31 downto 0);
     signal s_BarrelShifterOutput    : std_logic_vector(31 downto 0);
     signal s_LogicOutput            : std_logic_vector(31 downto 0);
+    signal s_CompareOutput          : std_logic_vector(31 downto 0);
 
     signal s_ALU_Output             : std_logic_vector(31 downto 0);
 
@@ -206,6 +224,17 @@ begin
             o_valueOut => s_BarrelShifterOutput
         );
 
+    g_Compare : Compare
+        port map(
+            i_A                 => s_Operand1,
+            i_B                 => s_Operand2,
+            i_slt_Unsigned      => i_OppSel(1),
+            i_BranchCondition   => i_BranchCond, -- Funct3
+            
+            o_Result_slt        => s_CompareOutput,
+            o_Result_Branch     => f_branch
+        );
+
     g_ModuleSelect : Mux4t1
         generic map(
             DATA_WIDTH => 32
@@ -215,7 +244,7 @@ begin
             i_D0            => s_AddSubOutput,
             i_D1            => s_LogicOutput,
             i_D2            => s_BarrelShifterOutput,
-            i_D3            => (others => '0'),
+            i_D3            => s_CompareOutput,
             o_Output        => s_ALU_Output
         );
 

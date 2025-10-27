@@ -151,7 +151,7 @@ architecture structure of RISCV_Processor is
 
   component ImmediateExtender is
     port(
-      i_instruction                     : in std_logic_vector(31 downto 0);
+      i_instruction                     : in  std_logic_vector(31 downto 0);
       o_output                          : out std_logic_vector(31 downto 0)
     );
   end component;
@@ -170,37 +170,42 @@ architecture structure of RISCV_Processor is
 
   component ALU_Control is
     port(
-      i_Opcode : in std_logic_vector(6 downto 0);
-      i_Funct3 : in std_logic_vector(2 downto 0);
-      i_Funct7 : in std_logic_vector(6 downto 0);
-      i_PCAddr : in std_logic_vector(31 downto 0);
+      i_Opcode                          : in  std_logic_vector(6 downto 0);
+      i_Funct3                          : in  std_logic_vector(2 downto 0);
+      i_Funct7                          : in  std_logic_vector(6 downto 0);
+      i_PCAddr                          : in  std_logic_vector(31 downto 0);
 
-      o_aOverride : out std_logic;
-      o_OvrValue  : out std_logic_vector(31 downto 0);
-      o_ModuleSelect : out std_logic_vector(1 downto 0);
-      o_OperationSelect : out std_logic_vector(1 downto 0)
+      o_aOverride                       : out std_logic;
+      o_OvrValue                        : out std_logic_vector(31 downto 0);
+      o_ModuleSelect                    : out std_logic_vector(1 downto 0);
+      o_OperationSelect                 : out std_logic_vector(1 downto 0);
+      o_Funct3Passthrough               : out std_logic_vector(2 downto 0)
     );
   end component;
+
 
   component ALU is
     port(
-        i_A                             : in std_logic_vector(31 downto 0);
-        i_B                             : in std_logic_vector(31 downto 0);
-        i_AOverride                     : in std_logic_vector(31 downto 0);
-        i_BOverride                     : in std_logic_vector(31 downto 0);
-        i_AOverrideEnable               : in std_logic;
-        i_BOverrideEnable               : in std_logic;
-        i_OutSel                        : in std_logic;
-        i_ModSel                        : in std_logic_vector(1 downto 0);
-        i_OppSel                        : in std_logic_vector(1 downto 0);
+      i_A                               : in  std_logic_vector(31 downto 0);
+      i_B                               : in  std_logic_vector(31 downto 0);
+      i_AOverride                       : in  std_logic_vector(31 downto 0);
+      i_BOverride                       : in  std_logic_vector(31 downto 0);
+      i_BOverrideEnable                 : in  std_logic;
+      i_AOverrideEnable                 : in  std_logic;
+      i_OutSel                          : in  std_logic;
+      i_ModSel                          : in  std_logic_vector(1 downto 0);
+      i_OppSel                          : in  std_logic_vector(1 downto 0);
+      i_BranchCond                      : in  std_logic_vector(2 downto 0); -- Funct3
 
-        o_Result                        : out std_logic_vector(31 downto 0);
-        o_output                        : out std_logic_vector(31 downto 0);
-        f_ovflw                         : out std_logic;
-        f_zero                          : out std_logic;
-        f_negative                      : out std_logic
+      o_Result                          : out std_logic_vector(31 downto 0); -- Unused
+      o_output                          : out std_logic_vector(31 downto 0);
+      f_ovflw                           : out std_logic;
+      f_zero                            : out std_logic;
+      f_negative                        : out std_logic;
+      f_branch                          : out std_logic
     );
   end component;
+
   signal s_ALU_Operand1                 : std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal s_ALU_Operand2                 : std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal s_AOverride                    : std_logic_vector(DATA_WIDTH - 1 downto 0);
@@ -210,6 +215,7 @@ architecture structure of RISCV_Processor is
   signal s_ALU_Result                   : std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal s_ALU_ModuleSelect             : std_logic_vector(1 downto 0);
   signal s_ALU_OperationSelect          : std_logic_vector(1 downto 0);
+  signal s_ALU_BranchCondition          : std_logic_vector(2 downto 0);
   signal f_ALU_Overflow                 : std_logic;
   signal f_ALU_Zero                     : std_logic;
   signal f_ALU_Negative                 : std_logic;
@@ -218,9 +224,6 @@ architecture structure of RISCV_Processor is
   signal s_ProgramCounterOut            : std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal s_StdNextInstAddr              : std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal s_ImmediateValue               : std_logic_vector(DATA_WIDTH - 1 downto 0);
-
-
-
 
 
   component HACK is
@@ -375,7 +378,8 @@ begin
       o_aOverride                       => s_AOverrideEnable,
       o_OvrValue                        => s_AOverride,
       o_ModuleSelect                    => s_ALU_ModuleSelect,
-      o_OperationSelect                 => s_ALU_OperationSelect
+      o_OperationSelect                 => s_ALU_OperationSelect,
+      o_Funct3Passthrough               => s_ALU_BranchCondition
     );
 
   s_ALU_Operand1                        <= s_RS1;
@@ -391,6 +395,8 @@ begin
         i_OutSel                        => '0',
         i_ModSel                        => s_ALU_ModuleSelect,
         i_OppSel                        => s_ALU_OperationSelect,
+
+        i_BranchCond                    => s_ALU_BranchCondition,
 
         o_Result                        => open,
         o_output                        => s_ALU_Result,
