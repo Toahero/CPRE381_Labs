@@ -30,7 +30,8 @@ main:
     sw      s10,    40(sp)
     sw      s11,    44(sp)
 
-
+    # Jump-and-link into frame1 (start recursion)
+    jal     ra, frame1
 
     lw      s0 ,    0 (sp)
     lw      s1 ,    4 (sp)
@@ -60,15 +61,53 @@ main:
     addi    s11, 	s11,    0
     wfi	
 
+
+# --- Recursive Frames (no "call") ---
+
 frame1:
-    addi    sp,     sp,     -16
+    addi    sp, sp, -16
+    sw      ra, 12(sp)
+    jal     ra, frame2
+    lw      ra, 12(sp)
+    addi    sp, sp, 16
+    jr      ra
 
 frame2:
+    addi    sp, sp, -16
+    sw      ra, 12(sp)
+    jal     ra, frame3
+    lw      ra, 12(sp)
+    addi    sp, sp, 16
+    jr      ra
 
 frame3:
+    addi    sp, sp, -16
+    sw      ra, 12(sp)
+    jal     ra, frame4
+    lw      ra, 12(sp)
+    addi    sp, sp, 16
+    jr      ra
 
 frame4:
+    addi    sp, sp, -16
+    sw      ra, 12(sp)
+    jal     ra, frame5
+    lw      ra, 12(sp)
+    addi    sp, sp, 16
+    jr      ra
 
 frame5:
+    addi    sp, sp, -16
+    sw      ra, 12(sp)
+    jal     ra, frame6
+    lw      ra, 12(sp)
+    addi    sp, sp, 16
+    jr      ra
 
 frame6:
+    addi    sp, sp, -16
+    sw      ra, 12(sp)
+    # Base case – just return
+    lw      ra, 12(sp)
+    addi    sp, sp, 16
+    jr      ra
