@@ -1,0 +1,55 @@
+
+#
+# CprE 381 Generated Quartus Settings File
+#
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE115F29C7
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 21.1.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "19:07:08  JANUARY 28, 2019"
+set_global_assignment -name LAST_QUARTUS_VERSION "21.1.1 Standard Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name TOP_LEVEL_ENTITY RISCV_Processor
+set_global_assignment -name VHDL_INPUT_VERSION VHDL_2008
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/RISCV_types.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ALU_Control.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/AddSub.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/Compare.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ControlUnit.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/DFmux2t1.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/DMEMSignExtender.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/FullAdder.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ImmediateExtender.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/InstructionAddressHolder.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/IsNegative.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/IsZero.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/LogicModule.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/N_Adder.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/OnesCompliment.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/PCRegister.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/PC_dffg.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/RegFile.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/RegisterDecoder.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/addSub_n.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/andg2.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/bit_mux4t1.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/dffg.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/dualShift.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/hack.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/invg.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux2t1.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux2t1_N.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux32t1.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux4t1.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/nBitRegister.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/onesComp_n.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/org2.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/rbshift.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/rippleAdder_n.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/xorg2.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd"
+set_global_assignment -name VHDL_FILE "/home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/mem.vhd"

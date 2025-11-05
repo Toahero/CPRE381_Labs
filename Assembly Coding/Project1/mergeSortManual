@@ -1,0 +1,243 @@
+.data
+array: .word 1, 17, 7, -44, -5 #array to be sorted
+size: .word  5             # size of "array" (agrees with array declaration)
+.text
+
+
+main:
+la	a0, array
+la	a1, size
+lw	a1, 0(a1)
+
+call mergeSort
+
+
+la   a0, array        # first argument for print (array)
+la	a1, size     #second argument for print (size)
+lw	a1, 0(a1)
+jal  print            # call print routine.
+j die 
+
+die:
+wfi
+
+###############################################################
+# Subroutine to print the numbers on one line.
+      .data
+space:.asciz  " "          # space to insert between numbers
+head: .asciz  "The sorted numbers are:\n"
+      .text
+print:add  t0, zero, a0  # starting address of array of data to be printed
+      add  t1, zero, a1  # initialize loop counter to array size
+      la   a0, head        # load address of the print heading string
+      ori  a7, zero , 4           # specify Print String service
+      ecall               # print the heading string
+      
+out:  lw   a0, 0(t0)      # load the integer to be printed (the current Fib. number)
+      ori  a7, zero , 1           # specify Print Integer service
+      ecall               # print fibonacci number
+      
+      la   a0, space       # load address of spacer for syscall
+      ori  a7, zero , 4           # specify Print String service
+      ecall               # print the spacer string
+      
+      addi t0, t0, 4      # increment address of data to be printed
+      addi t1, t1, -1     # decrement loop counter
+      bne t1, zero , out         # repeat while not finished
+      
+      jr   ra              # return from subroutine
+      
+# End of subroutine to print the numbers on one line
+###############################################################
+
+#mergeSort arguments
+#a0 = array start
+#a1 = array size
+mergeSort:
+#Shift A1 left 2 (eq. to multiplying it by 4) to get array size in bytes
+slli t0, a1, 2
+#Add a0 to t0 to get the array endpoint
+add t0, t0, a0
+#Store this endpoint into a2
+mv a2, t0
+#Copy a0 into a1
+mv a1, a0
+call mergeSortRec
+ret
+
+#mergeSortRec arguments:
+#a0 = main array start location
+#a1 = left array start index
+#a2 = array end index
+mergeSortRec:
+#if start and end are the same, return. Otherwise, split the array in half
+bne a1, a2, splitArray
+ret
+splitArray:
+#Subtract a1 from a0 to get the array size
+sub t0, a2, a1
+#Shift right 1 to divide this value by 2
+srai t0, t0, 1
+#Add a1 (start index) to this value to get the midpoint
+add t0, t0, a1
+
+#Before recursively calling mergeSortRec, store the values of a0, a1, and a2
+#Decrement the stack by 4
+addi sp, sp, -4
+#Push a0 to the stack
+sw a0, 0(sp)
+#Decrement the stack by 4
+addi sp, sp, -4
+#Push a1 to the stack
+sw a1, 0(sp)
+#Decrement the stack by 4
+addi sp, sp, -4
+#Push a2 to the stack
+sw a2, 0(sp)
+
+
+
+#Set a2 to midPoint
+add a2, t0, zero
+#Call mergeSortRec on the first half of the function
+call mergeSortRec
+
+#Set a1 to the midpoint plus 4
+addi a1, t0, 4
+#Pop endpoint from the stack set it to the value of a2
+lw a2, 0(sp)
+#increment the stack
+addi sp, sp, 4
+#Call mergeSortRec on the second half of the function
+call mergeSortRec
+
+#Pop a1 from the stack
+lw a1, 0(sp)
+addi sp, sp, 4
+
+#Pop a0 from the stack
+lw a0, 0(sp)
+addi sp, sp, 4
+
+#Preparing to call the merge arrays function
+#Copy a2 into a3
+mv a3, a2
+#Copy t0 into a2
+mv t2, t0
+call mergeArrays
+
+
+
+
+#Merge Arrays arguments:
+#a0 = combined array start
+#a1 = left array start
+#a2 = right array start
+#a3 = right array end
+mergeArrays:
+#Load the value 0 into t4, this will record the size of the combined array
+add t4, zero, zero
+
+
+#Record the size of the left array
+#Temporarily load a1 into t0
+lw t0, (a1)
+#Temporarily load a2 into t1
+lw t1, (a2)
+#Subtract left start from right start and store the value into t5
+sub t1, t0, t5
+#Subtract 4 from t5
+addi t5, t5, -4
+#Shift t5 left 2 (Equivalent to dividing by 4) to get left array size
+srai t5, t5, 2
+
+
+#Record the size of the left array
+#Temporarily load a2 into t0
+lw t0, (a2)
+#Temporarily load a3 into t1
+lw t1, (a3)
+#Subtract right end from right start and store the value into t6
+sub t1, t0, t6
+#Shift t6 left 2 (Equivalent to dividing by 4) to get right array size
+srai t5, t5, 2
+
+nextValue:
+#Check if the left array is empty
+bge zero, t5 leftNotEmpty
+#Check if the right array is empty
+bge zero, t6, copyRight
+#If both are empty, jump to endMerge
+j endMerge
+
+leftNotEmpty:
+#If right is also not empty, jump to compare values
+bge zero, t6 compareValues
+#otherwise, jump to copy left
+j copyLeft
+
+
+#Load the value at A1 (left array start location) into t0
+lw t0, 0(a1)
+#Increment the value at a1 by one word
+addi a1, a1, 4
+
+
+#Load the value at A2 (right array start location) into t1
+lw t1, 0(a2)
+#Increment the value at a2 by one word
+addi a1, a1, 4
+
+compareValues:
+#While both arrays are larger than 0, select the smaller value from each and add it to the stack.
+bge t1, t2, t1Greater
+#If t2 is greater, jump to copyRight
+j copyRight
+
+t1Greater:
+#Otherwise, jump to copyLeft
+j copyLeft
+
+
+copyLeft:
+#Copy the value from t0 into t3
+add t3, t0, zero
+#Decrement left array size
+addi t5, t5, -1
+j storeValue
+
+copyRight:
+#Copy the value from t1 into t3
+add t3, t1, zero
+#decrement right array size
+addi t6, t6, -1
+j storeValue
+
+storeValue:
+#Decrement the stack
+addi sp, sp, -4
+#Push t3 to the stack
+sw t3, 0(sp)
+#increment t4 by one
+addi t4, t4, 1
+
+#Jump back to working on the values
+j nextValue
+
+endMerge:
+#Set t1 to the value of a0
+add t1, a0, zero
+copyBack:
+#Pop the stack value into t0
+lw t0, 0(sp)
+#increment the stack
+addi sp, sp, 4
+#decrement the value of t4
+addi t4, t4, -1
+#store the value at t0 into memory at address t1
+sw t0, 0(t0)
+#Increment t1 by the size of a word
+addi t1, t1, 4
+#If there are still values (t4 >= 0) jump back to the start of endMerge
+bge t4, zero, copyBack
+ret

@@ -40,7 +40,7 @@ begin
     opCode <= i_inst(6 downto 0);
     ecall   <= i_inst(31 downto 20);
 
-    with opCode select
+    with opCode select`
         PCOffsetSource      
                  <= '1' when "1100111",
                     '0' when others;
@@ -50,7 +50,7 @@ begin
 
     with opCode select
         ALU_Src <=  '0' when "0110011", --R format does not use an immediate
-                    '0' when "1100011",
+                    '0' when "1100011",--B format does not use an immediate
                     '1' when others;    --All other instruction formats use an immediate
                 
     with opCode select
