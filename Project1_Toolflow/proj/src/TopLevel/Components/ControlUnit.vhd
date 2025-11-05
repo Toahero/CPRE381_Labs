@@ -40,7 +40,7 @@ begin
     opCode <= i_inst(6 downto 0);
     ecall   <= i_inst(31 downto 20);
 
-    with opCode select`
+    with opCode select
         PCOffsetSource      
                  <= '1' when "1100111",
                     '0' when others;
