@@ -227,7 +227,7 @@ architecture structure of RISCV_Processor is
   signal f_ALU_Negative                 : std_logic;
   signal f_ALU_branch                   : std_logic;
 
-  signal s_branchJump                     : std_logic;
+  signal s_branchJump                   : std_logic;
 
   signal s_ProgramCounterOut            : std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal s_StdNextInstAddr              : std_logic_vector(DATA_WIDTH - 1 downto 0);
@@ -236,14 +236,27 @@ architecture structure of RISCV_Processor is
 
   component HACK is
     port (
-      input_vec  : in  std_logic_vector(31 downto 0);
-      output_vec : out std_logic_vector(31 downto 0)
+      input_vec                         : in  std_logic_vector(31 downto 0);
+      output_vec                        : out std_logic_vector(31 downto 0)
     );
   end component;
-  signal s_Instruction          : std_logic_vector(DATA_WIDTH - 1 downto 0);
-  signal s_DataMemory           : std_logic_vector(DATA_WIDTH - 1 downto 0);
+  signal s_Instruction                  : std_logic_vector(DATA_WIDTH - 1 downto 0);
+  signal s_DataMemory                   : std_logic_vector(DATA_WIDTH - 1 downto 0);
+  signal s_CycleTracker                 : integer := 0;
 
-  signal s_CycleTracker         : integer := 0;
+  component nBitRegister is
+      generic(
+        Reg_Size                        : positive
+      );
+      port(
+        i_CLK  	                        : in  std_logic;
+        i_reset	                        : in  std_logic;
+        i_WrEn	                        : in  std_logic;
+        i_write	                        : in  std_logic_vector(Reg_Size - 1 downto 0);
+        o_read 	                        : out std_logic_vector(Reg_Size - 1 downto 0)
+      );
+  end component;
+
 
 begin
 
@@ -300,8 +313,6 @@ begin
   -- TODO: Ensure that s_Ovfl is connected to the overflow output of your ALU
 
   -- TODO: Implement the rest of your processor below this comment!
-
-
 
   g_DMEMSignExtender : DMEMSignExtender
     port map(
