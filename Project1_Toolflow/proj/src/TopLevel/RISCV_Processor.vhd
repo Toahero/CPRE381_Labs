@@ -243,7 +243,19 @@ architecture structure of RISCV_Processor is
   signal s_Instruction          : std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal s_DataMemory           : std_logic_vector(DATA_WIDTH - 1 downto 0);
 
+  signal s_CycleTracker         : integer := 0;
+
 begin
+
+  p_CycleTracker : process(iCLK, s_CycleTracker)
+  begin
+    if (rising_edge(iCLK)) then
+      s_CycleTracker <= (s_CycleTracker + 1);
+    end if;
+    if (iRST) then
+      s_CycleTracker <= 0;
+    end if;
+  end process ; -- p_CycleTracker
 
   -- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory. If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be all zeros.
   with iInstLd select
@@ -288,6 +300,8 @@ begin
   -- TODO: Ensure that s_Ovfl is connected to the overflow output of your ALU
 
   -- TODO: Implement the rest of your processor below this comment!
+
+
 
   g_DMEMSignExtender : DMEMSignExtender
     port map(

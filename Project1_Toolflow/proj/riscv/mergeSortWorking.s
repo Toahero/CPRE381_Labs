@@ -21,7 +21,7 @@ main:
     la   a1, size
     lw   a1, 0(a1)
     call mergeSort
-
+    
     la   a0, array
     la   a1, size
     lw   a1, 0(a1)
