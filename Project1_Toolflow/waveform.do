@@ -1,6 +1,7 @@
 add wave -noupdate -divider {Clock}
 add wave -label {Clock} -position insertpoint vsim:/tb/CLK
 add wave -label {Reset} -position insertpoint vsim:/tb/reset
+add wave -label {Cycle} -radix unsigned -position insertpoint vsim:/tb/MyRiscv/s_CycleTracker
 
 add wave -noupdate -divider {Program Counter / Instruction Memory}
 add wave -label {Current Instruction Address} -position insertpoint vsim:/tb/MyRiscv/g_ProgramCounter/o_CurrentInstructionAddress
