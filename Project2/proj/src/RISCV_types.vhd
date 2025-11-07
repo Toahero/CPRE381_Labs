@@ -14,20 +14,9 @@ use IEEE.std_logic_1164.all;
 
 package RISCV_types is
 
-  -- Example Constants. Declare more as needed
-  constant DATA_WIDTH : integer := 32;
-  constant ADDR_WIDTH : integer := 10;
-
   type array32bits32 is array (0 to 31) of std_logic_vector(31 downto 0);
-
-  -- Example record type. Declare whatever types you need here
-  type control_t is record
-    reg_wr : std_logic;
-    reg_to_mem : std_logic;
-  end record control_t;
 
 end package RISCV_types;
 
-package body RISCV_types is
-  
+package body RISCV_types is  
 end package body RISCV_types;

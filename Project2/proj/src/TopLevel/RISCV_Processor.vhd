@@ -257,7 +257,6 @@ architecture structure of RISCV_Processor is
       );
   end component;
 
-
 begin
 
   p_CycleTracker : process(iCLK, s_CycleTracker)
