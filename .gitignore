@@ -2,6 +2,7 @@
 work/
 output/
 
+
 # Simulation files
 *.opt
 *.wlf
@@ -10,6 +11,22 @@ output/
 *.log
 *.trace
 *.dbg
+*.qpf
+*.cdb
+*.hdb
+*.qsf
+*.sdc
+*.db_info
+*.qmsg
+*.hif
+*.hiel_info
+*.ddb
+*.ammdb
+*.bpm
+*.kpt
+*.rdb
+*.pyc
+modelsim.ini
 
 # Temporary simulation files
 wlft*

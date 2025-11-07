@@ -16,6 +16,7 @@ head:   .asciz "The sorted numbers are:\n"
 # main
 ###############################################################
 main:
+    li   sp, 0x7FFFEFEC
     la   a0, array
     la   a1, size
     lw   a1, 0(a1)
