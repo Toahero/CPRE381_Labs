@@ -233,7 +233,6 @@ architecture structure of RISCV_Processor is
   signal s_StdNextInstAddr              : std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal s_ImmediateValue               : std_logic_vector(DATA_WIDTH - 1 downto 0);
 
-
   component HACK is
     port (
       input_vec                         : in  std_logic_vector(31 downto 0);
@@ -361,6 +360,47 @@ begin
     );
 
   s_NextInstAddr                        <= s_ProgramCounterOut;
+
+  g_Buffer_IFID : Buffer_IFID
+    port map(
+      i_Clock                           => iCLK,
+      i_Reset                           => iRST,
+      i_WriteEnable                     => '1',
+
+      i_Next                            => s_BufferIFID_Next,
+      o_Current                         => s_BufferIFID_Current
+    );
+
+  g_Buffer_IDEX : Buffer_IDEX
+    port map(
+      i_Clock                           => iCLK,
+      i_Reset                           => iRST,
+      i_WriteEnable                     => '1',
+
+      i_Next                            => s_BufferIDEX_Next,
+      o_Current                         => s_BufferIDEX_Current
+    );
+
+  g_Buffer_EXMEM : Buffer_EXMEM
+    port map(
+      i_Clock                           => iCLK,
+      i_Reset                           => iRST,
+      i_WriteEnable                     => '1',
+
+      i_Next                            => s_BufferEXMEM_Next,
+      o_Current                         => s_BufferEXMEM_Current
+    );
+
+  g_Buffer_MEMWB : Buffer_MEMWB
+    port map(
+      i_Clock                           => iCLK,
+      i_Reset                           => iRST,
+      i_WriteEnable                     => '1',
+
+      i_Next                            => s_BufferMEMWB_Next,
+      o_Current                         => s_BufferMEMWB_Current
+    );
+
 
   g_ProgramCounter : InstructionAddressHolder
       generic map(
