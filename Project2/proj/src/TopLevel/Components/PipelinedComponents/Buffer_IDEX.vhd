@@ -1,5 +1,6 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
+use work.RISCV_types.t_IDEX;
 
 entity Buffer_IDEX is
   port(
@@ -7,25 +8,8 @@ entity Buffer_IDEX is
     i_Reset                 : in  std_logic;
     i_WriteEnable           : in  std_logic;
 
-    i_NextWriteBack         : in  std_logic;
-    i_NextMemory            : in  std_logic;
-    i_NextExecute           : in  std_logic;
-    i_NextRS1Address        : in  std_logic_vector(4  downto 0);
-    i_NextRS2Address        : in  std_logic_vector(4  downto 0);
-    i_NextRS1Value          : in  std_logic_vector(31 downto 0);
-    i_NextRS2Value          : in  std_logic_vector(31 downto 0);
-    i_NextImmediateGen      : in  std_logic_vector(31 downto 0);
-
-
-    o_CurrentWriteBack      : out std_logic;
-    o_CurrentMemory         : out std_logic;
-    o_CurrentExecute        : out std_logic;
-    o_CurrentRS1Address     : out std_logic_vector(4  downto 0);
-    o_CurrentRS2Address     : out std_logic_vector(4  downto 0);
-    o_CurrentRS1Value       : out std_logic_vector(31 downto 0);
-    o_CurrentRS2Value       : out std_logic_vector(31 downto 0);
-    o_CurrentImmediateGen   : out std_logic_vector(31 downto 0)
-
+    i_Next                  : in  t_IDEX;
+    o_Current               : out t_IDEX
   );
 end Buffer_IDEX;
 
@@ -44,41 +28,18 @@ architecture behaviour of Buffer_IDEX is
       );
   end component;
 
-  signal s_RegisterIn   : std_logic_vector(108 downto 0) := (others => '0');
-  signal s_RegisterOut  : std_logic_vector(108 downto 0) := (others => '0');
-
 begin
-  
-    s_RegisterIn      <= (
-      i_NextWriteBack       &
-      i_NextMemory          &
-      i_NextExecute         &
-      i_NextRS1Address      &
-      i_NextRS2Address      &
-      i_NextRS1Value        &
-      i_NextRS2Value        &
-      i_NextImmediateGen  
-    );
-
-    o_CurrentWriteBack      <= s_RegisterOut(108);
-    o_CurrentMemory         <= s_RegisterOut(107);
-    o_CurrentExecute        <= s_RegisterOut(106);
-    o_CurrentRS1Address     <= s_RegisterOut(105 downto 101);
-    o_CurrentRS2Address     <= s_RegisterOut(100 downto 96 );
-    o_CurrentRS1Value       <= s_RegisterOut(95  downto 64 );
-    o_CurrentRS2Value       <= s_RegisterOut(63  downto 32 );
-    o_CurrentImmediateGen   <= s_RegisterOut(31  downto 0  );
 
     g_Buffer : nBitRegister
         generic map(
-          Reg_Size  => 109
+          Reg_Size  => t_IDEX'length
         )
         port map(
           i_CLK     => i_Clock,
           i_reset   => i_Reset,
           i_WrEn    => i_WriteEnable,
-          i_write   => s_RegisterIn,
-          o_read    => s_RegisterOut
+          i_write   => i_Next,
+          o_read    => o_Current
         );
 
 end behaviour;

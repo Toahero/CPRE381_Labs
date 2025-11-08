@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use work.RISCV_types.t_IFID;
 
-entity Buffer_IFID is
+entity Buffer_EXMEM is
   port(
     i_Clock                 : in  std_logic;
     i_Reset                 : in  std_logic;
@@ -11,9 +11,9 @@ entity Buffer_IFID is
     i_Next                  : in  t_IFID;
     o_Current               : out t_IFID
   );
-end Buffer_IFID;
+end Buffer_EXMEM;
 
-architecture behaviour of Buffer_IFID is
+architecture behaviour of Buffer_EXMEM is
   
   component nBitRegister is
       generic(
