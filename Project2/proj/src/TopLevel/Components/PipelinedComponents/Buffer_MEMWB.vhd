@@ -1,19 +1,19 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
-use work.RISCV_types.t_EXMEM;
+use work.RISCV_types.t_MEMWB;
 
-entity Buffer_EXMEM is
+entity Buffer_MEMWB is
   port(
     i_Clock                 : in  std_logic;
     i_Reset                 : in  std_logic;
     i_WriteEnable           : in  std_logic;
 
-    i_Next                  : in  t_EXMEM;
-    o_Current               : out t_EXMEM
+    i_Next                  : in  t_MEMWB;
+    o_Current               : out t_MEMWB
   );
-end Buffer_EXMEM;
+end Buffer_MEMWB;
 
-architecture behaviour of Buffer_EXMEM is
+architecture behaviour of Buffer_MEMWB is
   
   component nBitRegister is
       generic(
@@ -32,7 +32,7 @@ begin
 
   g_Buffer : nBitRegister
       generic map(
-        Reg_Size  => t_EXMEM'length
+        Reg_Size  => t_MEMWB'length
       )
       port map(
         i_CLK     => i_Clock,

@@ -22,7 +22,7 @@ library work;
 use work.RISCV_types.all;
 
 entity RISCV_Processor is
-  generic(N : integer := DATA_WIDTH);
+  generic(N : integer := 32);
   port(iCLK            : in std_logic;
        iRST            : in std_logic;
        iInstLd         : in std_logic;
@@ -244,18 +244,57 @@ architecture structure of RISCV_Processor is
   signal s_DataMemory                   : std_logic_vector(DATA_WIDTH - 1 downto 0);
   signal s_CycleTracker                 : integer := 0;
 
-  component nBitRegister is
-      generic(
-        Reg_Size                        : positive
-      );
-      port(
-        i_CLK  	                        : in  std_logic;
-        i_reset	                        : in  std_logic;
-        i_WrEn	                        : in  std_logic;
-        i_write	                        : in  std_logic_vector(Reg_Size - 1 downto 0);
-        o_read 	                        : out std_logic_vector(Reg_Size - 1 downto 0)
-      );
+  component Buffer_EXMEM is
+    port(
+      i_Clock                           : in  std_logic;
+      i_Reset                           : in  std_logic;
+      i_WriteEnable                     : in  std_logic;
+
+      i_Next                            : in  t_EXMEM;
+      o_Current                         : out t_EXMEM
+    );
   end component;
+  signal s_BufferEXMEM_Next             : t_EXMEM;
+  signal s_BufferEXMEM_Current          : t_EXMEM;
+
+  component Buffer_IDEX is
+    port(
+      i_Clock                           : in  std_logic;
+      i_Reset                           : in  std_logic;
+      i_WriteEnable                     : in  std_logic;
+
+      i_Next                            : in  t_IDEX;
+      o_Current                         : out t_IDEX
+    );
+  end component;
+  signal s_BufferIDEX_Next              : t_IDEX;
+  signal s_BufferIDEX_Current           : t_IDEX;
+
+  component Buffer_IFID is
+    port(
+      i_Clock                           : in  std_logic;
+      i_Reset                           : in  std_logic;
+      i_WriteEnable                     : in  std_logic;
+
+      i_Next                            : in  t_IFID;
+      o_Current                         : out t_IFID
+    );
+  end component;
+  signal s_BufferIFID_Next              : t_IFID;
+  signal s_BufferIFID_Current           : t_IFID;
+
+  component Buffer_MEMWB is
+    port(
+      i_Clock                           : in  std_logic;
+      i_Reset                           : in  std_logic;
+      i_WriteEnable                     : in  std_logic;
+
+      i_Next                            : in  t_MEMWB;
+      o_Current                         : out t_MEMWB
+    );
+  end component;
+  signal s_BufferMEMWB_Next             : t_MEMWB;
+  signal s_BufferMEMWB_Current          : t_MEMWB;
 
 begin
 

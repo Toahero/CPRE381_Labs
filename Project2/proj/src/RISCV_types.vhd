@@ -33,6 +33,7 @@ package RISCV_types is
     BranchEnable        : std_logic;
     ALU_Source          : std_logic;
     MemoryWriteEnable   : std_logic;
+    RegisterWriteEnable : std_logic;
     Halt                : std_logic;
     Instruction         : std_logic_vector(31 downto 0);
     RS1_Value           : std_logic_vector(31 downto 0);
@@ -40,10 +41,20 @@ package RISCV_types is
     Immediate           : std_logic_vector(31 downto 0);
   end record t_IDEX;
 
-  
+  type t_EXMEM is record
+    MemToReg            : std_logic;
+    MemoryWriteEnable   : std_logic;
+    RegisterWriteEnable : std_logic;
+    Halt                : std_logic;
+    Instruction         : std_logic_vector(31 downto 0);
+    RS1_Value           : std_logic_vector(31 downto 0);
+    RS2_Value           : std_logic_vector(31 downto 0);
+    Immediate           : std_logic_vector(31 downto 0);
+  end record t_EXMEM;
 
   type t_MEMWB is record
     MemToReg            : std_logic;
+    RegisterWriteEnable : std_logic;
     Halt                : std_logic;
     ALUResult           : std_logic_vector(31 downto 0);
     MemoryOut           : std_logic_vector(31 downto 0);
