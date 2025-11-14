@@ -20,7 +20,7 @@ main:
     la   a0, array
     la   a1, size
     lw   a1, 0(a1)
-    call mergeSort
+    jal  x1, mergeSort
     
     la   a0, array
     la   a1, size
