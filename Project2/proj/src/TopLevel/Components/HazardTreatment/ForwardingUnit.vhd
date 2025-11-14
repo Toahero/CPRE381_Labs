@@ -14,8 +14,8 @@ Library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity ForwardingUnit is
-    port(   i_IDEX_RS1  : in std_logic_vector(5 downto 0);
-            i_IDEX_RS2  : in std_logic_vector(5 downto 0);
+    port(   i_ALU_RS1  : in std_logic_vector(5 downto 0);
+            i_ALU_RS2  : in std_logic_vector(5 downto 0);
             i_MEM_RD    : in std_logic_vector(5 downto 0);
             i_WB_RD     : in std_logic_vector(5 downto 0);
 
@@ -27,3 +27,13 @@ entity ForwardingUnit is
 
 end ForwardingUnit;
 
+architecture dataflow of ForwardingUnit is
+    o_ForwardA <=   "01" when i_ALU_RS1 = i_MEM_RD else
+                    "10" when i_ALU_RS1 = i_WB_RD  else
+                    "00";
+
+    o_ForwardB <=   "01" when i_ALU_RS1 = i_MEM_RD else
+                    "10" when i_ALU_RS1 = i_WB_RD  else
+                    "00";
+
+end dataflow;
