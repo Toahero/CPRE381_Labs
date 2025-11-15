@@ -155,6 +155,19 @@ architecture structure of RISCV_Processor is
   signal s_Control_HaltProg             : std_logic;
   signal s_Control_PCOffsetSource       : std_logic;
 
+  component Compare is
+      port(
+          i_A                 : in  std_logic_vector(31 downto 0);
+          i_B                 : in  std_logic_vector(31 downto 0);
+          i_slt_Unsigned      : in  std_logic;
+          i_BranchCondition   : in  std_logic_vector(2 downto 0); -- Funct3
+          
+          o_Result_slt        : out std_logic_vector(31 downto 0);
+          o_Result_Branch     : out std_logic
+      );
+  end component;
+
+
   component ImmediateExtender is
     port(
       i_instruction                     : in  std_logic_vector(31 downto 0);
@@ -216,12 +229,12 @@ architecture structure of RISCV_Processor is
       f_branch                          : out std_logic
     );
   end component;
-  signal s_ALU_Operand1                 : std_logic_vector(DATA_WIDTH - 1 downto 0);
-  signal s_ALU_Operand2                 : std_logic_vector(DATA_WIDTH - 1 downto 0);
-  signal s_ALU_Result                   : std_logic_vector(DATA_WIDTH - 1 downto 0);
-  signal s_ALU_ModuleSelect             : std_logic_vector(1 downto 0);
-  signal s_ALU_OperationSelect          : std_logic_vector(1 downto 0);
-  signal s_ALU_BranchCondition          : std_logic_vector(2 downto 0);
+  signal s_ALU_Operand1                 : std_logic_vector(31 downto 0);
+  signal s_ALU_Operand2                 : std_logic_vector(31 downto 0);
+  signal s_ALU_Result                   : std_logic_vector(31 downto 0);
+  signal s_ALU_ModuleSelect             : std_logic_vector(1  downto 0);
+  signal s_ALU_OperationSelect          : std_logic_vector(1  downto 0);
+  signal s_ALU_BranchCondition          : std_logic_vector(2  downto 0);
   signal f_ALU_Overflow                 : std_logic;
   signal f_ALU_Zero                     : std_logic;
   signal f_ALU_Negative                 : std_logic;
@@ -229,9 +242,9 @@ architecture structure of RISCV_Processor is
 
   signal s_branchJump                   : std_logic;
 
-  signal s_ProgramCounterOut            : std_logic_vector(DATA_WIDTH - 1 downto 0);
-  signal s_StdNextInstAddr              : std_logic_vector(DATA_WIDTH - 1 downto 0);
-  signal s_ImmediateValue               : std_logic_vector(DATA_WIDTH - 1 downto 0);
+  signal s_ProgramCounterOut            : std_logic_vector(31 downto 0);
+  signal s_StdNextInstAddr              : std_logic_vector(31 downto 0);
+  signal s_ImmediateValue               : std_logic_vector(31 downto 0);
 
   component HACK is
     port (
@@ -239,61 +252,9 @@ architecture structure of RISCV_Processor is
       output_vec                        : out std_logic_vector(31 downto 0)
     );
   end component;
-  signal s_Instruction                  : std_logic_vector(DATA_WIDTH - 1 downto 0);
-  signal s_DataMemory                   : std_logic_vector(DATA_WIDTH - 1 downto 0);
+  signal s_Instruction                  : std_logic_vector(31 downto 0);
+  signal s_DataMemory                   : std_logic_vector(31 downto 0);
   signal s_CycleTracker                 : integer := 0;
-
-  component Buffer_EXMEM is
-    port(
-      i_Clock                           : in  std_logic;
-      i_Reset                           : in  std_logic;
-      i_WriteEnable                     : in  std_logic;
-
-      i_Next                            : in  t_EXMEM;
-      o_Current                         : out t_EXMEM
-    );
-  end component;
-  signal s_BufferEXMEM_Next             : t_EXMEM;
-  signal s_BufferEXMEM_Current          : t_EXMEM;
-
-  component Buffer_IDEX is
-    port(
-      i_Clock                           : in  std_logic;
-      i_Reset                           : in  std_logic;
-      i_WriteEnable                     : in  std_logic;
-
-      i_Next                            : in  t_IDEX;
-      o_Current                         : out t_IDEX
-    );
-  end component;
-  signal s_BufferIDEX_Next              : t_IDEX;
-  signal s_BufferIDEX_Current           : t_IDEX;
-
-  component Buffer_IFID is
-    port(
-      i_Clock                           : in  std_logic;
-      i_Reset                           : in  std_logic;
-      i_WriteEnable                     : in  std_logic;
-
-      i_Next                            : in  t_IFID;
-      o_Current                         : out t_IFID
-    );
-  end component;
-  signal s_BufferIFID_Next              : t_IFID;
-  signal s_BufferIFID_Current           : t_IFID;
-
-  component Buffer_MEMWB is
-    port(
-      i_Clock                           : in  std_logic;
-      i_Reset                           : in  std_logic;
-      i_WriteEnable                     : in  std_logic;
-
-      i_Next                            : in  t_MEMWB;
-      o_Current                         : out t_MEMWB
-    );
-  end component;
-  signal s_BufferMEMWB_Next             : t_MEMWB;
-  signal s_BufferMEMWB_Current          : t_MEMWB;
 
 begin
 
@@ -323,8 +284,8 @@ begin
         );
 
   IMem: mem
-    generic map(ADDR_WIDTH => ADDR_WIDTH,
-                DATA_WIDTH => N)
+    generic map(ADDR_WIDTH => 32,
+                DATA_WIDTH => 32)
     port map(clk  => iCLK,
              addr => s_IMemAddr(11 downto 2),
              data => iInstExt,
@@ -338,8 +299,8 @@ begin
         );
 
   DMem: mem
-    generic map(ADDR_WIDTH => ADDR_WIDTH,
-                DATA_WIDTH => N)
+    generic map(ADDR_WIDTH => 32,
+                DATA_WIDTH => 32)
     port map(clk  => iCLK,
              addr => s_DMemAddr(11 downto 2),
              data => s_DMemData,
@@ -351,222 +312,6 @@ begin
 
   -- TODO: Implement the rest of your processor below this comment!
 
-  g_DMEMSignExtender : DMEMSignExtender
-    port map(
-      i_Data                            => s_DataMemory,
-      i_Funct3                          => s_Instruction(14 downto 12),
 
-      o_SignExtendedDMEM                => s_SignExtendedDMEM
-    );
-
-  s_NextInstAddr                        <= s_ProgramCounterOut;
-
-  g_Buffer_IFID : Buffer_IFID
-    port map(
-      i_Clock                           => iCLK,
-      i_Reset                           => iRST,
-      i_WriteEnable                     => '1',
-
-      i_Next                            => s_BufferIFID_Next,
-      o_Current                         => s_BufferIFID_Current
-    );
-
-  g_Buffer_IDEX : Buffer_IDEX
-    port map(
-      i_Clock                           => iCLK,
-      i_Reset                           => iRST,
-      i_WriteEnable                     => '1',
-
-      i_Next                            => s_BufferIDEX_Next,
-      o_Current                         => s_BufferIDEX_Current
-    );
-
-  g_Buffer_EXMEM : Buffer_EXMEM
-    port map(
-      i_Clock                           => iCLK,
-      i_Reset                           => iRST,
-      i_WriteEnable                     => '1',
-
-      i_Next                            => s_BufferEXMEM_Next,
-      o_Current                         => s_BufferEXMEM_Current
-    );
-
-  g_Buffer_MEMWB : Buffer_MEMWB
-    port map(
-      i_Clock                           => iCLK,
-      i_Reset                           => iRST,
-      i_WriteEnable                     => '1',
-
-      i_Next                            => s_BufferMEMWB_Next,
-      o_Current                         => s_BufferMEMWB_Current
-    );
-
-
-  g_ProgramCounter : InstructionAddressHolder
-      generic map(
-          ADDR_WIDTH                    => 32
-      )
-      port map(
-          i_Clock                       => iCLK,
-          i_Reset                       => iRST,
-          i_NextInstructionAddress      => s_PCNextInstructionAddress,
-          i_Halt                        => s_Halt,
-
-          o_CurrentInstructionAddress   => s_ProgramCounterOut
-      );
-
-  g_ProgramCounterConstAdder : AddSub
-      generic map(
-          WIDTH                         => 32
-      )
-      port map(
-          i_A                           => s_ProgramCounterOut,
-          i_B                           => x"00000004",
-          n_Add_Sub                     => '0',
-          o_S                           => s_StdNextInstAddr,
-          o_C                           => open
-      );
-
-  g_PCAddSource : mux2t1_N
-    generic map(
-      N                                 => 32
-    )
-    port map(
-        i_S                             => s_Control_PCOffsetSource,
-        i_D0                            => s_ProgramCounterOut,
-        i_D1                            => s_RS1,
-        o_O                             => s_PCAdditionValue
-    );
-
-  g_ProgramCounterJumpAdder : AddSub
-      generic map(
-          WIDTH                         => 32
-      )
-      port map(
-          i_A                           => s_PCAdditionValue,
-          i_B                           => s_ImmediateValue,
-          n_Add_Sub                     => '0',
-          o_S                           => s_JumpNextInstructionAddress,
-          o_C                           => open
-      );
-
-  s_branchJump <= f_ALU_Branch and s_Control_Branch;
-  g_PCNextInstructionSource : mux2t1_N
-    generic map(
-      N                                 => 32
-    )
-    port map(
-      i_S                               => s_branchJump OR s_Control_Jump,
-      i_D0                              => s_StdNextInstAddr,
-      i_D1                              => s_JumpNextInstructionAddress,
-      o_O                               => s_PCNextInstructionAddress
-    );
-
-  g_ControlUnit : ControlUnit
-    port map(
-      --opCode                            => s_Instruction(6 downto 0),
-      i_inst                            => s_Instruction,
-      ALU_Src                           => s_Control_ALU_Src,
-      Mem_We                            => s_Control_Mem_We,
-      Jump                              => s_Control_Jump,
-      MemToReg                          => s_Control_MemToReg,
-      Reg_WE                            => s_Control_Reg_WE,
-      Branch                            => s_Control_Branch,
-      HaltProg                          => s_Control_HaltProg,
-      PCOffsetSource                    => s_Control_PCOffsetSource
-    );
-  s_Halt                                <= s_Control_HaltProg;
-  s_DMemWr                              <= s_Control_Mem_We;
-
-  g_ImmediateGeneration : ImmediateExtender
-    port map(
-      i_instruction                     => s_Instruction,
-      o_output                          => s_ImmediateValue
-    );
-
-  g_Mux_ALU_Operand2 : mux2t1_N
-    generic map(
-      N                                 => 32 -- Generic of type integer for input/output data width. Default value is 32.
-    )
-    port map(
-      i_S                               => s_Control_ALU_Src,
-      i_D0                              => s_RS2,
-      i_D1                              => s_ImmediateValue,
-      o_O                               => s_ALU_Operand2
-    );
-
-  g_RegisterFile : RegFile
-    port map(
-      clock	                            => iCLK,
-      reset	                            => iRST,
-
-      RS1Sel	                          => s_Instruction(19 downto 15),
-      RS1                               => s_RS1,
-
-      RS2Sel	                          => s_Instruction(24 downto 20),
-      RS2                               => s_RS2,
-
-      WrEn	                            => s_Control_Reg_We,
-      RdSel	                            => s_RegWrAddr,
-      Rd                                => s_RD_Data
-    );
-  s_RegWr                               <= s_Control_Reg_WE;
-  s_RegWrAddr                           <= s_Instruction(11 downto 7);
-  s_RegWrData                           <= s_RD_Data;
-  s_DMemData                            <= s_RS2;
-
-  g_ALUControl : ALU_Control
-    port map(
-        i_Opcode                        => s_Instruction(6  downto 0 ),
-        i_Funct3                        => s_Instruction(14 downto 12),
-        i_Funct7                        => s_Instruction(31 downto 25),
-        i_PCAddr                        => s_ProgramCounterOut,
-
-        o_AOverride                     => s_ALUControl_AOverride,
-        o_BOverride                     => s_ALUControl_BOverride,
-        o_BOverrideEnable               => s_ALUControl_BOverrideEnable,
-        o_AOverrideEnable               => s_ALUControl_AOverrideEnable,
-        o_ModuleSelect                  => s_ALU_ModuleSelect,
-        o_OperationSelect               => s_ALU_OperationSelect,
-        o_Funct3Passthrough             => s_ALU_BranchCondition
-    );
-
-  s_ALU_Operand1                        <= s_RS1;
-  g_ALU : ALU
-    port map(
-        i_A                             => s_ALU_Operand1,
-        i_B                             => s_ALU_Operand2,
-
-        i_AOverride                     => s_ALUControl_AOverride,
-        i_BOverride                     => s_ALUControl_BOverride,
-        i_AOverrideEnable               => s_ALUControl_AOverrideEnable,
-        i_BOverrideEnable               => s_ALUControl_BOverrideEnable,
-
-        i_OutSel                        => '0',
-        i_ModSel                        => s_ALU_ModuleSelect,
-        i_OppSel                        => s_ALU_OperationSelect,
-
-        i_BranchCond                    => s_ALU_BranchCondition,
-
-        o_Result                        => open,
-        o_output                        => s_ALU_Result,
-        f_ovflw                         => f_ALU_Overflow,
-        f_zero                          => f_ALU_Zero,
-        f_negative                      => f_ALU_Negative,
-        f_branch                        => f_ALU_branch
-    );
-  oALUOut                               <= s_ALU_Result;
-  s_DMemAddr                            <= s_ALU_Result;
-
-  g_RegisterDataSource : mux2t1_N
-    generic map(
-      N                                 => 32
-    )
-    port map(
-      i_S                               => s_Control_MemToReg,
-      i_D0                              => s_ALU_Result,
-      i_D1                              => s_SignExtendedDMEM,
-      o_O                               => s_RD_Data
-    );
 
 end structure;

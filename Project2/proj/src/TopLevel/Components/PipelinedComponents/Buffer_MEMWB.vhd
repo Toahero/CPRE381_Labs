@@ -28,18 +28,25 @@ architecture behaviour of Buffer_MEMWB is
       );
   end component;
 
+  constant size : integer := 99;
+
+  signal s_Next : std_logic_vector(size - 1 downto 0);
+  signal s_Current : std_logic_vector(size - 1 downto 0);
+
 begin
+
+  
 
   g_Buffer : nBitRegister
       generic map(
-        Reg_Size  => t_MEMWB'length
+        Reg_Size  => size
       )
       port map(
         i_CLK     => i_Clock,
         i_reset   => i_Reset,
         i_WrEn    => i_WriteEnable,
-        i_write   => i_Next,
-        o_read    => o_Current
+        i_write   => s_Next,
+        o_read    => s_Current
       );
 
 end behaviour;
