@@ -78,7 +78,6 @@ architecture structure of RISCV_Processor is
       o_SignExtendedDMEM                : out std_logic_vector(31 downto 0)
     );
   end component;
-  signal s_SignExtendedDMEM             : std_logic_vector(31 downto 0);
 
   component InstructionAddressHolder is
       generic(
@@ -88,15 +87,14 @@ architecture structure of RISCV_Processor is
           i_Clock                       : in  std_logic;
           i_Reset                       : in  std_logic;
           i_NextInstructionAddress      : in  std_logic_vector((ADDR_WIDTH - 1) downto 0);
-          i_Halt                        : in std_logic;
+          i_Halt                        : in  std_logic;
   
           o_CurrentInstructionAddress   : out std_logic_vector((ADDR_WIDTH - 1) downto 0)
       );
   end component;
-  signal s_PCNextInstructionAddress     : std_logic_vector(31 downto 0);
-  signal s_StdNextAddress               : std_logic_vector(31 downto 0);
-  signal s_JumpNextInstructionAddress   : std_logic_vector(31 downto 0);
-  signal s_PCAdditionValue              : std_logic_vector(31 downto 0);
+  signal s_NextInstructionAddress       : std_logic_vector(31 downto 0);
+  signal s_JumpOrBranchNextPC           : std_logic_vector(31 downto 0);
+  signal s_ID_JumpOrBranch              : std_logic;
 
   component AddSub is
       generic(
@@ -128,14 +126,12 @@ architecture structure of RISCV_Processor is
       Rd                                : in  std_logic_vector(31 downto 0)
     );
   end component;
-  signal s_RS1                          : std_logic_vector(31 downto 0);
-  signal s_RS2                          : std_logic_vector(31 downto 0);
-  signal s_RD_Data                      : std_logic_vector(31 downto 0);
+  signal s_ID_RS1                       : std_logic_vector(31 downto 0);
+  signal s_ID_RS2                       : std_logic_vector(31 downto 0);
 
   component ControlUnit is
     port(
-      --opCode                            : in  std_logic_vector(6 downto 0);
-      i_inst                            : in std_logic_vector(31 downto 0);
+      i_inst                            : in  std_logic_vector(31 downto 0);
       ALU_Src                           : out std_logic;
       Mem_We                            : out std_logic;
       Jump                              : out std_logic;
@@ -146,27 +142,19 @@ architecture structure of RISCV_Processor is
       PCOffsetSource                    : out std_logic
     );
   end component;
-  signal s_Control_ALU_Src              : std_logic;
-  signal s_Control_Mem_We               : std_logic;
-  signal s_Control_Jump                 : std_logic;
-  signal s_Control_MemToReg             : std_logic;
-  signal s_Control_Reg_WE               : std_logic;
-  signal s_Control_Branch               : std_logic;
-  signal s_Control_HaltProg             : std_logic;
-  signal s_Control_PCOffsetSource       : std_logic;
 
   component Compare is
-      port(
-          i_A                 : in  std_logic_vector(31 downto 0);
-          i_B                 : in  std_logic_vector(31 downto 0);
-          i_slt_Unsigned      : in  std_logic;
-          i_BranchCondition   : in  std_logic_vector(2 downto 0); -- Funct3
-          
-          o_Result_slt        : out std_logic_vector(31 downto 0);
-          o_Result_Branch     : out std_logic
-      );
+    port(
+      i_A                               : in  std_logic_vector(31 downto 0);
+      i_B                               : in  std_logic_vector(31 downto 0);
+      i_slt_Unsigned                    : in  std_logic;
+      i_BranchCondition                 : in  std_logic_vector(2 downto 0); -- Funct3
+      o_Result_slt                      : out std_logic_vector(31 downto 0);
+      o_Result_Branch                   : out std_logic
+    );
   end component;
-
+  signal s_ID_CompareBranchResult       : std_logic;
+  signal s_PC_Offset                    : std_logic_vector(31 downto 0);
 
   component ImmediateExtender is
     port(
@@ -174,6 +162,7 @@ architecture structure of RISCV_Processor is
       o_output                          : out std_logic_vector(31 downto 0)
     );
   end component;
+  signal s_ID_Immediate                 : std_logic_vector(31 downto 0);
 
   component mux2t1_N is
     generic(
@@ -203,11 +192,6 @@ architecture structure of RISCV_Processor is
       );
   end component;
 
-  signal s_ALUControl_AOverride         : std_logic_vector(31 downto 0);
-  signal s_ALUControl_BOverride         : std_logic_vector(31 downto 0);
-  signal s_ALUControl_BOverrideEnable   : std_logic;
-  signal s_ALUControl_AOverrideEnable   : std_logic;
-
   component ALU is
     port(
       i_A                               : in  std_logic_vector(31 downto 0);
@@ -229,22 +213,6 @@ architecture structure of RISCV_Processor is
       f_branch                          : out std_logic
     );
   end component;
-  signal s_ALU_Operand1                 : std_logic_vector(31 downto 0);
-  signal s_ALU_Operand2                 : std_logic_vector(31 downto 0);
-  signal s_ALU_Result                   : std_logic_vector(31 downto 0);
-  signal s_ALU_ModuleSelect             : std_logic_vector(1  downto 0);
-  signal s_ALU_OperationSelect          : std_logic_vector(1  downto 0);
-  signal s_ALU_BranchCondition          : std_logic_vector(2  downto 0);
-  signal f_ALU_Overflow                 : std_logic;
-  signal f_ALU_Zero                     : std_logic;
-  signal f_ALU_Negative                 : std_logic;
-  signal f_ALU_branch                   : std_logic;
-
-  signal s_branchJump                   : std_logic;
-
-  signal s_ProgramCounterOut            : std_logic_vector(31 downto 0);
-  signal s_StdNextInstAddr              : std_logic_vector(31 downto 0);
-  signal s_ImmediateValue               : std_logic_vector(31 downto 0);
 
   component HACK is
     port (
@@ -252,9 +220,61 @@ architecture structure of RISCV_Processor is
       output_vec                        : out std_logic_vector(31 downto 0)
     );
   end component;
+  signal s_CycleTracker                 : integer := 0;
+
   signal s_Instruction                  : std_logic_vector(31 downto 0);
   signal s_DataMemory                   : std_logic_vector(31 downto 0);
-  signal s_CycleTracker                 : integer := 0;
+
+
+  component Buffer_IFID is
+    port(
+      i_Clock                           : in  std_logic;
+      i_Reset                           : in  std_logic;
+      i_WriteEnable                     : in  std_logic;
+  
+      i_Next                            : in  t_IFID;
+      o_Current                         : out t_IFID
+    );
+  end component;
+  signal s_IFID_Next                    : t_IFID;
+
+  signal s_IF_InstructionAddress        : std_logic_vector(31 downto 0);
+  signal s_IF_Instruction               : std_logic_vector(31 downto 0);
+
+  signal s_IFID_Current                 : t_IFID;
+
+  component Buffer_IDEX is
+    port(
+      i_Clock                           : in  std_logic;
+      i_Reset                           : in  std_logic;
+      i_WriteEnable                     : in  std_logic;
+  
+      i_Next                            : in  t_IDEX;
+      o_Current                         : out t_IDEX
+    );
+  end component;
+  signal s_IDEX_Next                    : t_IDEX;
+  signal s_IDEX_Current                 : t_IDEX;
+
+  signal s_ID_Control_ALU_Src           : std_logic;
+  signal s_ID_Control_Jump              : std_logic;
+  signal s_ID_Control_BranchEnable      : std_logic;
+  signal s_ID_Control_PCOffsetSource    : std_logic;
+
+  signal s_IDEX_Current                 : t_IDEX;
+
+  component Buffer_MEMWB is
+    port(
+      i_Clock                           : in  std_logic;
+      i_Reset                           : in  std_logic;
+      i_WriteEnable                     : in  std_logic;
+  
+      i_Next                            : in  t_MEMWB;
+      o_Current                         : out t_MEMWB
+    );
+  end component;
+  signal s_Next_MEMWB                   : t_MEMWB;
+  signal s_Current_MEMWB                : t_MEMWB;
 
 begin
 
@@ -266,7 +286,7 @@ begin
     if (iRST) then
       s_CycleTracker <= 0;
     end if;
-  end process ; -- p_CycleTracker
+  end process; -- p_CycleTracker
 
   -- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory. If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be all zeros.
   with iInstLd select
@@ -312,6 +332,141 @@ begin
 
   -- TODO: Implement the rest of your processor below this comment!
 
+  g_InstructionAddressHolder : InstructionAddressHolder
+    generic map(
+      ADDR_WIDTH                        => 32
+    )
+    port map(
+      i_Clock                           => iCLK,
+      i_Reset                           => iRST,
+      i_NextInstructionAddress          => s_NextInstructionAddress,
+      i_Halt                            => s_Current_MEMWB.HaltProg,
+      
+      o_CurrentInstructionAddress       => s_IF_InstructionAddress
+    );
+  s_NextInstAddr                        <= s_IF_InstructionAddress;
+  s_IF_Instruction                      <= s_Instruction;
 
+  s_IFID_Next.Instruction               <= s_IF_Instruction;
+  s_IFID_Next.ProgramCounter            <= s_IF_InstructionAddress;
+
+  g_Buffer_IFID : Buffer_IFID
+    port map(
+      i_Clock                           => iCLK,
+      i_Reset                           => iRST,
+      i_WriteEnable                     => '1',
+  
+      i_Next                            => s_IFID_Next,
+      o_Current                         => s_IFID_Current
+    );
+
+  
+
+  g_ControlUnit : ControlUnit
+    port map(
+      i_inst                            => s_IDEX_Current.Instruction,
+      ALU_Src                           => s_ID_Control_ALU_Src,
+      Mem_We                            => s_IDEX_Next.Mem_We,
+      Jump                              => s_ID_Control_Jump,
+      MemToReg                          => s_IDEX_Next.MemToReg,
+      Reg_WE                            => s_IDEX_Next.Reg_WE,
+      Branch                            => s_ID_Control_BranchEnable,
+      HaltProg                          => s_IDEX_Next.HaltProg,
+      PCOffsetSource                    => s_ID_Control_PCOffsetSource
+    );
+
+  g_RegisterFile : RegFile
+    port map(
+      clock	                            => iCLK,
+      reset	                            => iRST,
+
+      RS1Sel	                          => s_IFID_Current.Instruction(19 downto 15),
+      RS1                               => s_ID_RS1,
+      RS2Sel	                          => s_IFID_Current.Instruction(24 downto 20),
+      RS2                               => s_ID_RS2,
+
+      WrEn	                            => '0',
+      RdSel	                            => b"00000",
+      Rd                                => "00000000"
+    );
+
+  g_ImmediateExtender : ImmediateExtender
+    port map(
+      i_instruction                     => s_IFID_Current.Instruction,
+      o_output                          => s_ID_Immediate
+    );
+
+  g_ALUOperandMux : mux2t1_N
+    generic map(
+      N                                 => 32
+    )
+    port map(
+      i_S                               => s_ID_Control_ALU_Src,
+      i_D0                              => s_ID_RS2,
+      i_D1                              => s_ID_Immediate,
+      o_O                               => s_IDEX_Next.ALU_Operand2
+    );
+
+  g_Compare : Compare
+    port map(
+      i_A                               => s_ID_RS1,
+      i_B                               => s_ID_RS2,
+      i_slt_Unsigned                    => '0',
+      i_BranchCondition                 => s_IFID_Current.Instruction(14 downto 12),
+      o_Result_slt                      => open,
+      o_Result_Branch                   => s_ID_CompareBranchResult
+    );
+
+  s_IDEX_Next.Instruction               <= s_IFID_Current.Instruction;
+  s_IDEX_Next.ProgramCounter            <= s_IFID_Current.ProgramCounter;
+
+  g_PCOffsetSourceMux : mux2t1_N
+    generic map(
+      N                                 => 32
+    )
+    port map(
+      i_S                               => s_ID_Control_PCOffsetSource,
+      i_D0                              => s_IFID_Current.ProgramCounter,
+      i_D1                              => s_ID_RS1,
+      o_O                               => s_PC_Offset
+    );
+  
+  g_JumpOrBranchPCAdder : AddSub
+    generic map(
+      WIDTH                             => 32
+    )
+    port map(
+      i_A                               => s_PC_Offset,
+      i_B                               => s_ID_Immediate,
+      n_Add_Sub                         => '0',
+      o_S                               => s_JumpOrBranchNextPC,
+      o_C                               => open
+    );
+
+  s_ID_JumpOrBranch                     <= ((s_ID_CompareBranchResult AND s_ID_Control_BranchEnable) OR s_ID_Control_Jump);
+
+  g_Buffer_IDEX : Buffer_IDEX
+    port map(
+      i_Clock                           => iCLK,
+      i_Reset                           => iRST,
+      i_WriteEnable                     => '1',
+      i_Next                            => s_IDEX_Next,
+      o_Current                         => s_IDEX_Current
+    );
+
+  g_ALU_Control : ALU_Control
+    port map(
+      i_Opcode                          <= s_IDEX_Current.Instruction(6 downto 0),
+      i_Funct3                          <= s_IDEX_Current.Instruction(14 downto 12),
+      i_Funct7                          <= s_IDEX_Current.Instruction(31 downto 25),
+      i_PCAddr                          <= s_IDEX_Current.ProgramCounter,
+      o_AOverride                       <= a,
+      o_BOverride                       <= a,
+      o_BOverrideEnable                 <= a,
+      o_AOverrideEnable                 <= a,
+      o_ModuleSelect                    <= a,
+      o_OperationSelect                 <= a,
+      o_Funct3Passthrough               <= open
+    );
 
 end structure;

@@ -35,7 +35,21 @@ architecture behaviour of Buffer_MEMWB is
 
 begin
 
-  
+  s_Next <= (
+    i_Next.MemToReg     &
+    i_Next.Reg_WE       &
+    i_Next.HaltProg     &
+    i_Next.DMem_Output  &
+    i_Next.ALU_Output   &
+    i_Next.Instruction   
+  );
+
+  o_Current.MemToReg    <= s_Current(98);
+  o_Current.Reg_WE      <= s_Current(97);
+  o_Current.HaltProg    <= s_Current(96);
+  o_Current.DMem_Output <= s_Current(95 downto 64);
+  o_Current.ALU_Output  <= s_Current(63 downto 32);
+  o_Current.Instruction <= s_Current(31 downto 0 );
 
   g_Buffer : nBitRegister
       generic map(
