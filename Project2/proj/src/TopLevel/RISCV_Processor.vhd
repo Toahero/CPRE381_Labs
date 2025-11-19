@@ -290,7 +290,7 @@ architecture structure of RISCV_Processor is
   signal s_ID_CompareBranchResult       : std_logic;
   signal s_ID_Control_BranchEnable      : std_logic;
   signal s_ID_Control_Jump              : std_logic;
-
+  signal s_ID_Control_PCOffsetSource    : std_logic;
 
   -- EX
   signal s_EX_ALU_AOverride             : std_logic_vector(31 downto 0);
@@ -367,10 +367,10 @@ begin
       N                                 => 32
     )
     port map(
-        i_S                             => s_ID_JumpOrBranch,
-        i_D0                            => s_StdNextPC,
-        i_D1                            => s_JumpOrBranchNextPC,
-        o_O                             => s_NextInstructionAddress
+      i_S                               => s_ID_JumpOrBranch,
+      i_D0                              => s_StdNextPC,
+      i_D1                              => s_JumpOrBranchNextPC,
+      o_O                               => s_NextInstructionAddress
     );
 
   g_InstructionAddressHolder : InstructionAddressHolder
@@ -401,7 +401,199 @@ begin
   s_IFID_Next.Instruction               <= s_Instruction;
   s_IFID_Next.ProgramCounter            <= s_IF_InstructionAddress;
 
-  
+  g_Buffer_IFID : Buffer_IFID
+    port map(
+      i_Clock                           => iCLK,
+      i_Reset                           => iRST,
+      i_WriteEnable                     => '1',
+      i_Next                            => s_IFID_Next,
+      o_Current                         => s_IFID_Current
+    );
 
+  g_ControlUnit : ControlUnit
+    port map (
+      i_inst                            => s_IFID_Current.Instruction,
+      ALU_Src                           => s_ID_Control_ALUSource,
+      Mem_We                            => s_IDEX_Next.Mem_We,
+      Jump                              => s_ID_Control_Jump,
+      MemToReg                          => s_IDEX_Next.MemToReg,
+      Reg_WE                            => s_IDEX_Next.Reg_WE,
+      Branch                            => s_ID_Control_BranchEnable,
+      HaltProg                          => s_IDEX_Next.HaltProg,
+      PCOffsetSource                    => s_ID_Control_PCOffsetSource
+    );
+
+  g_RegisterFile : RegFile
+    port map(
+      clock	                            => iCLK,
+      reset	                            => iRST,
+      RS1Sel	                          => s_IFID_Current.Instruction(19 downto 15),
+      RS1                               => s_ID_RS1,
+      RS2Sel	                          => s_IFID_Current.Instruction(24 downto 20),
+      RS2                               => s_ID_RS2,
+      WrEn	                            => s_MEMWB_Current.Reg_WE,
+      RdSel	                            => s_MEMWB_Current.Instruction(11 downto 7),
+      Rd                                => s_WB_RegisterData
+    );
+
+  s_RegWr                               <= s_MEMWB_Current.Reg_WE;                    -- TODO: use this signal as the final active high write enable input to the register file
+  s_RegWrAddr                           <= s_MEMWB_Current.Instruction(11 downto 7);  -- TODO: use this signal as the final destination register address input
+  s_RegWrData                           <= s_WB_RegisterData;                         -- TODO: use this signal as the final data memory data input
+
+  g_ImmediateExtender : ImmediateExtender
+    port map(
+      i_instruction                     => s_IFID_Current.Instruction,
+      o_output                          => s_ID_Immediate
+    );
+
+  g_Mux_ALU_Operand2 : mux2t1_N
+    generic map(
+      N                                 => 32
+    )
+    port map(
+      i_S                               => s_ID_Control_ALUSource,
+      i_D0                              => s_ID_RS2,
+      i_D1                              => s_ID_Immediate,
+      o_O                               => s_IDEX_Next.ALU_Operand2
+    );
+
+  g_BranchCompare : Compare
+    port map(
+      i_A                               => s_ID_RS1,
+      i_B                               => s_ID_RS2,
+      i_slt_Unsigned                    => '0',
+      i_BranchCondition                 => s_IFID_Current.Instruction(14 downto 12),
+      o_Result_slt                      => open,
+      o_Result_Branch                   => s_ID_CompareBranchResult
+    );
+  
+  s_ID_JumpOrBranch                     <= (s_ID_Control_Jump or (s_ID_CompareBranchResult and s_ID_Control_BranchEnable));
+
+  g_Mux_PC_Offset : mux2t1_N
+    generic map(
+      N                                 => 32
+    )
+    port map(
+      i_S                               => s_ID_Control_PCOffsetSource,
+      i_D0                              => s_IFID_Current.ProgramCounter,
+      i_D1                              => s_ID_RS1,
+      o_O                               => s_ID_PC_Offset
+    );
+  
+  g_JumpOrBranchPCAdder : AddSub
+    generic map(
+        WIDTH                         => 32
+    )
+    port map(
+      i_A                             => s_ID_PC_Offset,
+      i_B                             => s_ID_Immediate,
+      n_Add_Sub                       => '0',
+      o_S                             => s_JumpOrBranchNextPC,
+      o_C                             => open
+    );
+
+  s_IDEX_Next.ALU_Operand1            <= s_ID_RS1;
+  s_IDEX_Next.RS2                     <= s_ID_RS2;
+  s_IDEX_Next.Instruction             <= s_IFID_Current.Instruction;
+  s_IDEX_Next.ProgramCounter          <= s_IFID_Current.ProgramCounter;
+
+  g_Buffer_IDEX : Buffer_IDEX
+    port map(
+      i_Clock                         => iCLK,
+      i_Reset                         => iRST,
+      i_WriteEnable                   => '1',
+      i_Next                          => s_IDEX_Next,
+      o_Current                       => s_IDEX_Current
+    );
+  
+  g_ALU_Control : ALU_Control
+    port map(
+      i_Opcode                        => s_IDEX_Current.Instruction(6 downto 0),
+      i_Funct3                        => s_IDEX_Current.Instruction(14 downto 12),
+      i_Funct7                        => s_IDEX_Current.Instruction(31 downto 25),
+      i_PCAddr                        => s_IDEX_Current.ProgramCounter,
+      o_AOverride                     => s_EX_ALU_AOverride,
+      o_BOverride                     => s_EX_ALU_BOverride,
+      o_AOverrideEnable               => s_EX_ALU_AOverrideEnable,
+      o_BOverrideEnable               => s_EX_ALU_BOverrideEnable,
+      o_ModuleSelect                  => s_EX_ALU_ModuleSelect,
+      o_OperationSelect               => s_EX_ALU_OperationSelect,
+      o_Funct3Passthrough             => open
+    );
+
+  g_ALU : ALU
+    port map(
+      i_A                             => s_IDEX_Current.ALU_Operand1,
+      i_B                             => s_IDEX_Current.ALU_Operand2,
+      i_AOverride                     => s_EX_ALU_AOverride,
+      i_BOverride                     => s_EX_ALU_BOverride,
+      i_AOverrideEnable               => s_EX_ALU_AOverrideEnable,
+      i_BOverrideEnable               => s_EX_ALU_BOverrideEnable,
+      i_OutSel                        => '0',
+      i_ModSel                        => s_EX_ALU_ModuleSelect,
+      i_OppSel                        => s_EX_ALU_OperationSelect,
+      i_BranchCond                    => "000",
+      o_Result                        => open,
+      o_output                        => s_EXMEM_Next.ALU_Output,
+      f_ovflw                         => s_Ovfl,
+      f_zero                          => open,
+      f_negative                      => open,
+      f_branch                        => open
+    );
+  oALUOut                             <= s_EXMEM_Next.ALU_Output;  
+
+  s_EXMEM_Next.Mem_We                 <= s_IDEX_Current.Mem_We;
+  s_EXMEM_Next.MemToReg               <= s_IDEX_Current.MemToReg;
+  s_EXMEM_Next.Reg_WE                 <= s_IDEX_Current.Reg_WE;
+  s_EXMEM_Next.HaltProg               <= s_IDEX_Current.HaltProg;
+  s_EXMEM_Next.RS2                    <= s_IDEX_Current.RS2;
+  s_EXMEM_Next.Instruction            <= s_IDEX_Current.Instruction;
+
+  g_Buffer_EXMEM : Buffer_EXMEM
+    port map(
+      i_Clock                         => iCLK,
+      i_Reset                         => iRST,
+      i_WriteEnable                   => '1',
+      i_Next                          => s_EXMEM_Next,
+      o_Current                       => s_EXMEM_Current
+    );
+
+  s_DMemWr                            <= s_EXMEM_Current.Mem_We;      -- TODO: use this signal as the final active high data memory write enable signal
+  s_DMemAddr                          <= s_EXMEM_Current.ALU_Output;  -- TODO: use this signal as the final data memory address input
+  s_DMemData                          <= s_EXMEM_Current.RS2;         -- TODO: use this signal as the final data memory data input
+  
+  s_MEM_DMEM_Raw                      <= s_DataMemory;
+  g_DMEMSignExtender : DMEMSignExtender 
+    port map(
+      i_Data                          => s_MEM_DMEM_Raw,
+      i_Funct3                        => s_EXMEM_Current.Instruction(14 downto 12),
+      o_SignExtendedDMEM              => s_MEMWB_Next.DMem_Output
+    );
+
+  s_MEMWB_Next.MemToReg               <= s_EXMEM_Current.MemToReg;
+  s_MEMWB_Next.Reg_WE                 <= s_EXMEM_Current.Reg_WE;
+  s_MEMWB_Next.HaltProg               <= s_EXMEM_Current.HaltProg;
+  s_MEMWB_Next.ALU_Output             <= s_EXMEM_Current.ALU_Output;
+  s_MEMWB_Next.Instruction            <= s_EXMEM_Current.Instruction;
+
+  g_Buffer_MEMWB : Buffer_MEMWB
+    port map(
+      i_Clock                         => iCLK,
+      i_Reset                         => iRST,
+      i_WriteEnable                   => '1',
+      i_Next                          => s_MEMWB_Next,
+      o_Current                       => s_MEMWB_Current
+    );
+
+  g_Mux_RegisterWriteData : mux2t1_N
+    generic map(
+      N                                 => 32
+    )
+    port map(
+      i_S                               => s_MEMWB_Current.MemToReg,
+      i_D0                              => s_MEMWB_Current.ALU_Output,
+      i_D1                              => s_MEMWB_Current.DMem_Output,
+      o_O                               => s_WB_RegisterData
+    );
 
 end structure;
