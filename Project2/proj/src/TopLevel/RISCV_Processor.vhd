@@ -84,18 +84,19 @@ architecture structure of RISCV_Processor is
   end component;
 
   component InstructionAddressHolder is
-      generic(
-          ADDR_WIDTH : integer := 32
-      );
-      port(
-          i_Clock                       : in  std_logic;
-          i_Reset                       : in  std_logic;
-          i_NextInstructionAddress      : in  std_logic_vector((ADDR_WIDTH - 1) downto 0);
-          i_Halt                        : in  std_logic;
-  
-          o_CurrentInstructionAddress   : out std_logic_vector((ADDR_WIDTH - 1) downto 0)
-      );
+    generic(
+      ADDR_WIDTH                        : integer := 32
+    );
+    port(
+      i_Clock                           : in std_logic;
+      i_Reset                           : in std_logic;
+      i_NextInstructionAddress          : in std_logic_vector((ADDR_WIDTH - 1) downto 0);
+      i_Halt                            : in std_logic;
+      i_Pause                           : in std_logic;
+      o_CurrentInstructionAddress       : out std_logic_vector((ADDR_WIDTH - 1) downto 0)
+    );
   end component;
+
 
   component AddSub is
       generic(
@@ -222,6 +223,7 @@ architecture structure of RISCV_Processor is
       i_Clock                           : in  std_logic;
       i_Reset                           : in  std_logic;
       i_WriteEnable                     : in  std_logic;
+      i_NOP                             : in  std_logic;
   
       i_Next                            : in  t_IFID;
       o_Current                         : out t_IFID
@@ -382,6 +384,7 @@ begin
       i_Reset                           => iRST,
       i_NextInstructionAddress          => s_NextInstructionAddress,
       i_Halt                            => s_MEMWB_Current.HaltProg,
+      i_Pause                           => '0',
       o_CurrentInstructionAddress       => s_IF_InstructionAddress
     );
   s_Halt                                <= s_MEMWB_Current.HaltProg;
@@ -406,6 +409,7 @@ begin
       i_Clock                           => iCLK,
       i_Reset                           => iRST,
       i_WriteEnable                     => '1',
+      i_NOP                             => '0',
       i_Next                            => s_IFID_Next,
       o_Current                         => s_IFID_Current
     );

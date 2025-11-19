@@ -1,18 +1,32 @@
 add wave -noupdate -divider {Global Control}
-add wave -label {Clock} -position insertpoint sim:/tb_alu/s_Clock
+add wave -label {Cycle} -radix unsigned -position insertpoint vsim:/tb/MyRiscv/s_CycleTracker
+add wave -label {Clock} -position insertpoint vsim:/tb/MyRiscv/iCLK
+add wave -label {Reset} -position insertpoint vsim:/tb/MyRiscv/iRST
+add wave -label {Halt} -position insertpoint vsim:/tb/MyRiscv/s_Halt
 
-add wave -noupdate -divider {Inputs}
-add wave -label {Input A} -position insertpoint sim:/tb_alu/s_iA
-add wave -label {Input B} -position insertpoint sim:/tb_alu/s_iB
-add wave -label {Out Select} -position insertpoint sim:/tb_alu/s_iOutSel
-add wave -label {Mode Select} -radix binary -position insertpoint sim:/tb_alu/s_iModSel
-add wave -label {Operation Select} -radix binary -position insertpoint sim:/tb_alu/s_iOppSel
+add wave -noupdate -divider {Instruction Fetch}
 
-add wave -noupdate -divider {Outputs}
-add wave -label {Result} -position insertpoint sim:/tb_alu/s_oResult
-add wave -label {Output} -position insertpoint sim:/tb_alu/s_ooutput
+add wave -noupdate -divider {IFID Buffer}
+add wave -label {Next} -position insertpoint vsim:/tb/MyRiscv/s_IFID_Next
+add wave -label {Current} -position insertpoint vsim:/tb/MyRiscv/s_IFID_Current
 
-add wave -noupdate -divider {Output Flags}
-add wave -label {Zero} -position insertpoint sim:/tb_alu/s_fzero
-add wave -label {Overflow} -position insertpoint sim:/tb_alu/s_fovflw
-add wave -label {Negative} -position insertpoint sim:/tb_alu/s_fnegative
+add wave -noupdate -divider {Instruction Decode}
+
+add wave -noupdate -divider {IDEX Buffer}
+add wave -label {Next} -position insertpoint vsim:/tb/MyRiscv/s_IDEX_Next
+add wave -label {Current} -position insertpoint vsim:/tb/MyRiscv/s_IDEX_Current
+
+add wave -noupdate -divider {Execute}
+add wave -label {Next} -position insertpoint 
+
+add wave -noupdate -divider {EXMEM Buffer}
+add wave -label {Next} -position insertpoint vsim:/tb/MyRiscv/s_EXMEM_Next
+add wave -label {Current} -position insertpoint vsim:/tb/MyRiscv/s_EXMEM_Current
+
+add wave -noupdate -divider {Memory}
+
+add wave -noupdate -divider {MEMWB Buffer}
+add wave -label {Next} -position insertpoint vsim:/tb/MyRiscv/s_MEMWB_Next
+add wave -label {Current} -position insertpoint vsim:/tb/MyRiscv/s_MEMWB_Current
+
+add wave -noupdate -divider {Write Back}

@@ -15,6 +15,7 @@ entity InstructionAddressHolder is
         i_Reset : in std_logic;
         i_NextInstructionAddress : in std_logic_vector((ADDR_WIDTH - 1) downto 0);
         i_Halt : in std_logic;
+        i_Pause : in std_logic;
 
         o_CurrentInstructionAddress : out std_logic_vector((ADDR_WIDTH - 1) downto 0)
     );
@@ -51,16 +52,16 @@ begin
 
     g_PCRegister : PCRegister
         generic map(
-            WIDTH => ADDR_WIDTH
+            WIDTH           => ADDR_WIDTH
         )
         port map(
-            i_Clock => i_Clock,
-            i_Operation => not s_Halted,
-            i_Reset => i_Reset,
-            i_ResetValue => s_ResetValue,
+            i_Clock         => i_Clock,
+            i_Operation     => ((not s_Halted) and (not i_Pause)),
+            i_Reset         => i_Reset,
+            i_ResetValue    => s_ResetValue,
 
-            i_Data => i_NextInstructionAddress,
-            o_Out => o_CurrentInstructionAddress
+            i_Data          => i_NextInstructionAddress,
+            o_Out           => o_CurrentInstructionAddress
         );
 
 end behaviour;

@@ -5,11 +5,11 @@ use work.RISCV_types.t_EXMEM;
 
 entity Buffer_EXMEM is
   port(
-    i_Clock                 : in  std_logic;
-    i_Reset                 : in  std_logic;
-    i_WriteEnable           : in  std_logic;
-    i_Next                  : in  t_EXMEM;
-    o_Current               : out t_EXMEM
+    i_Clock             : in  std_logic;
+    i_Reset             : in  std_logic;
+    i_WriteEnable       : in  std_logic;
+    i_Next              : in  t_EXMEM;
+    o_Current           : out t_EXMEM
   );
 end Buffer_EXMEM;
 
@@ -17,21 +17,20 @@ architecture behaviour of Buffer_EXMEM is
   
   component nBitRegister is
     generic(
-      Reg_Size    : integer
+      Reg_Size          : integer
     );
     port(
-      i_CLK  	    : in  std_logic;
-      i_reset	    : in  std_logic;
-      i_WrEn	    : in  std_logic;
-      i_write	    : in  std_logic_vector(Reg_Size - 1 downto 0);
-      o_read 	    : out std_logic_vector(Reg_Size - 1 downto 0)
+      i_CLK  	          : in  std_logic;
+      i_reset	          : in  std_logic;
+      i_WrEn	          : in  std_logic;
+      i_write	          : in  std_logic_vector(Reg_Size - 1 downto 0);
+      o_read 	          : out std_logic_vector(Reg_Size - 1 downto 0)
     );
   end component;
 
-  constant size: integer := 100;
-
-  signal s_Next : std_logic_vector(size - 1 downto 0);
-  signal s_Current : std_logic_vector(size - 1 downto 0);
+  constant size         : integer := 100;
+  signal s_Next         : std_logic_vector(size - 1 downto 0);
+  signal s_Current      : std_logic_vector(size - 1 downto 0);
 
 begin
 
@@ -55,14 +54,14 @@ begin
 
   g_Buffer : nBitRegister
     generic map(
-      Reg_Size  => size
+      Reg_Size          => size
     )
     port map(
-      i_CLK     => i_Clock,
-      i_reset   => i_Reset,
-      i_WrEn    => i_WriteEnable,
-      i_write   => s_Next,
-      o_read    => s_Current
+      i_CLK             => i_Clock,
+      i_reset           => i_Reset,
+      i_WrEn            => i_WriteEnable,
+      i_write           => s_Next,
+      o_read            => s_Current
     );
 
 end behaviour;
