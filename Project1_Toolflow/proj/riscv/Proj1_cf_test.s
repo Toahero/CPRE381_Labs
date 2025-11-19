@@ -59,7 +59,7 @@ main:
     addi    s9 , 	s9 ,    0
     addi    s10, 	s10,    0
     addi    s11, 	s11,    0
-    wfi	
+    j die
 
 
 # --- Recursive Frames (no "call") ---
@@ -111,3 +111,6 @@ frame6:
     lw      ra, 12(sp)
     addi    sp, sp, 16
     jr      ra
+
+die:
+wfi
