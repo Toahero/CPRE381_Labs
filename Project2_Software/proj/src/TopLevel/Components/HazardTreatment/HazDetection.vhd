@@ -15,9 +15,10 @@ use IEEE.std_logic_1164.all;
 
 entity HazDetection is
     port(   i_instruction   :in std_logic_vector(31 downto 0);
-            i_IDEX_RD       :in std_logic_vector(5 downto 0);
+            i_IDEX_RD       :in std_logic_vector(4 downto 0);
             i_IDEX_MemRead  : in std_logic;
 
+            o_PC_ADVANCE    : out std_logic;
             o_PC_ADVANCE    : out std_logic;
             o_INS_NOP       : out std_logic);
 
