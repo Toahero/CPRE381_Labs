@@ -22,7 +22,7 @@ library work;
 use work.RISCV_types.all;
 
 entity RISCV_Processor is
-  generic(N : integer := DATA_WIDTH);
+  generic(N : integer := 32);
   port(iCLK            : in std_logic;
        iRST            : in std_logic;
        iInstLd         : in std_logic;
@@ -70,6 +70,10 @@ architecture structure of RISCV_Processor is
   -- TODO: You may add any additional signals or components your implementation 
   --       requires below this comment
 
+  ------------------------------------------------
+  ---               Components                 ---
+  ------------------------------------------------
+
   component DMEMSignExtender is
     port(
       i_Data                            : in std_logic_vector(31 downto 0);
@@ -78,7 +82,6 @@ architecture structure of RISCV_Processor is
       o_SignExtendedDMEM                : out std_logic_vector(31 downto 0)
     );
   end component;
-  signal s_SignExtendedDMEM             : std_logic_vector(31 downto 0);
 
   component InstructionAddressHolder is
       generic(
@@ -88,15 +91,11 @@ architecture structure of RISCV_Processor is
           i_Clock                       : in  std_logic;
           i_Reset                       : in  std_logic;
           i_NextInstructionAddress      : in  std_logic_vector((ADDR_WIDTH - 1) downto 0);
-          i_Halt                        : in std_logic;
+          i_Halt                        : in  std_logic;
   
           o_CurrentInstructionAddress   : out std_logic_vector((ADDR_WIDTH - 1) downto 0)
       );
   end component;
-  signal s_PCNextInstructionAddress     : std_logic_vector(31 downto 0);
-  signal s_StdNextAddress               : std_logic_vector(31 downto 0);
-  signal s_JumpNextInstructionAddress   : std_logic_vector(31 downto 0);
-  signal s_PCAdditionValue              : std_logic_vector(31 downto 0);
 
   component AddSub is
       generic(
@@ -128,14 +127,10 @@ architecture structure of RISCV_Processor is
       Rd                                : in  std_logic_vector(31 downto 0)
     );
   end component;
-  signal s_RS1                          : std_logic_vector(31 downto 0);
-  signal s_RS2                          : std_logic_vector(31 downto 0);
-  signal s_RD_Data                      : std_logic_vector(31 downto 0);
 
   component ControlUnit is
     port(
-      --opCode                            : in  std_logic_vector(6 downto 0);
-      i_inst                            : in std_logic_vector(31 downto 0);
+      i_inst                            : in  std_logic_vector(31 downto 0);
       ALU_Src                           : out std_logic;
       Mem_We                            : out std_logic;
       Jump                              : out std_logic;
@@ -146,14 +141,17 @@ architecture structure of RISCV_Processor is
       PCOffsetSource                    : out std_logic
     );
   end component;
-  signal s_Control_ALU_Src              : std_logic;
-  signal s_Control_Mem_We               : std_logic;
-  signal s_Control_Jump                 : std_logic;
-  signal s_Control_MemToReg             : std_logic;
-  signal s_Control_Reg_WE               : std_logic;
-  signal s_Control_Branch               : std_logic;
-  signal s_Control_HaltProg             : std_logic;
-  signal s_Control_PCOffsetSource       : std_logic;
+
+  component Compare is
+    port(
+      i_A                               : in  std_logic_vector(31 downto 0);
+      i_B                               : in  std_logic_vector(31 downto 0);
+      i_slt_Unsigned                    : in  std_logic;
+      i_BranchCondition                 : in  std_logic_vector(2 downto 0); -- Funct3
+      o_Result_slt                      : out std_logic_vector(31 downto 0);
+      o_Result_Branch                   : out std_logic
+    );
+  end component;
 
   component ImmediateExtender is
     port(
@@ -164,7 +162,7 @@ architecture structure of RISCV_Processor is
 
   component mux2t1_N is
     generic(
-      N                                 : integer := 16 -- Generic of type integer for input/output data width. Default value is 32.
+      N                                 : integer := 16
     );
     port(
         i_S                             : in  std_logic;
@@ -175,25 +173,20 @@ architecture structure of RISCV_Processor is
   end component;
 
   component ALU_Control is
-      port(
-          i_Opcode                      : in  std_logic_vector(6 downto 0);
-          i_Funct3                      : in  std_logic_vector(2 downto 0);
-          i_Funct7                      : in  std_logic_vector(6 downto 0);
-          i_PCAddr                      : in  std_logic_vector(31 downto 0);
-          o_AOverride                   : out std_logic_vector(31 downto 0);
-          o_BOverride                   : out std_logic_vector(31 downto 0);
-          o_BOverrideEnable             : out std_logic;
-          o_AOverrideEnable             : out std_logic;
-          o_ModuleSelect                : out std_logic_vector(1 downto 0);
-          o_OperationSelect             : out std_logic_vector(1 downto 0);
-          o_Funct3Passthrough           : out std_logic_vector(2 downto 0)
-      );
+    port(
+        i_Opcode                        : in  std_logic_vector(6 downto 0);
+        i_Funct3                        : in  std_logic_vector(2 downto 0);
+        i_Funct7                        : in  std_logic_vector(6 downto 0);
+        i_PCAddr                        : in  std_logic_vector(31 downto 0);
+        o_AOverride                     : out std_logic_vector(31 downto 0);
+        o_BOverride                     : out std_logic_vector(31 downto 0);
+        o_BOverrideEnable               : out std_logic;
+        o_AOverrideEnable               : out std_logic;
+        o_ModuleSelect                  : out std_logic_vector(1 downto 0);
+        o_OperationSelect               : out std_logic_vector(1 downto 0);
+        o_Funct3Passthrough             : out std_logic_vector(2 downto 0)
+    );
   end component;
-
-  signal s_ALUControl_AOverride         : std_logic_vector(31 downto 0);
-  signal s_ALUControl_BOverride         : std_logic_vector(31 downto 0);
-  signal s_ALUControl_BOverrideEnable   : std_logic;
-  signal s_ALUControl_AOverrideEnable   : std_logic;
 
   component ALU is
     port(
@@ -216,23 +209,6 @@ architecture structure of RISCV_Processor is
       f_branch                          : out std_logic
     );
   end component;
-  signal s_ALU_Operand1                 : std_logic_vector(DATA_WIDTH - 1 downto 0);
-  signal s_ALU_Operand2                 : std_logic_vector(DATA_WIDTH - 1 downto 0);
-  signal s_ALU_Result                   : std_logic_vector(DATA_WIDTH - 1 downto 0);
-  signal s_ALU_ModuleSelect             : std_logic_vector(1 downto 0);
-  signal s_ALU_OperationSelect          : std_logic_vector(1 downto 0);
-  signal s_ALU_BranchCondition          : std_logic_vector(2 downto 0);
-  signal f_ALU_Overflow                 : std_logic;
-  signal f_ALU_Zero                     : std_logic;
-  signal f_ALU_Negative                 : std_logic;
-  signal f_ALU_branch                   : std_logic;
-
-  signal s_branchJump                     : std_logic;
-
-  signal s_ProgramCounterOut            : std_logic_vector(DATA_WIDTH - 1 downto 0);
-  signal s_StdNextInstAddr              : std_logic_vector(DATA_WIDTH - 1 downto 0);
-  signal s_ImmediateValue               : std_logic_vector(DATA_WIDTH - 1 downto 0);
-
 
   component HACK is
     port (
@@ -240,10 +216,95 @@ architecture structure of RISCV_Processor is
       output_vec : out std_logic_vector(31 downto 0)
     );
   end component;
-  signal s_Instruction          : std_logic_vector(DATA_WIDTH - 1 downto 0);
-  signal s_DataMemory           : std_logic_vector(DATA_WIDTH - 1 downto 0);
 
-  signal s_CycleTracker         : integer := 0;
+  component Buffer_IFID is
+    port(
+      i_Clock                           : in  std_logic;
+      i_Reset                           : in  std_logic;
+      i_WriteEnable                     : in  std_logic;
+  
+      i_Next                            : in  t_IFID;
+      o_Current                         : out t_IFID
+    );
+  end component;
+
+  component Buffer_IDEX is
+    port(
+      i_Clock                           : in  std_logic;
+      i_Reset                           : in  std_logic;
+      i_WriteEnable                     : in  std_logic;
+  
+      i_Next                            : in  t_IDEX;
+      o_Current                         : out t_IDEX
+    );
+  end component;
+
+  component Buffer_EXMEM is
+    port(
+      i_Clock                 : in  std_logic;
+      i_Reset                 : in  std_logic;
+      i_WriteEnable           : in  std_logic;
+      i_Next                  : in  t_EXMEM;
+      o_Current               : out t_EXMEM
+    );
+  end component;
+
+  component Buffer_MEMWB is
+    port(
+      i_Clock                           : in  std_logic;
+      i_Reset                           : in  std_logic;
+      i_WriteEnable                     : in  std_logic;
+  
+      i_Next                            : in  t_MEMWB;
+      o_Current                         : out t_MEMWB
+    );
+  end component;
+
+  signal s_CycleTracker                 : integer := 0;
+  signal s_DataMemory                   : std_logic_vector(31 downto 0);
+  signal s_Instruction                  : std_logic_vector(31 downto 0);
+
+  -- Buffer Signals
+  signal s_IFID_Next                    : t_IFID;
+  signal s_IFID_Current                 : t_IFID;
+  signal s_IDEX_Next                    : t_IDEX;
+  signal s_IDEX_Current                 : t_IDEX;
+  signal s_EXMEM_Next                    : t_EXMEM;
+  signal s_EXMEM_Current                 : t_EXMEM;
+  signal s_MEMWB_Next                    : t_MEMWB;
+  signal s_MEMWB_Current                 : t_MEMWB;
+
+  -- IF
+  signal s_NextInstructionAddress       : std_logic_vector(31 downto 0);
+  signal s_IF_InstructionAddress        : std_logic_vector(31 downto 0);
+  signal s_StdNextPC                    : std_logic_vector(31 downto 0);
+  signal s_JumpOrBranchNextPC           : std_logic_vector(31 downto 0);
+
+  -- ID
+  signal s_ID_JumpOrBranch              : std_logic;
+  signal s_ID_Immediate                 : std_logic_vector(31 downto 0);
+  signal s_ID_RS1                       : std_logic_vector(31 downto 0);
+  signal s_ID_RS2                       : std_logic_vector(31 downto 0);
+  signal s_ID_Control_ALUSource         : std_logic;
+  signal s_ID_PC_Offset                 : std_logic_vector(31 downto 0);
+  signal s_ID_CompareBranchResult       : std_logic;
+  signal s_ID_Control_BranchEnable      : std_logic;
+  signal s_ID_Control_Jump              : std_logic;
+  signal s_ID_Control_PCOffsetSource    : std_logic;
+
+  -- EX
+  signal s_EX_ALU_AOverride             : std_logic_vector(31 downto 0);
+  signal s_EX_ALU_BOverride             : std_logic_vector(31 downto 0);
+  signal s_EX_ALU_AOverrideEnable       : std_logic;
+  signal s_EX_ALU_BOverrideEnable       : std_logic;
+  signal s_EX_ALU_ModuleSelect          : std_logic_vector(1 downto 0);
+  signal s_EX_ALU_OperationSelect       : std_logic_vector(1 downto 0);
+
+  -- MEM
+  signal s_MEM_DMEM_Raw                 : std_logic_vector(31 downto 0);
+
+  -- WB
+  signal s_WB_RegisterData              : std_logic_vector(31 downto 0);
 
 begin
 
@@ -255,7 +316,7 @@ begin
     if (iRST) then
       s_CycleTracker <= 0;
     end if;
-  end process ; -- p_CycleTracker
+  end process; -- p_CycleTracker
 
   -- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory. If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be all zeros.
   with iInstLd select
@@ -273,8 +334,8 @@ begin
         );
 
   IMem: mem
-    generic map(ADDR_WIDTH => ADDR_WIDTH,
-                DATA_WIDTH => N)
+    generic map(ADDR_WIDTH => 10,
+                DATA_WIDTH => 32)
     port map(clk  => iCLK,
              addr => s_IMemAddr(11 downto 2),
              data => iInstExt,
@@ -288,8 +349,8 @@ begin
         );
 
   DMem: mem
-    generic map(ADDR_WIDTH => ADDR_WIDTH,
-                DATA_WIDTH => N)
+    generic map(ADDR_WIDTH => 10,
+                DATA_WIDTH => 32)
     port map(clk  => iCLK,
              addr => s_DMemAddr(11 downto 2),
              data => s_DMemData,
@@ -301,183 +362,238 @@ begin
 
   -- TODO: Implement the rest of your processor below this comment!
 
-
-
-  g_DMEMSignExtender : DMEMSignExtender
+   g_Mux_NextInstructionAddress : mux2t1_N
+    generic map(
+      N                                 => 32
+    )
     port map(
-      i_Data                            => s_DataMemory,
-      i_Funct3                          => s_Instruction(14 downto 12),
-
-      o_SignExtendedDMEM                => s_SignExtendedDMEM
+      i_S                               => s_ID_JumpOrBranch,
+      i_D0                              => s_StdNextPC,
+      i_D1                              => s_JumpOrBranchNextPC,
+      o_O                               => s_NextInstructionAddress
     );
 
-  s_NextInstAddr                        <= s_ProgramCounterOut;
+  g_InstructionAddressHolder : InstructionAddressHolder
+    generic map(
+      ADDR_WIDTH                        => 32
+    )
+    port map (
+      i_Clock                           => iCLK,
+      i_Reset                           => iRST,
+      i_NextInstructionAddress          => s_NextInstructionAddress,
+      i_Halt                            => s_MEMWB_Current.HaltProg,
+      o_CurrentInstructionAddress       => s_IF_InstructionAddress
+    );
+  s_Halt                                <= s_MEMWB_Current.HaltProg;
 
-  g_ProgramCounter : InstructionAddressHolder
-      generic map(
-          ADDR_WIDTH                    => 32
-      )
-      port map(
-          i_Clock                       => iCLK,
-          i_Reset                       => iRST,
-          i_NextInstructionAddress      => s_PCNextInstructionAddress,
-          i_Halt                        => s_Halt,
-
-          o_CurrentInstructionAddress   => s_ProgramCounterOut
-      );
-
-  g_ProgramCounterConstAdder : AddSub
-      generic map(
+  g_StdProgramCounterAdder : AddSub
+    generic map(
           WIDTH                         => 32
-      )
-      port map(
-          i_A                           => s_ProgramCounterOut,
+    )
+    port map(
+          i_A                           => s_IF_InstructionAddress,
           i_B                           => x"00000004",
           n_Add_Sub                     => '0',
-          o_S                           => s_StdNextInstAddr,
+          o_S                           => s_StdNextPC,
           o_C                           => open
-      );
-
-  g_PCAddSource : mux2t1_N
-    generic map(
-      N                                 => 32
-    )
-    port map(
-        i_S                             => s_Control_PCOffsetSource,
-        i_D0                            => s_ProgramCounterOut,
-        i_D1                            => s_RS1,
-        o_O                             => s_PCAdditionValue
     );
+  s_NextInstAddr                        <= s_IF_InstructionAddress;
+  s_IFID_Next.Instruction               <= s_Instruction;
+  s_IFID_Next.ProgramCounter            <= s_IF_InstructionAddress;
 
-  g_ProgramCounterJumpAdder : AddSub
-      generic map(
-          WIDTH                         => 32
-      )
-      port map(
-          i_A                           => s_PCAdditionValue,
-          i_B                           => s_ImmediateValue,
-          n_Add_Sub                     => '0',
-          o_S                           => s_JumpNextInstructionAddress,
-          o_C                           => open
-      );
-
-  s_branchJump <= f_ALU_Branch and s_Control_Branch;
-  g_PCNextInstructionSource : mux2t1_N
-    generic map(
-      N                                 => 32
-    )
+  g_Buffer_IFID : Buffer_IFID
     port map(
-      i_S                               => s_branchJump OR s_Control_Jump,
-      i_D0                              => s_StdNextInstAddr,
-      i_D1                              => s_JumpNextInstructionAddress,
-      o_O                               => s_PCNextInstructionAddress
+      i_Clock                           => iCLK,
+      i_Reset                           => iRST,
+      i_WriteEnable                     => '1',
+      i_Next                            => s_IFID_Next,
+      o_Current                         => s_IFID_Current
     );
 
   g_ControlUnit : ControlUnit
-    port map(
-      --opCode                            => s_Instruction(6 downto 0),
-      i_inst                            => s_Instruction,
-      ALU_Src                           => s_Control_ALU_Src,
-      Mem_We                            => s_Control_Mem_We,
-      Jump                              => s_Control_Jump,
-      MemToReg                          => s_Control_MemToReg,
-      Reg_WE                            => s_Control_Reg_WE,
-      Branch                            => s_Control_Branch,
-      HaltProg                          => s_Control_HaltProg,
-      PCOffsetSource                    => s_Control_PCOffsetSource
-    );
-  s_Halt                                <= s_Control_HaltProg;
-  s_DMemWr                              <= s_Control_Mem_We;
-
-  g_ImmediateGeneration : ImmediateExtender
-    port map(
-      i_instruction                     => s_Instruction,
-      o_output                          => s_ImmediateValue
-    );
-
-  g_Mux_ALU_Operand2 : mux2t1_N
-    generic map(
-      N                                 => 32 -- Generic of type integer for input/output data width. Default value is 32.
-    )
-    port map(
-      i_S                               => s_Control_ALU_Src,
-      i_D0                              => s_RS2,
-      i_D1                              => s_ImmediateValue,
-      o_O                               => s_ALU_Operand2
+    port map (
+      i_inst                            => s_IFID_Current.Instruction,
+      ALU_Src                           => s_ID_Control_ALUSource,
+      Mem_We                            => s_IDEX_Next.Mem_We,
+      Jump                              => s_ID_Control_Jump,
+      MemToReg                          => s_IDEX_Next.MemToReg,
+      Reg_WE                            => s_IDEX_Next.Reg_WE,
+      Branch                            => s_ID_Control_BranchEnable,
+      HaltProg                          => s_IDEX_Next.HaltProg,
+      PCOffsetSource                    => s_ID_Control_PCOffsetSource
     );
 
   g_RegisterFile : RegFile
     port map(
       clock	                            => iCLK,
       reset	                            => iRST,
-
-      RS1Sel	                          => s_Instruction(19 downto 15),
-      RS1                               => s_RS1,
-
-      RS2Sel	                          => s_Instruction(24 downto 20),
-      RS2                               => s_RS2,
-
-      WrEn	                            => s_Control_Reg_We,
-      RdSel	                            => s_RegWrAddr,
-      Rd                                => s_RD_Data
+      RS1Sel	                          => s_IFID_Current.Instruction(19 downto 15),
+      RS1                               => s_ID_RS1,
+      RS2Sel	                          => s_IFID_Current.Instruction(24 downto 20),
+      RS2                               => s_ID_RS2,
+      WrEn	                            => s_MEMWB_Current.Reg_WE,
+      RdSel	                            => s_MEMWB_Current.Instruction(11 downto 7),
+      Rd                                => s_WB_RegisterData
     );
-  s_RegWr                               <= s_Control_Reg_WE;
-  s_RegWrAddr                           <= s_Instruction(11 downto 7);
-  s_RegWrData                           <= s_RD_Data;
-  s_DMemData                            <= s_RS2;
 
-  g_ALUControl : ALU_Control
+  s_RegWr                               <= s_MEMWB_Current.Reg_WE;                    -- TODO: use this signal as the final active high write enable input to the register file
+  s_RegWrAddr                           <= s_MEMWB_Current.Instruction(11 downto 7);  -- TODO: use this signal as the final destination register address input
+  s_RegWrData                           <= s_WB_RegisterData;                         -- TODO: use this signal as the final data memory data input
+
+  g_ImmediateExtender : ImmediateExtender
     port map(
-        i_Opcode                        => s_Instruction(6  downto 0 ),
-        i_Funct3                        => s_Instruction(14 downto 12),
-        i_Funct7                        => s_Instruction(31 downto 25),
-        i_PCAddr                        => s_ProgramCounterOut,
-
-        o_AOverride                     => s_ALUControl_AOverride,
-        o_BOverride                     => s_ALUControl_BOverride,
-        o_BOverrideEnable               => s_ALUControl_BOverrideEnable,
-        o_AOverrideEnable               => s_ALUControl_AOverrideEnable,
-        o_ModuleSelect                  => s_ALU_ModuleSelect,
-        o_OperationSelect               => s_ALU_OperationSelect,
-        o_Funct3Passthrough             => s_ALU_BranchCondition
+      i_instruction                     => s_IFID_Current.Instruction,
+      o_output                          => s_ID_Immediate
     );
 
-  s_ALU_Operand1                        <= s_RS1;
-  g_ALU : ALU
-    port map(
-        i_A                             => s_ALU_Operand1,
-        i_B                             => s_ALU_Operand2,
-
-        i_AOverride                     => s_ALUControl_AOverride,
-        i_BOverride                     => s_ALUControl_BOverride,
-        i_AOverrideEnable               => s_ALUControl_AOverrideEnable,
-        i_BOverrideEnable               => s_ALUControl_BOverrideEnable,
-
-        i_OutSel                        => '0',
-        i_ModSel                        => s_ALU_ModuleSelect,
-        i_OppSel                        => s_ALU_OperationSelect,
-
-        i_BranchCond                    => s_ALU_BranchCondition,
-
-        o_Result                        => open,
-        o_output                        => s_ALU_Result,
-        f_ovflw                         => f_ALU_Overflow,
-        f_zero                          => f_ALU_Zero,
-        f_negative                      => f_ALU_Negative,
-        f_branch                        => f_ALU_branch
-    );
-  oALUOut                               <= s_ALU_Result;
-  s_DMemAddr                            <= s_ALU_Result;
-
-  g_RegisterDataSource : mux2t1_N
+  g_Mux_ALU_Operand2 : mux2t1_N
     generic map(
       N                                 => 32
     )
     port map(
-      i_S                               => s_Control_MemToReg,
-      i_D0                              => s_ALU_Result,
-      i_D1                              => s_SignExtendedDMEM,
-      o_O                               => s_RD_Data
+      i_S                               => s_ID_Control_ALUSource,
+      i_D0                              => s_ID_RS2,
+      i_D1                              => s_ID_Immediate,
+      o_O                               => s_IDEX_Next.ALU_Operand2
+    );
+
+  g_BranchCompare : Compare
+    port map(
+      i_A                               => s_ID_RS1,
+      i_B                               => s_ID_RS2,
+      i_slt_Unsigned                    => '0',
+      i_BranchCondition                 => s_IFID_Current.Instruction(14 downto 12),
+      o_Result_slt                      => open,
+      o_Result_Branch                   => s_ID_CompareBranchResult
+    );
+  
+  s_ID_JumpOrBranch                     <= (s_ID_Control_Jump or (s_ID_CompareBranchResult and s_ID_Control_BranchEnable));
+
+  g_Mux_PC_Offset : mux2t1_N
+    generic map(
+      N                                 => 32
+    )
+    port map(
+      i_S                               => s_ID_Control_PCOffsetSource,
+      i_D0                              => s_IFID_Current.ProgramCounter,
+      i_D1                              => s_ID_RS1,
+      o_O                               => s_ID_PC_Offset
+    );
+  
+  g_JumpOrBranchPCAdder : AddSub
+    generic map(
+        WIDTH                         => 32
+    )
+    port map(
+      i_A                             => s_ID_PC_Offset,
+      i_B                             => s_ID_Immediate,
+      n_Add_Sub                       => '0',
+      o_S                             => s_JumpOrBranchNextPC,
+      o_C                             => open
+    );
+
+  s_IDEX_Next.ALU_Operand1            <= s_ID_RS1;
+  s_IDEX_Next.RS2                     <= s_ID_RS2;
+  s_IDEX_Next.Instruction             <= s_IFID_Current.Instruction;
+  s_IDEX_Next.ProgramCounter          <= s_IFID_Current.ProgramCounter;
+
+  g_Buffer_IDEX : Buffer_IDEX
+    port map(
+      i_Clock                         => iCLK,
+      i_Reset                         => iRST,
+      i_WriteEnable                   => '1',
+      i_Next                          => s_IDEX_Next,
+      o_Current                       => s_IDEX_Current
+    );
+  
+  g_ALU_Control : ALU_Control
+    port map(
+      i_Opcode                        => s_IDEX_Current.Instruction(6 downto 0),
+      i_Funct3                        => s_IDEX_Current.Instruction(14 downto 12),
+      i_Funct7                        => s_IDEX_Current.Instruction(31 downto 25),
+      i_PCAddr                        => s_IDEX_Current.ProgramCounter,
+      o_AOverride                     => s_EX_ALU_AOverride,
+      o_BOverride                     => s_EX_ALU_BOverride,
+      o_AOverrideEnable               => s_EX_ALU_AOverrideEnable,
+      o_BOverrideEnable               => s_EX_ALU_BOverrideEnable,
+      o_ModuleSelect                  => s_EX_ALU_ModuleSelect,
+      o_OperationSelect               => s_EX_ALU_OperationSelect,
+      o_Funct3Passthrough             => open
+    );
+
+  g_ALU : ALU
+    port map(
+      i_A                             => s_IDEX_Current.ALU_Operand1,
+      i_B                             => s_IDEX_Current.ALU_Operand2,
+      i_AOverride                     => s_EX_ALU_AOverride,
+      i_BOverride                     => s_EX_ALU_BOverride,
+      i_AOverrideEnable               => s_EX_ALU_AOverrideEnable,
+      i_BOverrideEnable               => s_EX_ALU_BOverrideEnable,
+      i_OutSel                        => '0',
+      i_ModSel                        => s_EX_ALU_ModuleSelect,
+      i_OppSel                        => s_EX_ALU_OperationSelect,
+      i_BranchCond                    => "000",
+      o_Result                        => open,
+      o_output                        => s_EXMEM_Next.ALU_Output,
+      f_ovflw                         => s_Ovfl,
+      f_zero                          => open,
+      f_negative                      => open,
+      f_branch                        => open
+    );
+  oALUOut                             <= s_EXMEM_Next.ALU_Output;  
+
+  s_EXMEM_Next.Mem_We                 <= s_IDEX_Current.Mem_We;
+  s_EXMEM_Next.MemToReg               <= s_IDEX_Current.MemToReg;
+  s_EXMEM_Next.Reg_WE                 <= s_IDEX_Current.Reg_WE;
+  s_EXMEM_Next.HaltProg               <= s_IDEX_Current.HaltProg;
+  s_EXMEM_Next.RS2                    <= s_IDEX_Current.RS2;
+  s_EXMEM_Next.Instruction            <= s_IDEX_Current.Instruction;
+
+  g_Buffer_EXMEM : Buffer_EXMEM
+    port map(
+      i_Clock                         => iCLK,
+      i_Reset                         => iRST,
+      i_WriteEnable                   => '1',
+      i_Next                          => s_EXMEM_Next,
+      o_Current                       => s_EXMEM_Current
+    );
+
+  s_DMemWr                            <= s_EXMEM_Current.Mem_We;      -- TODO: use this signal as the final active high data memory write enable signal
+  s_DMemAddr                          <= s_EXMEM_Current.ALU_Output;  -- TODO: use this signal as the final data memory address input
+  s_DMemData                          <= s_EXMEM_Current.RS2;         -- TODO: use this signal as the final data memory data input
+  
+  s_MEM_DMEM_Raw                      <= s_DataMemory;
+  g_DMEMSignExtender : DMEMSignExtender 
+    port map(
+      i_Data                          => s_MEM_DMEM_Raw,
+      i_Funct3                        => s_EXMEM_Current.Instruction(14 downto 12),
+      o_SignExtendedDMEM              => s_MEMWB_Next.DMem_Output
+    );
+
+  s_MEMWB_Next.MemToReg               <= s_EXMEM_Current.MemToReg;
+  s_MEMWB_Next.Reg_WE                 <= s_EXMEM_Current.Reg_WE;
+  s_MEMWB_Next.HaltProg               <= s_EXMEM_Current.HaltProg;
+  s_MEMWB_Next.ALU_Output             <= s_EXMEM_Current.ALU_Output;
+  s_MEMWB_Next.Instruction            <= s_EXMEM_Current.Instruction;
+
+  g_Buffer_MEMWB : Buffer_MEMWB
+    port map(
+      i_Clock                         => iCLK,
+      i_Reset                         => iRST,
+      i_WriteEnable                   => '1',
+      i_Next                          => s_MEMWB_Next,
+      o_Current                       => s_MEMWB_Current
+    );
+
+  g_Mux_RegisterWriteData : mux2t1_N
+    generic map(
+      N                                 => 32
+    )
+    port map(
+      i_S                               => s_MEMWB_Current.MemToReg,
+      i_D0                              => s_MEMWB_Current.ALU_Output,
+      i_D1                              => s_MEMWB_Current.DMem_Output,
+      o_O                               => s_WB_RegisterData
     );
 
 end structure;

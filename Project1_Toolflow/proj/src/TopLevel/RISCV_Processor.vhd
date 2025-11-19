@@ -375,8 +375,8 @@ begin
 
   g_ControlUnit : ControlUnit
     port map(
-      --opCode                            => s_Instruction(6 downto 0),
       i_inst                            => s_Instruction,
+      
       ALU_Src                           => s_Control_ALU_Src,
       Mem_We                            => s_Control_Mem_We,
       Jump                              => s_Control_Jump,

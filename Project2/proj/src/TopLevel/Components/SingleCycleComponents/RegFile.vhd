@@ -33,7 +33,7 @@ end RegFile;
 architecture structural of RegFile is
 	
 	component nBitRegister is
-		generic(Reg_Size: positive);
+		generic(Reg_Size: integer);
 		port(	i_CLK	: in std_logic;
 			i_reset	: in std_logic;
 			i_WrEn	: in std_logic;

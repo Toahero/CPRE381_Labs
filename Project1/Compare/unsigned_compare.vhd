@@ -5,7 +5,7 @@ use IEEE.numeric_std.all;
 entity UnsignedLessThan is
     generic(
         DATA_WIDTH : integer := 32
-    )
+    );
     port(
         i_A     : in std_logic_vector(DATA_WIDTH - 1 downto 0);
         i_B     : in std_logic_vector(DATA_WIDTH - 1 downto 0);
