@@ -28,6 +28,7 @@ entity ForwardingUnit is
 end ForwardingUnit;
 
 architecture dataflow of ForwardingUnit is
+begin
     o_ForwardA <=   "01" when i_ALU_RS1 = i_MEM_RD else
                     "10" when i_ALU_RS1 = i_WB_RD  else
                     "00";
