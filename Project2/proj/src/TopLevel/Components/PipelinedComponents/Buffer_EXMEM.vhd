@@ -55,7 +55,7 @@ begin
 
   g_Buffer : nBitRegister
     generic map(
-      Reg_Size  => t_EXMEM'length
+      Reg_Size  => size
     )
     port map(
       i_CLK     => i_Clock,

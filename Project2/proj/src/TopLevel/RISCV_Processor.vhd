@@ -334,7 +334,7 @@ begin
         );
 
   IMem: mem
-    generic map(ADDR_WIDTH => 32,
+    generic map(ADDR_WIDTH => 10,
                 DATA_WIDTH => 32)
     port map(clk  => iCLK,
              addr => s_IMemAddr(11 downto 2),
@@ -349,7 +349,7 @@ begin
         );
 
   DMem: mem
-    generic map(ADDR_WIDTH => 32,
+    generic map(ADDR_WIDTH => 10,
                 DATA_WIDTH => 32)
     port map(clk  => iCLK,
              addr => s_DMemAddr(11 downto 2),
