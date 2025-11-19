@@ -33,4 +33,7 @@ begin
     s_oppCode           <= i_instruction( 6 downto  0);
     s_IFID_RS1          <= i_instruction(19 downto 15);
     s_IFID_RS2          <= i_instruction(24 downto 20);
+    --s_oppCode   <= i_instruction(6 downto 0);
+    --s_IFID_RS1  <= i_instruction(19 downto 15);
+    --s_IFID_RS2  <= i_instruction(24 downto 20);
 end dataflow;

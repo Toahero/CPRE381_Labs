@@ -1,5 +1,5 @@
 ###############################################################
-# RISC-V Merge Sort (RV32I compliant — t0–t6 only)
+# RISC-V Merge Sort
 ###############################################################
 
 .data
@@ -16,14 +16,30 @@ head:   .asciz "The sorted numbers are:\n"
 # main
 ###############################################################
 main:
-    li   sp, 0x7FFFEFEC
-    la   a0, array
-    la   a1, size
+    #li   sp, 0x7FFFEFEC
+    lui x2, 0x0007ffff
+    addi x2, x2, 0xffffffec
+    
+    #la   a0, array
+    auipc	x10, 		0x0000fc10
+    addi	x10, 	x10, 	0xfffffff8
+    
+    #la   a1, size
+    auipc	x11,	0x0000fc10
+    addi	x11,	x11,	4
+    
     lw   a1, 0(a1)
+    
     jal  x1, mergeSort
     
-    la   a0, array
+    #la   a0, array
+    auipc	x11,	0x0000fc10
+    addi	x11, 	x11, 	0xffffffe0
+    
     la   a1, size
+    #auipc	x11, 0x0000fc10
+    #addi	x11,	x11,	0xffffffec
+    
     lw   a1, 0(a1)
     jal  x1, print
 
@@ -37,7 +53,10 @@ print:
     mv t0, a0              # array pointer
     mv t1, a1              # counter
 
-    la   a0, head
+    #la   a0, head
+    auipc	x10,	0x0000fc10
+    addi	x10,	x10,	0xffffffd6
+    
     li   a7, 4
     ecall
 
@@ -47,7 +66,10 @@ print_loop:
     li   a7, 1
     ecall
 
-    la   a0, space
+    #la   a0, space
+    auipc	x10,	0x0000fc10
+    addi	x10,	x10,	0xffffffb4
+    
     li   a7, 4
     ecall
 

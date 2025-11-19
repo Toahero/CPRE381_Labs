@@ -28,4 +28,4 @@ for line in code.splitlines():
 with open(outputName, "w") as f:
     f.write("\n".join(output_lines))
 
-print("✅ Done! File saved as topsort_with_nops.s")
+print("✅ Done! File saved as " + outputName)

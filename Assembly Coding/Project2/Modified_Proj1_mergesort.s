@@ -1,5 +1,5 @@
 ###############################################################
-# RISC-V Merge Sort (RV32I compliant — t0–t6 only)
+# RISC-V Merge Sort
 ###############################################################
 
 .data
@@ -16,30 +16,55 @@ head:   .asciz "The sorted numbers are:\n"
 # main
 ###############################################################
 main:
-    li   sp, 0x7FFFEFEC
+    #li   sp, 0x7FFFEFEC
+    lui x2, 0x0007ffff
 	nop
 	nop
 	nop
 	nop
 	
-    la   a0, array
+    addi x2, x2, 0xffffffec
 	nop
 	nop
 	nop
 	nop
 	
-    la   a1, size
+    
+    #la   a0, array
+    auipc	x10, 		0x0000fc10
 	nop
 	nop
 	nop
 	nop
 	
+    addi	x10, 	x10, 	0xfffffff8
+	nop
+	nop
+	nop
+	nop
+	
+    
+    #la   a1, size
+    auipc	x11,	0x0000fc10
+	nop
+	nop
+	nop
+	nop
+	
+    addi	x11,	x11,	4
+	nop
+	nop
+	nop
+	nop
+	
+    
     lw   a1, 0(a1)
 	nop
 	nop
 	nop
 	nop
 	
+    
     jal  x1, mergeSort
 	nop
 	nop
@@ -47,18 +72,34 @@ main:
 	nop
 	
     
-    la   a0, array
+    #la   a0, array
+    auipc	x11,	0x0000fc10
 	nop
 	nop
 	nop
 	nop
 	
-    la   a1, size
+    addi	x11, 	x11, 	0xffffffe0
 	nop
 	nop
 	nop
 	nop
 	
+    
+    #la   a1, size
+    auipc	x11, 0x0000fc10
+	nop
+	nop
+	nop
+	nop
+	
+    addi	x11,	x11,	0xffffffec
+	nop
+	nop
+	nop
+	nop
+	
+    
     lw   a1, 0(a1)
 	nop
 	nop
@@ -97,12 +138,20 @@ print:
 	nop
 	
 
-    la   a0, head
+    #la   a0, head
+    auipc	x10,	0x0000fc10
 	nop
 	nop
 	nop
 	nop
 	
+    addi	x10,	x10,	0xffffffd6
+	nop
+	nop
+	nop
+	nop
+	
+    
     li   a7, 4
 	nop
 	nop
@@ -132,12 +181,20 @@ print_loop:
 	
     ecall
 
-    la   a0, space
+    #la   a0, space
+    auipc	x10,	0x0000fc10
 	nop
 	nop
 	nop
 	nop
 	
+    addi	x10,	x10,	0xffffffb4
+	nop
+	nop
+	nop
+	nop
+	
+    
     li   a7, 4
 	nop
 	nop
