@@ -27,19 +27,26 @@ res_idx:
         .word   3
 .text
         # NEW RISCV                # ORIGINAL MIPS
-	li   sp, 0x10011000        # li $sp, 0x10011000
+	#li   sp, 0x10011000        # li $sp, 0x10011000
+	lui	x2,	0x00010011
+	nop
+	nop
+	nop
+	nop
+	addi	x2,	x2,	0
 	nop
 	nop
 	nop
 	nop
 	
-	li   fp, 0                 # li $fp, 0
+	#li   fp, 0                 # li $fp, 0
+	addi	x8,	x0,	0
 	nop
 	nop
 	nop
 	nop
 	
-	la   ra, pump              # la $ra pump
+	lasw   ra, pump              # lasw $ra pump
 	nop
 	nop
 	nop
@@ -111,7 +118,7 @@ main_loop_body:
 	nop
 	nop
 	
-        la   ra,    trucks         # la      $ra, trucks
+        lasw   ra,    trucks         # lasw      $ra, trucks
 	nop
 	nop
 	nop
@@ -151,7 +158,7 @@ trucks:
 	nop
 	
                                    # ; addi    $k0, $k0,1# breakpoint
-        la   ra,    billowy        # la      $ra, billowy
+        lasw   ra,    billowy        # lasw      $ra, billowy
 	nop
 	nop
 	nop
@@ -197,7 +204,7 @@ main_loop_control:
 	nop
 	nop
 	
-        beq  t2,    x0, hew        # beq     $2, $zero, hew # beq, j to simulate bne 
+        beq  t2,    x0, hew        # beq     $2, $zero, hew # beq, j to simulaswte bne 
 	nop
 	nop
 	nop
@@ -255,7 +262,7 @@ welcome:
 	nop
 	nop
 	
-        xori t2,    t2, 1          # xori    $2,$2,1 # xori 1, beq to simulate bne where val in [0,1]
+        xori t2,    t2, 1          # xori    $2,$2,1 # xori 1, beq to simulaswte bne where val in [0,1]
 	nop
 	nop
 	nop
@@ -268,8 +275,9 @@ welcome:
 	nop
 	
 
+#EDIT: t2 is not accessed for many turns, no nops are needed.
         mv   t2,    x0             # move    $2,$0
-	nop
+        nop
 	nop
 	nop
 	nop
@@ -286,6 +294,7 @@ welcome:
 	nop
 	nop
 	
+#Edit: at least two nops can be removed
         lw   fp, 32(sp)            # lw      $fp,32($sp)
 	nop
 	nop
@@ -312,7 +321,7 @@ interest:
 	nop
 	nop
 	
-        la   ra,    new            # la      $ra, new
+        lasw   ra,    new            # lasw      $ra, new
 	nop
 	nop
 	nop
@@ -350,7 +359,7 @@ new:
 	nop
 	nop
 	
-        la   ra,    partner        # la      $ra, partner
+        lasw   ra,    partner        # lasw      $ra, partner
 	nop
 	nop
 	nop
@@ -377,7 +386,7 @@ tasteful:
 	nop
 	nop
 	
-        la   ra,    badge          # la      $ra, badge
+        lasw   ra,    badge          # lasw      $ra, badge
 	nop
 	nop
 	nop
@@ -410,7 +419,7 @@ turkey:
 	nop
 	nop
 	
-        beq  t3,    t2, telling    # beq     $3,$2,telling # beq, j to simulate bne
+        beq  t3,    t2, telling    # beq     $3,$2,telling # beq, j to simulaswte bne
 	nop
 	nop
 	nop
@@ -424,7 +433,7 @@ turkey:
 	
 telling:
         # NOTE: $v0 === $2
-	la   t2,    res_idx        # la      $v0, res_idx
+	lasw   t2,    res_idx        # lasw      $v0, res_idx
 	nop
 	nop
 	nop
@@ -442,7 +451,7 @@ telling:
 	nop
 	nop
 	
-        la   t3,    res_idx        # la      $3, res_idx
+        lasw   t3,    res_idx        # lasw      $3, res_idx
 	nop
 	nop
 	nop
@@ -454,7 +463,7 @@ telling:
 	nop
 	nop
 	
-        la   t4,    res            # la      $4, res
+        lasw   t4,    res            # lasw      $4, res
 	nop
 	nop
 	nop
@@ -507,7 +516,7 @@ telling:
 	nop
 	
         
-        la   t2,    res            # la      $2, res
+        lasw   t2,    res            # lasw      $2, res
 	nop
 	nop
 	nop
@@ -617,7 +626,7 @@ topsort:
 	nop
 	nop
 	
-        la   ra,    verse          # la      $ra, verse
+        lasw   ra,    verse          # lasw      $ra, verse
 	nop
 	nop
 	nop
@@ -649,7 +658,7 @@ verse:
 	nop
 	nop
 	
-        la   ra,    joyous         # la      $ra, joyous
+        lasw   ra,    joyous         # lasw      $ra, joyous
 	nop
 	nop
 	nop
@@ -675,7 +684,7 @@ joyous:
 	nop
 	nop
 	
-        la   ra,    whispering     # la      $ra, whispering
+        lasw   ra,    whispering     # lasw      $ra, whispering
 	nop
 	nop
 	nop
@@ -893,7 +902,7 @@ snail:
 	nop
 	nop
 	
-        la   ra,    induce         # la      $ra,induce
+        lasw   ra,    induce         # lasw      $ra,induce
 	nop
 	nop
 	nop
@@ -1000,7 +1009,7 @@ waggish:
 	nop
 	nop
 	
-        beq  t2,    x0, mark       # beq     $2,$zero,mark # beq, j to simulate bne 
+        beq  t2,    x0, mark       # beq     $2,$zero,mark # beq, j to simulaswte bne 
 	nop
 	nop
 	nop
@@ -1082,7 +1091,7 @@ has_edge:
 	nop
 	nop
 	
-        la   t2,    adjacencymatrix# la      $2,adjacencymatrix
+        lasw   t2,    adjacencymatrix# lasw      $2,adjacencymatrix
 	nop
 	nop
 	nop
@@ -1199,7 +1208,7 @@ measley:
 	nop
 	nop
 	
-        beq  t2,    x0, experience # beq     $2,$0,experience # beq, j to simulate bne 
+        beq  t2,    x0, experience # beq     $2,$0,experience # beq, j to simulaswte bne 
 	nop
 	nop
 	nop
@@ -1373,7 +1382,7 @@ recast:
 	nop
 	nop
 	
-        beq  t2,    x0, pat        # beq     $2,$zero,pat # beq, j to simulate bne
+        beq  t2,    x0, pat        # beq     $2,$zero,pat # beq, j to simulaswte bne
 	nop
 	nop
 	nop
@@ -1387,7 +1396,7 @@ recast:
 	
 pat:
 
-       	la   t2, visited             # la      $2, visited
+       	lasw   t2, visited             # lasw      $2, visited
 	nop
 	nop
 	nop
@@ -1566,7 +1575,7 @@ evasive:
 	nop
 	nop
 	
-        beq  t2,    x0,representative# beq $2,$0,representitive # beq, j to simulate bne
+        beq  t2,    x0,representative# beq $2,$0,representitive # beq, j to simulaswte bne
 	nop
 	nop
 	nop
@@ -1580,7 +1589,7 @@ evasive:
 	
 representative:
 
-        la   t2,    visited          # la      $2,visited
+        lasw   t2,    visited          # lasw      $2,visited
 	nop
 	nop
 	nop
