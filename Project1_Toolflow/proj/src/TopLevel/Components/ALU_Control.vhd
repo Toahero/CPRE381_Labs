@@ -32,7 +32,7 @@ begin
                             i_PCAddr    when i_Opcode = "1101111" else -- JAL
                             i_PCAddr    when i_Opcode = "1100111" else -- JALR
                             x"00000000" when i_Opcode = "0110111" else -- LUI
-                            x"XXXXXXXX";
+                            x"00000000";
 
     o_AOverrideEnable   <=
                             '1'  when i_Opcode = "0010111" else
@@ -44,7 +44,7 @@ begin
     o_BOverride         <=
                             x"00000004" when i_Opcode = "1101111" else -- JAL
                             x"00000004" when i_Opcode = "1100111" else -- JALR
-                            x"XXXXXXXX";
+                            x"00000000";
 
     o_BOverrideEnable   <=
                             '1'  when i_Opcode = "1101111" else

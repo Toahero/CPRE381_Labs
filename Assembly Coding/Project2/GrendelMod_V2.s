@@ -27,7 +27,13 @@ res_idx:
         .word   3
 .text
         # NEW RISCV                # ORIGINAL MIPS
-	li   sp, 0x10011000        # li $sp, 0x10011000
+#	li   sp, 0x10011000        # li $sp, 0x10011000
+	lui x2, 0x00010011
+	nop
+	nop
+	nop
+	nop
+	addi x2, x2, 0
 	nop
 	nop
 	nop
@@ -39,7 +45,13 @@ res_idx:
 	nop
 	nop
 	
-	la   ra, pump              # la $ra pump
+#	la   ra, pump              # la $ra pump
+	auipc x1, 0
+	nop
+	nop
+	nop
+	nop
+	addi x1, x1, 0x0000002c
 	nop
 	nop
 	nop
@@ -111,7 +123,13 @@ main_loop_body:
 	nop
 	nop
 	
-        la   ra,    trucks         # la      $ra, trucks
+#        la   ra,    trucks         # la      $ra, trucks
+	auipc x1, 0
+	nop
+	nop
+	nop
+	nop
+	addi x1, x1, 0x0000002c
 	nop
 	nop
 	nop
@@ -151,7 +169,13 @@ trucks:
 	nop
 	
                                    # ; addi    $k0, $k0,1# breakpoint
-        la   ra,    billowy        # la      $ra, billowy
+#        la   ra,    billowy        # la      $ra, billowy
+	auipc x1, 0
+	nop
+	nop
+	nop
+	nop
+	addi x1, x1, 0x0000002c
 	nop
 	nop
 	nop
@@ -268,9 +292,8 @@ welcome:
 	nop
 	
 
-#EDIT: t2 is not accessed for many turns, no nops are needed.
         mv   t2,    x0             # move    $2,$0
-        nop
+	nop
 	nop
 	nop
 	nop
@@ -287,7 +310,6 @@ welcome:
 	nop
 	nop
 	
-#Edit: at least two nops can be removed
         lw   fp, 32(sp)            # lw      $fp,32($sp)
 	nop
 	nop
@@ -619,7 +641,13 @@ topsort:
 	nop
 	nop
 	
-        la   ra,    verse          # la      $ra, verse
+#        la   ra,    verse          # la      $ra, verse
+	auipc x1, 0
+	nop
+	nop
+	nop
+	nop
+	addi x1, x1, 0x0000002c
 	nop
 	nop
 	nop
@@ -651,7 +679,13 @@ verse:
 	nop
 	nop
 	
-        la   ra,    joyous         # la      $ra, joyous
+#        la   ra,    joyous         # la      $ra, joyous
+	auipc x1, 0
+	nop
+	nop
+	nop
+	nop
+	addi x1, x1, 0x0000002c
 	nop
 	nop
 	nop
@@ -677,7 +711,13 @@ joyous:
 	nop
 	nop
 	
-        la   ra,    whispering     # la      $ra, whispering
+#        la   ra,    whispering     # la      $ra, whispering
+	auipc x1, 0
+	nop
+	nop
+	nop
+	nop
+	addi x1, x1, 0x0000002c
 	nop
 	nop
 	nop
@@ -895,7 +935,13 @@ snail:
 	nop
 	nop
 	
-        la   ra,    induce         # la      $ra,induce
+#        la   ra,    induce         # la      $ra,induce
+	auipc x1, 0
+	nop
+	nop
+	nop
+	nop
+	addi x1, x1, 0x0000002c
 	nop
 	nop
 	nop
@@ -1084,7 +1130,13 @@ has_edge:
 	nop
 	nop
 	
-        la   t2,    adjacencymatrix# la      $2,adjacencymatrix
+#        la   t2,    adjacencymatrix# la      $2,adjacencymatrix
+	auipc x7, 0x0000fc0f
+	nop
+	nop
+	nop
+	nop
+	addi x7, x7, 0x000002dc
 	nop
 	nop
 	nop
@@ -1389,7 +1441,13 @@ recast:
 	
 pat:
 
-       	la   t2, visited             # la      $2, visited
+#       	la   t2, visited             # la      $2, visited
+	auipc x7, 0x0000fc0f
+	nop
+	nop
+	nop
+	nop
+	addi x7, x7, 0xffffff14
 	nop
 	nop
 	nop

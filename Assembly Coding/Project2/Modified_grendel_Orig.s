@@ -268,9 +268,8 @@ welcome:
 	nop
 	
 
-#EDIT: t2 is not accessed for many turns, no nops are needed.
         mv   t2,    x0             # move    $2,$0
-        nop
+	nop
 	nop
 	nop
 	nop
@@ -287,7 +286,6 @@ welcome:
 	nop
 	nop
 	
-#Edit: at least two nops can be removed
         lw   fp, 32(sp)            # lw      $fp,32($sp)
 	nop
 	nop

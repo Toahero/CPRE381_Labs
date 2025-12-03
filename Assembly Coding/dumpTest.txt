@@ -1,0 +1,280 @@
+Address     Code        Basic                        Line Source
+
+0x00400000  0x10011137  lui x2,0x00010011            30   	li   sp, 0x10011000        # li $sp, 0x10011000
+0x00400004  0x00010113  addi x2,x2,0                      
+0x00400008  0x00000413  addi x8,x0,0                 31   	li   fp, 0                 # li $fp, 0
+0x0040000c  0x00000097  auipc x1,0                   32   	la   ra, pump              # la $ra pump
+0x00400010  0x00c08093  addi x1,x1,12                     
+0x00400014  0x00c0006f  jal x0,0x0000000c            33   	j    main
+0x00400018  0x43c0006f  jal x0,0x0000043c            35           j end
+0x0040001c  0x00100073  ebreak                       36   	ebreak                     # halt
+0x00400020  0xfd810113  addi x2,x2,0xffffffd8        40           addi sp,    sp, -40        # addiu   $sp,$sp,-40
+0x00400024  0x02112223  sw x1,0x00000024(x2)         41           sw   ra, 36(sp)            # sw      $31,36($sp)
+0x00400028  0x02812023  sw x8,0x00000020(x2)         42           sw   fp, 32(sp)            # sw      $fp,32($sp)
+0x0040002c  0x00010433  add x8,x2,x0                 43           add  fp,    sp, x0         # add     $fp,$sp,$zero
+0x00400030  0x00012c23  sw x0,24(x2)                 44           sw   x0, 24(sp)            # sw      $0,24($fp)
+0x00400034  0x03c0006f  jal x0,0x0000003c            45           j    main_loop_control
+0x00400038  0x01842e83  lw x29,24(x8)                48           lw   t4, 24(fp)            # lw      $4,24($fp)
+0x0040003c  0x00000097  auipc x1,0                   49           la   ra,    trucks         # la      $ra, trucks
+0x00400040  0x00c08093  addi x1,x1,12                     
+0x00400044  0x3900006f  jal x0,0x00000390            50           j    is_visited
+0x00400048  0x0013c393  xori x7,x7,1                 53           xori t2,    t2, 1          # xori    $2,$2,0x1
+0x0040004c  0x0ff3f393  andi x7,x7,0x000000ff        54           andi t2,    t2, 0xff       # andi    $2,$2,0x00ff
+0x00400050  0x00038a63  beq x7,x0,0x00000014         55           beq  t2,    x0, kick       # beq     $2,$0,kick
+0x00400054  0x01842e83  lw x29,24(x8)                57           lw   t4, 24(fp)            # lw      $4,24($fp)
+0x00400058  0x00000097  auipc x1,0                   59           la   ra,    billowy        # la      $ra, billowy
+0x0040005c  0x00c08093  addi x1,x1,12                     
+0x00400060  0x1280006f  jal x0,0x00000128            60           j    topsort
+0x00400064  0x01842383  lw x7,24(x8)                 64           lw   t2, 24(fp)            # lw      $2,24($fp)
+0x00400068  0x00138393  addi x7,x7,1                 65           addi t2,    t2, 1          # addiu   $2,$2,1
+0x0040006c  0x00742c23  sw x7,24(x8)                 66           sw   t2, 24(fp)            # sw      $2,24($fp)
+0x00400070  0x01842383  lw x7,24(x8)                 68           lw   t2, 24(fp)            # lw      $2,24($fp)
+0x00400074  0x0043a393  slti x7,x7,4                 69           slti t2,    t2, 4          # slti    $2,$2, 4
+0x00400078  0x00038463  beq x7,x0,0x00000008         70           beq  t2,    x0, hew        # beq     $2, $zero, hew # beq, j to simulate bne 
+0x0040007c  0xfbdff06f  jal x0,0xffffffbc            71           j    main_loop_body
+0x00400080  0x00042e23  sw x0,28(x8)                 73           sw   x0, 28(fp)            # sw      $0,28($fp)
+0x00400084  0x0100006f  jal x0,0x00000010            74           j    welcome
+0x00400088  0x01c42383  lw x7,28(x8)                 77           lw   t2, 28(fp)            # lw      $2,28($fp)
+0x0040008c  0x00138393  addi x7,x7,1                 78           addi t2,    t2, 1          # addiu   $2,$2,1
+0x00400090  0x00742e23  sw x7,28(x8)                 79           sw   t2, 28(fp)            # sw      $2,28($fp)
+0x00400094  0x01c42383  lw x7,28(x8)                 81           lw   t2, 28(fp)            # lw      $2,28($fp)
+0x00400098  0x0043a393  slti x7,x7,4                 82           slti t2,    t2, 4          # slti    $2,$2,4
+0x0040009c  0x0013c393  xori x7,x7,1                 83           xori t2,    t2, 1          # xori    $2,$2,1 # xori 1, beq to simulate bne where val in [0,1]
+0x004000a0  0xfe0384e3  beq x7,x0,0xffffffe8         84           beq  t2,    x0, wave       # beq     $2,$0,wave
+0x004000a4  0x000003b3  add x7,x0,x0                 86           mv   t2,    x0             # move    $2,$0
+0x004000a8  0x00800133  add x2,x0,x8                 87           mv   sp,    fp             # move    $sp,$fp
+0x004000ac  0x02412083  lw x1,0x00000024(x2)         88           lw   ra, 36(sp)            # lw      $31,36($sp)
+0x004000b0  0x02012403  lw x8,0x00000020(x2)         89           lw   fp, 32(sp)            # lw      $fp,32($sp)
+0x004000b4  0x02810113  addi x2,x2,0x00000028        90           addi sp, sp, 40            # addiu   $sp,$sp,40
+0x004000b8  0x00008067  jalr x0,x1,0                 91           jr   ra                    # jr      $ra
+0x004000bc  0x01842e83  lw x29,24(x8)                94           lw   t4, 24(fp)            # lw      $4,24($fp)
+0x004000c0  0x00000097  auipc x1,0                   95           la   ra,    new            # la      $ra, new
+0x004000c4  0x00c08093  addi x1,x1,12                     
+0x004000c8  0x30c0006f  jal x0,0x0000030c            96           j    is_visited
+0x004000cc  0x0013c393  xori x7,x7,1                 98           xori t2,    t2, 1          # xori    $2,$2,0x1
+0x004000d0  0x0ff3f393  andi x7,x7,0x000000ff        99           andi t2,    t2, 0x0ff      # andi    $2,$2,0x00ff
+0x004000d4  0x00038a63  beq x7,x0,0x00000014         100          beq  t2,    x0, tasteful   # beq     $2,$0,tasteful
+0x004000d8  0x01842e83  lw x29,24(x8)                102          lw   t4, 24(fp)            # lw      $4,24($fp)
+0x004000dc  0x00000097  auipc x1,0                   103          la   ra,    partner        # la      $ra, partner
+0x004000e0  0x00c08093  addi x1,x1,12                     
+0x004000e4  0x0a40006f  jal x0,0x000000a4            104          j    topsort
+0x004000e8  0x01c40393  addi x7,x8,28                108          addi t2,    fp, 28         # addiu   $2,$fp,28
+0x004000ec  0x00700eb3  add x29,x0,x7                109          mv   t4,    t2             # move    $4,$2
+0x004000f0  0x00000097  auipc x1,0                   110          la   ra,    badge          # la      $ra, badge
+0x004000f4  0x00c08093  addi x1,x1,12                     
+0x004000f8  0x1340006f  jal x0,0x00000134            111          j    next_edge
+0x004000fc  0x00742c23  sw x7,24(x8)                 113          sw   t2, 24(fp)            # sw      $2,24($fp)
+0x00400100  0x01842e03  lw x28,24(x8)                116          lw   t3, 24(fp)            # lw      $3,24($fp)
+0x00400104  0xfff00393  addi x7,x0,0xffffffff        117          li   t2, -1                # li      $2,-1
+0x00400108  0x007e0463  beq x28,x7,0x00000008        118          beq  t3,    t2, telling    # beq     $3,$2,telling # beq, j to simulate bne
+0x0040010c  0xfb1ff06f  jal x0,0xffffffb0            119          j    interest
+0x00400110  0x0fc10397  auipc x7,0x0000fc10          122  	la   t2,    res_idx        # la      $v0, res_idx
+0x00400114  0xf1838393  addi x7,x7,0xffffff18             
+0x00400118  0x0003a383  lw x7,0(x7)                  123  	lw   t2,  0(t2)            # lw      $v0, 0($v0)
+0x0040011c  0xfff38e93  addi x29,x7,0xffffffff       124          addi t4,    t2, -1         # addiu   $4,$2,-1
+0x00400120  0x0fc10e17  auipc x28,0x0000fc10         125          la   t3,    res_idx        # la      $3, res_idx
+0x00400124  0xf08e0e13  addi x28,x28,0xffffff08           
+0x00400128  0x01de2023  sw x29,0(x28)                126          sw   t4,  0(t3)            # sw      $4, 0($3)
+0x0040012c  0x0fc10e97  auipc x29,0x0000fc10         127          la   t4,    res            # la      $4, res
+0x00400130  0xed4e8e93  addi x29,x29,0xfffffed4           
+0x00400134  0x00239e13  slli x28,x7,2                131          slli t3,    t2, 2          # sll     $3,$2,2
+0x00400138  0x001e5e13  srli x28,x28,1               132          srli t3,    t3, 1          # srl     $3,$3,1
+0x0040013c  0x401e5e13  srai x28,x28,1               133          srai t3,    t3, 1          # sra     $3,$3,1
+0x00400140  0x002e1e13  slli x28,x28,2               134          slli t3,    t3, 2          # sll     $3,$3,2
+0x00400144  0x0070cfb3  xor x31,x1,x7                136         	xor  t6,    ra, t2         # xor     $at, $ra, $2 # does nothing 
+0x00400148  0x0070efb3  or x31,x1,x7                 137          or   t6,    ra, t2         # nor     $at, $ra, $2 # does nothing 
+0x0040014c  0x41f00fb3  sub x31,x0,x31               138          neg  t6,    t6
+0x00400150  0x0fc10397  auipc x7,0x0000fc10          140          la   t2,    res            # la      $2, res
+0x00400154  0xeb038393  addi x7,x7,0xfffffeb0             
+0x00400158  0x000105b7  lui x11,16                   141          li   a1,    0x0000ffff
+0x0040015c  0xfff58593  addi x11,x11,0xffffffff           
+0x00400160  0x00b3ffb3  and x31,x7,x11               142          and  t6,    t2, a1         # andi    $at, $2, 0xffff # -1 will sign extend (according to assembler), but 0xffff won't
+0x00400164  0x01fe83b3  add x7,x29,x31               143          add  t2,    t4, t6         # addu    $2, $4, $at
+0x00400168  0x007e03b3  add x7,x28,x7                144          add  t2,    t3, t2         # addu    $2,$3,$2
+0x0040016c  0x03042e03  lw x28,0x00000030(x8)        145          lw   t3, 48(fp)            # lw      $3,48($fp)
+0x00400170  0x01c3a023  sw x28,0(x7)                 146          sw   t3,  0(t2)            # sw      $3,0($2)
+0x00400174  0x00800133  add x2,x0,x8                 147          mv   sp,    fp             # move    $sp,$fp
+0x00400178  0x02c12083  lw x1,0x0000002c(x2)         148          lw   ra, 44(sp)            # lw      $31,44($sp)
+0x0040017c  0x02812403  lw x8,0x00000028(x2)         149          lw   fp, 40(sp)            # lw      $fp,40($sp)
+0x00400180  0x03010113  addi x2,x2,0x00000030        150          addi sp,    sp, 48         # addiu   $sp,$sp,48
+0x00400184  0x00008067  jalr x0,x1,0                 151          jr   ra                    # jr      $ra
+0x00400188  0xfd010113  addi x2,x2,0xffffffd0        154          addi sp,    sp, -48        # addiu   $sp,$sp,-48
+0x0040018c  0x02112623  sw x1,0x0000002c(x2)         155          sw   ra, 44(sp)            # sw      $31,44($sp)
+0x00400190  0x02812423  sw x8,0x00000028(x2)         156          sw   fp, 40(sp)            # sw      $fp,40($sp)
+0x00400194  0x00200433  add x8,x0,x2                 157          mv   fp,    sp             # move    $fp,$sp
+0x00400198  0x03d42823  sw x29,0x00000030(x8)        158          sw   t4, 48(fp)            # sw      $4,48($fp)
+0x0040019c  0x03042e83  lw x29,0x00000030(x8)        159          lw   t4, 48(fp)            # lw      $4,48($fp)
+0x004001a0  0x00000097  auipc x1,0                   160          la   ra,    verse          # la      $ra, verse
+0x004001a4  0x00c08093  addi x1,x1,12                     
+0x004001a8  0x1ac0006f  jal x0,0x000001ac            161          j    mark_visited
+0x004001ac  0x01c40393  addi x7,x8,28                164          addi t2,    fp, 28         # addiu   $2,$fp,28
+0x004001b0  0x03042f03  lw x30,0x00000030(x8)        165          lw   t5, 48(fp)            # lw      $5,48($fp)
+0x004001b4  0x00700eb3  add x29,x0,x7                166          mv   t4,    t2             # move    $4,$2
+0x004001b8  0x00000097  auipc x1,0                   167          la   ra,    joyous         # la      $ra, joyous
+0x004001bc  0x00c08093  addi x1,x1,12                     
+0x004001c0  0x0200006f  jal x0,0x00000020            168          j    iterate_edges
+0x004001c4  0x01c40393  addi x7,x8,28                171          addi t2,    fp, 28         # addiu   $2,$fp,28
+0x004001c8  0x00700eb3  add x29,x0,x7                172          mv   t4,    t2             # move    $4,$2
+0x004001cc  0x00000097  auipc x1,0                   173          la   ra,    whispering     # la      $ra, whispering
+0x004001d0  0x00c08093  addi x1,x1,12                     
+0x004001d4  0x0580006f  jal x0,0x00000058            174          j    next_edge
+0x004001d8  0x00742c23  sw x7,24(x8)                 177          sw   t2, 24(fp)            # sw      $2,24($fp)
+0x004001dc  0xf25ff06f  jal x0,0xffffff24            178          j    turkey
+0x004001e0  0xfe810113  addi x2,x2,0xffffffe8        181          addi sp,    sp, -24        # addiu   $sp,$sp,-24
+0x004001e4  0x00812a23  sw x8,20(x2)                 182          sw   fp, 20(sp)            # sw      $fp,20($sp)
+0x004001e8  0x00200433  add x8,x0,x2                 183          mv   fp,    sp             # move    $fp,$sp
+0x004001ec  0x40240fb3  sub x31,x8,x2                184          sub  t6,    fp, sp         # subu    $at, $fp, $sp
+0x004001f0  0x01d42c23  sw x29,24(x8)                185          sw   t4, 24(fp)            # sw      $4,24($fp)
+0x004001f4  0x01e42e23  sw x30,28(x8)                186          sw   t5, 28(fp)            # sw      $5,28($fp)
+0x004001f8  0x01c42383  lw x7,28(x8)                 187          lw   t2, 28(fp)            # lw      $2,28($fp)
+0x004001fc  0x00742423  sw x7,8(x8)                  188          sw   t2,  8(fp)            # sw      $2,8($fp)
+0x00400200  0x00042623  sw x0,12(x8)                 189          sw   x0, 12(fp)            # sw      $0,12($fp)
+0x00400204  0x01842383  lw x7,24(x8)                 190          lw   t2, 24(fp)            # lw      $2,24($fp)
+0x00400208  0x00842e83  lw x29,8(x8)                 191          lw   t4,  8(fp)            # lw      $4,8($fp)
+0x0040020c  0x00c42e03  lw x28,12(x8)                192          lw   t3, 12(fp)            # lw      $3,12($fp)
+0x00400210  0x01d3a023  sw x29,0(x7)                 193          sw   t4,  0(t2)            # sw      $4,0($2)
+0x00400214  0x01c3a223  sw x28,4(x7)                 194          sw   t3,  4(t2)            # sw      $3,4($2)
+0x00400218  0x01842383  lw x7,24(x8)                 195          lw   t2, 24(fp)            # lw      $2,24($fp)
+0x0040021c  0x00800133  add x2,x0,x8                 196          mv   sp,    fp             # move    $sp,$fp
+0x00400220  0x01412403  lw x8,20(x2)                 197          lw   fp, 20(sp)            # lw      $fp,20($sp)
+0x00400224  0x01810113  addi x2,x2,24                198          addi sp,    sp, 24         # addiu   $sp,$sp,24
+0x00400228  0x00008067  jalr x0,x1,0                 199          jr   ra                    # jr      $ra
+0x0040022c  0xfe010113  addi x2,x2,0xffffffe0        202          addi sp,    sp, -32        # addiu   $sp,$sp,-32
+0x00400230  0x00112e23  sw x1,28(x2)                 203          sw   ra, 28(sp)            # sw      $31,28($sp)
+0x00400234  0x00812c23  sw x8,24(x2)                 204          sw   fp, 24(sp)            # sw      $fp,24($sp)
+0x00400238  0x00200433  add x8,x0,x2                 205          add  fp,    x0, sp         # add     $fp,$zero,$sp
+0x0040023c  0x03d42023  sw x29,0x00000020(x8)        206          sw   t4, 32(fp)            # sw      $4,32($fp)
+0x00400240  0x0580006f  jal x0,0x00000058            207          j    waggish
+0x00400244  0x02042383  lw x7,0x00000020(x8)         210          lw   t2, 32(fp)            # lw      $2,32($fp)
+0x00400248  0x0003ae03  lw x28,0(x7)                 211          lw   t3,  0(t2)            # lw      $3,0($2)
+0x0040024c  0x02042383  lw x7,0x00000020(x8)         212          lw   t2, 32(fp)            # lw      $2,32($fp)
+0x00400250  0x0043a383  lw x7,4(x7)                  213          lw   t2,  4(t2)            # lw      $2,4($2)
+0x00400254  0x00700f33  add x30,x0,x7                214          mv   t5,    t2             # move    $5,$2
+0x00400258  0x01c00eb3  add x29,x0,x28               215          mv   t4,    t3             # move    $4,$3
+0x0040025c  0x00000097  auipc x1,0                   216          la   ra,    induce         # la      $ra,induce
+0x00400260  0x00c08093  addi x1,x1,12                     
+0x00400264  0x0600006f  jal x0,0x00000060            217          j    has_edge
+0x00400268  0x00038e63  beq x7,x0,0x0000001c         219          beq  t2,    x0, quarter    # beq     $2,$0,quarter
+0x0040026c  0x02042383  lw x7,0x00000020(x8)         220          lw   t2, 32(fp)            # lw      $2,32($fp)
+0x00400270  0x0043a383  lw x7,4(x7)                  221          lw   t2,  4(t2)            # lw      $2,4($2)
+0x00400274  0x00138e93  addi x29,x7,1                222          addi t4,    t2, 1          # addiu   $4,$2,1
+0x00400278  0x02042e03  lw x28,0x00000020(x8)        223          lw   t3, 32(fp)            # lw      $3,32($fp)
+0x0040027c  0x01de2223  sw x29,4(x28)                224          sw   t4,  4(t3)            # sw      $4,4($3)
+0x00400280  0x0300006f  jal x0,0x00000030            225          j    cynical
+0x00400284  0x02042383  lw x7,0x00000020(x8)         228          lw   t2, 32(fp)            # lw      $2,32($fp)
+0x00400288  0x0043a383  lw x7,4(x7)                  229          lw   t2,  4(t2)            # lw      $2,4($2)
+0x0040028c  0x00138e13  addi x28,x7,1                230          addi t3,    t2, 1          # addiu   $3,$2,1
+0x00400290  0x02042383  lw x7,0x00000020(x8)         231          lw   t2, 32(fp)            # lw      $2,32($fp)
+0x00400294  0x01c3a223  sw x28,4(x7)                 232          sw   t3,  4(t2)            # sw      $3,4($2)
+0x00400298  0x02042383  lw x7,0x00000020(x8)         235          lw   t2, 32(fp)            # lw      $2,32($fp)
+0x0040029c  0x0043a383  lw x7,4(x7)                  236          lw   t2,  4(t2)            # lw      $2,4($2)
+0x004002a0  0x0043a393  slti x7,x7,4                 237          slti t2,    t2, 4          # slti    $2,$2,4
+0x004002a4  0x00038463  beq x7,x0,0x00000008         238          beq  t2,    x0, mark       # beq     $2,$zero,mark # beq, j to simulate bne 
+0x004002a8  0xf9dff06f  jal x0,0xffffff9c            239          j    snail
+0x004002ac  0xfff00393  addi x7,x0,0xffffffff        241          li   t2, -1                # li      $2,-1
+0x004002b0  0x00800133  add x2,x0,x8                 244          mv   sp,    fp             # move    $sp,$fp
+0x004002b4  0x01c12083  lw x1,28(x2)                 245          lw   ra, 28(sp)            # lw      $31,28($sp)
+0x004002b8  0x01812403  lw x8,24(x2)                 246          lw   fp, 24(sp)            # lw      $fp,24($sp)
+0x004002bc  0x02010113  addi x2,x2,0x00000020        247          addi sp,    sp, 32         # addiu   $sp,$sp,32
+0x004002c0  0x00008067  jalr x0,x1,0                 248          jr   ra                    # jr      $ra
+0x004002c4  0xfe010113  addi x2,x2,0xffffffe0        250          addi sp,    sp, -32        # addiu   $sp,$sp,-32
+0x004002c8  0x00812e23  sw x8,28(x2)                 251          sw   fp, 28(sp)            # sw      $fp,28($sp)
+0x004002cc  0x00200433  add x8,x0,x2                 252          mv   fp,    sp             # move    $fp,$sp
+0x004002d0  0x03d42023  sw x29,0x00000020(x8)        253          sw   t4, 32(fp)            # sw      $4,32($fp)
+0x004002d4  0x03e42223  sw x30,0x00000024(x8)        254          sw   t5, 36(fp)            # sw      $5,36($fp)
+0x004002d8  0x0fc10397  auipc x7,0x0000fc10          255          la   t2,    adjacencymatrix# la      $2,adjacencymatrix
+0x004002dc  0xd3c38393  addi x7,x7,0xfffffd3c             
+0x004002e0  0x02042e03  lw x28,0x00000020(x8)        256          lw   t3, 32(fp)            # lw      $3,32($fp)
+0x004002e4  0x002e1e13  slli x28,x28,2               257          slli t3,    t3, 2          # sll     $3,$3,2
+0x004002e8  0x007e03b3  add x7,x28,x7                258          add  t2,    t3, t2         # addu    $2,$3,$2
+0x004002ec  0x0003a383  lw x7,0(x7)                  259          lw   t2,  0(t2)            # lw      $2,0($2)
+0x004002f0  0x00742823  sw x7,16(x8)                 260          sw   t2, 16(fp)            # sw      $2,16($fp)
+0x004002f4  0x00100393  addi x7,x0,1                 261          li   t2,  1                # li      $2,1
+0x004002f8  0x00742423  sw x7,8(x8)                  262          sw   t2,  8(fp)            # sw      $2,8($fp)
+0x004002fc  0x00042623  sw x0,12(x8)                 263          sw   x0, 12(fp)            # sw      $0,12($fp)
+0x00400300  0x01c0006f  jal x0,0x0000001c            264          j    measley
+0x00400304  0x00842383  lw x7,8(x8)                  267          lw   t2,  8(fp)            # lw      $2,8($fp)
+0x00400308  0x00139393  slli x7,x7,1                 268          slli t2,    t2, 1          # sll     $2,$2,1
+0x0040030c  0x00742423  sw x7,8(x8)                  269          sw   t2,  8(fp)            # sw      $2,8($fp)
+0x00400310  0x00c42383  lw x7,12(x8)                 270          lw   t2, 12(fp)            # lw      $2,12($fp)
+0x00400314  0x00138393  addi x7,x7,1                 271          addi t2,    t2, 1          # addiu   $2,$2,1
+0x00400318  0x00742623  sw x7,12(x8)                 272          sw   t2, 12(fp)            # sw      $2,12($fp)
+0x0040031c  0x00c42e03  lw x28,12(x8)                274          lw   t3, 12(fp)            # lw      $3,12($fp)
+0x00400320  0x02442383  lw x7,0x00000024(x8)         275          lw   t2, 36(fp)            # lw      $2,36($fp)
+0x00400324  0x007e23b3  slt x7,x28,x7                276          slt  t2,    t3, t2         # slt     $2,$3,$2
+0x00400328  0x00038463  beq x7,x0,0x00000008         277          beq  t2,    x0, experience # beq     $2,$0,experience # beq, j to simulate bne 
+0x0040032c  0xfd9ff06f  jal x0,0xffffffd8            278          j    look
+0x00400330  0x00842e03  lw x28,8(x8)                 280          lw   t3,  8(fp)            # lw      $3,8($fp)
+0x00400334  0x01042383  lw x7,16(x8)                 281          lw   t2, 16(fp)            # lw      $2,16($fp)
+0x00400338  0x007e73b3  and x7,x28,x7                282          and  t2,    t3, t2         # and     $2,$3,$2
+0x0040033c  0x007023b3  slt x7,x0,x7                 283          slt  t2,    x0, t2         # slt     $2,$0,$2
+0x00400340  0x0ff3f393  andi x7,x7,0x000000ff        284          andi t2,    t2, 0xff       # andi    $2,$2,0x00ff
+0x00400344  0x00800133  add x2,x0,x8                 285          mv   sp,    fp             # move    $sp,$fp
+0x00400348  0x01c12403  lw x8,28(x2)                 286          lw   fp, 28(sp)            # lw      $fp,28($sp)
+0x0040034c  0x02010113  addi x2,x2,0x00000020        287          addi sp,    sp, 32         # addiu   $sp,$sp,32
+0x00400350  0x00008067  jalr x0,x1,0                 288          jr   ra                    # jr      $ra
+0x00400354  0xfe010113  addi x2,x2,0xffffffe0        291          addi sp,    sp, -32        # addiu   $sp,$sp,-32
+0x00400358  0x00812e23  sw x8,28(x2)                 292          sw   fp, 28(sp)            # sw      $fp,28($sp)
+0x0040035c  0x00200433  add x8,x0,x2                 293          mv   fp,    sp             # move    $fp,$sp
+0x00400360  0x03d42023  sw x29,0x00000020(x8)        294          sw   t4, 32(fp)            # sw      $4,32($fp)
+0x00400364  0x00100393  addi x7,x0,1                 295          li   t2,  1                # li      $2,1
+0x00400368  0x00742423  sw x7,8(x8)                  296          sw   t2,  8(fp)            # sw      $2,8($fp)
+0x0040036c  0x00042623  sw x0,12(x8)                 297          sw   x0, 12(fp)            # sw      $0,12($fp)
+0x00400370  0x01c0006f  jal x0,0x0000001c            298          j    recast
+0x00400374  0x00842383  lw x7,8(x8)                  301          lw   t2,  8(fp)            # lw      $2,8($fp)
+0x00400378  0x00839393  slli x7,x7,8                 302          slli t2,    t2, 8          # sll     $2,$2,8
+0x0040037c  0x00742423  sw x7,8(x8)                  303          sw   t2,  8(fp)            # sw      $2,8($fp)
+0x00400380  0x00c42383  lw x7,12(x8)                 304          lw   t2, 12(fp)            # lw      $2,12($fp)
+0x00400384  0x00138393  addi x7,x7,1                 305          addi t2,    t2, 1          # addiu   $2,$2,1
+0x00400388  0x00742623  sw x7,12(x8)                 306          sw   t2, 12(fp)            # sw      $2,12($fp)
+0x0040038c  0x00c42e03  lw x28,12(x8)                308          lw   t3, 12(fp)            # lw      $3,12($fp)
+0x00400390  0x02042383  lw x7,0x00000020(x8)         309          lw   t2, 32(fp)            # lw      $2,32($fp)
+0x00400394  0x007e23b3  slt x7,x28,x7                310          slt  t2,    t3, t2         # slt     $2,$3,$2
+0x00400398  0x00038463  beq x7,x0,0x00000008         311          beq  t2,    x0, pat        # beq     $2,$zero,pat # beq, j to simulate bne
+0x0040039c  0xfd9ff06f  jal x0,0xffffffd8            312          j    example
+0x004003a0  0x0fc10397  auipc x7,0x0000fc10          315         	la   t2, visited             # la      $2, visited
+0x004003a4  0xc8438393  addi x7,x7,0xfffffc84             
+0x004003a8  0x00742823  sw x7,16(x8)                 316          sw   t2, 16(fp)              # sw      $2,16($fp)
+0x004003ac  0x01042383  lw x7,16(x8)                 317          lw   t2, 16(fp)              # lw      $2,16($fp)
+0x004003b0  0x0003ae03  lw x28,0(x7)                 318          lw   t3,  0(t2)              # lw      $3,0($2)
+0x004003b4  0x00842383  lw x7,8(x8)                  319          lw   t2,  8(fp)              # lw      $2,8($fp)
+0x004003b8  0x007e6e33  or x28,x28,x7                320          or   t3,    t3, t2           # or      $3,$3,$2
+0x004003bc  0x01042383  lw x7,16(x8)                 321          lw   t2, 16(fp)              # lw      $2,16($fp)
+0x004003c0  0x01c3a023  sw x28,0(x7)                 322          sw   t3,  0(t2)              # sw      $3,0($2)
+0x004003c4  0x00800133  add x2,x0,x8                 323          mv   sp,    fp               # move    $sp,$fp
+0x004003c8  0x01c12403  lw x8,28(x2)                 324          lw   fp, 28(sp)              # lw      $fp,28($sp)
+0x004003cc  0x02010113  addi x2,x2,0x00000020        325          addi sp,    sp, 32           # addiu   $sp,$sp,32
+0x004003d0  0x00008067  jalr x0,x1,0                 326          jr   ra                      # jr      $ra
+0x004003d4  0xfe010113  addi x2,x2,0xffffffe0        329          addi sp,    sp, -32          # addiu   $sp,$sp,-32
+0x004003d8  0x00812e23  sw x8,28(x2)                 330          sw   fp, 28(sp)              # sw      $fp,28($sp)
+0x004003dc  0x00200433  add x8,x0,x2                 331          mv   fp,    sp               # move    $fp,$sp
+0x004003e0  0x03d42023  sw x29,0x00000020(x8)        332          sw   t4, 32(fp)              # sw      $4,32($fp)
+0x004003e4  0x00106393  ori x7,x0,1                  333          ori  t2,    x0, 1            # ori     $2,$zero,1
+0x004003e8  0x00742423  sw x7,8(x8)                  334          sw   t2,  8(fp)              # sw      $2,8($fp)
+0x004003ec  0x00042623  sw x0,12(x8)                 335          sw   x0, 12(fp)              # sw      $0,12($fp)
+0x004003f0  0x01c0006f  jal x0,0x0000001c            336          j    evasive
+0x004003f4  0x00842383  lw x7,8(x8)                  339          lw   t2,  8(fp)              # lw      $2,8($fp)
+0x004003f8  0x00839393  slli x7,x7,8                 340          slli t2,    t2, 8            # sll     $2,$2,8
+0x004003fc  0x00742423  sw x7,8(x8)                  341          sw   t2,  8(fp)              # sw      $2,8($fp)
+0x00400400  0x00c42383  lw x7,12(x8)                 342          lw   t2, 12(fp)              # lw      $2,12($fp)
+0x00400404  0x00138393  addi x7,x7,1                 343          addi t2,    t2, 1            # addiu   $2,$2,1
+0x00400408  0x00742623  sw x7,12(x8)                 344          sw   t2, 12(fp)              # sw      $2,12($fp)
+0x0040040c  0x00c42e03  lw x28,12(x8)                346          lw   t3, 12(fp)              # lw      $3,12($fp)
+0x00400410  0x02042383  lw x7,0x00000020(x8)         347          lw   t2, 32(fp)              # lw      $2,32($fp)
+0x00400414  0x007e23b3  slt x7,x28,x7                348          slt  t2,    t3, t2           # slt     $2,$3,$2
+0x00400418  0x00038463  beq x7,x0,0x00000008         349          beq  t2,    x0,representative# beq $2,$0,representitive # beq, j to simulate bne
+0x0040041c  0xfd9ff06f  jal x0,0xffffffd8            350          j    justify
+0x00400420  0x0fc10397  auipc x7,0x0000fc10          353          la   t2,    visited          # la      $2,visited
+0x00400424  0xc0438393  addi x7,x7,0xfffffc04             
+0x00400428  0x0003a383  lw x7,0(x7)                  354          lw   t2,  0(t2)              # lw      $2,0($2)
+0x0040042c  0x00742823  sw x7,16(x8)                 355          sw   t2, 16(fp)              # sw      $2,16($fp)
+0x00400430  0x01042e03  lw x28,16(x8)                356          lw   t3, 16(fp)              # lw      $3,16($fp)
+0x00400434  0x00842383  lw x7,8(x8)                  357          lw   t2,  8(fp)              # lw      $2,8($fp)
+0x00400438  0x007e73b3  and x7,x28,x7                358          and  t2,    t3, t2           # and     $2,$3,$2
+0x0040043c  0x007023b3  slt x7,x0,x7                 359          slt  t2,    x0, t2           # slt     $2,$0,$2
+0x00400440  0x0ff3f393  andi x7,x7,0x000000ff        360          andi t2,    t2, 0xff         # andi    $2,$2,0x00ff
+0x00400444  0x00800133  add x2,x0,x8                 361          mv   sp,    fp               # move    $sp,$fp
+0x00400448  0x01c12403  lw x8,28(x2)                 362          lw   fp, 28(sp)              # lw      $fp,28($sp)
+0x0040044c  0x02010113  addi x2,x2,0x00000020        363          addi sp,    sp, 32           # addiu   $sp,$sp,32
+0x00400450  0x00008067  jalr x0,x1,0                 364          jr   ra                      # jr      $ra
+0x00400454  0x10500073  wfi                          367          wfi

@@ -19,7 +19,7 @@ entity HazDetection is
             i_IDEX_MemRead  : in std_logic;
 
             o_PC_ADVANCE    : out std_logic;
-            o_PC_ADVANCE    : out std_logic;
+            --o_PC_ADVANCE    : out std_logic;
             o_INS_NOP       : out std_logic);
 
 end HazDetection;

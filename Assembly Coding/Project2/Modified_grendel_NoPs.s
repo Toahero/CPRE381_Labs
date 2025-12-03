@@ -27,11 +27,19 @@ res_idx:
         .word   3
 .text
         # NEW RISCV                # ORIGINAL MIPS
-	li   sp, 0x10011000        # li $sp, 0x10011000
+#	li   sp, 0x10011000        # li $sp, 0x10011000
+lui x2, 0x0010011
 	nop
 	nop
 	nop
 	nop
+	
+addi x2, x2, 0
+	nop
+	nop
+	nop
+	nop
+	
 	
 	li   fp, 0                 # li $fp, 0
 	nop
@@ -39,12 +47,20 @@ res_idx:
 	nop
 	nop
 	
-	la   ra, pump              # la $ra pump
+#	la   ra, pump              # la $ra pump
+auipc x1, 0
 	nop
 	nop
 	nop
 	nop
 	
+addi x1, x1, 12
+	nop
+	nop
+	nop
+	nop
+	
+
 	j    main
 	nop
 	nop
@@ -111,12 +127,20 @@ main_loop_body:
 	nop
 	nop
 	
-        la   ra,    trucks         # la      $ra, trucks
+#        la   ra,    trucks         # la      $ra, trucks
+auipc x1, 0
 	nop
 	nop
 	nop
 	nop
 	
+addi x1, x1, 12
+	nop
+	nop
+	nop
+	nop
+	
+
         j    is_visited
 	nop
 	nop
@@ -151,12 +175,20 @@ trucks:
 	nop
 	
                                    # ; addi    $k0, $k0,1# breakpoint
-        la   ra,    billowy        # la      $ra, billowy
+#        la   ra,    billowy        # la      $ra, billowy
+auipc x1, 0
 	nop
 	nop
 	nop
 	nop
 	
+addi x1, x1, 12
+	nop
+	nop
+	nop
+	nop
+	
+
         j    topsort
 	nop
 	nop
@@ -268,9 +300,8 @@ welcome:
 	nop
 	
 
-#EDIT: t2 is not accessed for many turns, no nops are needed.
         mv   t2,    x0             # move    $2,$0
-        nop
+	nop
 	nop
 	nop
 	nop
@@ -287,7 +318,6 @@ welcome:
 	nop
 	nop
 	
-#Edit: at least two nops can be removed
         lw   fp, 32(sp)            # lw      $fp,32($sp)
 	nop
 	nop
@@ -314,12 +344,20 @@ interest:
 	nop
 	nop
 	
-        la   ra,    new            # la      $ra, new
+#        la   ra,    new            # la      $ra, new
+auipc x1, 0
 	nop
 	nop
 	nop
 	nop
 	
+addi x1, x1, 12
+	nop
+	nop
+	nop
+	nop
+	
+
         j    is_visited
 	nop
 	nop
@@ -352,12 +390,20 @@ new:
 	nop
 	nop
 	
-        la   ra,    partner        # la      $ra, partner
+#        la   ra,    partner        # la      $ra, partner
+auipc x1, 0
 	nop
 	nop
 	nop
 	nop
 	
+addi x1, x1, 12
+	nop
+	nop
+	nop
+	nop
+	
+
         j    topsort
 	nop
 	nop
@@ -379,12 +425,20 @@ tasteful:
 	nop
 	nop
 	
-        la   ra,    badge          # la      $ra, badge
+#        la   ra,    badge          # la      $ra, badge
+auipc x1, 0
 	nop
 	nop
 	nop
 	nop
 	
+addi x1, x1, 12
+	nop
+	nop
+	nop
+	nop
+	
+
         j    next_edge
 	nop
 	nop
@@ -426,12 +480,20 @@ turkey:
 	
 telling:
         # NOTE: $v0 === $2
-	la   t2,    res_idx        # la      $v0, res_idx
+#	la   t2,    res_idx        # la      $v0, res_idx
+auipc x7, 0x0000fc10
 	nop
 	nop
 	nop
 	nop
 	
+addi x7, x7, 0xfffffc04
+	nop
+	nop
+	nop
+	nop
+	
+
 	lw   t2,  0(t2)            # lw      $v0, 0($v0)
 	nop
 	nop
@@ -444,19 +506,34 @@ telling:
 	nop
 	nop
 	
-        la   t3,    res_idx        # la      $3, res_idx
+#        la   t3,    res_idx        # la      $3, res_idx
+auipc x28, 0x0000fc10
 	nop
 	nop
 	nop
 	nop
 	
+addi x28, x28, 0xffffff08
+	nop
+	nop
+	nop
+	nop
+	
+
         sw   t4,  0(t3)            # sw      $4, 0($3)
 	nop
 	nop
 	nop
 	nop
 	
-        la   t4,    res            # la      $4, res
+#        la   t4,    res            # la      $4, res
+auipc x29, 0x0000fc10
+	nop
+	nop
+	nop
+	nop
+	
+addi x29, x29, 0xfffffed4
 	nop
 	nop
 	nop
@@ -509,18 +586,34 @@ telling:
 	nop
 	
         
-        la   t2,    res            # la      $2, res
+#        la   t2,    res            # la      $2, res
+auipc x7, 0x0000fc10
 	nop
 	nop
 	nop
 	nop
 	
-        li   a1,    0x0000ffff
+addi x7, x7, 0xffffff18
 	nop
 	nop
 	nop
 	nop
 	
+
+#        li   a1,    0x0000ffff
+lui x11, 16
+	nop
+	nop
+	nop
+	nop
+	
+addi x11, x11, 0xffffffff
+	nop
+	nop
+	nop
+	nop
+	
+
         and  t6,    t2, a1         # andi    $at, $2, 0xffff # -1 will sign extend (according to assembler), but 0xffff won't
 	nop
 	nop
@@ -619,12 +712,20 @@ topsort:
 	nop
 	nop
 	
-        la   ra,    verse          # la      $ra, verse
+#        la   ra,    verse          # la      $ra, verse
+auipc x1, 0
 	nop
 	nop
 	nop
 	nop
 	
+addi x1, x1, 12
+	nop
+	nop
+	nop
+	nop
+	
+
         j    mark_visited
 	nop
 	nop
@@ -651,12 +752,20 @@ verse:
 	nop
 	nop
 	
-        la   ra,    joyous         # la      $ra, joyous
+#        la   ra,    joyous         # la      $ra, joyous
+auipc x1, 0
 	nop
 	nop
 	nop
 	nop
 	
+addi x1, x1, 12
+	nop
+	nop
+	nop
+	nop
+	
+
         j    iterate_edges
 	nop
 	nop
@@ -677,12 +786,20 @@ joyous:
 	nop
 	nop
 	
-        la   ra,    whispering     # la      $ra, whispering
+#        la   ra,    whispering     # la      $ra, whispering
+auipc x1, 0
 	nop
 	nop
 	nop
 	nop
 	
+addi x1, x1, 12
+	nop
+	nop
+	nop
+	nop
+	
+
         j    next_edge
 	nop
 	nop
@@ -895,12 +1012,20 @@ snail:
 	nop
 	nop
 	
-        la   ra,    induce         # la      $ra,induce
+#        la   ra,    induce         # la      $ra,induce
+auipc x1, 0
 	nop
 	nop
 	nop
 	nop
 	
+addi x1, x1, 12
+	nop
+	nop
+	nop
+	nop
+	
+
         j    has_edge
 	nop
 	nop
@@ -1084,12 +1209,20 @@ has_edge:
 	nop
 	nop
 	
-        la   t2,    adjacencymatrix# la      $2,adjacencymatrix
+#        la   t2,    adjacencymatrix# la      $2,adjacencymatrix
+        auipc x7, 0x0000fc10
 	nop
 	nop
 	nop
 	nop
 	
+        addi x7, x7, 0xfffffd3c
+	nop
+	nop
+	nop
+	nop
+	
+        
         lw   t3, 32(fp)            # lw      $3,32($fp)
 	nop
 	nop
@@ -1389,12 +1522,20 @@ recast:
 	
 pat:
 
-       	la   t2, visited             # la      $2, visited
+#       	la   t2, visited             # la      $2, visited
+auipc x7, 0x0000fc10
 	nop
 	nop
 	nop
 	nop
 	
+addi x7, x7, 0xfffffc84
+	nop
+	nop
+	nop
+	nop
+	
+
         sw   t2, 16(fp)              # sw      $2,16($fp)
 	nop
 	nop
@@ -1582,12 +1723,20 @@ evasive:
 	
 representative:
 
-        la   t2,    visited          # la      $2,visited
+#        la   t2,    visited          # la      $2,visited
+auipc x7, 0x0000fc10
 	nop
 	nop
 	nop
 	nop
 	
+addi x7, x7, 0xfffffc04
+	nop
+	nop
+	nop
+	nop
+	
+
         lw   t2,  0(t2)              # lw      $2,0($2)
 	nop
 	nop
