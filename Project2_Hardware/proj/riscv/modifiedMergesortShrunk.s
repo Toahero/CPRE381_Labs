@@ -78,7 +78,7 @@ main:
 	nop
 	nop
 	
-    
+
     #la   a0, array
     auipc	x10,	0x0000fc10
 	nop

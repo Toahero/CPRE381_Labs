@@ -243,11 +243,12 @@ architecture structure of RISCV_Processor is
 
   component Buffer_EXMEM is
     port(
-      i_Clock                 : in  std_logic;
-      i_Reset                 : in  std_logic;
-      i_WriteEnable           : in  std_logic;
-      i_Next                  : in  t_EXMEM;
-      o_Current               : out t_EXMEM
+      i_Clock                           : in  std_logic;
+      i_Reset                           : in  std_logic;
+      i_WriteEnable                     : in  std_logic;
+
+      i_Next                            : in  t_EXMEM;
+      o_Current                         : out t_EXMEM
     );
   end component;
 
@@ -262,6 +263,18 @@ architecture structure of RISCV_Processor is
     );
   end component;
 
+  component HazardDetectionUnit is
+    port(
+      i_IF_Instruction                  : in  std_logic_vector(31 downto 0);
+      i_ID_Instruction                  : in  std_logic_vector(31 downto 0);
+      i_EX_Instruction                  : in  std_logic_vector(31 downto 0);
+      i_MEM_Instruction                 : in  std_logic_vector(31 downto 0);
+      i_WB_Instruction                  : in  std_logic_vector(31 downto 0);
+  
+      o_NOP                             : out std_logic
+    );
+  end component;
+
   signal s_CycleTracker                 : integer := 0;
   signal s_DataMemory                   : std_logic_vector(31 downto 0);
   signal s_Instruction                  : std_logic_vector(31 downto 0);
@@ -271,10 +284,13 @@ architecture structure of RISCV_Processor is
   signal s_IFID_Current                 : t_IFID;
   signal s_IDEX_Next                    : t_IDEX;
   signal s_IDEX_Current                 : t_IDEX;
-  signal s_EXMEM_Next                    : t_EXMEM;
-  signal s_EXMEM_Current                 : t_EXMEM;
-  signal s_MEMWB_Next                    : t_MEMWB;
-  signal s_MEMWB_Current                 : t_MEMWB;
+  signal s_EXMEM_Next                   : t_EXMEM;
+  signal s_EXMEM_Current                : t_EXMEM;
+  signal s_MEMWB_Next                   : t_MEMWB;
+  signal s_MEMWB_Current                : t_MEMWB;
+
+  -- Hazard Detection and Forwarding
+  signal s_NOP                          : std_logic;
 
   -- IF
   signal s_NextInstructionAddress       : std_logic_vector(31 downto 0);
@@ -384,22 +400,33 @@ begin
       i_Reset                           => iRST,
       i_NextInstructionAddress          => s_NextInstructionAddress,
       i_Halt                            => s_MEMWB_Current.HaltProg,
-      i_Pause                           => '0',
+      i_Pause                           => s_NOP,
       o_CurrentInstructionAddress       => s_IF_InstructionAddress
     );
   s_Halt                                <= s_MEMWB_Current.HaltProg;
 
   g_StdProgramCounterAdder : AddSub
     generic map(
-          WIDTH                         => 32
+      WIDTH                             => 32
     )
     port map(
-          i_A                           => s_IF_InstructionAddress,
-          i_B                           => x"00000004",
-          n_Add_Sub                     => '0',
-          o_S                           => s_StdNextPC,
-          o_C                           => open
+      i_A                               => s_IF_InstructionAddress,
+      i_B                               => x"00000004",
+      n_Add_Sub                         => '0',
+      o_S                               => s_StdNextPC,
+      o_C                               => open
     );
+
+  g_HazardDetectionUnit : HazardDetectionUnit
+    port map(
+      i_IF_Instruction                  => s_IFID_Next.Instruction,
+      i_ID_Instruction                  => s_IFID_Current.Instruction,
+      i_EX_Instruction                  => s_IDEX_Current.Instruction,
+      i_MEM_Instruction                 => s_EXMEM_Current.Instruction,
+      i_WB_Instruction                  => s_MEMWB_Current.Instruction,
+      o_NOP                             => s_NOP
+    );
+
   s_NextInstAddr                        <= s_IF_InstructionAddress;
   s_IFID_Next.Instruction               <= s_Instruction;
   s_IFID_Next.ProgramCounter            <= s_IF_InstructionAddress;
