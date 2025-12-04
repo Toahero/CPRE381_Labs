@@ -43,16 +43,15 @@ architecture behaviour of Buffer_IFID is
 
 begin
 
-  s_ResetValue <= x"0000001300000000" when i_NOP = '1' else
-                  x"0000000000000000";
+  s_ResetValue <= x"0000000000000000";
 
   s_Next <= (
     i_Next.Instruction &
     i_Next.ProgramCounter
   );
 
-  o_Current.Instruction     <= s_Current(63 downto 32);
-  o_Current.ProgramCounter  <= s_Current(31 downto 0 );
+  o_Current.Instruction     <= x"00000013" when i_NOP = '1' else s_Current(63 downto 32);
+  o_Current.ProgramCounter  <= x"00000000" when i_NOP = '1' else s_Current(31 downto 0 );
 
   g_Buffer : PCRegister
     generic map(

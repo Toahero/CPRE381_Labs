@@ -45,10 +45,10 @@ architecture behaviour of InstructionAddressHolder is
     
 begin
 
-    s_Halted    <= 
-                    '1' when    i_Halt = '1' or s_Halted = '1' else
-                    '0' when    i_Halt = '0' else
-                    '0';
+    s_Halted    <= i_Halt;
+                    -- '1' when    i_Halt = '1' or s_Halted = '1' else
+                    -- '0' when    i_Halt = '0' else
+                    -- '0';
 
     g_PCRegister : PCRegister
         generic map(

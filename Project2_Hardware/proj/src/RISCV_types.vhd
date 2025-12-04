@@ -52,6 +52,27 @@ package RISCV_types is
     Instruction         : std_logic_vector(31 downto 0);
   end record t_MEMWB;
 
+  type t_InstructionType is (
+    R,
+    I,
+    S,
+    B,
+    U,
+    J,
+    unknown
+  );
+
+  type t_Instruction is record
+    Instruction         : std_logic_vector(31 downto 0);
+    Opcode              : std_logic_vector( 6 downto 0);
+    InstructionType     : t_InstructionType;
+    RS1                 : std_logic_vector( 4 downto 0);
+    RS2                 : std_logic_vector( 4 downto 0);
+    RD                  : std_logic_vector( 4 downto 0);
+    Funct3              : std_logic_vector( 2 downto 0);
+    Funct7              : std_logic_vector( 6 downto 0);
+  end record t_Instruction;
+
 end package RISCV_types;
 
 package body RISCV_types is

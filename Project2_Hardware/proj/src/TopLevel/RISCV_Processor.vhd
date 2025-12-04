@@ -99,17 +99,17 @@ architecture structure of RISCV_Processor is
 
 
   component AddSub is
-      generic(
-          WIDTH                         : integer := 8
-      );
-      port(
-          i_A                           : in  std_logic_vector(WIDTH - 1 downto 0);
-          i_B                           : in  std_logic_vector(WIDTH - 1 downto 0);
-          n_Add_Sub                     : in  std_logic;
-  
-          o_S                           : out std_logic_vector(WIDTH - 1 downto 0);
-          o_C                           : out std_logic
-      );
+    generic(
+      WIDTH                             : integer := 8
+    );
+    port(
+      i_A                               : in  std_logic_vector(WIDTH - 1 downto 0);
+      i_B                               : in  std_logic_vector(WIDTH - 1 downto 0);
+      n_Add_Sub                         : in  std_logic;
+
+      o_S                               : out std_logic_vector(WIDTH - 1 downto 0);
+      o_C                               : out std_logic
+    );
   end component;
 
   component RegFile is
@@ -175,17 +175,17 @@ architecture structure of RISCV_Processor is
 
   component ALU_Control is
     port(
-        i_Opcode                        : in  std_logic_vector(6 downto 0);
-        i_Funct3                        : in  std_logic_vector(2 downto 0);
-        i_Funct7                        : in  std_logic_vector(6 downto 0);
-        i_PCAddr                        : in  std_logic_vector(31 downto 0);
-        o_AOverride                     : out std_logic_vector(31 downto 0);
-        o_BOverride                     : out std_logic_vector(31 downto 0);
-        o_BOverrideEnable               : out std_logic;
-        o_AOverrideEnable               : out std_logic;
-        o_ModuleSelect                  : out std_logic_vector(1 downto 0);
-        o_OperationSelect               : out std_logic_vector(1 downto 0);
-        o_Funct3Passthrough             : out std_logic_vector(2 downto 0)
+      i_Opcode                          : in  std_logic_vector(6 downto 0);
+      i_Funct3                          : in  std_logic_vector(2 downto 0);
+      i_Funct7                          : in  std_logic_vector(6 downto 0);
+      i_PCAddr                          : in  std_logic_vector(31 downto 0);
+      o_AOverride                       : out std_logic_vector(31 downto 0);
+      o_BOverride                       : out std_logic_vector(31 downto 0);
+      o_BOverrideEnable                 : out std_logic;
+      o_AOverrideEnable                 : out std_logic;
+      o_ModuleSelect                    : out std_logic_vector(1 downto 0);
+      o_OperationSelect                 : out std_logic_vector(1 downto 0);
+      o_Funct3Passthrough               : out std_logic_vector(2 downto 0)
     );
   end component;
 
@@ -213,8 +213,8 @@ architecture structure of RISCV_Processor is
 
   component HACK is
     port (
-      input_vec  : in  std_logic_vector(31 downto 0);
-      output_vec : out std_logic_vector(31 downto 0)
+      input_vec                         : in  std_logic_vector(31 downto 0);
+      output_vec                        : out std_logic_vector(31 downto 0)
     );
   end component;
 
@@ -436,7 +436,7 @@ begin
       i_Clock                           => iCLK,
       i_Reset                           => iRST,
       i_WriteEnable                     => '1',
-      i_NOP                             => '0',
+      i_NOP                             => s_NOP,
       i_Next                            => s_IFID_Next,
       o_Current                         => s_IFID_Current
     );
