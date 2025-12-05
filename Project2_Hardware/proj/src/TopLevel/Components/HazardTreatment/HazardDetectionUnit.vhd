@@ -2,6 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 use work.RISCV_types.t_Instruction;
+use work.RISCV_types.t_InstructionType;
 
 entity HazardDetectionUnit is
     port(
@@ -62,21 +63,34 @@ begin
             o_Instruction       => s_WB_Instruction
         );
 
-    o_NOP   <= '1' when 
+    o_NOP <= '1' when 
     (
-        -- Read Before Write
+        -- Read after Write
         (
+            (s_IF_Instruction.RS1 = s_ID_Instruction .RD and s_IF_Instruction.RS1 /= "00000") or
+            (s_IF_Instruction.RS1 = s_EX_Instruction .RD and s_IF_Instruction.RS1 /= "00000") or
+            (s_IF_Instruction.RS1 = s_MEM_Instruction.RD and s_IF_Instruction.RS1 /= "00000") or
+            (s_IF_Instruction.RS1 = s_WB_Instruction .RD and s_IF_Instruction.RS1 /= "00000") or
+
+            (s_IF_Instruction.RS2 = s_ID_Instruction .RD and s_IF_Instruction.RS2 /= "00000") or
+            (s_IF_Instruction.RS2 = s_EX_Instruction .RD and s_IF_Instruction.RS2 /= "00000") or
+            (s_IF_Instruction.RS2 = s_MEM_Instruction.RD and s_IF_Instruction.RS2 /= "00000") or
+            (s_IF_Instruction.RS2 = s_WB_Instruction .RD and s_IF_Instruction.RS2 /= "00000")
+        )
+        or
+        -- Let the pipeline empty for Jumps and Branches
+        (
+            -- Check if IF contains a branch
             (
-                (s_IF_Instruction.RS1 = s_ID_Instruction .RD and s_IF_Instruction.RS1 /= "00000") or
-                (s_IF_Instruction.RS1 = s_IF_Instruction .RD and s_IF_Instruction.RS1 /= "00000") or
-                (s_IF_Instruction.RS1 = s_EX_Instruction .RD and s_IF_Instruction.RS1 /= "00000") or
-                (s_IF_Instruction.RS1 = s_MEM_Instruction.RD and s_IF_Instruction.RS1 /= "00000") or
-                (s_IF_Instruction.RS1 = s_WB_Instruction .RD and s_IF_Instruction.RS1 /= "00000") or
-                (s_IF_Instruction.RS2 = s_ID_Instruction .RD and s_IF_Instruction.RS2 /= "00000") or
-                (s_IF_Instruction.RS2 = s_IF_Instruction .RD and s_IF_Instruction.RS2 /= "00000") or
-                (s_IF_Instruction.RS2 = s_EX_Instruction .RD and s_IF_Instruction.RS2 /= "00000") or
-                (s_IF_Instruction.RS2 = s_MEM_Instruction.RD and s_IF_Instruction.RS2 /= "00000") or
-                (s_IF_Instruction.RS2 = s_WB_Instruction .RD and s_IF_Instruction.RS2 /= "00000")
+                s_IF_Instruction.InstructionType    = B         or
+                s_IF_Instruction.InstructionType    = J         or
+                s_IF_Instruction.Opcode             = "1100111" -- JALR
+            )
+            and
+            (
+                not s_EX_Instruction .isNOP or
+                not s_MEM_Instruction.isNOP or
+                not s_WB_Instruction .isNOP
             )
         )
     )

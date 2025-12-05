@@ -71,7 +71,12 @@ package RISCV_types is
     RD                  : std_logic_vector( 4 downto 0);
     Funct3              : std_logic_vector( 2 downto 0);
     Funct7              : std_logic_vector( 6 downto 0);
+    isNOP               : boolean;
+    isFlushed           : boolean;
   end record t_Instruction;
+
+  constant NOP          : std_logic_vector(31 downto  0) := x"00000013";
+  constant ZERO         : std_logic_vector(31 downto  0) := x"00000000";
 
 end package RISCV_types;
 

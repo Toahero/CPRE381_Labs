@@ -3,6 +3,8 @@ use IEEE.std_logic_1164.all;
 
 use work.RISCV_types.t_InstructionType;
 use work.RISCV_types.t_Instruction;
+use work.RISCV_types.NOP;
+use work.RISCV_types.ZERO;
 
 entity InstructionDecoder is
     port(
@@ -66,5 +68,8 @@ begin
             o_Funct3            => o_Instruction.Funct3,
             o_Funct7            => o_Instruction.Funct7
         );
+
+    o_Instruction.isNOP         <= i_Instruction = NOP;
+    o_Instruction.isFlushed     <= i_Instruction = ZERO;
 
 end behavior;
