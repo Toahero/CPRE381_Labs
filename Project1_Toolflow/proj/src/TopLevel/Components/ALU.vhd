@@ -162,7 +162,7 @@ begin
 
     f_ovflw     <= s_Flag_Overflow;
     o_Output    <= s_ALU_Output;
-    o_Result    <= x"XXXXXXXX";
+    o_Result    <= x"00000000";
 
     g_ASource : mux2t1_N
         generic map(
