@@ -13,17 +13,17 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity ForwardChecker is
+entity ForwardCheckerMemToEx is
     port(
-        i_MemInst       : in std_logic_vector(31 downto 0);
         i_ExInst        : in std_logic_vector(31 downto 0);
+        i_MemInst       : in std_logic_vector(31 downto 0);
 
         o_forwardRS1    : out std_logic;
         o_forwardRS2    : out std_logic
     );
-end ForwardChecker;
+end ForwardCheckerMemToEx;
 
-architecture dataflow of ForwardChecker is
+architecture dataflow of ForwardCheckerMemToEx is
     
     signal s_RS1_Fwdable_Type   : std_logic;
     signal s_RS2_Fwdable_Type   : std_logic;
@@ -40,27 +40,34 @@ architecture dataflow of ForwardChecker is
     signal s_Ex_RS2         : std_logic_vector(4 downto 0);
 
 begin
-    signal s_Mem_OppCode <= i_MemInst(6 downto 0);
-    signal s_Ex_OppCode  <= i_ExInst(6 downto 0);
+    s_Mem_OppCode <= i_MemInst(6 downto 0);
+    s_Ex_OppCode  <= i_ExInst(6 downto 0);
 
-    signal s_Mem_RD         <= i_MemInst(11 downto 7);
-    
-    signal s_Ex_RS1         <= i_MemInst(19 downto 15);
-    signal s_Ex_RS2         <= i_MemInst(24 downto 20);
+    s_Mem_RD         <= i_MemInst(11 downto 7);
+
+    s_Ex_RS1         <= i_MemInst(19 downto 15);
+    s_Ex_RS2         <= i_MemInst(24 downto 20);
 
     s_RS1_Fwdable_Type <=
-        '1' when (s_Mem_OppCode = "0110011") AND (s_Mem_OppCode = "0110011") else --R Type to R type
-        '1' when (s_Mem_OppCode = "0110011") AND (s_Mem_OppCode = "0010011") else --R Type to I type(op)
-        '1' when (s_Mem_OppCode = "0010011") AND (s_Mem_OppCode = "0110011") else --I type(op)to R type
-        '1' when (s_Mem_OppCode = "0010011") AND (s_Mem_OppCode = "0010011") else --I type(op) to I type(op)
-        '0';
+        '0' when (s_Ex_OppCode = "0100011") else --U types cannot be a consumer
+        '0' when (s_Ex_OppCode = "1101111") else --J types cannot be a consumer
+
+        '0' when (s_Mem_OppCode = "0100011") else --S types cannot be a producer
+        '0' when (s_Mem_OppCode = "1100011") else --B types cannot be a producer
+        '0' when (s_Mem_OppCode = "0000011") else --Load I types cannot forward until the writeback stage
+        '1';
 
     s_RS2_Fwdable_Type <=
-        '1' when (s_Mem_OppCode = "0110011") AND (s_Mem_OppCode = "0110011") else --R Type to R type
-        '0' when (s_Mem_OppCode = "0110011") AND (s_Mem_OppCode = "0010011") else --R Type to I type(op) --I types have no RS2
-        '0' when (s_Mem_OppCode = "0010011") AND (s_Mem_OppCode = "0110011") else --I type(op)to R type  
-        '0' when (s_Mem_OppCode = "0010011") AND (s_Mem_OppCode = "0010011") else --I type(op) to I type(op)
-        '0';
+        '0' when (s_Ex_OppCode = "0100011") else --U types cannot be a consumer
+        '0' when (s_Ex_OppCode = "1101111") else --J types cannot be a consumer
+        '0' when (s_Ex_OppCode = "0010011") else --I types have no RS1
+        '0' when (s_Ex_OppCode = "1100111") else --Ditto
+        '0' when (s_Ex_OppCode = "1110011") else --Ditto
+
+        '0' when (s_Mem_OppCode = "0100011") else --S types cannot be a producer
+        '0' when (s_Mem_OppCode = "1100011") else --B types cannot be a producer
+        '0' when (s_Mem_OppCode = "0000011") else --Load I types cannot forward until the writeback stage
+        '1';
 
     s_MemRD_EqualsExRS1 <=
         '1' when (s_Mem_RD = s_Ex_RS1) else
