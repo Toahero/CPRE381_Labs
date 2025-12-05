@@ -33,7 +33,6 @@ architecture behaviour of Buffer_IFID is
     );
   end component;
 
-
   constant size : integer := 64;
 
   signal s_Next : std_logic_vector(size - 1 downto 0);
@@ -48,10 +47,10 @@ begin
   s_Next <= (
     i_Next.Instruction &
     i_Next.ProgramCounter
-  );
+  ) when i_NOP = '0' else x"0000001300000000";
 
-  o_Current.Instruction     <= x"00000013" when i_NOP = '1' else s_Current(63 downto 32);
-  o_Current.ProgramCounter  <= x"00000000" when i_NOP = '1' else s_Current(31 downto 0 );
+  o_Current.Instruction     <= s_Current(63 downto 32);
+  o_Current.ProgramCounter  <= s_Current(31 downto 0 );
 
   g_Buffer : PCRegister
     generic map(
@@ -59,7 +58,7 @@ begin
     )
     port map(
       i_Clock       => i_Clock,
-      i_Reset       => i_Reset or i_NOP,
+      i_Reset       => i_Reset,
       i_Operation   => i_WriteEnable,
       i_Data        => s_Next,
       i_ResetValue  => s_ResetValue,

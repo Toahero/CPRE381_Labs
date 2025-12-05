@@ -68,10 +68,12 @@ begin
         (
             (
                 (s_IF_Instruction.RS1 = s_ID_Instruction .RD and s_IF_Instruction.RS1 /= "00000") or
+                (s_IF_Instruction.RS1 = s_IF_Instruction .RD and s_IF_Instruction.RS1 /= "00000") or
                 (s_IF_Instruction.RS1 = s_EX_Instruction .RD and s_IF_Instruction.RS1 /= "00000") or
                 (s_IF_Instruction.RS1 = s_MEM_Instruction.RD and s_IF_Instruction.RS1 /= "00000") or
                 (s_IF_Instruction.RS1 = s_WB_Instruction .RD and s_IF_Instruction.RS1 /= "00000") or
                 (s_IF_Instruction.RS2 = s_ID_Instruction .RD and s_IF_Instruction.RS2 /= "00000") or
+                (s_IF_Instruction.RS2 = s_IF_Instruction .RD and s_IF_Instruction.RS2 /= "00000") or
                 (s_IF_Instruction.RS2 = s_EX_Instruction .RD and s_IF_Instruction.RS2 /= "00000") or
                 (s_IF_Instruction.RS2 = s_MEM_Instruction.RD and s_IF_Instruction.RS2 /= "00000") or
                 (s_IF_Instruction.RS2 = s_WB_Instruction .RD and s_IF_Instruction.RS2 /= "00000")
