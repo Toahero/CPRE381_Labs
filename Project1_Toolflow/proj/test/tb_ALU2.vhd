@@ -169,6 +169,37 @@ begin
         wait for (gCLK_HPER * 2);
 
 
+        --Divide -227 by 2 (Arithmetic Shift Right 1)
+        s_A                     <= std_logic_vector(to_signed(-227, 32));
+        s_B                     <= std_logic_vector(to_signed(1, 32));
+        
+        s_AOverrideEnable       <= '0';
+        s_AOverride             <= std_logic_vector(to_signed(0, 32));
+        
+        s_BOverrideEnable       <= '0';
+        s_BOverride             <= std_logic_vector(to_signed(0, 32));
+        
+        s_ModSel                <= "10";
+        s_OppSel                <= "01";
+        s_BranchCond            <= "000";
+        wait for (gCLK_HPER * 2);
+
+        --Logical shift -227 right 1
+                s_A                     <= std_logic_vector(to_signed(-227, 32));
+        s_B                     <= std_logic_vector(to_signed(1, 32));
+        
+        s_AOverrideEnable       <= '0';
+        s_AOverride             <= std_logic_vector(to_signed(0, 32));
+        
+        s_BOverrideEnable       <= '0';
+        s_BOverride             <= std_logic_vector(to_signed(0, 32));
+        
+        s_ModSel                <= "10";
+        s_OppSel                <= "00";
+        s_BranchCond            <= "000";
+        wait for (gCLK_HPER * 2);
+
+
         --Test A Override
         s_A                     <= std_logic_vector(to_signed(-1, 32));
         s_B                     <= std_logic_vector(to_signed(5, 32));

@@ -19,7 +19,7 @@ for line in code.splitlines():
     # For each instruction, insert four nops after
     if instruction_pattern.match(line):
         output_lines.append(line)
-        output_lines.extend(['\tnop'] * 4)
+        output_lines.extend(['\tnop'] * 3)
         output_lines.extend('\t')
     else:
         output_lines.append(line)
