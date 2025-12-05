@@ -77,22 +77,6 @@ begin
             (s_IF_Instruction.RS2 = s_MEM_Instruction.RD and s_IF_Instruction.RS2 /= "00000") or
             (s_IF_Instruction.RS2 = s_WB_Instruction .RD and s_IF_Instruction.RS2 /= "00000")
         )
-        or
-        -- Let the pipeline empty for Jumps and Branches
-        (
-            -- Check if IF contains a branch
-            (
-                s_IF_Instruction.InstructionType    = B         or
-                s_IF_Instruction.InstructionType    = J         or
-                s_IF_Instruction.Opcode             = "1100111" -- JALR
-            )
-            and
-            (
-                not s_EX_Instruction .isNOP or
-                not s_MEM_Instruction.isNOP or
-                not s_WB_Instruction .isNOP
-            )
-        )
     )
     else '0';
 
