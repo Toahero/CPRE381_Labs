@@ -199,6 +199,80 @@ begin
         s_BranchCond            <= "000";
         wait for (gCLK_HPER * 2);
 
+        --AND statement
+        s_A                     <= std_logic_vector(to_signed(-227, 32));
+        s_B                     <= std_logic_vector(to_signed(1, 32));
+        
+        s_AOverrideEnable       <= '0';
+        s_AOverride             <= std_logic_vector(to_signed(0, 32));
+        
+        s_BOverrideEnable       <= '0';
+        s_BOverride             <= std_logic_vector(to_signed(0, 32));
+        
+        s_ModSel                <= "01";
+        s_OppSel                <= "00";
+        s_BranchCond            <= "000";
+        wait for (gCLK_HPER * 2);
+
+        --OR statement
+        s_A                     <= std_logic_vector(to_signed(-227, 32));
+        s_B                     <= std_logic_vector(to_signed(1, 32));
+        
+        s_AOverrideEnable       <= '0';
+        s_AOverride             <= std_logic_vector(to_signed(0, 32));
+        
+        s_BOverrideEnable       <= '0';
+        s_BOverride             <= std_logic_vector(to_signed(0, 32));
+        
+        s_ModSel                <= "01";
+        s_OppSel                <= "01";
+        s_BranchCond            <= "000";
+        wait for (gCLK_HPER * 2);
+
+        --XOR statement
+        s_A                     <= std_logic_vector(to_signed(-227, 32));
+        s_B                     <= std_logic_vector(to_signed(1, 32));
+        
+        s_AOverrideEnable       <= '0';
+        s_AOverride             <= std_logic_vector(to_signed(0, 32));
+        
+        s_BOverrideEnable       <= '0';
+        s_BOverride             <= std_logic_vector(to_signed(0, 32));
+        
+        s_ModSel                <= "01";
+        s_OppSel                <= "10";
+        s_BranchCond            <= "000";
+        wait for (gCLK_HPER * 2);
+
+        --SLT (Set Less Than)
+        s_A                     <= std_logic_vector(to_signed(-227, 32));
+        s_B                     <= std_logic_vector(to_signed(1, 32));
+        
+        s_AOverrideEnable       <= '0';
+        s_AOverride             <= std_logic_vector(to_signed(0, 32));
+        
+        s_BOverrideEnable       <= '0';
+        s_BOverride             <= std_logic_vector(to_signed(0, 32));
+        
+        s_ModSel                <= "11";
+        s_OppSel                <= "00";
+        s_BranchCond            <= "000";
+        wait for (gCLK_HPER * 2);
+
+        --SLTU (Set Less Than Unsigned)
+        s_A                     <= std_logic_vector(to_signed(-227, 32));
+        s_B                     <= std_logic_vector(to_signed(1, 32));
+        
+        s_AOverrideEnable       <= '0';
+        s_AOverride             <= std_logic_vector(to_signed(0, 32));
+        
+        s_BOverrideEnable       <= '0';
+        s_BOverride             <= std_logic_vector(to_signed(0, 32));
+        
+        s_ModSel                <= "11";
+        s_OppSel                <= "10";
+        s_BranchCond            <= "000";
+        wait for (gCLK_HPER * 2);
 
         --Test A Override
         s_A                     <= std_logic_vector(to_signed(-1, 32));
