@@ -20,7 +20,6 @@ entity ForwardingUnit is
         i_MemInst            : in std_logic_vector(31 downto 0);
         i_WbInst             : in std_logic_vector(31 downto 0);
 
-        o_forwarding        : std_logic;
         o_ForwardSelRS1     : out std_logic_vector(1 downto 0);
         o_ForwardSelRS2     : out std_logic_vector(1 downto 0)
     );
