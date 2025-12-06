@@ -7,7 +7,7 @@ main:
     addi x1, x0, 5
     addi x2, x0, 5
     beq x1, x2, pass1
-    nop
+    # nop
     addi x3, x0, -1
     
     pass1:

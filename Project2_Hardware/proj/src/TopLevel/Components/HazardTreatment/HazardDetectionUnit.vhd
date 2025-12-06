@@ -5,7 +5,7 @@ use work.RISCV_types.t_Instruction;
 use work.RISCV_types.t_InstructionType;
 
 entity HazardDetectionUnit is
-    port(
+    port(        
         i_IF_Instruction    : in  std_logic_vector(31 downto 0);
         i_ID_Instruction    : in  std_logic_vector(31 downto 0);
         i_EX_Instruction    : in  std_logic_vector(31 downto 0);
@@ -83,7 +83,11 @@ begin
             (s_IF_Instruction.RS2 = s_ID_Instruction .RD and s_IF_Instruction.RS2 /= "00000") or
             (s_IF_Instruction.RS2 = s_EX_Instruction .RD and s_IF_Instruction.RS2 /= "00000") or
             (s_IF_Instruction.RS2 = s_MEM_Instruction.RD and s_IF_Instruction.RS2 /= "00000") or
-            (s_IF_Instruction.RS2 = s_WB_Instruction .RD and s_IF_Instruction.RS2 /= "00000")
+            (s_IF_Instruction.RS2 = s_WB_Instruction .RD and s_IF_Instruction.RS2 /= "00000") or
+
+            (s_EX_Instruction.InstructionType = B) or
+            (s_EX_Instruction.InstructionType = J) or
+            (s_EX_Instruction.Opcode = "1100111")
         )
     )
     else '0';
@@ -93,9 +97,34 @@ begin
     o_EXMEM_WriteEnable         <= '1';
     o_MEMWB_WriteEnable         <= '1';
 
-    o_IFID_Reset                <= '0';
-    o_IDEX_Reset                <= '0';
-    o_EXMEM_Reset               <= '0';
-    o_MEMWB_Reset               <= '0';
+    o_IFID_Reset                <= '1' when
+    (
+        -- Branches
+        (
+            --s_ID_Instruction.InstructionType = B
+            s_EX_Instruction.InstructionType = B or
+            s_EX_Instruction.InstructionType = J or
+            s_EX_Instruction.Opcode = "1100111"
+        )
+    )
+    else '0';
+
+    o_IDEX_Reset                <= '1' when
+    (
+        false
+    )
+    else '0';
+
+    o_EXMEM_Reset               <= '1' when
+    (
+        false
+    )
+    else '0';
+
+    o_MEMWB_Reset               <= '1' when
+    (
+        false
+    )
+    else '0';
 
 end dataflow;
