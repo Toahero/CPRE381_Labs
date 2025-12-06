@@ -271,7 +271,15 @@ architecture structure of RISCV_Processor is
       i_MEM_Instruction                 : in  std_logic_vector(31 downto 0);
       i_WB_Instruction                  : in  std_logic_vector(31 downto 0);
   
-      o_NOP                             : out std_logic
+      o_NOP                             : out std_logic;
+      o_IFID_Reset                      : out std_logic;
+      o_IFID_WriteEnable                : out std_logic;
+      o_IDEX_Reset                      : out std_logic;
+      o_IDEX_WriteEnable                : out std_logic;
+      o_EXMEM_Reset                     : out std_logic;
+      o_EXMEM_WriteEnable               : out std_logic;
+      o_MEMWB_Reset                     : out std_logic;
+      o_MEMWB_WriteEnable               : out std_logic
     );
   end component;
 
@@ -279,15 +287,23 @@ architecture structure of RISCV_Processor is
   signal s_DataMemory                   : std_logic_vector(31 downto 0);
   signal s_Instruction                  : std_logic_vector(31 downto 0);
 
-  -- Buffer Signals
+  -- Buffers
   signal s_IFID_Next                    : t_IFID;
   signal s_IFID_Current                 : t_IFID;
+  signal s_IFID_WriteEnable             : std_logic;
+  signal s_IFID_Reset                   : std_logic;
   signal s_IDEX_Next                    : t_IDEX;
   signal s_IDEX_Current                 : t_IDEX;
+  signal s_IDEX_WriteEnable             : std_logic;
+  signal s_IDEX_Reset                   : std_logic;
   signal s_EXMEM_Next                   : t_EXMEM;
   signal s_EXMEM_Current                : t_EXMEM;
+  signal s_EXMEM_WriteEnable            : std_logic;
+  signal s_EXMEM_Reset                  : std_logic;
   signal s_MEMWB_Next                   : t_MEMWB;
   signal s_MEMWB_Current                : t_MEMWB;
+  signal s_MEMWB_WriteEnable            : std_logic;
+  signal s_MEMWB_Reset                  : std_logic;
 
   -- Hazard Detection and Forwarding
   signal s_NOP                          : std_logic;
@@ -424,7 +440,16 @@ begin
       i_EX_Instruction                  => s_IDEX_Current.Instruction,
       i_MEM_Instruction                 => s_EXMEM_Current.Instruction,
       i_WB_Instruction                  => s_MEMWB_Current.Instruction,
-      o_NOP                             => s_NOP
+
+      o_NOP                             => s_NOP,
+      o_IFID_Reset                      => s_IFID_Reset,
+      o_IFID_WriteEnable                => s_IFID_WriteEnable,
+      o_IDEX_Reset                      => s_IDEX_Reset,
+      o_IDEX_WriteEnable                => s_IDEX_WriteEnable,
+      o_EXMEM_Reset                     => s_EXMEM_Reset,
+      o_EXMEM_WriteEnable               => s_EXMEM_WriteEnable,
+      o_MEMWB_Reset                     => s_MEMWB_Reset,
+      o_MEMWB_WriteEnable               => s_MEMWB_WriteEnable 
     );
 
   s_NextInstAddr                        <= s_IF_InstructionAddress;
@@ -434,8 +459,8 @@ begin
   g_Buffer_IFID : Buffer_IFID
     port map(
       i_Clock                           => iCLK,
-      i_Reset                           => iRST,
-      i_WriteEnable                     => '1',
+      i_Reset                           => iRST or s_IFID_Reset,
+      i_WriteEnable                     => s_IFID_WriteEnable,
       i_NOP                             => s_NOP,
       i_Next                            => s_IFID_Next,
       o_Current                         => s_IFID_Current
@@ -531,8 +556,8 @@ begin
   g_Buffer_IDEX : Buffer_IDEX
     port map(
       i_Clock                         => iCLK,
-      i_Reset                         => iRST,
-      i_WriteEnable                   => '1',
+      i_Reset                         => iRST or s_IDEX_Reset,
+      i_WriteEnable                   => s_IDEX_WriteEnable,
       i_Next                          => s_IDEX_Next,
       o_Current                       => s_IDEX_Current
     );
@@ -583,8 +608,8 @@ begin
   g_Buffer_EXMEM : Buffer_EXMEM
     port map(
       i_Clock                         => iCLK,
-      i_Reset                         => iRST,
-      i_WriteEnable                   => '1',
+      i_Reset                         => iRST or s_EXMEM_Reset,
+      i_WriteEnable                   => s_EXMEM_WriteEnable,
       i_Next                          => s_EXMEM_Next,
       o_Current                       => s_EXMEM_Current
     );
@@ -610,8 +635,8 @@ begin
   g_Buffer_MEMWB : Buffer_MEMWB
     port map(
       i_Clock                         => iCLK,
-      i_Reset                         => iRST,
-      i_WriteEnable                   => '1',
+      i_Reset                         => iRST or s_MEMWB_Reset,
+      i_WriteEnable                   => s_MEMWB_WriteEnable,
       i_Next                          => s_MEMWB_Next,
       o_Current                       => s_MEMWB_Current
     );

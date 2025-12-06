@@ -12,7 +12,15 @@ entity HazardDetectionUnit is
         i_MEM_Instruction   : in  std_logic_vector(31 downto 0);
         i_WB_Instruction    : in  std_logic_vector(31 downto 0);
 
-        o_NOP               : out std_logic
+        o_NOP               : out std_logic;
+        o_IFID_Reset        : out std_logic;
+        o_IFID_WriteEnable  : out std_logic;
+        o_IDEX_Reset        : out std_logic;
+        o_IDEX_WriteEnable  : out std_logic;
+        o_EXMEM_Reset       : out std_logic;
+        o_EXMEM_WriteEnable : out std_logic;
+        o_MEMWB_Reset       : out std_logic;
+        o_MEMWB_WriteEnable : out std_logic
     );
 end HazardDetectionUnit;
 
@@ -79,5 +87,15 @@ begin
         )
     )
     else '0';
+
+    o_IFID_WriteEnable          <= '1';
+    o_IDEX_WriteEnable          <= '1';
+    o_EXMEM_WriteEnable         <= '1';
+    o_MEMWB_WriteEnable         <= '1';
+
+    o_IFID_Reset                <= '0';
+    o_IDEX_Reset                <= '0';
+    o_EXMEM_Reset               <= '0';
+    o_MEMWB_Reset               <= '0';
 
 end dataflow;
