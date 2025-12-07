@@ -6,6 +6,7 @@ main:
     addi t0, t0,0
     la t1, Target
     jal t0, Target # the function we want to test
+    # nop
     addi t0, t1, 5 # t0 = t1 + 5
     
 Target: 

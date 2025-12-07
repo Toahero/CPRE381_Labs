@@ -80,16 +80,17 @@ begin
             (s_IF_Instruction.RS1 = s_ID_Instruction .RD and s_IF_Instruction.RS1 /= "00000") or
             (s_IF_Instruction.RS1 = s_EX_Instruction .RD and s_IF_Instruction.RS1 /= "00000") or
             (s_IF_Instruction.RS1 = s_MEM_Instruction.RD and s_IF_Instruction.RS1 /= "00000") or
-            --(s_IF_Instruction.InstructionType = B and s_IF_Instruction.RS1 = s_WB_Instruction .RD and s_IF_Instruction.RS1 /= "00000") or
+            --(s_IF_Instruction.RS1 = s_WB_Instruction .RD and s_IF_Instruction.RS1 /= "00000") or
 
             (s_IF_Instruction.RS2 = s_ID_Instruction .RD and s_IF_Instruction.RS2 /= "00000") or
             (s_IF_Instruction.RS2 = s_EX_Instruction .RD and s_IF_Instruction.RS2 /= "00000") or
             (s_IF_Instruction.RS2 = s_MEM_Instruction.RD and s_IF_Instruction.RS2 /= "00000") or
-            --(s_IF_Instruction.InstructionType = B and s_IF_Instruction.RS2 = s_WB_Instruction .RD and s_IF_Instruction.RS2 /= "00000") or
+            --(s_IF_Instruction.RS2 = s_WB_Instruction .RD and s_IF_Instruction.RS2 /= "00000") or
 
             (i_JumpOrBranch = '1' and s_EX_Instruction.InstructionType /= J) or
             --(i_JumpOrBranch = '1' and s_EX_Instruction.Opcode = "1100111") or
             --(i_JumpOrBranch = '1') or
+
             false
         )
     )
