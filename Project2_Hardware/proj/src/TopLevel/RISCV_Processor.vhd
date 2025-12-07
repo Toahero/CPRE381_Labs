@@ -178,16 +178,16 @@ architecture structure of RISCV_Processor is
         DATA_WIDTH : integer := 32
     );
     port(
-        i_Selection : in std_logic_vector(1 downto 0);
+        i_Selection         : in std_logic_vector(1 downto 0);
 
-        i_D0 : in std_logic_vector((DATA_WIDTH - 1) downto 0);
-        i_D1 : in std_logic_vector((DATA_WIDTH - 1) downto 0);
-        i_D2 : in std_logic_vector((DATA_WIDTH - 1) downto 0);
-        i_D3 : in std_logic_vector((DATA_WIDTH - 1) downto 0);
+        i_D0              : in std_logic_vector((DATA_WIDTH - 1) downto 0);
+        i_D1              : in std_logic_vector((DATA_WIDTH - 1) downto 0);
+        i_D2              : in std_logic_vector((DATA_WIDTH - 1) downto 0);
+        i_D3              : in std_logic_vector((DATA_WIDTH - 1) downto 0);
 
         o_Output : out std_logic_vector((DATA_WIDTH - 1) downto 0)
     );
-end component;
+  end component;
 
   component ALU_Control is
     port(
@@ -303,12 +303,11 @@ end component;
 
   component ForwardingUnit is
     port(
-        i_ExInst             : in std_logic_vector(31 downto 0);
-        i_MemInst            : in std_logic_vector(31 downto 0);
-        i_WbInst             : in std_logic_vector(31 downto 0);
-
-        o_ForwardSelRS1     : out std_logic_vector(1 downto 0);
-        o_ForwardSelRS2     : out std_logic_vector(1 downto 0)
+        i_ExInst                        : in  std_logic_vector(31 downto 0);
+        i_MemInst                       : in  std_logic_vector(31 downto 0);
+        i_WbInst                        : in  std_logic_vector(31 downto 0);
+        o_ForwardSelRS1                 : out std_logic_vector( 1 downto 0);
+        o_ForwardSelRS2                 : out std_logic_vector( 1 downto 0)
     );
   end component;
 
@@ -615,6 +614,15 @@ begin
       o_ModuleSelect                  => s_EX_ALU_ModuleSelect,
       o_OperationSelect               => s_EX_ALU_OperationSelect,
       o_Funct3Passthrough             => open
+    );
+
+  g_ForwardControl : ForwardingUnit
+    port map(
+        i_ExInst                      => s_IDEX_Current.Instruction,
+        i_MemInst                     => s_EXMEM_Current.Instruction,
+        i_WbInst                      => s_MEMWB_Current.Instruction,
+        o_ForwardSelRS1               => s_ForwardSel_ValA,
+        o_ForwardSelRS2               => s_ForwardSel_ValB
     );
 
   g_ValueA_Forwarding : mux4t1
