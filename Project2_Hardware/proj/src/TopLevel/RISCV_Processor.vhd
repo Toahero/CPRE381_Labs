@@ -307,7 +307,7 @@ architecture structure of RISCV_Processor is
   signal s_MEMWB_WriteEnable            : std_logic;
   signal s_MEMWB_Reset                  : std_logic;
 
-  -- Hazard Detection and Forwarding
+  -- Hazard Detection
   signal s_NOP                          : std_logic;
   signal s_Pause                        : std_logic;
 
