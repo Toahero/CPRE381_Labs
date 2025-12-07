@@ -265,6 +265,7 @@ architecture structure of RISCV_Processor is
 
   component HazardDetectionUnit is
     port(
+      i_JumpOrBranch                    : in std_logic;
       i_IF_Instruction                  : in  std_logic_vector(31 downto 0);
       i_ID_Instruction                  : in  std_logic_vector(31 downto 0);
       i_EX_Instruction                  : in  std_logic_vector(31 downto 0);
@@ -435,6 +436,7 @@ begin
 
   g_HazardDetectionUnit : HazardDetectionUnit
     port map(
+      i_JumpOrBranch                    => s_ID_JumpOrBranch,
       i_IF_Instruction                  => s_IFID_Next.Instruction,
       i_ID_Instruction                  => s_IFID_Current.Instruction,
       i_EX_Instruction                  => s_IDEX_Current.Instruction,

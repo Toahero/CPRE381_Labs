@@ -5,7 +5,8 @@ use work.RISCV_types.t_Instruction;
 use work.RISCV_types.t_InstructionType;
 
 entity HazardDetectionUnit is
-    port(        
+    port(
+        i_JumpOrBranch      : in std_logic;
         i_IF_Instruction    : in  std_logic_vector(31 downto 0);
         i_ID_Instruction    : in  std_logic_vector(31 downto 0);
         i_EX_Instruction    : in  std_logic_vector(31 downto 0);
@@ -85,9 +86,7 @@ begin
             (s_IF_Instruction.RS2 = s_MEM_Instruction.RD and s_IF_Instruction.RS2 /= "00000") or
             (s_IF_Instruction.RS2 = s_WB_Instruction .RD and s_IF_Instruction.RS2 /= "00000") or
 
-            (s_EX_Instruction.InstructionType = B) or
-            (s_EX_Instruction.InstructionType = J) or
-            (s_EX_Instruction.Opcode = "1100111")
+            (i_JumpOrBranch = '1')
         )
     )
     else '0';
@@ -99,12 +98,9 @@ begin
 
     o_IFID_Reset                <= '1' when
     (
-        -- Branches
+        -- Branches or Jumps
         (
-            --s_ID_Instruction.InstructionType = B
-            s_EX_Instruction.InstructionType = B or
-            s_EX_Instruction.InstructionType = J or
-            s_EX_Instruction.Opcode = "1100111"
+            i_JumpOrBranch = '1'
         )
     )
     else '0';
