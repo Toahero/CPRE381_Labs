@@ -22,6 +22,7 @@ package RISCV_types is
   end record t_IFID;
 
   type t_IDEX is record
+    BranchOrJump        : std_logic;
     Mem_We              : std_logic;
     MemToReg            : std_logic;
     Reg_WE              : std_logic;

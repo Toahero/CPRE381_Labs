@@ -436,7 +436,7 @@ begin
 
   g_HazardDetectionUnit : HazardDetectionUnit
     port map(
-      i_JumpOrBranch                    => s_ID_JumpOrBranch,
+      i_JumpOrBranch                    => s_IDEX_Current.BranchOrJump,
       i_IF_Instruction                  => s_IFID_Next.Instruction,
       i_ID_Instruction                  => s_IFID_Current.Instruction,
       i_EX_Instruction                  => s_IDEX_Current.Instruction,
@@ -550,6 +550,7 @@ begin
       o_C                             => open
     );
 
+  s_IDEX_Next.BranchOrJump            <= s_ID_JumpOrBranch;
   s_IDEX_Next.ALU_Operand1            <= s_ID_RS1;
   s_IDEX_Next.RS2                     <= s_ID_RS2;
   s_IDEX_Next.Instruction             <= s_IFID_Current.Instruction;

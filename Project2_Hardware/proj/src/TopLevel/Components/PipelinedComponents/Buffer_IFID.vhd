@@ -43,12 +43,13 @@ architecture behaviour of Buffer_IFID is
 
 begin
 
-  s_ResetValue <= ZERO & ZERO;
+  s_ResetValue <= NOP & ZERO;
 
   s_Next <= (
     i_Next.Instruction &
     i_Next.ProgramCounter
-  ) when i_NOP = '0' else (NOP & ZERO);
+  )
+  when i_NOP = '0' else (NOP & ZERO);
 
   o_Current.Instruction     <= s_Current(63 downto 32);
   o_Current.ProgramCounter  <= s_Current(31 downto 0 );

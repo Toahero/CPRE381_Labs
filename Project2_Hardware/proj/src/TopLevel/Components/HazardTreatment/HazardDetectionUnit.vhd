@@ -98,7 +98,7 @@ begin
 
     o_IFID_Reset                <= '1' when
     (
-        -- Branches or Jumps
+        -- Jumps or Branches
         (
             i_JumpOrBranch = '1'
         )
