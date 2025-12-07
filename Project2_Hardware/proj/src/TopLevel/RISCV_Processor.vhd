@@ -273,6 +273,7 @@ architecture structure of RISCV_Processor is
       i_WB_Instruction                  : in  std_logic_vector(31 downto 0);
   
       o_NOP                             : out std_logic;
+      o_Pause                           : out std_logic;
       o_IFID_Reset                      : out std_logic;
       o_IFID_WriteEnable                : out std_logic;
       o_IDEX_Reset                      : out std_logic;
@@ -308,6 +309,7 @@ architecture structure of RISCV_Processor is
 
   -- Hazard Detection and Forwarding
   signal s_NOP                          : std_logic;
+  signal s_Pause                        : std_logic;
 
   -- IF
   signal s_NextInstructionAddress       : std_logic_vector(31 downto 0);
@@ -417,7 +419,7 @@ begin
       i_Reset                           => iRST,
       i_NextInstructionAddress          => s_NextInstructionAddress,
       i_Halt                            => s_MEMWB_Current.HaltProg,
-      i_Pause                           => s_NOP,
+      i_Pause                           => s_Pause,
       o_CurrentInstructionAddress       => s_IF_InstructionAddress
     );
   s_Halt                                <= s_MEMWB_Current.HaltProg;
@@ -444,6 +446,7 @@ begin
       i_WB_Instruction                  => s_MEMWB_Current.Instruction,
 
       o_NOP                             => s_NOP,
+      o_Pause                           => s_Pause,
       o_IFID_Reset                      => s_IFID_Reset,
       o_IFID_WriteEnable                => s_IFID_WriteEnable,
       o_IDEX_Reset                      => s_IDEX_Reset,

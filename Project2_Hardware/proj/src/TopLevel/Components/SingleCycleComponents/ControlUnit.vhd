@@ -17,7 +17,6 @@ use IEEE.numeric_std.all;
 entity ControlUnit is
     port(
         i_inst      : in std_logic_vector(31 downto 0);
-        --opCode      : in std_logic_vector(6 downto 0); --The Opcode is 7 bits long
 
         --These have been assigned
         ALU_Src      : out std_logic; --Source an extended immediate
@@ -28,9 +27,7 @@ entity ControlUnit is
         Branch      : out std_logic;
         HaltProg    : out std_logic;
         PCOffsetSource : out std_logic
-    );
-        --ALU_OP      : out std_logic_vector(ALU_OP_SIZE-1 downto 0));
-        
+    );        
     end ControlUnit;
 
 architecture dataflow of ControlUnit is

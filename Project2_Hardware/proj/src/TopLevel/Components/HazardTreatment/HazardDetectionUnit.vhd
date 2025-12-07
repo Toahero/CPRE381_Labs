@@ -14,6 +14,7 @@ entity HazardDetectionUnit is
         i_WB_Instruction    : in  std_logic_vector(31 downto 0);
 
         o_NOP               : out std_logic;
+        o_Pause             : out std_logic;
         o_IFID_Reset        : out std_logic;
         o_IFID_WriteEnable  : out std_logic;
         o_IDEX_Reset        : out std_logic;
@@ -79,17 +80,22 @@ begin
             (s_IF_Instruction.RS1 = s_ID_Instruction .RD and s_IF_Instruction.RS1 /= "00000") or
             (s_IF_Instruction.RS1 = s_EX_Instruction .RD and s_IF_Instruction.RS1 /= "00000") or
             (s_IF_Instruction.RS1 = s_MEM_Instruction.RD and s_IF_Instruction.RS1 /= "00000") or
-            (s_IF_Instruction.RS1 = s_WB_Instruction .RD and s_IF_Instruction.RS1 /= "00000") or
+            --(s_IF_Instruction.InstructionType = B and s_IF_Instruction.RS1 = s_WB_Instruction .RD and s_IF_Instruction.RS1 /= "00000") or
 
             (s_IF_Instruction.RS2 = s_ID_Instruction .RD and s_IF_Instruction.RS2 /= "00000") or
             (s_IF_Instruction.RS2 = s_EX_Instruction .RD and s_IF_Instruction.RS2 /= "00000") or
             (s_IF_Instruction.RS2 = s_MEM_Instruction.RD and s_IF_Instruction.RS2 /= "00000") or
-            (s_IF_Instruction.RS2 = s_WB_Instruction .RD and s_IF_Instruction.RS2 /= "00000") or
+            --(s_IF_Instruction.InstructionType = B and s_IF_Instruction.RS2 = s_WB_Instruction .RD and s_IF_Instruction.RS2 /= "00000") or
 
-            (i_JumpOrBranch = '1')
+            (i_JumpOrBranch = '1' and s_EX_Instruction.InstructionType /= J) or
+            --(i_JumpOrBranch = '1' and s_EX_Instruction.Opcode = "1100111") or
+            --(i_JumpOrBranch = '1') or
+            false
         )
     )
     else '0';
+
+    o_Pause <= o_NOP;
 
     o_IFID_WriteEnable          <= '1';
     o_IDEX_WriteEnable          <= '1';
@@ -98,7 +104,7 @@ begin
 
     o_IFID_Reset                <= '1' when
     (
-        -- Jumps or Branches
+        -- Branches
         (
             i_JumpOrBranch = '1'
         )
