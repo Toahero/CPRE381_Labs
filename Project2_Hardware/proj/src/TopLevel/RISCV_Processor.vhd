@@ -173,6 +173,22 @@ architecture structure of RISCV_Processor is
     );
   end component;
 
+  component Mux4t1 is
+    generic(
+        DATA_WIDTH : integer := 32
+    );
+    port(
+        i_Selection : in std_logic_vector(1 downto 0);
+
+        i_D0 : in std_logic_vector((DATA_WIDTH - 1) downto 0);
+        i_D1 : in std_logic_vector((DATA_WIDTH - 1) downto 0);
+        i_D2 : in std_logic_vector((DATA_WIDTH - 1) downto 0);
+        i_D3 : in std_logic_vector((DATA_WIDTH - 1) downto 0);
+
+        o_Output : out std_logic_vector((DATA_WIDTH - 1) downto 0)
+    );
+end component;
+
   component ALU_Control is
     port(
       i_Opcode                          : in  std_logic_vector(6 downto 0);
@@ -285,6 +301,17 @@ architecture structure of RISCV_Processor is
     );
   end component;
 
+  component ForwardingUnit is
+    port(
+        i_ExInst             : in std_logic_vector(31 downto 0);
+        i_MemInst            : in std_logic_vector(31 downto 0);
+        i_WbInst             : in std_logic_vector(31 downto 0);
+
+        o_ForwardSelRS1     : out std_logic_vector(1 downto 0);
+        o_ForwardSelRS2     : out std_logic_vector(1 downto 0)
+    );
+  end component;
+
   signal s_CycleTracker                 : integer := 0;
   signal s_DataMemory                   : std_logic_vector(31 downto 0);
   signal s_Instruction                  : std_logic_vector(31 downto 0);
@@ -342,6 +369,13 @@ architecture structure of RISCV_Processor is
 
   -- WB
   signal s_WB_RegisterData              : std_logic_vector(31 downto 0);
+
+  --Forwarding
+  signal s_ForwardSel_ValA              : std_logic_vector(1 downto 0);
+  signal s_ForwardSel_ValB              : std_logic_vector(1 downto 0);
+
+  signal s_Forwarded_A                  : std_logic_vector(31 downto 0);
+  signal s_Forwarded_B                  : std_logic_vector(31 downto 0);
 
 begin
 
@@ -583,10 +617,34 @@ begin
       o_Funct3Passthrough             => open
     );
 
+  g_ValueA_Forwarding : mux4t1
+      port map(
+        i_Selection                   => s_ForwardSel_ValA,
+
+        i_D0                          => s_IDEX_Current.ALU_OPERAND1,
+        i_D1                          => s_EXMEM_Current.ALU_Output,
+        i_D2                          => s_MEMWB_Current.ALU_Output,
+        i_D3                          => x"00000000",
+
+        o_Output                      => s_Forwarded_A
+      );
+
+  g_ValueB_Forwarding : mux4t1
+    port map(
+      i_Selection                   => s_ForwardSel_ValB,
+
+      i_D0                          => s_IDEX_Current.ALU_OPERAND2,
+      i_D1                          => s_EXMEM_Current.ALU_Output,
+      i_D2                          => s_MEMWB_Current.ALU_Output,
+      i_D3                          => x"00000000",
+
+      o_Output                      => s_Forwarded_B
+  );
+
   g_ALU : ALU
     port map(
-      i_A                             => s_IDEX_Current.ALU_Operand1,
-      i_B                             => s_IDEX_Current.ALU_Operand2,
+      i_A                             => s_Forwarded_A,
+      i_B                             => s_Forwarded_B,
       i_AOverride                     => s_EX_ALU_AOverride,
       i_BOverride                     => s_EX_ALU_BOverride,
       i_AOverrideEnable               => s_EX_ALU_AOverrideEnable,
