@@ -2,10 +2,6 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
--- Author : Andy Eslick
--- The current instruction is held in a register,
--- with reset tied to 0 and operation tied to write.
-
 entity InstructionAddressHolder is
     generic(
         ADDR_WIDTH : integer := 32

@@ -14,22 +14,22 @@ architecture behavior of InstructionTypeDetector is
 begin
 
     o_InstructionType <=
-                            R         when i_Opcode = "0110011" else  -- Standard Arithmetic
+        R         when i_Opcode = "0110011" else  -- Standard Arithmetic
 
-                            I         when i_Opcode = "0010011" else  -- Immediate Arithmetic
-                            I         when i_Opcode = "0000011" else  -- Loads
-                            I         when i_Opcode = "1100111" else  -- JALR
-                            I         when i_Opcode = "1110011" else  -- ECALL
+        I         when i_Opcode = "0010011" else  -- Immediate Arithmetic
+        I         when i_Opcode = "0000011" else  -- Loads
+        I         when i_Opcode = "1100111" else  -- JALR
+        I         when i_Opcode = "1110011" else  -- ECALL
 
-                            S         when i_Opcode = "0100011" else  -- Stores
+        S         when i_Opcode = "0100011" else  -- Stores
 
-                            B         when i_Opcode = "1100011" else  -- Branches
+        B         when i_Opcode = "1100011" else  -- Branches
 
-                            U         when i_Opcode = "0110111" else  -- LUI
-                            U         when i_Opcode = "0010111" else  -- AUIPC
+        U         when i_Opcode = "0110111" else  -- LUI
+        U         when i_Opcode = "0010111" else  -- AUIPC
 
-                            J         when i_Opcode = "1101111" else  -- JAL
+        J         when i_Opcode = "1101111" else  -- JAL
 
-                            unknown;
+        unknown;
                             
 end behavior;

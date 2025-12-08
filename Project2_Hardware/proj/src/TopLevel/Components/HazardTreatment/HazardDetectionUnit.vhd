@@ -73,27 +73,37 @@ begin
             o_Instruction       => s_WB_Instruction
         );
 
-    o_NOP <= '1' when 
-    (
-        -- Read after Write
+    o_NOP <= 
+        '1' when 
         (
-            (s_IF_Instruction.RS1 = s_ID_Instruction .RD and s_ID_Instruction .isNOP = false) or
-            (s_IF_Instruction.RS1 = s_EX_Instruction .RD and s_EX_Instruction .isNOP = false) or
-            (s_IF_Instruction.RS1 = s_MEM_Instruction.RD and s_MEM_Instruction.isNOP = false) or
-            (s_IF_Instruction.RS1 = s_WB_Instruction .RD and s_WB_Instruction .isNOP = false) or
+            -- Read after Write
+            (
+                (s_IF_Instruction.RS1 = s_ID_Instruction .RD and s_ID_Instruction .isNOP = false) or
+                (s_IF_Instruction.RS1 = s_EX_Instruction .RD and s_EX_Instruction .isNOP = false) or
+                (s_IF_Instruction.RS1 = s_MEM_Instruction.RD and s_MEM_Instruction.isNOP = false) or
+                (s_IF_Instruction.RS1 = s_WB_Instruction .RD and s_WB_Instruction .isNOP = false) or
 
-            (s_IF_Instruction.RS2 = s_ID_Instruction .RD and s_ID_Instruction .isNOP = false) or
-            (s_IF_Instruction.RS2 = s_EX_Instruction .RD and s_EX_Instruction .isNOP = false) or
-            (s_IF_Instruction.RS2 = s_MEM_Instruction.RD and s_MEM_Instruction.isNOP = false) or
-            (s_IF_Instruction.RS2 = s_WB_Instruction .RD and s_WB_Instruction .isNOP = false) or
-
-            false
+                (s_IF_Instruction.RS2 = s_ID_Instruction .RD and s_ID_Instruction .isNOP = false) or
+                (s_IF_Instruction.RS2 = s_EX_Instruction .RD and s_EX_Instruction .isNOP = false) or
+                (s_IF_Instruction.RS2 = s_MEM_Instruction.RD and s_MEM_Instruction.isNOP = false) or
+                (s_IF_Instruction.RS2 = s_WB_Instruction .RD and s_WB_Instruction .isNOP = false) or
+    
+                false
+            )
         )
-    )
-    else '0';
+        else '0';
 
-    o_Pause <= o_NOP;
-
+    o_Pause <= 
+        '0' when 
+        (
+            i_JumpOrBranch
+        )
+        else '1' when
+        (
+            o_NOP
+        )
+        else '0';
+    
     o_IFID_WriteEnable          <= '1';
     o_IDEX_WriteEnable          <= '1';
     o_EXMEM_WriteEnable         <= '1';
@@ -101,10 +111,8 @@ begin
 
     o_IFID_Reset                <= '1' when
     (
-        -- Branches
-        (
-            i_JumpOrBranch = '1'
-        )
+        i_JumpOrBranch = '1' or
+        false
     )
     else '0';
 
