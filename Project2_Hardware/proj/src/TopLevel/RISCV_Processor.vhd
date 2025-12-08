@@ -643,8 +643,8 @@ begin
 
   g_ALU : ALU
     port map(
-      i_A                             => s_Forwarded_A,
-      i_B                             => s_Forwarded_B,
+      i_A                             => s_IDEX_Current.ALU_Operand1,
+      i_B                             => s_IDEX_Current.ALU_Operand2,
       i_AOverride                     => s_EX_ALU_AOverride,
       i_BOverride                     => s_EX_ALU_BOverride,
       i_AOverrideEnable               => s_EX_ALU_AOverrideEnable,
