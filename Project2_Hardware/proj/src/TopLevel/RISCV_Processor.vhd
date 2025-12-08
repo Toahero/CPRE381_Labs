@@ -660,7 +660,7 @@ begin
       f_negative                      => open,
       f_branch                        => open
     );
-  oALUOut                             <= s_EXMEM_Next.ALU_Output;  
+  oALUOut                             <= s_EXMEM_Next.ALU_Output;
 
   s_EXMEM_Next.Mem_We                 <= s_IDEX_Current.Mem_We;
   s_EXMEM_Next.MemToReg               <= s_IDEX_Current.MemToReg;
