@@ -80,13 +80,13 @@ begin
         );
 
     o_ForwardSelRS1 <=
-            "01" when (s_MemRD_ExRS1 = '1')   else --If Mem is forwardable, forward from that register.
-            "10" when (s_WbRD_ExRS1   = '1')   else --Otherwise, if WB is forwardable, forward from that register
+            --"01" when (s_MemRD_ExRS1 = '1')   else --If Mem is forwardable, forward from that register.
+            --"10" when (s_WbRD_ExRS1   = '1')   else --Otherwise, if WB is forwardable, forward from that register
             "00"; --Otherwise, no forwarding
 
     o_ForwardSelRS2 <=
-            "01" when (s_MemRD_ExRS2 = '1')   else --If Mem is forwardable, forward from that register.
-            "10" when (s_WbRD_EXRS2   = '1')   else --Otherwise, if WB is forwardable, forward from that register
+            --"01" when (s_MemRD_ExRS2 = '1')   else --If Mem is forwardable, forward from that register.
+            --"10" when (s_WbRD_EXRS2   = '1')   else --Otherwise, if WB is forwardable, forward from that register
             "00"; --Otherwise, no forwarding
 
 end dataflow;

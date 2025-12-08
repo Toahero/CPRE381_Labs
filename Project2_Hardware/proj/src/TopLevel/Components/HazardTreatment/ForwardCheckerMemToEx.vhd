@@ -70,10 +70,12 @@ begin
         '1';
 
     s_MemRD_EqualsExRS1 <=
+        '0' when (s_Mem_RD = "00000") else --NoP
         '1' when (s_Mem_RD = s_Ex_RS1) else
         '0';
 
     s_MemRD_EqualsExRS2 <=
+        '0' when (s_Mem_RD = "00000") else --Nop
         '1' when (s_Mem_RD = s_Ex_RS2) else
         '0';
 

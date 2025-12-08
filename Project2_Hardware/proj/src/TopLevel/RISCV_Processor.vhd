@@ -352,8 +352,8 @@ end component;
   signal s_WB_RegisterData              : std_logic_vector(31 downto 0);
 
   --Forwarding
-  signal s_ForwardSel_ValA              : std_logic_vector(1 downto 0);
-  signal s_ForwardSel_ValB              : std_logic_vector(1 downto 0);
+  signal s_ForwardSel_ValA              : std_logic_vector(1 downto 0) := "00";
+  signal s_ForwardSel_ValB              : std_logic_vector(1 downto 0) := "00";
 
   signal s_Forwarded_A                  : std_logic_vector(31 downto 0);
   signal s_Forwarded_B                  : std_logic_vector(31 downto 0);
@@ -586,19 +586,31 @@ begin
       o_Funct3Passthrough             => open
     );
 
+  g_ForwardingUnit : ForwardingUnit
+    port map(
+        i_ExInst                      => s_IDEX_Current.Instruction,
+        i_MemInst                     => s_EXMEM_CURRENT.Instruction,
+        i_WbInst                      => s_MEMWB_Current.Instruction,
+
+        o_ForwardSelRS1               => s_ForwardSel_ValA,
+        o_ForwardSelRS2               => s_ForwardSel_ValB
+    );
+
   g_ValueA_Forwarding : mux4t1
-      port map(
-        i_Selection                   => s_ForwardSel_ValA,
+    generic map( DATA_WIDTH         => 32)
+    port map(
+      i_Selection                   => s_ForwardSel_ValA,
 
-        i_D0                          => s_IDEX_Current.ALU_OPERAND1,
-        i_D1                          => s_EXMEM_Current.ALU_Output,
-        i_D2                          => s_MEMWB_Current.ALU_Output,
-        i_D3                          => x"00000000",
+      i_D0                          => s_IDEX_Current.ALU_OPERAND1,
+      i_D1                          => s_EXMEM_Current.ALU_Output,
+      i_D2                          => s_MEMWB_Current.ALU_Output,
+      i_D3                          => x"00000000",
 
-        o_Output                      => s_Forwarded_A
-      );
+      o_Output                      => s_Forwarded_A
+    );
 
   g_ValueB_Forwarding : mux4t1
+    generic map( DATA_WIDTH         => 32)  
     port map(
       i_Selection                   => s_ForwardSel_ValB,
 
@@ -612,8 +624,8 @@ begin
 
   g_ALU : ALU
     port map(
-      i_A                             => s_Forwarded_A,
-      i_B                             => s_Forwarded_B,
+      i_A                             => s_IDEX_Current.ALU_OPERAND1,--s_Forwarded_A,
+      i_B                             => s_IDEX_Current.ALU_OPERAND2, --s_Forwarded_B,
       i_AOverride                     => s_EX_ALU_AOverride,
       i_BOverride                     => s_EX_ALU_BOverride,
       i_AOverrideEnable               => s_EX_ALU_AOverrideEnable,

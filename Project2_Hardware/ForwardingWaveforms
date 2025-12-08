@@ -1,0 +1,15 @@
+add wave -noupdate -divider {Global Control}
+add wave -label {Cycle} -radix unsigned -position insertpoint vsim:/tb/MyRiscv/s_CycleTracker
+add wave -label {Clock} -position insertpoint vsim:/tb/MyRiscv/iCLK
+
+add wave -noupdate -divider "Forward Selection"
+add wave -noupdate -label ValueA_Select -radix unsigned vsim:/tb/MyRiscv/s_ForwardSelValA
+add wave -noupdate -label ValueB_Select -radix unsigned vsim:/tb/MyRiscv/s_ForwardSelValB
+
+add wave -noupdate -divider "Writeback Checker"
+add wave -noupdate -label "Ex Register RS1" -radix unsigned vsim:/tb/MyRiscv/g_ForwardingUnit/g_WbChecker/s_Ex_RS1
+add wave -noupdate -label "Ex Register RS2" -radix unsigned vsim:/tb/MyRiscv/g_ForwardingUnit/g_WbChecker/s_Ex_RS1
+add wave -noupdate -label "RS1 Forwardable" -radix unsigned vsim:/tb/MyRiscv/g_ForwardingUnit/g_WbChecker/s_RS1_Fwdable
+
+
+add wave -noupdate -divider "Memory Checker"
