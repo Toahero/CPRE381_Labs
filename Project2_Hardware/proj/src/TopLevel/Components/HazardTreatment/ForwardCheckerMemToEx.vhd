@@ -39,35 +39,63 @@ architecture dataflow of ForwardCheckerMemToEx is
     signal s_Ex_RS1         : std_logic_vector(4 downto 0);
     signal s_Ex_RS2         : std_logic_vector(4 downto 0);
 
+    signal s_canAddRS1  : std_logic;
+    signal s_canAddRs2  : std_logic;
+
+    signal s_ProducesRD : std_logic;
+
+
 begin
     s_Mem_OppCode <= i_MemInst(6 downto 0);
     s_Ex_OppCode  <= i_ExInst(6 downto 0);
 
     s_Mem_RD         <= i_MemInst(11 downto 7);
 
-    s_Ex_RS1         <= i_MemInst(19 downto 15);
-    s_Ex_RS2         <= i_MemInst(24 downto 20);
+    s_Ex_RS1         <= i_ExInst(19 downto 15);
+    s_Ex_RS2         <= i_ExInst(24 downto 20);
 
-    s_RS1_Fwdable_Type <=
-        '0' when (s_Ex_OppCode = "0100011") else --U types cannot be a consumer
-        '0' when (s_Ex_OppCode = "1101111") else --J types cannot be a consumer
+    s_canAddRS1 <=
+        '1' when (s_EX_OppCode = "0110011") else --R type
+        '1' when (s_EX_OppCode = "0010011") else --I-ALU
+        '0' when (s_EX_OppCode = "0000011") else --Load --This cannot be accessed until after loaded from mem
+        '1' when (s_EX_OppCode = "0100011") else --Store
+        '1' when (s_EX_OppCode = "1100011") else --Branch
+        '1' when (s_EX_OppCode = "1100111") else --JALR
+        '1' when (s_EX_OppCode = "1101111") else --JAL
+        '0' when (s_EX_OppCode = "0110111") else --lui
+        '0' when (s_EX_OppCode = "0010111") else --auipc
+        '0' when (s_EX_OppCode = "1110011") else --Enviroment
+        '0';
 
-        '0' when (s_Mem_OppCode = "0100011") else --S types cannot be a producer
-        '0' when (s_Mem_OppCode = "1100011") else --B types cannot be a producer
-        '0' when (s_Mem_OppCode = "0000011") else --Load I types cannot forward until the writeback stage
-        '1';
+    s_canAddRs2 <=
+        '1' when (s_EX_OppCode = "0110011") else --R type
+        '0' when (s_EX_OppCode = "0010011") else --I-ALU
+        '0' when (s_EX_OppCode = "0000011") else --Load
+        '1' when (s_EX_OppCode = "0100011") else --Store
+        '1' when (s_EX_OppCode = "1100011") else --Branch
+        '0' when (s_EX_OppCode = "1100111") else --JALR
+        '0' when (s_EX_OppCode = "1101111") else --JAL
+        '0' when (s_EX_OppCode = "0110111") else --lui
+        '0' when (s_EX_OppCode = "0010111") else --auipc
+        '0' when (s_EX_OppCode = "1110011") else --Enviroment
+        '0';
 
-    s_RS2_Fwdable_Type <=
-        '0' when (s_Ex_OppCode = "0100011") else --U types cannot be a consumer
-        '0' when (s_Ex_OppCode = "1101111") else --J types cannot be a consumer
-        '0' when (s_Ex_OppCode = "0010011") else --I types have no RS1
-        '0' when (s_Ex_OppCode = "1100111") else --Ditto
-        '0' when (s_Ex_OppCode = "1110011") else --Ditto
 
-        '0' when (s_Mem_OppCode = "0100011") else --S types cannot be a producer
-        '0' when (s_Mem_OppCode = "1100011") else --B types cannot be a producer
-        '0' when (s_Mem_OppCode = "0000011") else --Load I types cannot forward until the writeback stage
-        '1';
+    s_ProducesRD <=
+        '1' when (s_Mem_OppCode = "0110011") else --R type
+        '1' when (s_Mem_OppCode = "0010011") else --I-ALU
+        '1' when (s_Mem_OppCode = "0000011") else --Load
+        '0' when (s_Mem_OppCode = "0100011") else --Store
+        '0' when (s_Mem_OppCode = "1100011") else --Branch
+        '1' when (s_Mem_OppCode = "1100111") else --JALR
+        '1' when (s_Mem_OppCode = "1101111") else --JAL
+        '1' when (s_Mem_OppCode = "0110111") else --lui
+        '0' when (s_Mem_OppCode = "0010111") else --auipc
+        '0' when (s_Mem_OppCode = "1110011") else --Enviroment
+        '0';
+
+        s_RS1_Fwdable_Type <= s_canAddRS1 and s_ProducesRD;
+        s_RS2_Fwdable_Type <= s_canAddRs2 and s_ProducesRD;
 
     s_MemRD_EqualsExRS1 <=
         '1' when (s_Mem_RD = s_Ex_RS1) else

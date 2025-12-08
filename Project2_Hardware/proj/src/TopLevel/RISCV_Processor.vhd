@@ -617,6 +617,17 @@ begin
       o_Funct3Passthrough             => open
     );
 
+
+  g_ForwardingUnit : ForwardingUnit
+    port map(
+      i_ExInst                        =>s_IDEX_Current.Instruction,
+      i_MemInst                       =>s_EXMEM_Current.Instruction,
+      i_WbInst                        =>s_MEMWB_Current.Instruction,
+
+      o_ForwardSelRS1                 =>s_ForwardSel_ValA,
+      o_ForwardSelRS2                 =>s_ForwardSel_ValB
+    );
+
   g_ValueA_Forwarding : mux4t1
       port map(
         i_Selection                   => s_ForwardSel_ValA,
@@ -643,8 +654,8 @@ begin
 
   g_ALU : ALU
     port map(
-      i_A                             => s_IDEX_Current.ALU_Operand1,
-      i_B                             => s_IDEX_Current.ALU_Operand2,
+      i_A                             => s_Forwarded_A,
+      i_B                             => s_Forwarded_B,
       i_AOverride                     => s_EX_ALU_AOverride,
       i_BOverride                     => s_EX_ALU_BOverride,
       i_AOverrideEnable               => s_EX_ALU_AOverrideEnable,
