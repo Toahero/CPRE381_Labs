@@ -46,3 +46,9 @@ add wave -noupdate -divider {MEMWB Buffer}
 add wave -label {Next} -position insertpoint vsim:/tb/MyRiscv/s_MEMWB_Next
 add wave -label {Current} -position insertpoint vsim:/tb/MyRiscv/s_MEMWB_Current
 
+add wave -noupdate -divider {Instructions}
+add wave -label {IF}    -position insertpoint vsim:/tb/MyRiscv/g_HazardDetectionUnit/s_IF_Instruction
+add wave -label {ID}    -position insertpoint vsim:/tb/MyRiscv/g_HazardDetectionUnit/s_ID_Instruction
+add wave -label {EX}    -position insertpoint vsim:/tb/MyRiscv/g_HazardDetectionUnit/s_EX_Instruction
+add wave -label {MEM}   -position insertpoint vsim:/tb/MyRiscv/g_HazardDetectionUnit/s_MEM_Instruction
+add wave -label {WB}    -position insertpoint vsim:/tb/MyRiscv/g_HazardDetectionUnit/s_WB_Instruction
