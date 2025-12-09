@@ -56,3 +56,7 @@ add wave -noupdate -label "A input" -radix decimal vsim:/tb/MyRiscv/g_ALU/i_A
 add wave -noupdate -label "B input" -radix decimal vsim:/tb/MyRiscv/g_ALU/i_B
 add wave -noupdate -label "ALU Output" -radix decimal vsim:/tb/MyRiscv/g_ALU/o_output
 
+add wave -noupdate -divider "Writeback Values"
+add wave -noupdate -label "RD Register" -radix unsigned vsim:/tb/MyRiscv/g_RegisterFile/RdSel
+add wave -noupdate -label "RD Value" -radix decimal vsim:/tb/MyRiscv/g_RegisterFile/Rd
+

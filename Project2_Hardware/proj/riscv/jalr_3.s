@@ -10,6 +10,7 @@ main:
     la   x7, target
 
     jalr ra, 0(x7)         # jump to target; save return address in ra
+    addi t0, zero, -1
 
 target:
     sw   t0, 0(x5)

@@ -12,12 +12,13 @@
 
 library IEEE;
 use IEEE.std_logic_1164.all;
-use work.RISCV_types.t_InstructionType;
+use work.RISCV_types.all;
+--use work.RISCV_types.t_InstructionType;
 
 entity ForwardingUnit is
     port(
-        i_ExInst             : in std_logic_vector(31 downto 0);
-        i_MemInst            : in std_logic_vector(31 downto 0);
+        i_ExInst            : in std_logic_vector(31 downto 0);
+        i_MemIns            : in std_logic_vector(31 downto 0);
         i_WbInst             : in std_logic_vector(31 downto 0);
 
         o_ForwardSelRS1     : out std_logic_vector(1 downto 0);
@@ -30,7 +31,7 @@ architecture dataflow of ForwardingUnit is
     component ForwardCheckerMemToEx is
         port(
             i_ExInst       : in std_logic_vector(31 downto 0);
-            i_MemInst     : in std_logic_vector(31 downto 0);
+            i_MemIns     : in std_logic_vector(31 downto 0);
 
             o_forwardRS1    : out std_logic;
             o_forwardRS2    : out std_logic
@@ -73,7 +74,7 @@ begin
     g_MemChecker    : ForwardCheckerMemToEx
         port map(
             i_ExInst    => i_ExInst,
-            i_MemInst   => i_MemInst,
+            i_MemIns   => i_MemIns,
             
             o_forwardRS1    => s_MemRD_ExRS1,
             o_forwardRS2    => s_MemRD_ExRS2

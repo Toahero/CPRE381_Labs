@@ -304,7 +304,7 @@ end component;
   component ForwardingUnit is
     port(
         i_ExInst             : in std_logic_vector(31 downto 0);
-        i_MemInst            : in std_logic_vector(31 downto 0);
+        i_MemIns            : in std_logic_vector(31 downto 0);
         i_WbInst             : in std_logic_vector(31 downto 0);
 
         o_ForwardSelRS1     : out std_logic_vector(1 downto 0);
@@ -621,7 +621,7 @@ begin
   g_ForwardingUnit : ForwardingUnit
     port map(
       i_ExInst                        =>s_IDEX_Current.Instruction,
-      i_MemInst                       =>s_EXMEM_Current.Instruction,
+      i_MemIns                       =>s_EXMEM_Current.Instruction,
       i_WbInst                        =>s_MEMWB_Current.Instruction,
 
       o_ForwardSelRS1                 =>s_ForwardSel_ValA,

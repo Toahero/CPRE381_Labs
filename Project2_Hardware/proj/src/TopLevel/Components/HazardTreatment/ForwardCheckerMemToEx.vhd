@@ -15,8 +15,9 @@ use IEEE.std_logic_1164.all;
 
 entity ForwardCheckerMemToEx is
     port(
+        
         i_ExInst        : in std_logic_vector(31 downto 0);
-        i_MemInst       : in std_logic_vector(31 downto 0);
+        i_MemIns       : in std_logic_vector(31 downto 0);
 
         o_forwardRS1    : out std_logic;
         o_forwardRS2    : out std_logic
@@ -46,10 +47,10 @@ architecture dataflow of ForwardCheckerMemToEx is
 
 
 begin
-    s_Mem_OppCode <= i_MemInst(6 downto 0);
+    s_Mem_OppCode <= i_MemIns(6 downto 0);
     s_Ex_OppCode  <= i_ExInst(6 downto 0);
 
-    s_Mem_RD         <= i_MemInst(11 downto 7);
+    s_Mem_RD         <= i_MemIns(11 downto 7);
 
     s_Ex_RS1         <= i_ExInst(19 downto 15);
     s_Ex_RS2         <= i_ExInst(24 downto 20);
@@ -98,10 +99,12 @@ begin
         s_RS2_Fwdable_Type <= s_canAddRs2 and s_ProducesRD;
 
     s_MemRD_EqualsExRS1 <=
+        '0' when (s_Mem_RD = "00") else --Nops should not be used
         '1' when (s_Mem_RD = s_Ex_RS1) else
         '0';
 
     s_MemRD_EqualsExRS2 <=
+        '0' when (s_Mem_RD = "00") else --Nops should not be used
         '1' when (s_Mem_RD = s_Ex_RS2) else
         '0';
 

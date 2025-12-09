@@ -13,7 +13,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity ForwardCheckerMemToEx is
+entity ForwardCheckerWbToEx is
     port(
         i_ExInst        : in std_logic_vector(31 downto 0);
         i_WbInst       : in std_logic_vector(31 downto 0);
@@ -21,9 +21,9 @@ entity ForwardCheckerMemToEx is
         o_forwardRS1    : out std_logic;
         o_forwardRS2    : out std_logic
     );
-end ForwardCheckerMemToEx;
+end ForwardCheckerWbToEx;
 
-architecture dataflow of ForwardCheckerMemToEx is
+architecture dataflow of ForwardCheckerWbToEx is
     
     signal s_RS1_Fwdable_Type   : std_logic;
     signal s_RS2_Fwdable_Type   : std_logic;
@@ -97,10 +97,12 @@ begin
         s_RS2_Fwdable_Type <= canAddRs2 and s_ProducesRD;
 
     s_WbRD_EqualsExRS1 <=
+        '0' when (s_Wb_RD = "00") else --Nops should not be used
         '1' when (s_Wb_RD = s_Ex_RS1) else
         '0';
 
     s_WbRD_EqualsExRS2 <=
+        '0' when (s_Wb_RD = "00") else --Nops should not be used
         '1' when (s_Wb_RD = s_Ex_RS2) else
         '0';
 
