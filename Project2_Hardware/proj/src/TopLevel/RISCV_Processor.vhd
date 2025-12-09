@@ -97,6 +97,18 @@ architecture structure of RISCV_Processor is
     );
   end component;
 
+  component PC_Increment is
+    generic(
+        ADDR_WIDTH : integer := 32
+    );
+    port(
+        i_Pause     : in std_logic;
+        i_CurrAddr  : in std_logic_vector(ADDR_WIDTH -1 downto 0);
+        
+        o_NextAddr  : out std_logic_vector(ADDR_WIDTH -1 downto 0)
+    );
+  end component;
+
 
   component AddSub is
     generic(
@@ -458,17 +470,25 @@ begin
     );
   s_Halt                                <= s_MEMWB_Current.HaltProg;
 
-  g_StdProgramCounterAdder : AddSub
-    generic map(
-      WIDTH                             => 32
-    )
-    port map(
-      i_A                               => s_IF_InstructionAddress,
-      i_B                               => x"00000004",
-      n_Add_Sub                         => '0',
-      o_S                               => s_StdNextPC,
-      o_C                               => open
+  g_Increment : PC_Increment
+    generic map(ADDR_WIDTH              => 32)
+    port map (
+      i_Pause => s_Pause,
+      i_CurrAddr => s_IF_InstructionAddress,
+      o_NextAddr => s_StdNextPC
     );
+
+  -- g_StdProgramCounterAdder : AddSub
+  --   generic map(
+  --     WIDTH                             => 32
+  --   )
+  --   port map(
+  --     i_A                               => s_IF_InstructionAddress,
+  --     i_B                               => x"00000004",
+  --     n_Add_Sub                         => '0',
+  --     o_S                               => s_StdNextPC,
+  --     o_C                               => open
+  --   );
 
   g_HazardDetectionUnit : HazardDetectionUnit
     port map(
