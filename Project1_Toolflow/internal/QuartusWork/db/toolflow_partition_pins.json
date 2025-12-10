@@ -136,27 +136,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "iInstAddr[3]",
-					"strict" : false
-				},
-				{
-					"name" : "iInstAddr[2]",
-					"strict" : false
-				},
-				{
-					"name" : "iInstAddr[8]",
-					"strict" : false
-				},
-				{
 					"name" : "iInstAddr[9]",
 					"strict" : false
 				},
 				{
-					"name" : "iInstAddr[6]",
-					"strict" : false
-				},
-				{
-					"name" : "iInstAddr[7]",
+					"name" : "iInstAddr[8]",
 					"strict" : false
 				},
 				{
@@ -168,7 +152,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "iInstAddr[11]",
+					"name" : "iInstAddr[7]",
+					"strict" : false
+				},
+				{
+					"name" : "iInstAddr[6]",
+					"strict" : false
+				},
+				{
+					"name" : "iInstAddr[2]",
+					"strict" : false
+				},
+				{
+					"name" : "iInstAddr[3]",
 					"strict" : false
 				},
 				{
@@ -176,11 +172,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "iInstExt[4]",
-					"strict" : false
-				},
-				{
-					"name" : "iCLK",
+					"name" : "iInstAddr[11]",
 					"strict" : false
 				},
 				{
@@ -188,11 +180,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "iCLK",
+					"strict" : false
+				},
+				{
 					"name" : "iInstExt[1]",
 					"strict" : false
 				},
 				{
-					"name" : "iInstExt[3]",
+					"name" : "iInstExt[4]",
 					"strict" : false
 				},
 				{
@@ -201,6 +197,10 @@
 				},
 				{
 					"name" : "iInstExt[2]",
+					"strict" : false
+				},
+				{
+					"name" : "iInstExt[3]",
 					"strict" : false
 				},
 				{

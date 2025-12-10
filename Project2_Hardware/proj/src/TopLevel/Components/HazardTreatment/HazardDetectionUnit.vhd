@@ -13,6 +13,7 @@ entity HazardDetectionUnit is
         i_MEM_Instruction   : in  std_logic_vector(31 downto 0);
         i_WB_Instruction    : in  std_logic_vector(31 downto 0);
 
+        o_ForwardingEnable  : out std_logic;
         o_NOP               : out std_logic;
         o_Pause             : out std_logic;
         o_IFID_Reset        : out std_logic;
@@ -34,6 +35,8 @@ architecture dataflow of HazardDetectionUnit is
             o_Instruction       : out t_Instruction
         );
     end component;
+
+    signal s_ForwardingEnable   : std_logic;
 
     signal s_IF_Instruction     : t_Instruction;
     signal s_ID_Instruction     : t_Instruction;
@@ -73,12 +76,19 @@ begin
             o_Instruction       => s_WB_Instruction
         );
 
+    o_ForwardingEnable <= s_ForwardingEnable;
+    s_ForwardingEnable <= 
+    '1' when 
+    (
+        s_IF_Instruction.InstructionType = R and s_ID_Instruction.InstructionType = R
+    )
+    else '0';
+
     o_NOP <= '1' when 
     (
         -- Read after Write
         (
             (i_JumpOrBranch = '1') or
-
 
             (s_IF_Instruction.RS1 = s_ID_Instruction .RD and s_ID_Instruction .isNOP = false) or
             (s_IF_Instruction.RS1 = s_EX_Instruction .RD and s_EX_Instruction .isNOP = false) or

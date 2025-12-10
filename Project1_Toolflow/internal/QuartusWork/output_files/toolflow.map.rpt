@@ -1,5 +1,5 @@
 Analysis & Synthesis report for toolflow
-Fri Oct 31 13:40:05 2025
+Wed Dec 10 14:03:11 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Standard Edition
 
 
@@ -116,13 +116,13 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Oct 31 13:40:04 2025           ;
+; Analysis & Synthesis Status        ; Successful - Wed Dec 10 14:03:10 2025           ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Standard Edition ;
 ; Revision Name                      ; toolflow                                        ;
 ; Top-level Entity Name              ; RISCV_Processor                                 ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 114,433                                         ;
-;     Total combinational functions  ; 47,969                                          ;
+; Total logic elements               ; 114,402                                         ;
+;     Total combinational functions  ; 47,938                                          ;
 ;     Dedicated logic registers      ; 66,528                                          ;
 ; Total registers                    ; 66528                                           ;
 ; Total pins                         ; 99                                              ;
@@ -243,51 +243,51 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                           ;
-+-----------------------------------------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                                ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                     ; Library ;
-+-----------------------------------------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------+---------+
-; ../../proj/src/RISCV_types.vhd                                  ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/RISCV_types.vhd                                  ;         ;
-; ../../proj/src/TopLevel/Components/ALU.vhd                      ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd                      ;         ;
-; ../../proj/src/TopLevel/Components/ALU_Control.vhd              ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ALU_Control.vhd              ;         ;
-; ../../proj/src/TopLevel/Components/AddSub.vhd                   ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/AddSub.vhd                   ;         ;
-; ../../proj/src/TopLevel/Components/Compare.vhd                  ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/Compare.vhd                  ;         ;
-; ../../proj/src/TopLevel/Components/ControlUnit.vhd              ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ControlUnit.vhd              ;         ;
-; ../../proj/src/TopLevel/Components/DFmux2t1.vhd                 ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/DFmux2t1.vhd                 ;         ;
-; ../../proj/src/TopLevel/Components/DMEMSignExtender.vhd         ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/DMEMSignExtender.vhd         ;         ;
-; ../../proj/src/TopLevel/Components/FullAdder.vhd                ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/FullAdder.vhd                ;         ;
-; ../../proj/src/TopLevel/Components/ImmediateExtender.vhd        ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ImmediateExtender.vhd        ;         ;
-; ../../proj/src/TopLevel/Components/InstructionAddressHolder.vhd ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/InstructionAddressHolder.vhd ;         ;
-; ../../proj/src/TopLevel/Components/IsNegative.vhd               ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/IsNegative.vhd               ;         ;
-; ../../proj/src/TopLevel/Components/IsZero.vhd                   ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/IsZero.vhd                   ;         ;
-; ../../proj/src/TopLevel/Components/LogicModule.vhd              ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/LogicModule.vhd              ;         ;
-; ../../proj/src/TopLevel/Components/N_Adder.vhd                  ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/N_Adder.vhd                  ;         ;
-; ../../proj/src/TopLevel/Components/OnesCompliment.vhd           ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/OnesCompliment.vhd           ;         ;
-; ../../proj/src/TopLevel/Components/PCRegister.vhd               ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/PCRegister.vhd               ;         ;
-; ../../proj/src/TopLevel/Components/PC_dffg.vhd                  ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/PC_dffg.vhd                  ;         ;
-; ../../proj/src/TopLevel/Components/RegFile.vhd                  ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/RegFile.vhd                  ;         ;
-; ../../proj/src/TopLevel/Components/RegisterDecoder.vhd          ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/RegisterDecoder.vhd          ;         ;
-; ../../proj/src/TopLevel/Components/addSub_n.vhd                 ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/addSub_n.vhd                 ;         ;
-; ../../proj/src/TopLevel/Components/andg2.vhd                    ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/andg2.vhd                    ;         ;
-; ../../proj/src/TopLevel/Components/bit_mux4t1.vhd               ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/bit_mux4t1.vhd               ;         ;
-; ../../proj/src/TopLevel/Components/dffg.vhd                     ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/dffg.vhd                     ;         ;
-; ../../proj/src/TopLevel/Components/dualShift.vhd                ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/dualShift.vhd                ;         ;
-; ../../proj/src/TopLevel/Components/hack.vhd                     ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/hack.vhd                     ;         ;
-; ../../proj/src/TopLevel/Components/invg.vhd                     ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/invg.vhd                     ;         ;
-; ../../proj/src/TopLevel/Components/mux2t1.vhd                   ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux2t1.vhd                   ;         ;
-; ../../proj/src/TopLevel/Components/mux2t1_N.vhd                 ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux2t1_N.vhd                 ;         ;
-; ../../proj/src/TopLevel/Components/mux32t1.vhd                  ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux32t1.vhd                  ;         ;
-; ../../proj/src/TopLevel/Components/mux4t1.vhd                   ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux4t1.vhd                   ;         ;
-; ../../proj/src/TopLevel/Components/nBitRegister.vhd             ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/nBitRegister.vhd             ;         ;
-; ../../proj/src/TopLevel/Components/onesComp_n.vhd               ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/onesComp_n.vhd               ;         ;
-; ../../proj/src/TopLevel/Components/org2.vhd                     ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/org2.vhd                     ;         ;
-; ../../proj/src/TopLevel/Components/rbshift.vhd                  ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/rbshift.vhd                  ;         ;
-; ../../proj/src/TopLevel/Components/rippleAdder_n.vhd            ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/rippleAdder_n.vhd            ;         ;
-; ../../proj/src/TopLevel/Components/xorg2.vhd                    ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/xorg2.vhd                    ;         ;
-; ../../proj/src/TopLevel/RISCV_Processor.vhd                     ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd                     ;         ;
-; ../../proj/src/TopLevel/mem.vhd                                 ; yes             ; User VHDL File  ; /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/mem.vhd                                 ;         ;
-+-----------------------------------------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                       ;
++-----------------------------------------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                                ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                 ; Library ;
++-----------------------------------------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------+---------+
+; ../../proj/src/RISCV_types.vhd                                  ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/RISCV_types.vhd                                  ;         ;
+; ../../proj/src/TopLevel/Components/ALU.vhd                      ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd                      ;         ;
+; ../../proj/src/TopLevel/Components/ALU_Control.vhd              ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ALU_Control.vhd              ;         ;
+; ../../proj/src/TopLevel/Components/AddSub.vhd                   ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/AddSub.vhd                   ;         ;
+; ../../proj/src/TopLevel/Components/Compare.vhd                  ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/Compare.vhd                  ;         ;
+; ../../proj/src/TopLevel/Components/ControlUnit.vhd              ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ControlUnit.vhd              ;         ;
+; ../../proj/src/TopLevel/Components/DFmux2t1.vhd                 ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/DFmux2t1.vhd                 ;         ;
+; ../../proj/src/TopLevel/Components/DMEMSignExtender.vhd         ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/DMEMSignExtender.vhd         ;         ;
+; ../../proj/src/TopLevel/Components/FullAdder.vhd                ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/FullAdder.vhd                ;         ;
+; ../../proj/src/TopLevel/Components/ImmediateExtender.vhd        ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ImmediateExtender.vhd        ;         ;
+; ../../proj/src/TopLevel/Components/InstructionAddressHolder.vhd ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/InstructionAddressHolder.vhd ;         ;
+; ../../proj/src/TopLevel/Components/IsNegative.vhd               ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/IsNegative.vhd               ;         ;
+; ../../proj/src/TopLevel/Components/IsZero.vhd                   ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/IsZero.vhd                   ;         ;
+; ../../proj/src/TopLevel/Components/LogicModule.vhd              ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/LogicModule.vhd              ;         ;
+; ../../proj/src/TopLevel/Components/N_Adder.vhd                  ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/N_Adder.vhd                  ;         ;
+; ../../proj/src/TopLevel/Components/OnesCompliment.vhd           ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/OnesCompliment.vhd           ;         ;
+; ../../proj/src/TopLevel/Components/PCRegister.vhd               ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/PCRegister.vhd               ;         ;
+; ../../proj/src/TopLevel/Components/PC_dffg.vhd                  ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/PC_dffg.vhd                  ;         ;
+; ../../proj/src/TopLevel/Components/RegFile.vhd                  ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/RegFile.vhd                  ;         ;
+; ../../proj/src/TopLevel/Components/RegisterDecoder.vhd          ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/RegisterDecoder.vhd          ;         ;
+; ../../proj/src/TopLevel/Components/addSub_n.vhd                 ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/addSub_n.vhd                 ;         ;
+; ../../proj/src/TopLevel/Components/andg2.vhd                    ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/andg2.vhd                    ;         ;
+; ../../proj/src/TopLevel/Components/bit_mux4t1.vhd               ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/bit_mux4t1.vhd               ;         ;
+; ../../proj/src/TopLevel/Components/dffg.vhd                     ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/dffg.vhd                     ;         ;
+; ../../proj/src/TopLevel/Components/dualShift.vhd                ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/dualShift.vhd                ;         ;
+; ../../proj/src/TopLevel/Components/hack.vhd                     ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/hack.vhd                     ;         ;
+; ../../proj/src/TopLevel/Components/invg.vhd                     ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/invg.vhd                     ;         ;
+; ../../proj/src/TopLevel/Components/mux2t1.vhd                   ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/mux2t1.vhd                   ;         ;
+; ../../proj/src/TopLevel/Components/mux2t1_N.vhd                 ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/mux2t1_N.vhd                 ;         ;
+; ../../proj/src/TopLevel/Components/mux32t1.vhd                  ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/mux32t1.vhd                  ;         ;
+; ../../proj/src/TopLevel/Components/mux4t1.vhd                   ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/mux4t1.vhd                   ;         ;
+; ../../proj/src/TopLevel/Components/nBitRegister.vhd             ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/nBitRegister.vhd             ;         ;
+; ../../proj/src/TopLevel/Components/onesComp_n.vhd               ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/onesComp_n.vhd               ;         ;
+; ../../proj/src/TopLevel/Components/org2.vhd                     ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/org2.vhd                     ;         ;
+; ../../proj/src/TopLevel/Components/rbshift.vhd                  ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/rbshift.vhd                  ;         ;
+; ../../proj/src/TopLevel/Components/rippleAdder_n.vhd            ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/rippleAdder_n.vhd            ;         ;
+; ../../proj/src/TopLevel/Components/xorg2.vhd                    ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/xorg2.vhd                    ;         ;
+; ../../proj/src/TopLevel/RISCV_Processor.vhd                     ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd                     ;         ;
+; ../../proj/src/TopLevel/mem.vhd                                 ; yes             ; User VHDL File  ; /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/mem.vhd                                 ;         ;
++-----------------------------------------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------+---------+
 
 
 +----------------------------------------------------------+
@@ -295,16 +295,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+------------+
 ; Resource                                    ; Usage      ;
 +---------------------------------------------+------------+
-; Estimated Total logic elements              ; 114,433    ;
+; Estimated Total logic elements              ; 114,402    ;
 ;                                             ;            ;
-; Total combinational functions               ; 47969      ;
+; Total combinational functions               ; 47938      ;
 ; Logic element usage by number of LUT inputs ;            ;
-;     -- 4 input functions                    ; 45546      ;
-;     -- 3 input functions                    ; 1092       ;
-;     -- <=2 input functions                  ; 1331       ;
+;     -- 4 input functions                    ; 45559      ;
+;     -- 3 input functions                    ; 1554       ;
+;     -- <=2 input functions                  ; 825        ;
 ;                                             ;            ;
 ; Logic elements by mode                      ;            ;
-;     -- normal mode                          ; 47907      ;
+;     -- normal mode                          ; 47876      ;
 ;     -- arithmetic mode                      ; 62         ;
 ;                                             ;            ;
 ; Total registers                             ; 66528      ;
@@ -317,7 +317,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;            ;
 ; Maximum fan-out node                        ; iCLK~input ;
 ; Maximum fan-out                             ; 66528      ;
-; Total fan-out                               ; 388829     ;
+; Total fan-out                               ; 389255     ;
 ; Average fan-out                             ; 3.39       ;
 +---------------------------------------------+------------+
 
@@ -327,13 +327,13 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node                                 ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                    ; Entity Name       ; Library Name ;
 +------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
-; |RISCV_Processor                                           ; 47969 (10)          ; 66528 (0)                 ; 0           ; 0            ; 0       ; 0         ; 99   ; 0            ; |RISCV_Processor                                                                                                       ; RISCV_Processor   ; work         ;
-;    |ALU:g_ALU|                                             ; 1311 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU                                                                                             ; ALU               ; work         ;
+; |RISCV_Processor                                           ; 47938 (10)          ; 66528 (0)                 ; 0           ; 0            ; 0       ; 0         ; 99   ; 0            ; |RISCV_Processor                                                                                                       ; RISCV_Processor   ; work         ;
+;    |ALU:g_ALU|                                             ; 1308 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU                                                                                             ; ALU               ; work         ;
 ;       |Compare:g_Compare|                                  ; 64 (64)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|Compare:g_Compare                                                                           ; Compare           ; work         ;
 ;       |LogicModule:g_Logic|                                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|LogicModule:g_Logic                                                                         ; LogicModule       ; work         ;
-;       |Mux4t1:g_ModuleSelect|                              ; 126 (126)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|Mux4t1:g_ModuleSelect                                                                       ; Mux4t1            ; work         ;
-;       |addSub_n:g_AddSub|                                  ; 57 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|addSub_n:g_AddSub                                                                           ; addSub_n          ; work         ;
-;          |rippleAdder_n:g_Rip|                             ; 57 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip                                                       ; rippleAdder_n     ; work         ;
+;       |Mux4t1:g_ModuleSelect|                              ; 125 (125)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|Mux4t1:g_ModuleSelect                                                                       ; Mux4t1            ; work         ;
+;       |addSub_n:g_AddSub|                                  ; 58 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|addSub_n:g_AddSub                                                                           ; addSub_n          ; work         ;
+;          |rippleAdder_n:g_Rip|                             ; 58 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip                                                       ; rippleAdder_n     ; work         ;
 ;             |FullAdder:\G_NBit_RipAdder:0:ADDI|            ; 1 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip|FullAdder:\G_NBit_RipAdder:0:ADDI                     ; FullAdder         ; work         ;
 ;                |org2:g_O2F|                                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip|FullAdder:\G_NBit_RipAdder:0:ADDI|org2:g_O2F          ; org2              ; work         ;
 ;             |FullAdder:\G_NBit_RipAdder:10:ADDI|           ; 2 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip|FullAdder:\G_NBit_RipAdder:10:ADDI                    ; FullAdder         ; work         ;
@@ -393,8 +393,9 @@ https://fpgasoftware.intel.com/eula.
 ;             |FullAdder:\G_NBit_RipAdder:27:ADDI|           ; 2 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip|FullAdder:\G_NBit_RipAdder:27:ADDI                    ; FullAdder         ; work         ;
 ;                |org2:g_O2F|                                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip|FullAdder:\G_NBit_RipAdder:27:ADDI|org2:g_O2F         ; org2              ; work         ;
 ;                |xorg2:g_O1F|                               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip|FullAdder:\G_NBit_RipAdder:27:ADDI|xorg2:g_O1F        ; xorg2             ; work         ;
-;             |FullAdder:\G_NBit_RipAdder:28:ADDI|           ; 1 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip|FullAdder:\G_NBit_RipAdder:28:ADDI                    ; FullAdder         ; work         ;
+;             |FullAdder:\G_NBit_RipAdder:28:ADDI|           ; 2 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip|FullAdder:\G_NBit_RipAdder:28:ADDI                    ; FullAdder         ; work         ;
 ;                |org2:g_O2F|                                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip|FullAdder:\G_NBit_RipAdder:28:ADDI|org2:g_O2F         ; org2              ; work         ;
+;                |xorg2:g_O1F|                               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip|FullAdder:\G_NBit_RipAdder:28:ADDI|xorg2:g_O1F        ; xorg2             ; work         ;
 ;             |FullAdder:\G_NBit_RipAdder:29:ADDI|           ; 1 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip|FullAdder:\G_NBit_RipAdder:29:ADDI                    ; FullAdder         ; work         ;
 ;                |org2:g_O2F|                                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip|FullAdder:\G_NBit_RipAdder:29:ADDI|org2:g_O2F         ; org2              ; work         ;
 ;             |FullAdder:\G_NBit_RipAdder:2:ADDI|            ; 2 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip|FullAdder:\G_NBit_RipAdder:2:ADDI                     ; FullAdder         ; work         ;
@@ -421,8 +422,8 @@ https://fpgasoftware.intel.com/eula.
 ;             |FullAdder:\G_NBit_RipAdder:9:ADDI|            ; 2 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip|FullAdder:\G_NBit_RipAdder:9:ADDI                     ; FullAdder         ; work         ;
 ;                |org2:g_O2F|                                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip|FullAdder:\G_NBit_RipAdder:9:ADDI|org2:g_O2F          ; org2              ; work         ;
 ;                |xorg2:g_O1F|                               ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip|FullAdder:\G_NBit_RipAdder:9:ADDI|xorg2:g_O1F         ; xorg2             ; work         ;
-;       |dualShift:g_BarrelShifter|                          ; 319 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter                                                                   ; dualShift         ; work         ;
-;          |mux2t1_N:DirMux|                                 ; 62 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|mux2t1_N:DirMux                                                   ; mux2t1_N          ; work         ;
+;       |dualShift:g_BarrelShifter|                          ; 317 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter                                                                   ; dualShift         ; work         ;
+;          |mux2t1_N:DirMux|                                 ; 63 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|mux2t1_N:DirMux                                                   ; mux2t1_N          ; work         ;
 ;             |mux2t1:\G_NBit_MUX:0:MUXI|                    ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|mux2t1_N:DirMux|mux2t1:\G_NBit_MUX:0:MUXI                         ; mux2t1            ; work         ;
 ;             |mux2t1:\G_NBit_MUX:16:MUXI|                   ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|mux2t1_N:DirMux|mux2t1:\G_NBit_MUX:16:MUXI                        ; mux2t1            ; work         ;
 ;             |mux2t1:\G_NBit_MUX:17:MUXI|                   ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|mux2t1_N:DirMux|mux2t1:\G_NBit_MUX:17:MUXI                        ; mux2t1            ; work         ;
@@ -441,12 +442,11 @@ https://fpgasoftware.intel.com/eula.
 ;             |mux2t1:\G_NBit_MUX:29:MUXI|                   ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|mux2t1_N:DirMux|mux2t1:\G_NBit_MUX:29:MUXI                        ; mux2t1            ; work         ;
 ;             |mux2t1:\G_NBit_MUX:2:MUXI|                    ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|mux2t1_N:DirMux|mux2t1:\G_NBit_MUX:2:MUXI                         ; mux2t1            ; work         ;
 ;             |mux2t1:\G_NBit_MUX:30:MUXI|                   ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|mux2t1_N:DirMux|mux2t1:\G_NBit_MUX:30:MUXI                        ; mux2t1            ; work         ;
-;             |mux2t1:\G_NBit_MUX:31:MUXI|                   ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|mux2t1_N:DirMux|mux2t1:\G_NBit_MUX:31:MUXI                        ; mux2t1            ; work         ;
+;             |mux2t1:\G_NBit_MUX:31:MUXI|                   ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|mux2t1_N:DirMux|mux2t1:\G_NBit_MUX:31:MUXI                        ; mux2t1            ; work         ;
 ;             |mux2t1:\G_NBit_MUX:3:MUXI|                    ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|mux2t1_N:DirMux|mux2t1:\G_NBit_MUX:3:MUXI                         ; mux2t1            ; work         ;
 ;             |mux2t1:\G_NBit_MUX:7:MUXI|                    ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|mux2t1_N:DirMux|mux2t1:\G_NBit_MUX:7:MUXI                         ; mux2t1            ; work         ;
-;          |rbshift:leftShifter|                             ; 126 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter                                               ; rbshift           ; work         ;
+;          |rbshift:leftShifter|                             ; 123 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter                                               ; rbshift           ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:1:g_MuxEnd:30:g_mux|  ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:1:g_MuxEnd:30:g_mux   ; DFmux2t1          ; work         ;
-;             |DFmux2t1:\g_valShiftArr:1:g_MuxEnd:31:g_mux|  ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:1:g_MuxEnd:31:g_mux   ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:1:g_MuxMain:10:g_mux| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:1:g_MuxMain:10:g_mux  ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:1:g_MuxMain:11:g_mux| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:1:g_MuxMain:11:g_mux  ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:1:g_MuxMain:12:g_mux| ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:1:g_MuxMain:12:g_mux  ; DFmux2t1          ; work         ;
@@ -473,34 +473,34 @@ https://fpgasoftware.intel.com/eula.
 ;             |DFmux2t1:\g_valShiftArr:1:g_MuxMain:7:g_mux|  ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:1:g_MuxMain:7:g_mux   ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:1:g_MuxMain:8:g_mux|  ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:1:g_MuxMain:8:g_mux   ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:1:g_MuxMain:9:g_mux|  ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:1:g_MuxMain:9:g_mux   ; DFmux2t1          ; work         ;
-;             |DFmux2t1:\g_valShiftArr:3:g_MuxEnd:24:g_mux|  ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxEnd:24:g_mux   ; DFmux2t1          ; work         ;
+;             |DFmux2t1:\g_valShiftArr:3:g_MuxEnd:24:g_mux|  ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxEnd:24:g_mux   ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:3:g_MuxEnd:25:g_mux|  ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxEnd:25:g_mux   ; DFmux2t1          ; work         ;
-;             |DFmux2t1:\g_valShiftArr:3:g_MuxEnd:26:g_mux|  ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxEnd:26:g_mux   ; DFmux2t1          ; work         ;
-;             |DFmux2t1:\g_valShiftArr:3:g_MuxEnd:27:g_mux|  ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxEnd:27:g_mux   ; DFmux2t1          ; work         ;
+;             |DFmux2t1:\g_valShiftArr:3:g_MuxEnd:26:g_mux|  ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxEnd:26:g_mux   ; DFmux2t1          ; work         ;
+;             |DFmux2t1:\g_valShiftArr:3:g_MuxEnd:27:g_mux|  ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxEnd:27:g_mux   ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:3:g_MuxEnd:28:g_mux|  ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxEnd:28:g_mux   ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:3:g_MuxEnd:29:g_mux|  ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxEnd:29:g_mux   ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:3:g_MuxEnd:30:g_mux|  ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxEnd:30:g_mux   ; DFmux2t1          ; work         ;
-;             |DFmux2t1:\g_valShiftArr:3:g_MuxEnd:31:g_mux|  ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxEnd:31:g_mux   ; DFmux2t1          ; work         ;
-;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:0:g_mux|  ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:0:g_mux   ; DFmux2t1          ; work         ;
+;             |DFmux2t1:\g_valShiftArr:3:g_MuxEnd:31:g_mux|  ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxEnd:31:g_mux   ; DFmux2t1          ; work         ;
+;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:0:g_mux|  ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:0:g_mux   ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:10:g_mux| ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:10:g_mux  ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:11:g_mux| ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:11:g_mux  ; DFmux2t1          ; work         ;
-;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:12:g_mux| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:12:g_mux  ; DFmux2t1          ; work         ;
-;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:13:g_mux| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:13:g_mux  ; DFmux2t1          ; work         ;
-;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:14:g_mux| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:14:g_mux  ; DFmux2t1          ; work         ;
-;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:15:g_mux| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:15:g_mux  ; DFmux2t1          ; work         ;
+;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:12:g_mux| ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:12:g_mux  ; DFmux2t1          ; work         ;
+;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:13:g_mux| ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:13:g_mux  ; DFmux2t1          ; work         ;
+;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:14:g_mux| ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:14:g_mux  ; DFmux2t1          ; work         ;
+;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:15:g_mux| ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:15:g_mux  ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:16:g_mux| ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:16:g_mux  ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:17:g_mux| ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:17:g_mux  ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:18:g_mux| ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:18:g_mux  ; DFmux2t1          ; work         ;
-;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:19:g_mux| ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:19:g_mux  ; DFmux2t1          ; work         ;
-;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:1:g_mux|  ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:1:g_mux   ; DFmux2t1          ; work         ;
+;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:19:g_mux| ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:19:g_mux  ; DFmux2t1          ; work         ;
+;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:1:g_mux|  ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:1:g_mux   ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:20:g_mux| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:20:g_mux  ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:21:g_mux| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:21:g_mux  ; DFmux2t1          ; work         ;
-;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:22:g_mux| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:22:g_mux  ; DFmux2t1          ; work         ;
+;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:22:g_mux| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:22:g_mux  ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:23:g_mux| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:23:g_mux  ; DFmux2t1          ; work         ;
-;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:4:g_mux|  ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:4:g_mux   ; DFmux2t1          ; work         ;
-;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:5:g_mux|  ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:5:g_mux   ; DFmux2t1          ; work         ;
-;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:6:g_mux|  ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:6:g_mux   ; DFmux2t1          ; work         ;
-;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:7:g_mux|  ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:7:g_mux   ; DFmux2t1          ; work         ;
+;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:4:g_mux|  ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:4:g_mux   ; DFmux2t1          ; work         ;
+;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:5:g_mux|  ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:5:g_mux   ; DFmux2t1          ; work         ;
+;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:6:g_mux|  ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:6:g_mux   ; DFmux2t1          ; work         ;
+;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:7:g_mux|  ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:7:g_mux   ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:8:g_mux|  ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:8:g_mux   ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:3:g_MuxMain:9:g_mux|  ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:leftShifter|DFmux2t1:\g_valShiftArr:3:g_MuxMain:9:g_mux   ; DFmux2t1          ; work         ;
 ;          |rbshift:rightShifter|                            ; 131 (1)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:rightShifter                                              ; rbshift           ; work         ;
@@ -571,8 +571,8 @@ https://fpgasoftware.intel.com/eula.
 ;             |DFmux2t1:\g_valShiftArr:4:g_MuxMain:7:g_mux|  ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:rightShifter|DFmux2t1:\g_valShiftArr:4:g_MuxMain:7:g_mux  ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:4:g_MuxMain:8:g_mux|  ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:rightShifter|DFmux2t1:\g_valShiftArr:4:g_MuxMain:8:g_mux  ; DFmux2t1          ; work         ;
 ;             |DFmux2t1:\g_valShiftArr:4:g_MuxMain:9:g_mux|  ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:rightShifter|DFmux2t1:\g_valShiftArr:4:g_MuxMain:9:g_mux  ; DFmux2t1          ; work         ;
-;       |mux2t1_N:g_ASource|                                 ; 661 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_ASource                                                                          ; mux2t1_N          ; work         ;
-;          |mux2t1:\G_NBit_MUX:0:MUXI|                       ; 24 (24)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_ASource|mux2t1:\G_NBit_MUX:0:MUXI                                                ; mux2t1            ; work         ;
+;       |mux2t1_N:g_ASource|                                 ; 658 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_ASource                                                                          ; mux2t1_N          ; work         ;
+;          |mux2t1:\G_NBit_MUX:0:MUXI|                       ; 21 (21)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_ASource|mux2t1:\G_NBit_MUX:0:MUXI                                                ; mux2t1            ; work         ;
 ;          |mux2t1:\G_NBit_MUX:10:MUXI|                      ; 21 (21)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_ASource|mux2t1:\G_NBit_MUX:10:MUXI                                               ; mux2t1            ; work         ;
 ;          |mux2t1:\G_NBit_MUX:11:MUXI|                      ; 21 (21)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_ASource|mux2t1:\G_NBit_MUX:11:MUXI                                               ; mux2t1            ; work         ;
 ;          |mux2t1:\G_NBit_MUX:12:MUXI|                      ; 21 (21)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_ASource|mux2t1:\G_NBit_MUX:12:MUXI                                               ; mux2t1            ; work         ;
@@ -604,11 +604,11 @@ https://fpgasoftware.intel.com/eula.
 ;          |mux2t1:\G_NBit_MUX:7:MUXI|                       ; 21 (21)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_ASource|mux2t1:\G_NBit_MUX:7:MUXI                                                ; mux2t1            ; work         ;
 ;          |mux2t1:\G_NBit_MUX:8:MUXI|                       ; 21 (21)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_ASource|mux2t1:\G_NBit_MUX:8:MUXI                                                ; mux2t1            ; work         ;
 ;          |mux2t1:\G_NBit_MUX:9:MUXI|                       ; 21 (21)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_ASource|mux2t1:\G_NBit_MUX:9:MUXI                                                ; mux2t1            ; work         ;
-;       |mux2t1_N:g_BSource|                                 ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource                                                                          ; mux2t1_N          ; work         ;
+;       |mux2t1_N:g_BSource|                                 ; 85 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource                                                                          ; mux2t1_N          ; work         ;
 ;          |mux2t1:\G_NBit_MUX:0:MUXI|                       ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:0:MUXI                                                ; mux2t1            ; work         ;
 ;          |mux2t1:\G_NBit_MUX:10:MUXI|                      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:10:MUXI                                               ; mux2t1            ; work         ;
 ;          |mux2t1:\G_NBit_MUX:11:MUXI|                      ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:11:MUXI                                               ; mux2t1            ; work         ;
-;          |mux2t1:\G_NBit_MUX:12:MUXI|                      ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:12:MUXI                                               ; mux2t1            ; work         ;
+;          |mux2t1:\G_NBit_MUX:12:MUXI|                      ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:12:MUXI                                               ; mux2t1            ; work         ;
 ;          |mux2t1:\G_NBit_MUX:13:MUXI|                      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:13:MUXI                                               ; mux2t1            ; work         ;
 ;          |mux2t1:\G_NBit_MUX:14:MUXI|                      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:14:MUXI                                               ; mux2t1            ; work         ;
 ;          |mux2t1:\G_NBit_MUX:15:MUXI|                      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:15:MUXI                                               ; mux2t1            ; work         ;
@@ -616,7 +616,7 @@ https://fpgasoftware.intel.com/eula.
 ;          |mux2t1:\G_NBit_MUX:17:MUXI|                      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:17:MUXI                                               ; mux2t1            ; work         ;
 ;          |mux2t1:\G_NBit_MUX:18:MUXI|                      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:18:MUXI                                               ; mux2t1            ; work         ;
 ;          |mux2t1:\G_NBit_MUX:19:MUXI|                      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:19:MUXI                                               ; mux2t1            ; work         ;
-;          |mux2t1:\G_NBit_MUX:1:MUXI|                       ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:1:MUXI                                                ; mux2t1            ; work         ;
+;          |mux2t1:\G_NBit_MUX:1:MUXI|                       ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:1:MUXI                                                ; mux2t1            ; work         ;
 ;          |mux2t1:\G_NBit_MUX:20:MUXI|                      ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:20:MUXI                                               ; mux2t1            ; work         ;
 ;          |mux2t1:\G_NBit_MUX:21:MUXI|                      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:21:MUXI                                               ; mux2t1            ; work         ;
 ;          |mux2t1:\G_NBit_MUX:22:MUXI|                      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:22:MUXI                                               ; mux2t1            ; work         ;
@@ -627,7 +627,7 @@ https://fpgasoftware.intel.com/eula.
 ;          |mux2t1:\G_NBit_MUX:27:MUXI|                      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:27:MUXI                                               ; mux2t1            ; work         ;
 ;          |mux2t1:\G_NBit_MUX:28:MUXI|                      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:28:MUXI                                               ; mux2t1            ; work         ;
 ;          |mux2t1:\G_NBit_MUX:29:MUXI|                      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:29:MUXI                                               ; mux2t1            ; work         ;
-;          |mux2t1:\G_NBit_MUX:2:MUXI|                       ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:2:MUXI                                                ; mux2t1            ; work         ;
+;          |mux2t1:\G_NBit_MUX:2:MUXI|                       ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:2:MUXI                                                ; mux2t1            ; work         ;
 ;          |mux2t1:\G_NBit_MUX:30:MUXI|                      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:30:MUXI                                               ; mux2t1            ; work         ;
 ;          |mux2t1:\G_NBit_MUX:31:MUXI|                      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:31:MUXI                                               ; mux2t1            ; work         ;
 ;          |mux2t1:\G_NBit_MUX:3:MUXI|                       ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:3:MUXI                                                ; mux2t1            ; work         ;
@@ -640,11 +640,11 @@ https://fpgasoftware.intel.com/eula.
 ;    |ALU_Control:g_ALUControl|                              ; 11 (11)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ALU_Control:g_ALUControl                                                                              ; ALU_Control       ; work         ;
 ;    |ControlUnit:g_ControlUnit|                             ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ControlUnit:g_ControlUnit                                                                             ; ControlUnit       ; work         ;
 ;    |DMEMSignExtender:g_DMEMSignExtender|                   ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|DMEMSignExtender:g_DMEMSignExtender                                                                   ; DMEMSignExtender  ; work         ;
-;    |ImmediateExtender:g_ImmediateGeneration|               ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ImmediateExtender:g_ImmediateGeneration                                                               ; ImmediateExtender ; work         ;
-;    |RegFile:g_RegisterFile|                                ; 706 (0)             ; 992 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|RegFile:g_RegisterFile                                                                                ; RegFile           ; work         ;
-;       |RegisterDecoder:g_RdDec|                            ; 41 (41)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|RegFile:g_RegisterFile|RegisterDecoder:g_RdDec                                                        ; RegisterDecoder   ; work         ;
+;    |ImmediateExtender:g_ImmediateGeneration|               ; 19 (19)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|ImmediateExtender:g_ImmediateGeneration                                                               ; ImmediateExtender ; work         ;
+;    |RegFile:g_RegisterFile|                                ; 708 (0)             ; 992 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|RegFile:g_RegisterFile                                                                                ; RegFile           ; work         ;
+;       |RegisterDecoder:g_RdDec|                            ; 40 (40)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|RegFile:g_RegisterFile|RegisterDecoder:g_RdDec                                                        ; RegisterDecoder   ; work         ;
 ;       |mux32t1:g_RS1MUX|                                   ; 20 (20)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|RegFile:g_RegisterFile|mux32t1:g_RS1MUX                                                               ; mux32t1           ; work         ;
-;       |mux32t1:g_RS2MUX|                                   ; 645 (645)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|RegFile:g_RegisterFile|mux32t1:g_RS2MUX                                                               ; mux32t1           ; work         ;
+;       |mux32t1:g_RS2MUX|                                   ; 648 (648)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|RegFile:g_RegisterFile|mux32t1:g_RS2MUX                                                               ; mux32t1           ; work         ;
 ;       |nBitRegister:\G_REGS:10:REG|                        ; 0 (0)               ; 32 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|RegFile:g_RegisterFile|nBitRegister:\G_REGS:10:REG                                                    ; nBitRegister      ; work         ;
 ;          |dffg:\G_NBIT_REG:0:REG|                          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|RegFile:g_RegisterFile|nBitRegister:\G_REGS:10:REG|dffg:\G_NBIT_REG:0:REG                             ; dffg              ; work         ;
 ;          |dffg:\G_NBIT_REG:10:REG|                         ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|RegFile:g_RegisterFile|nBitRegister:\G_REGS:10:REG|dffg:\G_NBIT_REG:10:REG                            ; dffg              ; work         ;
@@ -1668,10 +1668,10 @@ https://fpgasoftware.intel.com/eula.
 ;          |dffg:\G_NBIT_REG:7:REG|                          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|RegFile:g_RegisterFile|nBitRegister:\G_REGS:9:REG|dffg:\G_NBIT_REG:7:REG                              ; dffg              ; work         ;
 ;          |dffg:\G_NBIT_REG:8:REG|                          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|RegFile:g_RegisterFile|nBitRegister:\G_REGS:9:REG|dffg:\G_NBIT_REG:8:REG                              ; dffg              ; work         ;
 ;          |dffg:\G_NBIT_REG:9:REG|                          ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|RegFile:g_RegisterFile|nBitRegister:\G_REGS:9:REG|dffg:\G_NBIT_REG:9:REG                              ; dffg              ; work         ;
-;    |mem:DMem|                                              ; 22914 (22914)       ; 32768 (32768)             ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|mem:DMem                                                                                              ; mem               ; work         ;
+;    |mem:DMem|                                              ; 22884 (22884)       ; 32768 (32768)             ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|mem:DMem                                                                                              ; mem               ; work         ;
 ;    |mem:IMem|                                              ; 22929 (22929)       ; 32768 (32768)             ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|mem:IMem                                                                                              ; mem               ; work         ;
-;    |mux2t1_N:g_Mux_ALU_Operand2|                           ; 6 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|mux2t1_N:g_Mux_ALU_Operand2                                                                           ; mux2t1_N          ; work         ;
-;       |mux2t1:\G_NBit_MUX:0:MUXI|                          ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|mux2t1_N:g_Mux_ALU_Operand2|mux2t1:\G_NBit_MUX:0:MUXI                                                 ; mux2t1            ; work         ;
+;    |mux2t1_N:g_Mux_ALU_Operand2|                           ; 5 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|mux2t1_N:g_Mux_ALU_Operand2                                                                           ; mux2t1_N          ; work         ;
+;       |mux2t1:\G_NBit_MUX:0:MUXI|                          ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|mux2t1_N:g_Mux_ALU_Operand2|mux2t1:\G_NBit_MUX:0:MUXI                                                 ; mux2t1            ; work         ;
 ;    |mux2t1_N:g_RegisterDataSource|                         ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|mux2t1_N:g_RegisterDataSource                                                                         ; mux2t1_N          ; work         ;
 ;       |mux2t1:\G_NBit_MUX:0:MUXI|                          ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|mux2t1_N:g_RegisterDataSource|mux2t1:\G_NBit_MUX:0:MUXI                                               ; mux2t1            ; work         ;
 ;       |mux2t1:\G_NBit_MUX:10:MUXI|                         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_Processor|mux2t1_N:g_RegisterDataSource|mux2t1:\G_NBit_MUX:10:MUXI                                              ; mux2t1            ; work         ;
@@ -1874,13 +1874,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
-; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |RISCV_Processor|mux2t1_N:g_RegisterDataSource|mux2t1:\G_NBit_MUX:31:MUXI|o_O ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |RISCV_Processor|mux2t1_N:g_RegisterDataSource|mux2t1:\G_NBit_MUX:30:MUXI|o_O ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |RISCV_Processor|ALU_Control:g_ALUControl|o_ModuleSelect[0]                   ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |RISCV_Processor|mux2t1_N:g_RegisterDataSource|mux2t1:\G_NBit_MUX:8:MUXI|o_O  ;
 ; 4:1                ; 17 bits   ; 34 LEs        ; 34 LEs               ; 0 LEs                  ; No         ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:7:MUXI|o_O   ;
 ; 32:1               ; 32 bits   ; 672 LEs       ; 640 LEs              ; 32 LEs                 ; No         ; |RISCV_Processor|RegFile:g_RegisterFile|mux32t1:g_RS2MUX|Mux27                ;
 ; 33:1               ; 31 bits   ; 682 LEs       ; 651 LEs              ; 31 LEs                 ; No         ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_ASource|mux2t1:\G_NBit_MUX:1:MUXI|o_O   ;
-; 66:1               ; 4 bits    ; 176 LEs       ; 12 LEs               ; 164 LEs                ; No         ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:2:MUXI|o_O   ;
+; 66:1               ; 3 bits    ; 132 LEs       ; 9 LEs                ; 123 LEs                ; No         ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:1:MUXI|o_O   ;
 ; 11:1               ; 7 bits    ; 49 LEs        ; 14 LEs               ; 35 LEs                 ; No         ; |RISCV_Processor|ALU:g_ALU|mux2t1_N:g_BSource|mux2t1:\G_NBit_MUX:16:MUXI|o_O  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
 
@@ -2605,16 +2605,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; cycloneiii_ff         ; 66528                       ;
 ;     ENA               ; 65536                       ;
 ;     ENA CLR           ; 992                         ;
-; cycloneiii_lcell_comb ; 47969                       ;
+; cycloneiii_lcell_comb ; 47938                       ;
 ;     arith             ; 62                          ;
 ;         3 data inputs ; 62                          ;
-;     normal            ; 47907                       ;
-;         2 data inputs ; 1331                        ;
-;         3 data inputs ; 1030                        ;
-;         4 data inputs ; 45546                       ;
+;     normal            ; 47876                       ;
+;         2 data inputs ; 825                         ;
+;         3 data inputs ; 1492                        ;
+;         4 data inputs ; 45559                       ;
 ;                       ;                             ;
 ; Max LUT depth         ; 51.00                       ;
-; Average LUT depth     ; 32.64                       ;
+; Average LUT depth     ; 32.63                       ;
 +-----------------------+-----------------------------+
 
 
@@ -2623,7 +2623,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:02:23     ;
+; Top            ; 00:02:50     ;
 +----------------+--------------+
 
 
@@ -2647,210 +2647,211 @@ Info: Running Quartus Prime Analysis & Synthesis
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Fri Oct 31 13:37:27 2025
+    Info: Processing started: Wed Dec 10 14:00:07 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off toolflow -c toolflow
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
-Info (12021): Found 1 design units, including 0 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/RISCV_types.vhd
-    Info (12022): Found design unit 1: RISCV_types File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/RISCV_types.vhd Line: 15
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd
-    Info (12022): Found design unit 1: ALU-behaviour File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd Line: 32
-    Info (12023): Found entity 1: ALU File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ALU_Control.vhd
-    Info (12022): Found design unit 1: ALU_Control-behaviour File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ALU_Control.vhd Line: 25
-    Info (12023): Found entity 1: ALU_Control File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ALU_Control.vhd Line: 7
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/AddSub.vhd
-    Info (12022): Found design unit 1: AddSub-behaviour File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/AddSub.vhd Line: 19
-    Info (12023): Found entity 1: AddSub File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/AddSub.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/Compare.vhd
-    Info (12022): Found design unit 1: Compare-behvariour File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/Compare.vhd Line: 17
-    Info (12023): Found entity 1: Compare File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/Compare.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ControlUnit.vhd
-    Info (12022): Found design unit 1: ControlUnit-dataflow File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ControlUnit.vhd Line: 36
-    Info (12023): Found entity 1: ControlUnit File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ControlUnit.vhd Line: 17
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/DFmux2t1.vhd
-    Info (12022): Found design unit 1: DFmux2t1-dataflow File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/DFmux2t1.vhd Line: 13
-    Info (12023): Found entity 1: DFmux2t1 File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/DFmux2t1.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/DMEMSignExtender.vhd
-    Info (12022): Found design unit 1: DMEMSignExtender-behaviour File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/DMEMSignExtender.vhd Line: 13
-    Info (12023): Found entity 1: DMEMSignExtender File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/DMEMSignExtender.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/FullAdder.vhd
-    Info (12022): Found design unit 1: FullAdder-behaviour File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/FullAdder.vhd Line: 16
-    Info (12023): Found entity 1: FullAdder File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/FullAdder.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ImmediateExtender.vhd
-    Info (12022): Found design unit 1: ImmediateExtender-dataflow File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ImmediateExtender.vhd Line: 23
-    Info (12023): Found entity 1: ImmediateExtender File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ImmediateExtender.vhd Line: 17
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/InstructionAddressHolder.vhd
-    Info (12022): Found design unit 1: InstructionAddressHolder-behaviour File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/InstructionAddressHolder.vhd Line: 23
-    Info (12023): Found entity 1: InstructionAddressHolder File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/InstructionAddressHolder.vhd Line: 9
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/IsNegative.vhd
-    Info (12022): Found design unit 1: IsNegative-behaviour File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/IsNegative.vhd Line: 15
-    Info (12023): Found entity 1: IsNegative File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/IsNegative.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/IsZero.vhd
-    Info (12022): Found design unit 1: IsZero-behaviour File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/IsZero.vhd Line: 15
-    Info (12023): Found entity 1: IsZero File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/IsZero.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/LogicModule.vhd
-    Info (12022): Found design unit 1: LogicModule-mixed File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/LogicModule.vhd Line: 31
-    Info (12023): Found entity 1: LogicModule File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/LogicModule.vhd Line: 21
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/N_Adder.vhd
-    Info (12022): Found design unit 1: N_Adder-behaviour File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/N_Adder.vhd Line: 19
-    Info (12023): Found entity 1: N_Adder File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/N_Adder.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/OnesCompliment.vhd
-    Info (12022): Found design unit 1: OnesCompliment-structural File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/OnesCompliment.vhd Line: 14
-    Info (12023): Found entity 1: OnesCompliment File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/OnesCompliment.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/PCRegister.vhd
-    Info (12022): Found design unit 1: PCRegister-behaviour File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/PCRegister.vhd Line: 23
-    Info (12023): Found entity 1: PCRegister File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/PCRegister.vhd Line: 7
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/PC_dffg.vhd
-    Info (12022): Found design unit 1: PC_dffg-mixed File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/PC_dffg.vhd Line: 32
-    Info (12023): Found entity 1: PC_dffg File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/PC_dffg.vhd Line: 23
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/RegFile.vhd
-    Info (12022): Found design unit 1: RegFile-structural File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/RegFile.vhd Line: 33
-    Info (12023): Found entity 1: RegFile File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/RegFile.vhd Line: 18
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/RegisterDecoder.vhd
-    Info (12022): Found design unit 1: RegisterDecoder-structural File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/RegisterDecoder.vhd Line: 22
-    Info (12023): Found entity 1: RegisterDecoder File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/RegisterDecoder.vhd Line: 16
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/addSub_n.vhd
-    Info (12022): Found design unit 1: addSub_n-structural File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/addSub_n.vhd Line: 34
-    Info (12023): Found entity 1: addSub_n File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/addSub_n.vhd Line: 22
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/andg2.vhd
-    Info (12022): Found design unit 1: andg2-dataflow File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/andg2.vhd Line: 31
-    Info (12023): Found entity 1: andg2 File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/andg2.vhd Line: 23
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/bit_mux4t1.vhd
-    Info (12022): Found design unit 1: BitMux4t1-behaviour File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/bit_mux4t1.vhd Line: 18
-    Info (12023): Found entity 1: BitMux4t1 File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/bit_mux4t1.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/dffg.vhd
-    Info (12022): Found design unit 1: dffg-mixed File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/dffg.vhd Line: 33
-    Info (12023): Found entity 1: dffg File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/dffg.vhd Line: 23
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/dualShift.vhd
-    Info (12022): Found design unit 1: dualShift-mixed File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/dualShift.vhd Line: 27
-    Info (12023): Found entity 1: dualShift File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/dualShift.vhd Line: 16
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/hack.vhd
-    Info (12022): Found design unit 1: HACK-structural File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/hack.vhd Line: 11
-    Info (12023): Found entity 1: HACK File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/hack.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/invg.vhd
-    Info (12022): Found design unit 1: invg-dataflow File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/invg.vhd Line: 30
-    Info (12023): Found entity 1: invg File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/invg.vhd Line: 23
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux2t1.vhd
-    Info (12022): Found design unit 1: mux2t1-structural File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux2t1.vhd Line: 15
-    Info (12023): Found entity 1: mux2t1 File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux2t1.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux2t1_N.vhd
-    Info (12022): Found design unit 1: mux2t1_N-structural File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux2t1_N.vhd Line: 32
-    Info (12023): Found entity 1: mux2t1_N File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux2t1_N.vhd Line: 23
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux32t1.vhd
-    Info (12022): Found design unit 1: mux32t1-dataflow File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux32t1.vhd Line: 25
-    Info (12023): Found entity 1: mux32t1 File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux32t1.vhd Line: 19
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux4t1.vhd
-    Info (12022): Found design unit 1: Mux4t1-behaviour File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux4t1.vhd Line: 21
-    Info (12023): Found entity 1: Mux4t1 File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux4t1.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/nBitRegister.vhd
-    Info (12022): Found design unit 1: nBitRegister-structural File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/nBitRegister.vhd Line: 26
-    Info (12023): Found entity 1: nBitRegister File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/nBitRegister.vhd Line: 16
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/onesComp_n.vhd
-    Info (12022): Found design unit 1: onesComp_n-structural File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/onesComp_n.vhd Line: 26
-    Info (12023): Found entity 1: onesComp_n File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/onesComp_n.vhd Line: 19
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/org2.vhd
-    Info (12022): Found design unit 1: org2-dataflow File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/org2.vhd Line: 31
-    Info (12023): Found entity 1: org2 File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/org2.vhd Line: 23
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/rbshift.vhd
-    Info (12022): Found design unit 1: rbshift-mixed File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/rbshift.vhd Line: 26
-    Info (12023): Found entity 1: rbshift File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/rbshift.vhd Line: 16
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/rippleAdder_n.vhd
-    Info (12022): Found design unit 1: rippleAdder_n-structural File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/rippleAdder_n.vhd Line: 34
-    Info (12023): Found entity 1: rippleAdder_n File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/rippleAdder_n.vhd Line: 22
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/xorg2.vhd
-    Info (12022): Found design unit 1: xorg2-dataflow File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/xorg2.vhd Line: 31
-    Info (12023): Found entity 1: xorg2 File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/xorg2.vhd Line: 23
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd
-    Info (12022): Found design unit 1: RISCV_Processor-structure File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 35
-    Info (12023): Found entity 1: RISCV_Processor File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 24
-Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/mem.vhd
-    Info (12022): Found design unit 1: mem-rtl File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/mem.vhd Line: 27
-    Info (12023): Found entity 1: mem File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/mem.vhd Line: 8
+Info (12021): Found 1 design units, including 0 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/RISCV_types.vhd
+    Info (12022): Found design unit 1: RISCV_types File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/RISCV_types.vhd Line: 15
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd
+    Info (12022): Found design unit 1: ALU-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd Line: 32
+    Info (12023): Found entity 1: ALU File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ALU_Control.vhd
+    Info (12022): Found design unit 1: ALU_Control-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ALU_Control.vhd Line: 25
+    Info (12023): Found entity 1: ALU_Control File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ALU_Control.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/AddSub.vhd
+    Info (12022): Found design unit 1: AddSub-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/AddSub.vhd Line: 18
+    Info (12023): Found entity 1: AddSub File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/AddSub.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/Compare.vhd
+    Info (12022): Found design unit 1: Compare-behvariour File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/Compare.vhd Line: 17
+    Info (12023): Found entity 1: Compare File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/Compare.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ControlUnit.vhd
+    Info (12022): Found design unit 1: ControlUnit-dataflow File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ControlUnit.vhd Line: 34
+    Info (12023): Found entity 1: ControlUnit File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ControlUnit.vhd Line: 17
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/DFmux2t1.vhd
+    Info (12022): Found design unit 1: DFmux2t1-dataflow File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/DFmux2t1.vhd Line: 13
+    Info (12023): Found entity 1: DFmux2t1 File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/DFmux2t1.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/DMEMSignExtender.vhd
+    Info (12022): Found design unit 1: DMEMSignExtender-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/DMEMSignExtender.vhd Line: 13
+    Info (12023): Found entity 1: DMEMSignExtender File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/DMEMSignExtender.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/FullAdder.vhd
+    Info (12022): Found design unit 1: FullAdder-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/FullAdder.vhd Line: 15
+    Info (12023): Found entity 1: FullAdder File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/FullAdder.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ImmediateExtender.vhd
+    Info (12022): Found design unit 1: ImmediateExtender-dataflow File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ImmediateExtender.vhd Line: 23
+    Info (12023): Found entity 1: ImmediateExtender File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ImmediateExtender.vhd Line: 17
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/InstructionAddressHolder.vhd
+    Info (12022): Found design unit 1: InstructionAddressHolder-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/InstructionAddressHolder.vhd Line: 23
+    Info (12023): Found entity 1: InstructionAddressHolder File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/InstructionAddressHolder.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/IsNegative.vhd
+    Info (12022): Found design unit 1: IsNegative-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/IsNegative.vhd Line: 15
+    Info (12023): Found entity 1: IsNegative File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/IsNegative.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/IsZero.vhd
+    Info (12022): Found design unit 1: IsZero-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/IsZero.vhd Line: 15
+    Info (12023): Found entity 1: IsZero File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/IsZero.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/LogicModule.vhd
+    Info (12022): Found design unit 1: LogicModule-mixed File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/LogicModule.vhd Line: 31
+    Info (12023): Found entity 1: LogicModule File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/LogicModule.vhd Line: 21
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/N_Adder.vhd
+    Info (12022): Found design unit 1: N_Adder-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/N_Adder.vhd Line: 18
+    Info (12023): Found entity 1: N_Adder File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/N_Adder.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/OnesCompliment.vhd
+    Info (12022): Found design unit 1: OnesCompliment-structural File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/OnesCompliment.vhd Line: 14
+    Info (12023): Found entity 1: OnesCompliment File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/OnesCompliment.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/PCRegister.vhd
+    Info (12022): Found design unit 1: PCRegister-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/PCRegister.vhd Line: 23
+    Info (12023): Found entity 1: PCRegister File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/PCRegister.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/PC_dffg.vhd
+    Info (12022): Found design unit 1: PC_dffg-mixed File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/PC_dffg.vhd Line: 32
+    Info (12023): Found entity 1: PC_dffg File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/PC_dffg.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/RegFile.vhd
+    Info (12022): Found design unit 1: RegFile-structural File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/RegFile.vhd Line: 33
+    Info (12023): Found entity 1: RegFile File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/RegFile.vhd Line: 18
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/RegisterDecoder.vhd
+    Info (12022): Found design unit 1: RegisterDecoder-structural File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/RegisterDecoder.vhd Line: 22
+    Info (12023): Found entity 1: RegisterDecoder File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/RegisterDecoder.vhd Line: 16
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/addSub_n.vhd
+    Info (12022): Found design unit 1: addSub_n-structural File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/addSub_n.vhd Line: 34
+    Info (12023): Found entity 1: addSub_n File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/addSub_n.vhd Line: 22
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/andg2.vhd
+    Info (12022): Found design unit 1: andg2-dataflow File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/andg2.vhd Line: 31
+    Info (12023): Found entity 1: andg2 File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/andg2.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/bit_mux4t1.vhd
+    Info (12022): Found design unit 1: BitMux4t1-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/bit_mux4t1.vhd Line: 18
+    Info (12023): Found entity 1: BitMux4t1 File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/bit_mux4t1.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/dffg.vhd
+    Info (12022): Found design unit 1: dffg-mixed File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/dffg.vhd Line: 33
+    Info (12023): Found entity 1: dffg File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/dffg.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/dualShift.vhd
+    Info (12022): Found design unit 1: dualShift-mixed File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/dualShift.vhd Line: 27
+    Info (12023): Found entity 1: dualShift File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/dualShift.vhd Line: 16
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/hack.vhd
+    Info (12022): Found design unit 1: HACK-structural File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/hack.vhd Line: 11
+    Info (12023): Found entity 1: HACK File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/hack.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/invg.vhd
+    Info (12022): Found design unit 1: invg-dataflow File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/invg.vhd Line: 30
+    Info (12023): Found entity 1: invg File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/invg.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/mux2t1.vhd
+    Info (12022): Found design unit 1: mux2t1-structural File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/mux2t1.vhd Line: 15
+    Info (12023): Found entity 1: mux2t1 File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/mux2t1.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/mux2t1_N.vhd
+    Info (12022): Found design unit 1: mux2t1_N-structural File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/mux2t1_N.vhd Line: 32
+    Info (12023): Found entity 1: mux2t1_N File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/mux2t1_N.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/mux32t1.vhd
+    Info (12022): Found design unit 1: mux32t1-dataflow File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/mux32t1.vhd Line: 25
+    Info (12023): Found entity 1: mux32t1 File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/mux32t1.vhd Line: 19
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/mux4t1.vhd
+    Info (12022): Found design unit 1: Mux4t1-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/mux4t1.vhd Line: 21
+    Info (12023): Found entity 1: Mux4t1 File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/mux4t1.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/nBitRegister.vhd
+    Info (12022): Found design unit 1: nBitRegister-structural File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/nBitRegister.vhd Line: 26
+    Info (12023): Found entity 1: nBitRegister File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/nBitRegister.vhd Line: 16
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/onesComp_n.vhd
+    Info (12022): Found design unit 1: onesComp_n-structural File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/onesComp_n.vhd Line: 26
+    Info (12023): Found entity 1: onesComp_n File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/onesComp_n.vhd Line: 19
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/org2.vhd
+    Info (12022): Found design unit 1: org2-dataflow File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/org2.vhd Line: 31
+    Info (12023): Found entity 1: org2 File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/org2.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/rbshift.vhd
+    Info (12022): Found design unit 1: rbshift-mixed File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/rbshift.vhd Line: 26
+    Info (12023): Found entity 1: rbshift File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/rbshift.vhd Line: 16
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/rippleAdder_n.vhd
+    Info (12022): Found design unit 1: rippleAdder_n-structural File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/rippleAdder_n.vhd Line: 34
+    Info (12023): Found entity 1: rippleAdder_n File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/rippleAdder_n.vhd Line: 22
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/xorg2.vhd
+    Info (12022): Found design unit 1: xorg2-dataflow File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/xorg2.vhd Line: 31
+    Info (12023): Found entity 1: xorg2 File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/xorg2.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd
+    Info (12022): Found design unit 1: RISCV_Processor-structure File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 35
+    Info (12023): Found entity 1: RISCV_Processor File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 24
+Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/mem.vhd
+    Info (12022): Found design unit 1: mem-rtl File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/mem.vhd Line: 27
+    Info (12023): Found entity 1: mem File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/mem.vhd Line: 8
 Info (12127): Elaborating entity "RISCV_Processor" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(44): object "s_RegWr" assigned a value but never read File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 44
-Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(46): object "s_RegWrData" assigned a value but never read File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 46
-Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(225): object "f_ALU_Overflow" assigned a value but never read File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 225
-Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(226): object "f_ALU_Zero" assigned a value but never read File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 226
-Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(227): object "f_ALU_Negative" assigned a value but never read File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 227
-Info (12128): Elaborating entity "HACK" for hierarchy "HACK:g_ImemHack" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 257
-Info (12128): Elaborating entity "mem" for hierarchy "mem:IMem" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 263
-Info (12128): Elaborating entity "DMEMSignExtender" for hierarchy "DMEMSignExtender:g_DMEMSignExtender" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 292
-Info (12128): Elaborating entity "InstructionAddressHolder" for hierarchy "InstructionAddressHolder:g_ProgramCounter" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 302
-Warning (10540): VHDL Signal Declaration warning at InstructionAddressHolder.vhd(41): used explicit default value for signal "s_ResetValue" because signal was never assigned a value File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/InstructionAddressHolder.vhd Line: 41
-Info (12128): Elaborating entity "PCRegister" for hierarchy "InstructionAddressHolder:g_ProgramCounter|PCRegister:g_PCRegister" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/InstructionAddressHolder.vhd Line: 52
-Info (12128): Elaborating entity "PC_dffg" for hierarchy "InstructionAddressHolder:g_ProgramCounter|PCRegister:g_PCRegister|PC_dffg:\generated:0:FlipFlop" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/PCRegister.vhd Line: 42
-Warning (10492): VHDL Process Statement warning at PC_dffg.vhd(53): signal "i_RSTV" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/PC_dffg.vhd Line: 53
-Info (12128): Elaborating entity "AddSub" for hierarchy "AddSub:g_ProgramCounterConstAdder" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 315
-Info (12128): Elaborating entity "OnesCompliment" for hierarchy "AddSub:g_ProgramCounterConstAdder|OnesCompliment:g_InvertB" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/AddSub.vhd Line: 62
-Info (12128): Elaborating entity "invg" for hierarchy "AddSub:g_ProgramCounterConstAdder|OnesCompliment:g_InvertB|invg:\generated:0:notGate" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/OnesCompliment.vhd Line: 26
-Info (12128): Elaborating entity "mux2t1_N" for hierarchy "AddSub:g_ProgramCounterConstAdder|mux2t1_N:g_SubtractionMux" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/AddSub.vhd Line: 71
-Info (12128): Elaborating entity "mux2t1" for hierarchy "AddSub:g_ProgramCounterConstAdder|mux2t1_N:g_SubtractionMux|mux2t1:\G_NBit_MUX:0:MUXI" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/mux2t1_N.vhd Line: 45
-Info (12128): Elaborating entity "N_Adder" for hierarchy "AddSub:g_ProgramCounterConstAdder|N_Adder:g_Adder" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/AddSub.vhd Line: 82
-Info (12128): Elaborating entity "FullAdder" for hierarchy "AddSub:g_ProgramCounterConstAdder|N_Adder:g_Adder|FullAdder:\generated:0:Adder" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/N_Adder.vhd Line: 40
-Info (12128): Elaborating entity "org2" for hierarchy "AddSub:g_ProgramCounterConstAdder|N_Adder:g_Adder|FullAdder:\generated:0:Adder|org2:g_AoB" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/FullAdder.vhd Line: 49
-Info (12128): Elaborating entity "andg2" for hierarchy "AddSub:g_ProgramCounterConstAdder|N_Adder:g_Adder|FullAdder:\generated:0:Adder|andg2:g_AaB" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/FullAdder.vhd Line: 56
-Info (12128): Elaborating entity "xorg2" for hierarchy "AddSub:g_ProgramCounterConstAdder|N_Adder:g_Adder|FullAdder:\generated:0:Adder|xorg2:g_AxB" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/FullAdder.vhd Line: 63
-Info (12128): Elaborating entity "ControlUnit" for hierarchy "ControlUnit:g_ControlUnit" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 362
-Info (12128): Elaborating entity "ImmediateExtender" for hierarchy "ImmediateExtender:g_ImmediateGeneration" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 378
-Info (12128): Elaborating entity "RegFile" for hierarchy "RegFile:g_RegisterFile" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 395
-Info (12128): Elaborating entity "nBitRegister" for hierarchy "RegFile:g_RegisterFile|nBitRegister:zero_Reg" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/RegFile.vhd Line: 62
-Info (12128): Elaborating entity "dffg" for hierarchy "RegFile:g_RegisterFile|nBitRegister:zero_Reg|dffg:\G_NBIT_REG:0:REG" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/nBitRegister.vhd Line: 37
-Info (12128): Elaborating entity "mux32t1" for hierarchy "RegFile:g_RegisterFile|mux32t1:g_RS1MUX" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/RegFile.vhd Line: 81
-Info (12128): Elaborating entity "RegisterDecoder" for hierarchy "RegFile:g_RegisterFile|RegisterDecoder:g_RdDec" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/RegFile.vhd Line: 97
-Info (12128): Elaborating entity "ALU_Control" for hierarchy "ALU_Control:g_ALUControl" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 415
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:g_ALU" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 432
-Info (12128): Elaborating entity "addSub_n" for hierarchy "ALU:g_ALU|addSub_n:g_AddSub" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd Line: 190
-Info (12128): Elaborating entity "onesComp_n" for hierarchy "ALU:g_ALU|addSub_n:g_AddSub|onesComp_n:g_Comp" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/addSub_n.vhd Line: 73
-Info (12128): Elaborating entity "rippleAdder_n" for hierarchy "ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/addSub_n.vhd Line: 86
-Info (12128): Elaborating entity "LogicModule" for hierarchy "ALU:g_ALU|LogicModule:g_Logic" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd Line: 202
-Info (12128): Elaborating entity "dualShift" for hierarchy "ALU:g_ALU|dualShift:g_BarrelShifter" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd Line: 213
-Info (12128): Elaborating entity "rbshift" for hierarchy "ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:rightShifter" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/dualShift.vhd Line: 60
-Info (12128): Elaborating entity "DFmux2t1" for hierarchy "ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:rightShifter|DFmux2t1:\g_valShiftArr:0:g_MuxMain:0:g_mux" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/rbshift.vhd Line: 49
-Info (12128): Elaborating entity "Compare" for hierarchy "ALU:g_ALU|Compare:g_Compare" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd Line: 227
-Warning (10540): VHDL Signal Declaration warning at Compare.vhd(26): used explicit default value for signal "s_Padding" because signal was never assigned a value File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/Compare.vhd Line: 26
-Info (12128): Elaborating entity "Mux4t1" for hierarchy "ALU:g_ALU|Mux4t1:g_ModuleSelect" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd Line: 238
-Info (12128): Elaborating entity "BitMux4t1" for hierarchy "ALU:g_ALU|BitMux4t1:g_Flag_Select_Overflow" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd Line: 251
-Info (12128): Elaborating entity "IsNegative" for hierarchy "ALU:g_ALU|IsNegative:g_IsNegative" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd Line: 261
-Info (12128): Elaborating entity "IsZero" for hierarchy "ALU:g_ALU|IsZero:g_IsZero" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd Line: 270
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(44): object "s_RegWr" assigned a value but never read File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 44
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(46): object "s_RegWrData" assigned a value but never read File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 46
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(225): object "f_ALU_Overflow" assigned a value but never read File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 225
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(226): object "f_ALU_Zero" assigned a value but never read File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 226
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(227): object "f_ALU_Negative" assigned a value but never read File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 227
+Warning (10492): VHDL Process Statement warning at RISCV_Processor.vhd(255): signal "iRST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 255
+Info (12128): Elaborating entity "HACK" for hierarchy "HACK:g_ImemHack" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 269
+Info (12128): Elaborating entity "mem" for hierarchy "mem:IMem" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 275
+Info (12128): Elaborating entity "DMEMSignExtender" for hierarchy "DMEMSignExtender:g_DMEMSignExtender" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 306
+Info (12128): Elaborating entity "InstructionAddressHolder" for hierarchy "InstructionAddressHolder:g_ProgramCounter" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 316
+Warning (10540): VHDL Signal Declaration warning at InstructionAddressHolder.vhd(41): used explicit default value for signal "s_ResetValue" because signal was never assigned a value File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/InstructionAddressHolder.vhd Line: 41
+Info (12128): Elaborating entity "PCRegister" for hierarchy "InstructionAddressHolder:g_ProgramCounter|PCRegister:g_PCRegister" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/InstructionAddressHolder.vhd Line: 55
+Info (12128): Elaborating entity "PC_dffg" for hierarchy "InstructionAddressHolder:g_ProgramCounter|PCRegister:g_PCRegister|PC_dffg:\generated:0:FlipFlop" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/PCRegister.vhd Line: 42
+Warning (10492): VHDL Process Statement warning at PC_dffg.vhd(53): signal "i_RSTV" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/PC_dffg.vhd Line: 53
+Info (12128): Elaborating entity "AddSub" for hierarchy "AddSub:g_ProgramCounterConstAdder" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 329
+Info (12128): Elaborating entity "OnesCompliment" for hierarchy "AddSub:g_ProgramCounterConstAdder|OnesCompliment:g_InvertB" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/AddSub.vhd Line: 61
+Info (12128): Elaborating entity "invg" for hierarchy "AddSub:g_ProgramCounterConstAdder|OnesCompliment:g_InvertB|invg:\generated:0:notGate" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/OnesCompliment.vhd Line: 26
+Info (12128): Elaborating entity "mux2t1_N" for hierarchy "AddSub:g_ProgramCounterConstAdder|mux2t1_N:g_SubtractionMux" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/AddSub.vhd Line: 70
+Info (12128): Elaborating entity "mux2t1" for hierarchy "AddSub:g_ProgramCounterConstAdder|mux2t1_N:g_SubtractionMux|mux2t1:\G_NBit_MUX:0:MUXI" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/mux2t1_N.vhd Line: 45
+Info (12128): Elaborating entity "N_Adder" for hierarchy "AddSub:g_ProgramCounterConstAdder|N_Adder:g_Adder" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/AddSub.vhd Line: 81
+Info (12128): Elaborating entity "FullAdder" for hierarchy "AddSub:g_ProgramCounterConstAdder|N_Adder:g_Adder|FullAdder:\generated:0:Adder" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/N_Adder.vhd Line: 39
+Info (12128): Elaborating entity "org2" for hierarchy "AddSub:g_ProgramCounterConstAdder|N_Adder:g_Adder|FullAdder:\generated:0:Adder|org2:g_AoB" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/FullAdder.vhd Line: 48
+Info (12128): Elaborating entity "andg2" for hierarchy "AddSub:g_ProgramCounterConstAdder|N_Adder:g_Adder|FullAdder:\generated:0:Adder|andg2:g_AaB" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/FullAdder.vhd Line: 55
+Info (12128): Elaborating entity "xorg2" for hierarchy "AddSub:g_ProgramCounterConstAdder|N_Adder:g_Adder|FullAdder:\generated:0:Adder|xorg2:g_AxB" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/FullAdder.vhd Line: 62
+Info (12128): Elaborating entity "ControlUnit" for hierarchy "ControlUnit:g_ControlUnit" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 376
+Info (12128): Elaborating entity "ImmediateExtender" for hierarchy "ImmediateExtender:g_ImmediateGeneration" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 392
+Info (12128): Elaborating entity "RegFile" for hierarchy "RegFile:g_RegisterFile" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 409
+Info (12128): Elaborating entity "nBitRegister" for hierarchy "RegFile:g_RegisterFile|nBitRegister:zero_Reg" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/RegFile.vhd Line: 62
+Info (12128): Elaborating entity "dffg" for hierarchy "RegFile:g_RegisterFile|nBitRegister:zero_Reg|dffg:\G_NBIT_REG:0:REG" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/nBitRegister.vhd Line: 37
+Info (12128): Elaborating entity "mux32t1" for hierarchy "RegFile:g_RegisterFile|mux32t1:g_RS1MUX" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/RegFile.vhd Line: 81
+Info (12128): Elaborating entity "RegisterDecoder" for hierarchy "RegFile:g_RegisterFile|RegisterDecoder:g_RdDec" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/RegFile.vhd Line: 97
+Info (12128): Elaborating entity "ALU_Control" for hierarchy "ALU_Control:g_ALUControl" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 429
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:g_ALU" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 446
+Info (12128): Elaborating entity "addSub_n" for hierarchy "ALU:g_ALU|addSub_n:g_AddSub" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd Line: 190
+Info (12128): Elaborating entity "onesComp_n" for hierarchy "ALU:g_ALU|addSub_n:g_AddSub|onesComp_n:g_Comp" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/addSub_n.vhd Line: 73
+Info (12128): Elaborating entity "rippleAdder_n" for hierarchy "ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/addSub_n.vhd Line: 86
+Info (12128): Elaborating entity "LogicModule" for hierarchy "ALU:g_ALU|LogicModule:g_Logic" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd Line: 202
+Info (12128): Elaborating entity "dualShift" for hierarchy "ALU:g_ALU|dualShift:g_BarrelShifter" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd Line: 213
+Info (12128): Elaborating entity "rbshift" for hierarchy "ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:rightShifter" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/dualShift.vhd Line: 60
+Info (12128): Elaborating entity "DFmux2t1" for hierarchy "ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:rightShifter|DFmux2t1:\g_valShiftArr:0:g_MuxMain:0:g_mux" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/rbshift.vhd Line: 49
+Info (12128): Elaborating entity "Compare" for hierarchy "ALU:g_ALU|Compare:g_Compare" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd Line: 227
+Warning (10540): VHDL Signal Declaration warning at Compare.vhd(26): used explicit default value for signal "s_Padding" because signal was never assigned a value File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/Compare.vhd Line: 26
+Info (12128): Elaborating entity "Mux4t1" for hierarchy "ALU:g_ALU|Mux4t1:g_ModuleSelect" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd Line: 238
+Info (12128): Elaborating entity "BitMux4t1" for hierarchy "ALU:g_ALU|BitMux4t1:g_Flag_Select_Overflow" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd Line: 251
+Info (12128): Elaborating entity "IsNegative" for hierarchy "ALU:g_ALU|IsNegative:g_IsNegative" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd Line: 261
+Info (12128): Elaborating entity "IsZero" for hierarchy "ALU:g_ALU|IsZero:g_IsZero" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/Components/ALU.vhd Line: 270
 Info (276014): Found 2 instances of uninferred RAM logic
-    Info (276007): RAM logic "mem:IMem|ram" is uninferred due to asynchronous read logic File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/mem.vhd Line: 35
-    Info (276007): RAM logic "mem:DMem|ram" is uninferred due to asynchronous read logic File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/mem.vhd Line: 35
+    Info (276007): RAM logic "mem:IMem|ram" is uninferred due to asynchronous read logic File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/mem.vhd Line: 35
+    Info (276007): RAM logic "mem:DMem|ram" is uninferred due to asynchronous read logic File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/mem.vhd Line: 35
 Warning (276002): Cannot convert all sets of registers into RAM megafunctions when creating nodes; therefore, the resulting number of registers remaining in design can cause longer compilation time or result in insufficient memory to complete Analysis and Synthesis
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 22 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "iInstAddr[0]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[1]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[12]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[13]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[14]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[15]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[16]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[17]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[18]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[19]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[20]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[21]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[22]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[23]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[24]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[25]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[26]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[27]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[28]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[29]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[30]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[31]" File: /home/jagaul/cpre381/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-Info (21057): Implemented 114596 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "iInstAddr[0]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[1]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[12]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[13]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[14]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[15]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[16]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[17]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[18]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[19]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[20]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[21]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[22]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[23]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[24]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[25]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[26]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[27]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[28]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[29]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[30]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[31]" File: /home/esliandy/3810/CPRE381_Labs/Project1_Toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+Info (21057): Implemented 114565 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 67 input pins
     Info (21059): Implemented 32 output pins
-    Info (21061): Implemented 114497 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 33 warnings
-    Info: Peak virtual memory: 1204 megabytes
-    Info: Processing ended: Fri Oct 31 13:40:05 2025
-    Info: Elapsed time: 00:02:38
-    Info: Total CPU time (on all processors): 00:02:41
+    Info (21061): Implemented 114466 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 34 warnings
+    Info: Peak virtual memory: 1203 megabytes
+    Info: Processing ended: Wed Dec 10 14:03:11 2025
+    Info: Elapsed time: 00:03:04
+    Info: Total CPU time (on all processors): 00:03:11
 
 
