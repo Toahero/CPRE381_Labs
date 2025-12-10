@@ -56,7 +56,7 @@ begin
         )
         port map(
             i_Clock         => i_Clock,
-            i_Operation     => ((not s_Halted) and (not i_Pause)),
+            i_Operation     => ((not s_Halted)),
             i_Reset         => i_Reset,
             i_ResetValue    => s_ResetValue,
 

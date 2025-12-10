@@ -316,6 +316,8 @@ end component;
   signal s_DataMemory                   : std_logic_vector(31 downto 0);
   signal s_Instruction                  : std_logic_vector(31 downto 0);
 
+  signal s_InstrIncrement               : std_logic_vector(31 downto 0);
+
   -- Buffers
   signal s_IFID_Next                    : t_IFID;
   signal s_IFID_Current                 : t_IFID;
@@ -458,13 +460,24 @@ begin
     );
   s_Halt                                <= s_MEMWB_Current.HaltProg;
 
+  IncrementSelect : mux2t1_N
+    generic map(
+      N                                 => 32
+    )
+    port map(
+      i_S                               => s_Pause,
+      i_D0                              => x"00000004",
+      i_D1                              => x"00000000",
+      o_O                               => s_InstrIncrement
+    );
+
   g_StdProgramCounterAdder : AddSub
     generic map(
       WIDTH                             => 32
     )
     port map(
       i_A                               => s_IF_InstructionAddress,
-      i_B                               => x"00000004",
+      i_B                               => s_InstrIncrement,
       n_Add_Sub                         => '0',
       o_S                               => s_StdNextPC,
       o_C                               => open

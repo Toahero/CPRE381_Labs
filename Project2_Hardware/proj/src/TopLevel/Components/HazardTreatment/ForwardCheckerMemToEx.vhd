@@ -99,12 +99,12 @@ begin
         s_RS2_Fwdable_Type <= s_canAddRs2 and s_ProducesRD;
 
     s_MemRD_EqualsExRS1 <=
-        '0' when (s_Mem_RD = "00") else --Nops should not be used
+        '0' when (s_Mem_RD = "00000") else --Nops should not be used
         '1' when (s_Mem_RD = s_Ex_RS1) else
         '0';
 
     s_MemRD_EqualsExRS2 <=
-        '0' when (s_Mem_RD = "00") else --Nops should not be used
+        '0' when (s_Mem_RD = "00000") else --Nops should not be used
         '1' when (s_Mem_RD = s_Ex_RS2) else
         '0';
 

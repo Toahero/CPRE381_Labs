@@ -35,25 +35,16 @@ architecture dataflow of HazardDetectionUnit is
         );
     end component;
 
-    component ForwardCheckerMemToEx is
-    port(
-        
-        i_ExInst        : in std_logic_vector(31 downto 0);
-        i_MemIns       : in std_logic_vector(31 downto 0);
+    component fwdTypeChecker is
+        port(
+            
+            i_ExOpCode        : in std_logic_vector(6 downto 0);
+            i_FwdOpCode       : in std_logic_vector(6 downto 0);
+            i_FromWb      : in std_logic;
 
-        o_forwardRS1    : out std_logic;
-        o_forwardRS2    : out std_logic
-    );
-    end component;
-
-    component ForwardCheckerWbToEx is
-    port(
-        i_ExInst        : in std_logic_vector(31 downto 0);
-        i_WbInst       : in std_logic_vector(31 downto 0);
-
-        o_forwardRS1    : out std_logic;
-        o_forwardRS2    : out std_logic
-    );
+            o_forwardRS1    : out std_logic;
+            o_forwardRS2    : out std_logic
+        );
     end component;
 
     signal s_IF_Instruction     : t_Instruction;
@@ -100,39 +91,47 @@ begin
             o_Instruction       => s_WB_Instruction
         );
 
-    g_CheckForwardMem : ForwardCheckerMemToEx
+    g_fwdCheckerOneSlot : fwdTypeChecker
         port map(
-            i_ExInst            => s_EX_Instruction.Instruction,
-            i_MemIns            => s_MEM_Instruction.Instruction,
-
+            i_ExOpCode          => s_IF_Instruction.Instruction(6 downto 0),
+            i_FwdOpCode         => s_ID_Instruction.Instruction(6 downto 0),
+            i_FromWb            => '0',
+            
             o_forwardRS1        => s_MemRS1Fwd,
-            o_forwardRS2        => s_MemRS2Fwd
+            o_forwardRS2        => s_MemRS1Fwd
         );
 
-    g_CheckForwardWb : ForwardCheckerWbToEx
+    g_fwdCheckerTwoSlots : fwdTypeChecker
         port map(
-            i_ExInst            => s_EX_Instruction.Instruction,
-            i_WbInst            => s_MEM_Instruction.Instruction,
-
+            i_ExOpCode          => s_IF_Instruction.Instruction(6 downto 0),
+            i_FwdOpCode         => s_ID_Instruction.Instruction(6 downto 0),
+            i_FromWb            => '1',
+            
             o_forwardRS1        => s_WbRs1Fwd,
             o_forwardRS2        => s_WbRS2Fwd
         );
-
 
     o_NOP <= '1' when 
     (
         -- Read after Write
         (
+            -- (i_JumpOrBranch = '1') or
+            -- (s_IF_Instruction.RS1 = s_ID_Instruction .RD and s_ID_Instruction .isNOP = false) or
+            -- (s_IF_Instruction.RS1 = s_EX_Instruction .RD and s_EX_Instruction .isNOP = false) or
+            -- (s_IF_Instruction.RS1 = s_MEM_Instruction.RD and s_MEM_Instruction.isNOP = false) or
+
+            -- (s_IF_Instruction.RS2 = s_ID_Instruction .RD and s_ID_Instruction .isNOP = false) or
+            -- (s_IF_Instruction.RS2 = s_EX_Instruction .RD and s_EX_Instruction .isNOP = false) or
+            -- (s_IF_Instruction.RS2 = s_MEM_Instruction.RD and s_MEM_Instruction.isNOP = false) or
+
 
             (s_IF_Instruction.RS1 = s_ID_Instruction .RD and s_ID_Instruction .isNOP = false and s_MemRS1Fwd = '0') or
             (s_IF_Instruction.RS1 = s_EX_Instruction .RD and s_EX_Instruction .isNOP = false and s_WbRs1Fwd = '0') or
             (s_IF_Instruction.RS1 = s_MEM_Instruction.RD and s_MEM_Instruction.isNOP = false) or
-            --(s_IF_Instruction.RS1 = s_WB_Instruction .RD and s_WB_Instruction .isNOP = false) or
 
             (s_IF_Instruction.RS2 = s_ID_Instruction .RD and s_ID_Instruction .isNOP = false and s_MemRS2Fwd = '0') or
             (s_IF_Instruction.RS2 = s_EX_Instruction .RD and s_EX_Instruction .isNOP = false and s_WbRS2Fwd = '0') or
             (s_IF_Instruction.RS2 = s_MEM_Instruction.RD and s_MEM_Instruction.isNOP = false) or
-            --(s_IF_Instruction.RS2 = s_WB_Instruction .RD and s_WB_Instruction .isNOP = false) or
 
             false
         )

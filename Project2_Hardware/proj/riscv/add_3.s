@@ -39,8 +39,10 @@ main:
     add x1, x1, x1
     add x1, x1, x1        # 30 ---> x1=1<<30 
 
+    
+
     # copy x1 to x2
-    add x2, x1, x0        # x2=x1
+    add x2, x1, x0        # x2=x1 Error found here
     # add x1+x2 --> (1<<31)
     add x3, x1, x2
     # add x3+x3 ---> wrap around
