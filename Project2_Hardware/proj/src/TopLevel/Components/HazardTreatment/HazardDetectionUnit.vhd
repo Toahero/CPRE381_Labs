@@ -127,11 +127,11 @@ begin
 
             (s_IF_Instruction.RS1 = s_ID_Instruction .RD and s_ID_Instruction .isNOP = false and s_MemRS1Fwd = '0') or
             (s_IF_Instruction.RS1 = s_EX_Instruction .RD and s_EX_Instruction .isNOP = false and s_WbRs1Fwd = '0') or
-            (s_IF_Instruction.RS1 = s_MEM_Instruction.RD and s_MEM_Instruction.isNOP = false) or
+            --(s_IF_Instruction.RS1 = s_MEM_Instruction.RD and s_MEM_Instruction.isNOP = false) or
 
             (s_IF_Instruction.RS2 = s_ID_Instruction .RD and s_ID_Instruction .isNOP = false and s_MemRS2Fwd = '0') or
             (s_IF_Instruction.RS2 = s_EX_Instruction .RD and s_EX_Instruction .isNOP = false and s_WbRS2Fwd = '0') or
-            (s_IF_Instruction.RS2 = s_MEM_Instruction.RD and s_MEM_Instruction.isNOP = false) or
+            --(s_IF_Instruction.RS2 = s_MEM_Instruction.RD and s_MEM_Instruction.isNOP = false) or
 
             false
         )

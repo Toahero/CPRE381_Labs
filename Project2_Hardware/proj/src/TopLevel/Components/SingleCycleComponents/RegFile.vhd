@@ -56,6 +56,9 @@ architecture structural of RegFile is
 signal s_WrEn	: std_logic_vector(31 downto 0);
 signal s_ReadAr	: array32bits32;
 
+signal s_RS1_Reg	: std_logic_vector(31 downto 0);
+signal s_RS2_Reg	: std_logic_vector(31 downto 0);
+
 begin
 --Setting up the Registers
 --Set up the 0 register
@@ -82,13 +85,13 @@ begin
 		port map(
 			i_d	=> s_ReadAr,
 			i_sel	=> RS1Sel,
-			o_out	=> RS1);
+			o_out	=> s_RS1_Reg);
 
 	g_RS2MUX: mux32t1
 		port map(
 			i_d	=> s_ReadAr,
 			i_sel	=> RS2Sel,
-			o_out	=> RS2);
+			o_out	=> s_RS2_Reg);
 
 --Handling the Write (RD) port and capabilities
 
@@ -98,4 +101,14 @@ begin
 		port map(	i_En	=> WrEn,
 				i_Sel 	=> RdSel,
 				F_OUT	=> s_WrEn);
+
+
+	--Add passthrough for pipelining
+	RS1 <=
+			RD when (RS1Sel = RDSel) and (WrEn = '1') else
+			s_RS1_Reg;
+
+	RS2 <=
+			RD when (RS2Sel = RDSel) and (WrEn = '1') else
+			s_RS2_Reg;
 end structural;
