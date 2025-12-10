@@ -115,7 +115,7 @@ begin
     (
         -- Read after Write
         (
-            -- (i_JumpOrBranch = '1') or
+            (i_JumpOrBranch = '1') or
             -- (s_IF_Instruction.RS1 = s_ID_Instruction .RD and s_ID_Instruction .isNOP = false) or
             -- (s_IF_Instruction.RS1 = s_EX_Instruction .RD and s_EX_Instruction .isNOP = false) or
             -- (s_IF_Instruction.RS1 = s_MEM_Instruction.RD and s_MEM_Instruction.isNOP = false) or
