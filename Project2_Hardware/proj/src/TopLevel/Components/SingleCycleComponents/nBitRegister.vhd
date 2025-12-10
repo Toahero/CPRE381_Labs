@@ -25,7 +25,7 @@ end nBitRegister;
 
 architecture structural of nBitRegister is
 
-	component dffg is
+	component dffg_fallingEdge is
 		port(	i_CLK	: in std_logic;
 			i_RST	: in std_logic;
 			i_WE	: in std_logic;
@@ -34,7 +34,7 @@ architecture structural of nBitRegister is
 	end component;
 begin
 	G_NBIT_REG: for i in 0 to Reg_Size-1 generate
-		REG: dffg port map(
+		REG: dffg_fallingEdge port map(
 			i_CLK 	=> i_CLK,
 			i_RST	=> i_reset,
 			i_WE	=> i_WrEn,
