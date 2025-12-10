@@ -1,0 +1,83 @@
+
+#
+# CprE 381 toolflow Timing dump
+#
+
+FMax: 51.49mhz Clk Constraint: 20.00ns Slack: 0.58ns
+
+The path is given below
+
+ ===================================================================
+ From Node    : InstructionAddressHolder:g_InstructionAddressHolder|PCRegister:g_PCRegister|PC_dffg:\generated:8:FlipFlop|s_Q
+ To Node      : InstructionAddressHolder:g_InstructionAddressHolder|PCRegister:g_PCRegister|PC_dffg:\generated:31:FlipFlop|s_Q
+ Launch Clock : iCLK
+ Latch Clock  : iCLK
+ Data Arrival Path:
+ Total (ns)  Incr (ns)     Type  Element
+ ==========  ========= ==  ====  ===================================
+      0.000      0.000           launch edge time
+      3.072      3.072  R        clock network delay
+      3.304      0.232     uTco  InstructionAddressHolder:g_InstructionAddressHolder|PCRegister:g_PCRegister|PC_dffg:\generated:8:FlipFlop|s_Q
+      3.304      0.000 FF  CELL  g_InstructionAddressHolder|g_PCRegister|\generated:8:FlipFlop|s_Q|q
+      3.652      0.348 FF    IC  s_IMemAddr[8]~5|datad
+      3.777      0.125 FF  CELL  s_IMemAddr[8]~5|combout
+      6.234      2.457 FF    IC  IMem|ram~37492|datab
+      6.657      0.423 FR  CELL  IMem|ram~37492|combout
+      6.860      0.203 RR    IC  IMem|ram~37493|datad
+      7.015      0.155 RR  CELL  IMem|ram~37493|combout
+      7.687      0.672 RR    IC  IMem|ram~37494|dataa
+      8.104      0.417 RR  CELL  IMem|ram~37494|combout
+     10.090      1.986 RR    IC  IMem|ram~37497|datac
+     10.360      0.270 RF  CELL  IMem|ram~37497|combout
+     10.629      0.269 FF    IC  IMem|ram~37498|datab
+     10.985      0.356 FF  CELL  IMem|ram~37498|combout
+     11.218      0.233 FF    IC  IMem|ram~37541|datac
+     11.499      0.281 FF  CELL  IMem|ram~37541|combout
+     12.992      1.493 FF    IC  IMem|ram~37584|datac
+     13.273      0.281 FF  CELL  IMem|ram~37584|combout
+     13.548      0.275 FF    IC  IMem|ram~37585|dataa
+     13.948      0.400 FF  CELL  IMem|ram~37585|combout
+     14.714      0.766 FF    IC  g_HazardDetectionUnit|g_InstructionDecoder_IF|g_RegisterExtractor|o_RS2[4]~0|dataa
+     15.126      0.412 FR  CELL  g_HazardDetectionUnit|g_InstructionDecoder_IF|g_RegisterExtractor|o_RS2[4]~0|combout
+     15.370      0.244 RR    IC  g_HazardDetectionUnit|g_InstructionDecoder_IF|g_RegisterExtractor|o_RS2[4]~1|datad
+     15.525      0.155 RR  CELL  g_HazardDetectionUnit|g_InstructionDecoder_IF|g_RegisterExtractor|o_RS2[4]~1|combout
+     16.263      0.738 RR    IC  g_HazardDetectionUnit|o_NOP~18|datad
+     16.402      0.139 RF  CELL  g_HazardDetectionUnit|o_NOP~18|combout
+     16.632      0.230 FF    IC  g_HazardDetectionUnit|o_NOP~23|datad
+     16.757      0.125 FF  CELL  g_HazardDetectionUnit|o_NOP~23|combout
+     17.337      0.580 FF    IC  g_HazardDetectionUnit|o_NOP~24|datac
+     17.618      0.281 FF  CELL  g_HazardDetectionUnit|o_NOP~24|combout
+     17.852      0.234 FF    IC  g_HazardDetectionUnit|o_NOP~25|datac
+     18.133      0.281 FF  CELL  g_HazardDetectionUnit|o_NOP~25|combout
+     18.505      0.372 FF    IC  g_StdProgramCounterAdder|g_Adder|\generated:5:Adder|g_O21|o_F|datac
+     18.766      0.261 FR  CELL  g_StdProgramCounterAdder|g_Adder|\generated:5:Adder|g_O21|o_F|combout
+     18.995      0.229 RR    IC  g_StdProgramCounterAdder|g_Adder|\generated:11:Adder|g_O21|o_F|datad
+     19.150      0.155 RR  CELL  g_StdProgramCounterAdder|g_Adder|\generated:11:Adder|g_O21|o_F|combout
+     19.377      0.227 RR    IC  g_StdProgramCounterAdder|g_Adder|\generated:17:Adder|g_O21|o_F|datad
+     19.532      0.155 RR  CELL  g_StdProgramCounterAdder|g_Adder|\generated:17:Adder|g_O21|o_F|combout
+     19.759      0.227 RR    IC  g_StdProgramCounterAdder|g_Adder|\generated:20:Adder|g_O21|o_F|datad
+     19.914      0.155 RR  CELL  g_StdProgramCounterAdder|g_Adder|\generated:20:Adder|g_O21|o_F|combout
+     20.142      0.228 RR    IC  g_StdProgramCounterAdder|g_Adder|\generated:23:Adder|g_O21|o_F|datad
+     20.297      0.155 RR  CELL  g_StdProgramCounterAdder|g_Adder|\generated:23:Adder|g_O21|o_F|combout
+     21.303      1.006 RR    IC  g_StdProgramCounterAdder|g_Adder|\generated:26:Adder|g_O21|o_F|datad
+     21.458      0.155 RR  CELL  g_StdProgramCounterAdder|g_Adder|\generated:26:Adder|g_O21|o_F|combout
+     21.682      0.224 RR    IC  g_StdProgramCounterAdder|g_Adder|\generated:29:Adder|g_O21|o_F|datad
+     21.837      0.155 RR  CELL  g_StdProgramCounterAdder|g_Adder|\generated:29:Adder|g_O21|o_F|combout
+     22.048      0.211 RR    IC  g_Mux_NextInstructionAddress|\G_NBit_MUX:31:MUXI|o_O~0|datad
+     22.187      0.139 RF  CELL  g_Mux_NextInstructionAddress|\G_NBit_MUX:31:MUXI|o_O~0|combout
+     22.420      0.233 FF    IC  g_Mux_NextInstructionAddress|\G_NBit_MUX:31:MUXI|o_O~1|datac
+     22.701      0.281 FF  CELL  g_Mux_NextInstructionAddress|\G_NBit_MUX:31:MUXI|o_O~1|combout
+     22.701      0.000 FF    IC  g_InstructionAddressHolder|g_PCRegister|\generated:31:FlipFlop|s_Q|d
+     22.805      0.104 FF  CELL  InstructionAddressHolder:g_InstructionAddressHolder|PCRegister:g_PCRegister|PC_dffg:\generated:31:FlipFlop|s_Q
+ Data Required Path:
+ Total (ns)  Incr (ns)     Type  Element
+ ==========  ========= ==  ====  ===================================
+     20.000     20.000           latch edge time
+     23.354      3.354  R        clock network delay
+     23.386      0.032           clock pessimism removed
+     23.366     -0.020           clock uncertainty
+     23.384      0.018     uTsu  InstructionAddressHolder:g_InstructionAddressHolder|PCRegister:g_PCRegister|PC_dffg:\generated:31:FlipFlop|s_Q
+ Data Arrival Time  :    22.805
+ Data Required Time :    23.384
+ Slack              :     0.579
+ ===================================================================

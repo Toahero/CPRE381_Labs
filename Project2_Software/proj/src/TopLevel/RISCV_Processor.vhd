@@ -97,7 +97,6 @@ architecture structure of RISCV_Processor is
     );
   end component;
 
-
   component AddSub is
       generic(
           WIDTH                         : integer := 8
