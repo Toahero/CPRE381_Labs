@@ -41,10 +41,7 @@ architecture behaviour of InstructionAddressHolder is
     
 begin
 
-    s_Halted    <= i_Halt;
-                    -- '1' when    i_Halt = '1' or s_Halted = '1' else
-                    -- '0' when    i_Halt = '0' else
-                    -- '0';
+    s_Halted    <= not i_Halt;
 
     g_PCRegister : PCRegister
         generic map(
@@ -52,7 +49,7 @@ begin
         )
         port map(
             i_Clock         => i_Clock,
-            i_Operation     => ((not s_Halted)), --and (not i_Pause)),
+            i_Operation     => s_Halted, --and (not i_Pause)),
             i_Reset         => i_Reset,
             i_ResetValue    => s_ResetValue,
 

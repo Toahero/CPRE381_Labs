@@ -1,8 +1,10 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-use work.RISCV_types.t_InstructionType;
-use work.RISCV_types.t_Instruction;
+-- use work.RISCV_types.t_InstructionType;
+-- use work.RISCV_types.t_Instruction;
+
+use work.RISCV_types.all;
 
 entity FunctionExtractor is
     port(
@@ -25,10 +27,14 @@ begin
 
     o_Funct7   <=
                 i_Instruction(31 downto 25) when i_InstructionType = R else
-                i_Instruction(31 downto 25) when (
+                i_Instruction(31 downto 25) when
+                (
                     i_InstructionType = I and 
-                        (o_Funct3 = "001" or o_Funct3 = "101")
-                ) else
+                    (
+                        o_Funct3 = "001" or o_Funct3 = "101"
+                    )
+                )
+                else
                 "0000000";
 
 end behavior;

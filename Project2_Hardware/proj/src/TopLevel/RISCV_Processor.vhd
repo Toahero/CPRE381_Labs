@@ -109,7 +109,6 @@ architecture structure of RISCV_Processor is
     );
   end component;
 
-
   component AddSub is
     generic(
       WIDTH                             : integer := 8
@@ -324,6 +323,8 @@ end component;
     );
   end component;
 
+  -- Added Signals --
+
   signal s_CycleTracker                 : integer := 0;
   signal s_DataMemory                   : std_logic_vector(31 downto 0);
   signal s_Instruction                  : std_logic_vector(31 downto 0);
@@ -355,6 +356,7 @@ end component;
   signal s_IF_InstructionAddress        : std_logic_vector(31 downto 0);
   signal s_StdNextPC                    : std_logic_vector(31 downto 0);
   signal s_JumpOrBranchNextPC           : std_logic_vector(31 downto 0);
+  signal s_StdAddedValue                : std_logic_vector(31 downto 0);
 
   -- ID
   signal s_ID_JumpOrBranch              : std_logic;
@@ -470,25 +472,28 @@ begin
     );
   s_Halt                                <= s_MEMWB_Current.HaltProg;
 
-  g_Increment : PC_Increment
-    generic map(ADDR_WIDTH              => 32)
-    port map (
-      i_Pause => s_Pause,
-      i_CurrAddr => s_IF_InstructionAddress,
-      o_NextAddr => s_StdNextPC
+  g_PauseMux : mux2t1_N
+    generic map(
+      N                                 => 32
+    )
+    port map(
+      i_S                               => s_Pause,
+      i_D0                              => x"00000004",
+      i_D1                              => x"00000000",
+      o_O                               => s_StdAddedValue
     );
 
-  -- g_StdProgramCounterAdder : AddSub
-  --   generic map(
-  --     WIDTH                             => 32
-  --   )
-  --   port map(
-  --     i_A                               => s_IF_InstructionAddress,
-  --     i_B                               => x"00000004",
-  --     n_Add_Sub                         => '0',
-  --     o_S                               => s_StdNextPC,
-  --     o_C                               => open
-  --   );
+  g_StdProgramCounterAdder : AddSub
+    generic map(
+      WIDTH                             => 32
+    )
+    port map(
+      i_A                               => s_IF_InstructionAddress,
+      i_B                               => s_StdAddedValue,
+      n_Add_Sub                         => '0',
+      o_S                               => s_StdNextPC,
+      o_C                               => open
+    );
 
   g_HazardDetectionUnit : HazardDetectionUnit
     port map(

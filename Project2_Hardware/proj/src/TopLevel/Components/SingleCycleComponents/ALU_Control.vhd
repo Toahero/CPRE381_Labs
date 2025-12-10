@@ -32,7 +32,7 @@ begin
                             i_PCAddr    when i_Opcode = "1101111" else -- JAL
                             i_PCAddr    when i_Opcode = "1100111" else -- JALR
                             x"00000000" when i_Opcode = "0110111" else -- LUI
-                            x"XXXXXXXX";
+                            (others => 'X');
 
     o_AOverrideEnable   <=
                             '1'  when i_Opcode = "0010111" else
@@ -44,7 +44,7 @@ begin
     o_BOverride         <=
                             x"00000004" when i_Opcode = "1101111" else -- JAL
                             x"00000004" when i_Opcode = "1100111" else -- JALR
-                            x"XXXXXXXX";
+                            (others => 'X');
 
     o_BOverrideEnable   <=
                             '1'  when i_Opcode = "1101111" else
@@ -66,7 +66,7 @@ begin
                             "00" when i_Opcode = "1101111"                                                          else    -- JAL
                             "00" when i_Opcode = "0000011"                                                          else    -- LB, LH, LW, LBU, LHU
                             "00" when i_Opcode = "0100011"                                                          else    -- SB, SH, SW
-                            "XX";
+                            (others => 'X');
     
     o_OperationSelect   <=  
                             "01" when i_Funct3 = "000"      and     (i_Opcode = "0110011" or i_Opcode = "0010011")  and i_Funct7 = "0100000"    else    --      SUB
@@ -85,6 +85,6 @@ begin
                             "00" when i_Opcode = "1101111"                                                                                      else    -- JAL
                             "00" when i_Opcode = "0000011"                                                                                      else    -- LB, LH, LW, LBU, LHU
                             "00" when i_Opcode = "0100011"                                                                                      else    -- SB, SH, SW
-                            "XX";
+                            (others => 'X');
 
 end behaviour;

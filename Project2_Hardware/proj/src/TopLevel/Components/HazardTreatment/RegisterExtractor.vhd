@@ -1,8 +1,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-use work.RISCV_types.t_InstructionType;
-use work.RISCV_types.t_Instruction;
+use work.RISCV_types.all;
 
 entity RegisterExtractor is
     port(
