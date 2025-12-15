@@ -1,18 +1,18 @@
 .text
 main:
     lui		x2,		0x0007FFFF
-     
-     
-     
+    nop
+    nop
+    nop
     addi x2, x2, 0xfffffffc
 
     	# ADDI
 	addi	t0,	zero,	 1
 	addi	a0,	zero,	 5
 	addi	a1,	zero,	-5
-	 
-	 
-	 
+	nop
+	nop
+	nop
 
 ### REGULAR ###
 	
@@ -89,9 +89,9 @@ main:
     li      s11,    12
 
     addi    sp,     sp,     -48
-     
-     
-     
+    nop
+    nop
+    nop
     sw      s0 ,    0 (sp)
     sw      s1 ,    4 (sp)
     sw      s2 ,    8 (sp)
@@ -107,7 +107,7 @@ main:
 
     # Jump-and-link into frame1 (start recursion)
     jal     ra, frame1
-     
+    nop
     lw      s0 ,    0 (sp)
     lw      s1 ,    4 (sp)
     lw      s2 ,    8 (sp)
@@ -140,134 +140,134 @@ auipc t0, 100000
 
 #Store and load
 lui		x2,		0x0007FFFF
-     
-     
-     
+    nop
+    nop
+    nop
     addi x2, x2, 0xfffffffc
-     
-     
-     
+    nop
+    nop
+    nop
     addi    sp,     sp,     -48
-     
-     
-     
+    nop
+    nop
+    nop
     
     
     lb      s0 ,    0 (sp)
     lh      s1 ,    4 (sp)    
     lbu     s2 ,    0 (sp)
     lhu     s3 ,    4 (sp)
-     
-     
-     
+    nop
+    nop
+    nop
     
     j branch
-     
-     
-     
+    nop
+    nop
+    nop
 
 # --- Recursive Frames (no "call") ---
 
 frame1:
     addi    sp, sp, -16
-     
-     
-     
+    nop
+    nop
+    nop
     sw      ra, 12(sp)
-     
+    nop
     jal     ra, frame2
-     
-     
-     
+    nop
+    nop
+    nop
     lw      ra, 12(sp)
     addi    sp, sp, 16
-     
-     
+    nop
+    nop
     jr      ra
-     
+    nop
 
 frame2:
     addi    sp, sp, -16
-     
-     
-     
+    nop
+    nop
+    nop
     sw      ra, 12(sp)
-     
+    nop
     jal     ra, frame3
-     
+    nop
     lw      ra, 12(sp)
     addi    sp, sp, 16
-     
-     
+    nop
+    nop
     jr      ra
-     
+    nop
 
 frame3:
     addi    sp, sp, -16
-     
-     
-     
+    nop
+    nop
+    nop
     sw      ra, 12(sp)
     jal     ra, frame4
-     
+    nop
     lw      ra, 12(sp)
-     
-     
-     
+    nop
+    nop
+    nop
     addi    sp, sp, 16
-     
-     
+    nop
+    nop
     jr      ra
-     
+    nop
 
 frame4:
     addi    sp, sp, -16
-     
-     
-     
+    nop
+    nop
+    nop
     sw      ra, 12(sp)
     jal     ra, frame5
-     
+    nop
     lw      ra, 12(sp)
     addi    sp, sp, 16
-     
-     
+    nop
+    nop
     jr      ra
-     
+    nop
 
 frame5:
     addi    sp, sp, -16
-     
-     
-     
+    nop
+    nop
+    nop
     sw      ra, 12(sp)
     jal     ra, frame6
-     
+    nop
     lw      ra, 12(sp)
-     
-     
-     
+    nop
+    nop
+    nop
     addi    sp, sp, 16
     jr      ra
-     
+    nop
 
 frame6:
     addi    sp, sp, -16
-     
-     
-     
+    nop
+    nop
+    nop
     sw      ra, 12(sp)
     # Base case – just return
     lw      ra, 12(sp)
-     
-     
+    nop
+    nop
     addi    sp, sp, 16
-     
-     
+    nop
+    nop
     jr      ra
-     
-     
-     
+    nop
+    nop
+    nop
 
 
 branch:
@@ -275,56 +275,56 @@ branch:
 addi t0, zero, -5
 addi t1, zero, -5
 addi t2, zero, 5
- 
- 
- 
+nop
+nop
+nop
 #Doesn't Branch
 beq t1, t2, notEqual
- 
+nop
 #Branches
 beq t0, t1, notEqual
- 
+nop
 
 notEqual:
 #doesn't branch
 bne t0, t1, lessThan
- 
+nop
 #branches
 bne t0, t2, lessThan
- 
+nop
 greaterThanOrEq:
 #doesn't branch
 bge t1, t2, lessThanUnsigned
- 
+nop
 #branches
 bge t2, t0, lessThanUnsigned
- 
+nop
 
 lessThan:
 #doesn't branch
 ble t2, t1, greaterThanOrEq
- 
+nop
 #branches
 ble t0, t2, greaterThanOrEq
- 
+nop
 lessThanUnsigned:
 #doesn't branch
 bleu t0, t2, greaterThanUnsigned
- 
+nop
 #branches
 bleu t2, t0, greaterThanUnsigned
- 
+nop
 
 greaterThanUnsigned:
 #doesn't branch
 bgeu t2, t0, die
- 
+nop
 #branches
 bgeu t0, t2, die
- 
+nop
 
 die:
- 
- 
- 
+nop
+nop
+nop
 wfi
