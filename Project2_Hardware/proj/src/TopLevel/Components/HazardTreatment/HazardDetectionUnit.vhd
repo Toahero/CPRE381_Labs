@@ -58,6 +58,12 @@ architecture dataflow of HazardDetectionUnit is
     signal s_WbRs1Fwd  : std_logic;
     signal s_WbRS2Fwd  : std_logic;
 
+    signal s_MemMatchesRS1 : std_logic;
+    signal s_MemMatchesRS2 : std_logic;
+
+    signal s_WbMatchesRS1   : std_logic;
+    signal s_WbMatchesRS2   : std_logic;
+
 
 begin
 
@@ -98,40 +104,38 @@ begin
             i_FromWb            => '0',
             
             o_forwardRS1        => s_MemRS1Fwd,
-            o_forwardRS2        => s_MemRS1Fwd
+            o_forwardRS2        => s_MemRS2Fwd
         );
 
     g_fwdCheckerTwoSlots : fwdTypeChecker
         port map(
             i_ExOpCode          => s_IF_Instruction.Instruction(6 downto 0),
-            i_FwdOpCode         => s_ID_Instruction.Instruction(6 downto 0),
+            i_FwdOpCode         => s_EX_Instruction.Instruction(6 downto 0),
             i_FromWb            => '1',
             
             o_forwardRS1        => s_WbRs1Fwd,
             o_forwardRS2        => s_WbRS2Fwd
         );
 
+
+    s_MemMatchesRS1 <= '1' when (s_IF_Instruction.RS1 = s_ID_Instruction.RD) else '0';
+    s_MemMatchesRS2 <= '1' when (s_IF_Instruction.RS2 = s_ID_Instruction.RD) else '0';
+
+    s_WbMatchesRS1  <= '1' when (s_IF_Instruction.RS1 = s_EX_Instruction.RD) else '0';
+    s_WbMatchesRS2  <= '1' when (s_IF_Instruction.RS2 = s_EX_Instruction.RD) else '0';
+
     o_NOP <= '1' when 
     (
         -- Read after Write
         (
-            (i_JumpOrBranch = '1') or
-            -- (s_IF_Instruction.RS1 = s_ID_Instruction .RD and s_ID_Instruction .isNOP = false) or
-            -- (s_IF_Instruction.RS1 = s_EX_Instruction .RD and s_EX_Instruction .isNOP = false) or
-            -- (s_IF_Instruction.RS1 = s_MEM_Instruction.RD and s_MEM_Instruction.isNOP = false) or
-
-            -- (s_IF_Instruction.RS2 = s_ID_Instruction .RD and s_ID_Instruction .isNOP = false) or
-            -- (s_IF_Instruction.RS2 = s_EX_Instruction .RD and s_EX_Instruction .isNOP = false) or
-            -- (s_IF_Instruction.RS2 = s_MEM_Instruction.RD and s_MEM_Instruction.isNOP = false) or
+            (i_JumpOrBranch = '1') oR
 
 
-            (s_IF_Instruction.RS1 = s_ID_Instruction .RD and s_ID_Instruction .isNOP = false and s_MemRS1Fwd = '0') or
-            (s_IF_Instruction.RS1 = s_EX_Instruction .RD and s_EX_Instruction .isNOP = false and s_WbRs1Fwd = '0') or
-            --(s_IF_Instruction.RS1 = s_MEM_Instruction.RD and s_MEM_Instruction.isNOP = false) or
+            ((s_MemMatchesRS1 = '1') and (s_ID_Instruction.isNOP = false) and (s_MemRS1Fwd = '0')) or
+            ((s_WbMatchesRS1  = '1') and (s_EX_Instruction.isNOP = false) and (s_WbRs1Fwd = '0' )) or
 
-            (s_IF_Instruction.RS2 = s_ID_Instruction .RD and s_ID_Instruction .isNOP = false and s_MemRS2Fwd = '0') or
-            (s_IF_Instruction.RS2 = s_EX_Instruction .RD and s_EX_Instruction .isNOP = false and s_WbRS2Fwd = '0') or
-            --(s_IF_Instruction.RS2 = s_MEM_Instruction.RD and s_MEM_Instruction.isNOP = false) or
+            ((s_MemMatchesRS1 = '1') and (s_ID_Instruction.isNOP = false) and (s_MemRS1Fwd = '0')) or
+            ((s_WbMatchesRS1  = '1') and (s_EX_Instruction.isNOP = false) and (s_WbRs1Fwd = '0' )) or
 
             false
         )
