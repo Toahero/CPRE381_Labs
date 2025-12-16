@@ -71,9 +71,6 @@ nop
     nop
 
 print_loop:
-nop
-nop
-nop
     beqz t1, print_end
     nop
     lw   a0, 0(t0)
