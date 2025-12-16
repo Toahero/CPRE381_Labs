@@ -37,18 +37,18 @@ The path is given below
      12.302      0.281 FF  CELL  IMem|ram~40525|combout
      12.569      0.267 FF    IC  IMem|ram~40696|datab
      12.992      0.423 FR  CELL  IMem|ram~40696|combout
-     14.476      1.484 RR    IC  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~6|dataa
-     14.913      0.437 RF  CELL  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~6|combout
-     15.181      0.268 FF    IC  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~7|datab
-     15.606      0.425 FF  CELL  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~7|combout
-     16.313      0.707 FF    IC  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~8|datad
-     16.438      0.125 FF  CELL  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~8|combout
-     16.671      0.233 FF    IC  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~11|datac
-     16.952      0.281 FF  CELL  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~11|combout
-     17.222      0.270 FF    IC  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~16|datab
-     17.647      0.425 FF  CELL  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~16|combout
-     17.876      0.229 FF    IC  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~19|datad
-     18.001      0.125 FF  CELL  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~19|combout
+     14.476      1.484 RR    IC  g_ALU|g_ASource|o_O[19]~244|dataa
+     14.913      0.437 RF  CELL  g_ALU|g_ASource|o_O[19]~244|combout
+     15.181      0.268 FF    IC  g_ALU|g_ASource|o_O[19]~245|datab
+     15.606      0.425 FF  CELL  g_ALU|g_ASource|o_O[19]~245|combout
+     16.313      0.707 FF    IC  g_ALU|g_ASource|o_O[19]~246|datad
+     16.438      0.125 FF  CELL  g_ALU|g_ASource|o_O[19]~246|combout
+     16.671      0.233 FF    IC  g_ALU|g_ASource|o_O[19]~249|datac
+     16.952      0.281 FF  CELL  g_ALU|g_ASource|o_O[19]~249|combout
+     17.222      0.270 FF    IC  g_ALU|g_ASource|o_O[19]~254|datab
+     17.647      0.425 FF  CELL  g_ALU|g_ASource|o_O[19]~254|combout
+     17.876      0.229 FF    IC  g_ALU|g_ASource|o_O[19]~257|datad
+     18.001      0.125 FF  CELL  g_ALU|g_ASource|o_O[19]~257|combout
      19.364      1.363 FF    IC  g_ALU|g_BarrelShifter|rightShifter|\g_valShiftArr:2:g_MuxMain:16:g_mux|o_O~3|dataa
      19.788      0.424 FF  CELL  g_ALU|g_BarrelShifter|rightShifter|\g_valShiftArr:2:g_MuxMain:16:g_mux|o_O~3|combout
      20.079      0.291 FF    IC  g_ALU|g_BarrelShifter|rightShifter|\g_valShiftArr:2:g_MuxMain:16:g_mux|o_O~5|datab
@@ -85,10 +85,10 @@ The path is given below
      35.584      0.125 FF  CELL  g_DMEMSignExtender|Mux0~0|combout
      35.811      0.227 FF    IC  g_DMEMSignExtender|Mux0~1|datad
      35.961      0.150 FR  CELL  g_DMEMSignExtender|Mux0~1|combout
-     37.285      1.324 RR    IC  g_RegisterDataSource|\G_NBit_MUX:29:MUXI|o_O~0|datad
-     37.440      0.155 RR  CELL  g_RegisterDataSource|\G_NBit_MUX:29:MUXI|o_O~0|combout
-     37.643      0.203 RR    IC  g_RegisterDataSource|\G_NBit_MUX:29:MUXI|o_O~1|datad
-     37.798      0.155 RR  CELL  g_RegisterDataSource|\G_NBit_MUX:29:MUXI|o_O~1|combout
+     37.285      1.324 RR    IC  g_RegisterDataSource|o_O[29]~4|datad
+     37.440      0.155 RR  CELL  g_RegisterDataSource|o_O[29]~4|combout
+     37.643      0.203 RR    IC  g_RegisterDataSource|o_O[29]~5|datad
+     37.798      0.155 RR  CELL  g_RegisterDataSource|o_O[29]~5|combout
      39.663      1.865 RR    IC  g_RegisterFile|\G_REGS:12:REG|\G_NBIT_REG:29:REG|s_Q~feeder|datad
      39.818      0.155 RR  CELL  g_RegisterFile|\G_REGS:12:REG|\G_NBIT_REG:29:REG|s_Q~feeder|combout
      39.818      0.000 RR    IC  g_RegisterFile|\G_REGS:12:REG|\G_NBIT_REG:29:REG|s_Q|d
