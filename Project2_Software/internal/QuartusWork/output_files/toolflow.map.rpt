@@ -1,5 +1,5 @@
 Analysis & Synthesis report for toolflow
-Tue Dec  9 17:40:20 2025
+Wed Dec 17 21:05:30 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Standard Edition
 
 
@@ -133,7 +133,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Dec  9 17:40:20 2025           ;
+; Analysis & Synthesis Status        ; Successful - Wed Dec 17 21:05:29 2025           ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Standard Edition ;
 ; Revision Name                      ; toolflow                                        ;
 ; Top-level Entity Name              ; RISCV_Processor                                 ;
@@ -241,84 +241,79 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 20          ;
-; Maximum allowed            ; 12          ;
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.02        ;
-; Maximum used               ; 12          ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.3%      ;
+;     Processor 2            ;   0.5%      ;
 ;     Processor 3            ;   0.3%      ;
 ;     Processor 4            ;   0.3%      ;
-;     Processor 5            ;   0.3%      ;
-;     Processor 6            ;   0.2%      ;
-;     Processor 7            ;   0.2%      ;
-;     Processor 8            ;   0.2%      ;
-;     Processors 9-12        ;   0.2%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                                ;
-+---------------------------------------------------------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                                                      ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                                       ; Library ;
-+---------------------------------------------------------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------------------------------------+---------+
-; ../../proj/src/RISCV_types.vhd                                                        ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/RISCV_types.vhd                                                        ;         ;
-; ../../proj/src/TopLevel/Components/PipelinedComponents/Buffer_EXMEM.vhd               ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_EXMEM.vhd               ;         ;
-; ../../proj/src/TopLevel/Components/PipelinedComponents/Buffer_IDEX.vhd                ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_IDEX.vhd                ;         ;
-; ../../proj/src/TopLevel/Components/PipelinedComponents/Buffer_IFID.vhd                ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_IFID.vhd                ;         ;
-; ../../proj/src/TopLevel/Components/PipelinedComponents/Buffer_MEMWB.vhd               ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_MEMWB.vhd               ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd                      ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd                      ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/ALU_Control.vhd              ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU_Control.vhd              ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/AddSub.vhd                   ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/AddSub.vhd                   ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/Compare.vhd                  ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/Compare.vhd                  ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/ControlUnit.vhd              ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ControlUnit.vhd              ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/DFmux2t1.vhd                 ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/DFmux2t1.vhd                 ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/DMEMSignExtender.vhd         ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/DMEMSignExtender.vhd         ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/FullAdder.vhd                ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/FullAdder.vhd                ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/ImmediateExtender.vhd        ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ImmediateExtender.vhd        ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/InstructionAddressHolder.vhd ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/InstructionAddressHolder.vhd ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/IsNegative.vhd               ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/IsNegative.vhd               ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/IsZero.vhd                   ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/IsZero.vhd                   ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/LogicModule.vhd              ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/LogicModule.vhd              ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/N_Adder.vhd                  ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/N_Adder.vhd                  ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/OnesCompliment.vhd           ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/OnesCompliment.vhd           ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/PCRegister.vhd               ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/PCRegister.vhd               ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/PC_dffg.vhd                  ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/PC_dffg.vhd                  ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/RegFile.vhd                  ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegFile.vhd                  ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/RegisterDecoder.vhd          ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegisterDecoder.vhd          ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/addSub_n.vhd                 ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/addSub_n.vhd                 ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/andg2.vhd                    ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/andg2.vhd                    ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/bit_mux4t1.vhd               ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/bit_mux4t1.vhd               ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/dffg.vhd                     ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/dffg.vhd                     ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/dualShift.vhd                ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/dualShift.vhd                ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/hack.vhd                     ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/hack.vhd                     ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/invg.vhd                     ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/invg.vhd                     ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/mux2t1.vhd                   ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux2t1.vhd                   ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/mux2t1_N.vhd                 ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux2t1_N.vhd                 ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/mux32t1.vhd                  ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux32t1.vhd                  ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/mux4t1.vhd                   ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux4t1.vhd                   ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/nBitRegister.vhd             ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/nBitRegister.vhd             ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/onesComp_n.vhd               ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/onesComp_n.vhd               ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/org2.vhd                     ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/org2.vhd                     ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/rbshift.vhd                  ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/rbshift.vhd                  ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/rippleAdder_n.vhd            ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/rippleAdder_n.vhd            ;         ;
-; ../../proj/src/TopLevel/Components/SingleCycleComponents/xorg2.vhd                    ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/xorg2.vhd                    ;         ;
-; ../../proj/src/TopLevel/RISCV_Processor.vhd                                           ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd                                           ;         ;
-; ../../proj/src/TopLevel/mem.vhd                                                       ; yes             ; User VHDL File               ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/mem.vhd                                                       ;         ;
-; altsyncram.tdf                                                                        ; yes             ; Megafunction                 ; /remote/Altera/20.1/quartus/libraries/megafunctions/altsyncram.tdf                                                                 ;         ;
-; stratix_ram_block.inc                                                                 ; yes             ; Megafunction                 ; /remote/Altera/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                                          ;         ;
-; lpm_mux.inc                                                                           ; yes             ; Megafunction                 ; /remote/Altera/20.1/quartus/libraries/megafunctions/lpm_mux.inc                                                                    ;         ;
-; lpm_decode.inc                                                                        ; yes             ; Megafunction                 ; /remote/Altera/20.1/quartus/libraries/megafunctions/lpm_decode.inc                                                                 ;         ;
-; aglobal201.inc                                                                        ; yes             ; Megafunction                 ; /remote/Altera/20.1/quartus/libraries/megafunctions/aglobal201.inc                                                                 ;         ;
-; a_rdenreg.inc                                                                         ; yes             ; Megafunction                 ; /remote/Altera/20.1/quartus/libraries/megafunctions/a_rdenreg.inc                                                                  ;         ;
-; altrom.inc                                                                            ; yes             ; Megafunction                 ; /remote/Altera/20.1/quartus/libraries/megafunctions/altrom.inc                                                                     ;         ;
-; altram.inc                                                                            ; yes             ; Megafunction                 ; /remote/Altera/20.1/quartus/libraries/megafunctions/altram.inc                                                                     ;         ;
-; altdpram.inc                                                                          ; yes             ; Megafunction                 ; /remote/Altera/20.1/quartus/libraries/megafunctions/altdpram.inc                                                                   ;         ;
-; db/altsyncram_eg81.tdf                                                                ; yes             ; Auto-Generated Megafunction  ; /home/esliandy/3810/CPRE381_Labs/Project2_Software/internal/QuartusWork/db/altsyncram_eg81.tdf                                     ;         ;
-+---------------------------------------------------------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                    ;
++---------------------------------------------------------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                                                      ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                           ; Library ;
++---------------------------------------------------------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------------------------+---------+
+; ../../proj/src/RISCV_types.vhd                                                        ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/RISCV_types.vhd                                                        ;         ;
+; ../../proj/src/TopLevel/Components/PipelinedComponents/Buffer_EXMEM.vhd               ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_EXMEM.vhd               ;         ;
+; ../../proj/src/TopLevel/Components/PipelinedComponents/Buffer_IDEX.vhd                ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_IDEX.vhd                ;         ;
+; ../../proj/src/TopLevel/Components/PipelinedComponents/Buffer_IFID.vhd                ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_IFID.vhd                ;         ;
+; ../../proj/src/TopLevel/Components/PipelinedComponents/Buffer_MEMWB.vhd               ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_MEMWB.vhd               ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd                      ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd                      ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/ALU_Control.vhd              ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU_Control.vhd              ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/AddSub.vhd                   ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/AddSub.vhd                   ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/Compare.vhd                  ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/Compare.vhd                  ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/ControlUnit.vhd              ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ControlUnit.vhd              ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/DFmux2t1.vhd                 ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/DFmux2t1.vhd                 ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/DMEMSignExtender.vhd         ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/DMEMSignExtender.vhd         ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/FullAdder.vhd                ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/FullAdder.vhd                ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/ImmediateExtender.vhd        ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ImmediateExtender.vhd        ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/InstructionAddressHolder.vhd ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/InstructionAddressHolder.vhd ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/IsNegative.vhd               ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/IsNegative.vhd               ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/IsZero.vhd                   ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/IsZero.vhd                   ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/LogicModule.vhd              ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/LogicModule.vhd              ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/N_Adder.vhd                  ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/N_Adder.vhd                  ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/OnesCompliment.vhd           ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/OnesCompliment.vhd           ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/PCRegister.vhd               ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/PCRegister.vhd               ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/PC_dffg.vhd                  ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/PC_dffg.vhd                  ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/RegFile.vhd                  ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegFile.vhd                  ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/RegisterDecoder.vhd          ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegisterDecoder.vhd          ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/addSub_n.vhd                 ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/addSub_n.vhd                 ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/andg2.vhd                    ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/andg2.vhd                    ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/bit_mux4t1.vhd               ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/bit_mux4t1.vhd               ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/dffg.vhd                     ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/dffg.vhd                     ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/dualShift.vhd                ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/dualShift.vhd                ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/hack.vhd                     ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/hack.vhd                     ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/invg.vhd                     ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/invg.vhd                     ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/mux2t1.vhd                   ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux2t1.vhd                   ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/mux2t1_N.vhd                 ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux2t1_N.vhd                 ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/mux32t1.vhd                  ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux32t1.vhd                  ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/mux4t1.vhd                   ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux4t1.vhd                   ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/nBitRegister.vhd             ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/nBitRegister.vhd             ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/onesComp_n.vhd               ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/onesComp_n.vhd               ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/org2.vhd                     ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/org2.vhd                     ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/rbshift.vhd                  ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/rbshift.vhd                  ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/rippleAdder_n.vhd            ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/rippleAdder_n.vhd            ;         ;
+; ../../proj/src/TopLevel/Components/SingleCycleComponents/xorg2.vhd                    ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/xorg2.vhd                    ;         ;
+; ../../proj/src/TopLevel/RISCV_Processor.vhd                                           ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd                                           ;         ;
+; ../../proj/src/TopLevel/mem.vhd                                                       ; yes             ; User VHDL File               ; /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/mem.vhd                                                       ;         ;
+; altsyncram.tdf                                                                        ; yes             ; Megafunction                 ; /remote/Altera/20.1/quartus/libraries/megafunctions/altsyncram.tdf                                                     ;         ;
+; stratix_ram_block.inc                                                                 ; yes             ; Megafunction                 ; /remote/Altera/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                              ;         ;
+; lpm_mux.inc                                                                           ; yes             ; Megafunction                 ; /remote/Altera/20.1/quartus/libraries/megafunctions/lpm_mux.inc                                                        ;         ;
+; lpm_decode.inc                                                                        ; yes             ; Megafunction                 ; /remote/Altera/20.1/quartus/libraries/megafunctions/lpm_decode.inc                                                     ;         ;
+; aglobal201.inc                                                                        ; yes             ; Megafunction                 ; /remote/Altera/20.1/quartus/libraries/megafunctions/aglobal201.inc                                                     ;         ;
+; a_rdenreg.inc                                                                         ; yes             ; Megafunction                 ; /remote/Altera/20.1/quartus/libraries/megafunctions/a_rdenreg.inc                                                      ;         ;
+; altrom.inc                                                                            ; yes             ; Megafunction                 ; /remote/Altera/20.1/quartus/libraries/megafunctions/altrom.inc                                                         ;         ;
+; altram.inc                                                                            ; yes             ; Megafunction                 ; /remote/Altera/20.1/quartus/libraries/megafunctions/altram.inc                                                         ;         ;
+; altdpram.inc                                                                          ; yes             ; Megafunction                 ; /remote/Altera/20.1/quartus/libraries/megafunctions/altdpram.inc                                                       ;         ;
+; db/altsyncram_eg81.tdf                                                                ; yes             ; Auto-Generated Megafunction  ; /home/jagaul/cpre381/Project2_Software/internal/QuartusWork/db/altsyncram_eg81.tdf                                     ;         ;
++---------------------------------------------------------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +----------------------------------------------------------+
@@ -3263,7 +3258,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:43     ;
+; Top            ; 00:01:01     ;
 +----------------+--------------+
 
 
@@ -3287,205 +3282,205 @@ Info: Running Quartus Prime Analysis & Synthesis
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Tue Dec  9 17:39:23 2025
+    Info: Processing started: Wed Dec 17 21:04:07 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off toolflow -c toolflow
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
-Info (12021): Found 2 design units, including 0 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/RISCV_types.vhd
-    Info (12022): Found design unit 1: RISCV_types File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/RISCV_types.vhd Line: 15
-    Info (12022): Found design unit 2: RISCV_types-body File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/RISCV_types.vhd Line: 57
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/Capsules/aluCapsule.vhd
-    Info (12022): Found design unit 1: aluCapsule-structural File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/Capsules/aluCapsule.vhd Line: 29
-    Info (12023): Found entity 1: aluCapsule File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/Capsules/aluCapsule.vhd Line: 16
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/HazardTreatment/ForwardingUnit.vhd
-    Info (12022): Found design unit 1: ForwardingUnit-dataflow File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/HazardTreatment/ForwardingUnit.vhd Line: 30
-    Info (12023): Found entity 1: ForwardingUnit File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/HazardTreatment/ForwardingUnit.vhd Line: 16
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/HazardTreatment/HazDetection.vhd
-    Info (12022): Found design unit 1: HazDetection-dataflow File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/HazardTreatment/HazDetection.vhd Line: 27
-    Info (12023): Found entity 1: HazDetection File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/HazardTreatment/HazDetection.vhd Line: 16
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_EXMEM.vhd
-    Info (12022): Found design unit 1: Buffer_EXMEM-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_EXMEM.vhd Line: 16
-    Info (12023): Found entity 1: Buffer_EXMEM File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_EXMEM.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_IDEX.vhd
-    Info (12022): Found design unit 1: Buffer_IDEX-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_IDEX.vhd Line: 16
-    Info (12023): Found entity 1: Buffer_IDEX File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_IDEX.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_IFID.vhd
-    Info (12022): Found design unit 1: Buffer_IFID-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_IFID.vhd Line: 18
-    Info (12023): Found entity 1: Buffer_IFID File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_IFID.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_MEMWB.vhd
-    Info (12022): Found design unit 1: Buffer_MEMWB-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_MEMWB.vhd Line: 16
-    Info (12023): Found entity 1: Buffer_MEMWB File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_MEMWB.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd
-    Info (12022): Found design unit 1: ALU-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd Line: 32
-    Info (12023): Found entity 1: ALU File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU_Control.vhd
-    Info (12022): Found design unit 1: ALU_Control-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU_Control.vhd Line: 25
-    Info (12023): Found entity 1: ALU_Control File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU_Control.vhd Line: 7
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/AddSub.vhd
-    Info (12022): Found design unit 1: AddSub-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/AddSub.vhd Line: 18
-    Info (12023): Found entity 1: AddSub File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/AddSub.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/Compare.vhd
-    Info (12022): Found design unit 1: Compare-behvariour File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/Compare.vhd Line: 17
-    Info (12023): Found entity 1: Compare File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/Compare.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ControlUnit.vhd
-    Info (12022): Found design unit 1: ControlUnit-dataflow File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ControlUnit.vhd Line: 36
-    Info (12023): Found entity 1: ControlUnit File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ControlUnit.vhd Line: 17
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/DFmux2t1.vhd
-    Info (12022): Found design unit 1: DFmux2t1-dataflow File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/DFmux2t1.vhd Line: 13
-    Info (12023): Found entity 1: DFmux2t1 File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/DFmux2t1.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/DMEMSignExtender.vhd
-    Info (12022): Found design unit 1: DMEMSignExtender-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/DMEMSignExtender.vhd Line: 13
-    Info (12023): Found entity 1: DMEMSignExtender File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/DMEMSignExtender.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/FullAdder.vhd
-    Info (12022): Found design unit 1: FullAdder-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/FullAdder.vhd Line: 15
-    Info (12023): Found entity 1: FullAdder File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/FullAdder.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ImmediateExtender.vhd
-    Info (12022): Found design unit 1: ImmediateExtender-dataflow File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ImmediateExtender.vhd Line: 23
-    Info (12023): Found entity 1: ImmediateExtender File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ImmediateExtender.vhd Line: 17
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/InstructionAddressHolder.vhd
-    Info (12022): Found design unit 1: InstructionAddressHolder-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/InstructionAddressHolder.vhd Line: 24
-    Info (12023): Found entity 1: InstructionAddressHolder File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/InstructionAddressHolder.vhd Line: 9
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/IsNegative.vhd
-    Info (12022): Found design unit 1: IsNegative-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/IsNegative.vhd Line: 15
-    Info (12023): Found entity 1: IsNegative File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/IsNegative.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/IsZero.vhd
-    Info (12022): Found design unit 1: IsZero-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/IsZero.vhd Line: 15
-    Info (12023): Found entity 1: IsZero File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/IsZero.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/LogicModule.vhd
-    Info (12022): Found design unit 1: LogicModule-mixed File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/LogicModule.vhd Line: 31
-    Info (12023): Found entity 1: LogicModule File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/LogicModule.vhd Line: 21
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/N_Adder.vhd
-    Info (12022): Found design unit 1: N_Adder-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/N_Adder.vhd Line: 18
-    Info (12023): Found entity 1: N_Adder File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/N_Adder.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/OnesCompliment.vhd
-    Info (12022): Found design unit 1: OnesCompliment-structural File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/OnesCompliment.vhd Line: 14
-    Info (12023): Found entity 1: OnesCompliment File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/OnesCompliment.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/PCRegister.vhd
-    Info (12022): Found design unit 1: PCRegister-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/PCRegister.vhd Line: 23
-    Info (12023): Found entity 1: PCRegister File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/PCRegister.vhd Line: 7
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/PC_dffg.vhd
-    Info (12022): Found design unit 1: PC_dffg-mixed File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/PC_dffg.vhd Line: 32
-    Info (12023): Found entity 1: PC_dffg File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/PC_dffg.vhd Line: 23
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegFile.vhd
-    Info (12022): Found design unit 1: RegFile-structural File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegFile.vhd Line: 33
-    Info (12023): Found entity 1: RegFile File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegFile.vhd Line: 18
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegisterDecoder.vhd
-    Info (12022): Found design unit 1: RegisterDecoder-structural File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegisterDecoder.vhd Line: 22
-    Info (12023): Found entity 1: RegisterDecoder File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegisterDecoder.vhd Line: 16
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/addSub_n.vhd
-    Info (12022): Found design unit 1: addSub_n-structural File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/addSub_n.vhd Line: 34
-    Info (12023): Found entity 1: addSub_n File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/addSub_n.vhd Line: 22
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/andg2.vhd
-    Info (12022): Found design unit 1: andg2-dataflow File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/andg2.vhd Line: 31
-    Info (12023): Found entity 1: andg2 File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/andg2.vhd Line: 23
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/bit_mux4t1.vhd
-    Info (12022): Found design unit 1: BitMux4t1-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/bit_mux4t1.vhd Line: 18
-    Info (12023): Found entity 1: BitMux4t1 File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/bit_mux4t1.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/dffg.vhd
-    Info (12022): Found design unit 1: dffg-mixed File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/dffg.vhd Line: 33
-    Info (12023): Found entity 1: dffg File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/dffg.vhd Line: 23
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/dualShift.vhd
-    Info (12022): Found design unit 1: dualShift-mixed File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/dualShift.vhd Line: 27
-    Info (12023): Found entity 1: dualShift File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/dualShift.vhd Line: 16
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/hack.vhd
-    Info (12022): Found design unit 1: HACK-structural File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/hack.vhd Line: 11
-    Info (12023): Found entity 1: HACK File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/hack.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/invg.vhd
-    Info (12022): Found design unit 1: invg-dataflow File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/invg.vhd Line: 30
-    Info (12023): Found entity 1: invg File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/invg.vhd Line: 23
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux2t1.vhd
-    Info (12022): Found design unit 1: mux2t1-structural File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux2t1.vhd Line: 15
-    Info (12023): Found entity 1: mux2t1 File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux2t1.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux2t1_N.vhd
-    Info (12022): Found design unit 1: mux2t1_N-structural File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux2t1_N.vhd Line: 32
-    Info (12023): Found entity 1: mux2t1_N File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux2t1_N.vhd Line: 23
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux32t1.vhd
-    Info (12022): Found design unit 1: mux32t1-dataflow File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux32t1.vhd Line: 25
-    Info (12023): Found entity 1: mux32t1 File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux32t1.vhd Line: 19
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux4t1.vhd
-    Info (12022): Found design unit 1: Mux4t1-behaviour File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux4t1.vhd Line: 21
-    Info (12023): Found entity 1: Mux4t1 File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux4t1.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/nBitRegister.vhd
-    Info (12022): Found design unit 1: nBitRegister-structural File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/nBitRegister.vhd Line: 26
-    Info (12023): Found entity 1: nBitRegister File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/nBitRegister.vhd Line: 16
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/onesComp_n.vhd
-    Info (12022): Found design unit 1: onesComp_n-structural File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/onesComp_n.vhd Line: 26
-    Info (12023): Found entity 1: onesComp_n File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/onesComp_n.vhd Line: 19
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/org2.vhd
-    Info (12022): Found design unit 1: org2-dataflow File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/org2.vhd Line: 31
-    Info (12023): Found entity 1: org2 File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/org2.vhd Line: 23
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/rbshift.vhd
-    Info (12022): Found design unit 1: rbshift-mixed File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/rbshift.vhd Line: 26
-    Info (12023): Found entity 1: rbshift File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/rbshift.vhd Line: 16
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/rippleAdder_n.vhd
-    Info (12022): Found design unit 1: rippleAdder_n-structural File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/rippleAdder_n.vhd Line: 34
-    Info (12023): Found entity 1: rippleAdder_n File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/rippleAdder_n.vhd Line: 22
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/xorg2.vhd
-    Info (12022): Found design unit 1: xorg2-dataflow File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/xorg2.vhd Line: 31
-    Info (12023): Found entity 1: xorg2 File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/xorg2.vhd Line: 23
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd
-    Info (12022): Found design unit 1: RISCV_Processor-structure File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 35
-    Info (12023): Found entity 1: RISCV_Processor File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 24
-Info (12021): Found 2 design units, including 1 entities, in source file /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/mem.vhd
-    Info (12022): Found design unit 1: mem-rtl File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/mem.vhd Line: 27
-    Info (12023): Found entity 1: mem File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/mem.vhd Line: 8
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 0 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/RISCV_types.vhd
+    Info (12022): Found design unit 1: RISCV_types File: /home/jagaul/cpre381/Project2_Software/proj/src/RISCV_types.vhd Line: 15
+    Info (12022): Found design unit 2: RISCV_types-body File: /home/jagaul/cpre381/Project2_Software/proj/src/RISCV_types.vhd Line: 57
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/Capsules/aluCapsule.vhd
+    Info (12022): Found design unit 1: aluCapsule-structural File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/Capsules/aluCapsule.vhd Line: 29
+    Info (12023): Found entity 1: aluCapsule File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/Capsules/aluCapsule.vhd Line: 16
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/HazardTreatment/ForwardingUnit.vhd
+    Info (12022): Found design unit 1: ForwardingUnit-dataflow File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/HazardTreatment/ForwardingUnit.vhd Line: 30
+    Info (12023): Found entity 1: ForwardingUnit File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/HazardTreatment/ForwardingUnit.vhd Line: 16
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/HazardTreatment/HazDetection.vhd
+    Info (12022): Found design unit 1: HazDetection-dataflow File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/HazardTreatment/HazDetection.vhd Line: 27
+    Info (12023): Found entity 1: HazDetection File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/HazardTreatment/HazDetection.vhd Line: 16
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_EXMEM.vhd
+    Info (12022): Found design unit 1: Buffer_EXMEM-behaviour File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_EXMEM.vhd Line: 16
+    Info (12023): Found entity 1: Buffer_EXMEM File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_EXMEM.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_IDEX.vhd
+    Info (12022): Found design unit 1: Buffer_IDEX-behaviour File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_IDEX.vhd Line: 16
+    Info (12023): Found entity 1: Buffer_IDEX File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_IDEX.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_IFID.vhd
+    Info (12022): Found design unit 1: Buffer_IFID-behaviour File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_IFID.vhd Line: 18
+    Info (12023): Found entity 1: Buffer_IFID File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_IFID.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_MEMWB.vhd
+    Info (12022): Found design unit 1: Buffer_MEMWB-behaviour File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_MEMWB.vhd Line: 16
+    Info (12023): Found entity 1: Buffer_MEMWB File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_MEMWB.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd
+    Info (12022): Found design unit 1: ALU-behaviour File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd Line: 32
+    Info (12023): Found entity 1: ALU File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU_Control.vhd
+    Info (12022): Found design unit 1: ALU_Control-behaviour File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU_Control.vhd Line: 25
+    Info (12023): Found entity 1: ALU_Control File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU_Control.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/AddSub.vhd
+    Info (12022): Found design unit 1: AddSub-behaviour File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/AddSub.vhd Line: 18
+    Info (12023): Found entity 1: AddSub File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/AddSub.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/Compare.vhd
+    Info (12022): Found design unit 1: Compare-behvariour File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/Compare.vhd Line: 17
+    Info (12023): Found entity 1: Compare File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/Compare.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ControlUnit.vhd
+    Info (12022): Found design unit 1: ControlUnit-dataflow File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ControlUnit.vhd Line: 36
+    Info (12023): Found entity 1: ControlUnit File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ControlUnit.vhd Line: 17
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/DFmux2t1.vhd
+    Info (12022): Found design unit 1: DFmux2t1-dataflow File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/DFmux2t1.vhd Line: 13
+    Info (12023): Found entity 1: DFmux2t1 File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/DFmux2t1.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/DMEMSignExtender.vhd
+    Info (12022): Found design unit 1: DMEMSignExtender-behaviour File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/DMEMSignExtender.vhd Line: 13
+    Info (12023): Found entity 1: DMEMSignExtender File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/DMEMSignExtender.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/FullAdder.vhd
+    Info (12022): Found design unit 1: FullAdder-behaviour File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/FullAdder.vhd Line: 15
+    Info (12023): Found entity 1: FullAdder File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/FullAdder.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ImmediateExtender.vhd
+    Info (12022): Found design unit 1: ImmediateExtender-dataflow File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ImmediateExtender.vhd Line: 23
+    Info (12023): Found entity 1: ImmediateExtender File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ImmediateExtender.vhd Line: 17
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/InstructionAddressHolder.vhd
+    Info (12022): Found design unit 1: InstructionAddressHolder-behaviour File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/InstructionAddressHolder.vhd Line: 24
+    Info (12023): Found entity 1: InstructionAddressHolder File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/InstructionAddressHolder.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/IsNegative.vhd
+    Info (12022): Found design unit 1: IsNegative-behaviour File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/IsNegative.vhd Line: 15
+    Info (12023): Found entity 1: IsNegative File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/IsNegative.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/IsZero.vhd
+    Info (12022): Found design unit 1: IsZero-behaviour File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/IsZero.vhd Line: 15
+    Info (12023): Found entity 1: IsZero File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/IsZero.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/LogicModule.vhd
+    Info (12022): Found design unit 1: LogicModule-mixed File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/LogicModule.vhd Line: 31
+    Info (12023): Found entity 1: LogicModule File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/LogicModule.vhd Line: 21
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/N_Adder.vhd
+    Info (12022): Found design unit 1: N_Adder-behaviour File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/N_Adder.vhd Line: 18
+    Info (12023): Found entity 1: N_Adder File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/N_Adder.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/OnesCompliment.vhd
+    Info (12022): Found design unit 1: OnesCompliment-structural File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/OnesCompliment.vhd Line: 14
+    Info (12023): Found entity 1: OnesCompliment File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/OnesCompliment.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/PCRegister.vhd
+    Info (12022): Found design unit 1: PCRegister-behaviour File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/PCRegister.vhd Line: 23
+    Info (12023): Found entity 1: PCRegister File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/PCRegister.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/PC_dffg.vhd
+    Info (12022): Found design unit 1: PC_dffg-mixed File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/PC_dffg.vhd Line: 32
+    Info (12023): Found entity 1: PC_dffg File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/PC_dffg.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegFile.vhd
+    Info (12022): Found design unit 1: RegFile-structural File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegFile.vhd Line: 33
+    Info (12023): Found entity 1: RegFile File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegFile.vhd Line: 18
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegisterDecoder.vhd
+    Info (12022): Found design unit 1: RegisterDecoder-structural File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegisterDecoder.vhd Line: 22
+    Info (12023): Found entity 1: RegisterDecoder File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegisterDecoder.vhd Line: 16
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/addSub_n.vhd
+    Info (12022): Found design unit 1: addSub_n-structural File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/addSub_n.vhd Line: 34
+    Info (12023): Found entity 1: addSub_n File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/addSub_n.vhd Line: 22
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/andg2.vhd
+    Info (12022): Found design unit 1: andg2-dataflow File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/andg2.vhd Line: 31
+    Info (12023): Found entity 1: andg2 File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/andg2.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/bit_mux4t1.vhd
+    Info (12022): Found design unit 1: BitMux4t1-behaviour File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/bit_mux4t1.vhd Line: 18
+    Info (12023): Found entity 1: BitMux4t1 File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/bit_mux4t1.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/dffg.vhd
+    Info (12022): Found design unit 1: dffg-mixed File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/dffg.vhd Line: 33
+    Info (12023): Found entity 1: dffg File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/dffg.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/dualShift.vhd
+    Info (12022): Found design unit 1: dualShift-mixed File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/dualShift.vhd Line: 27
+    Info (12023): Found entity 1: dualShift File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/dualShift.vhd Line: 16
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/hack.vhd
+    Info (12022): Found design unit 1: HACK-structural File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/hack.vhd Line: 11
+    Info (12023): Found entity 1: HACK File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/hack.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/invg.vhd
+    Info (12022): Found design unit 1: invg-dataflow File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/invg.vhd Line: 30
+    Info (12023): Found entity 1: invg File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/invg.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux2t1.vhd
+    Info (12022): Found design unit 1: mux2t1-structural File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux2t1.vhd Line: 15
+    Info (12023): Found entity 1: mux2t1 File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux2t1.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux2t1_N.vhd
+    Info (12022): Found design unit 1: mux2t1_N-structural File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux2t1_N.vhd Line: 32
+    Info (12023): Found entity 1: mux2t1_N File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux2t1_N.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux32t1.vhd
+    Info (12022): Found design unit 1: mux32t1-dataflow File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux32t1.vhd Line: 25
+    Info (12023): Found entity 1: mux32t1 File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux32t1.vhd Line: 19
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux4t1.vhd
+    Info (12022): Found design unit 1: Mux4t1-behaviour File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux4t1.vhd Line: 21
+    Info (12023): Found entity 1: Mux4t1 File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux4t1.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/nBitRegister.vhd
+    Info (12022): Found design unit 1: nBitRegister-structural File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/nBitRegister.vhd Line: 26
+    Info (12023): Found entity 1: nBitRegister File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/nBitRegister.vhd Line: 16
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/onesComp_n.vhd
+    Info (12022): Found design unit 1: onesComp_n-structural File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/onesComp_n.vhd Line: 26
+    Info (12023): Found entity 1: onesComp_n File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/onesComp_n.vhd Line: 19
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/org2.vhd
+    Info (12022): Found design unit 1: org2-dataflow File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/org2.vhd Line: 31
+    Info (12023): Found entity 1: org2 File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/org2.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/rbshift.vhd
+    Info (12022): Found design unit 1: rbshift-mixed File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/rbshift.vhd Line: 26
+    Info (12023): Found entity 1: rbshift File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/rbshift.vhd Line: 16
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/rippleAdder_n.vhd
+    Info (12022): Found design unit 1: rippleAdder_n-structural File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/rippleAdder_n.vhd Line: 34
+    Info (12023): Found entity 1: rippleAdder_n File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/rippleAdder_n.vhd Line: 22
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/xorg2.vhd
+    Info (12022): Found design unit 1: xorg2-dataflow File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/xorg2.vhd Line: 31
+    Info (12023): Found entity 1: xorg2 File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/xorg2.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd
+    Info (12022): Found design unit 1: RISCV_Processor-structure File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 35
+    Info (12023): Found entity 1: RISCV_Processor File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 24
+Info (12021): Found 2 design units, including 1 entities, in source file /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/mem.vhd
+    Info (12022): Found design unit 1: mem-rtl File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/mem.vhd Line: 27
+    Info (12023): Found entity 1: mem File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/mem.vhd Line: 8
 Info (12127): Elaborating entity "RISCV_Processor" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(44): object "s_RegWr" assigned a value but never read File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 44
-Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(45): object "s_RegWrAddr" assigned a value but never read File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 45
-Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(46): object "s_RegWrData" assigned a value but never read File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 46
-Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(54): object "s_Halt" assigned a value but never read File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 54
-Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(57): object "s_Ovfl" assigned a value but never read File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 57
-Warning (10492): VHDL Process Statement warning at RISCV_Processor.vhd(317): signal "iRST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 317
-Info (12128): Elaborating entity "HACK" for hierarchy "HACK:g_ImemHack" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 331
-Info (12128): Elaborating entity "mem" for hierarchy "mem:IMem" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 337
-Info (12128): Elaborating entity "mux2t1_N" for hierarchy "mux2t1_N:g_Mux_NextInstructionAddress" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 366
-Info (12128): Elaborating entity "mux2t1" for hierarchy "mux2t1_N:g_Mux_NextInstructionAddress|mux2t1:\G_NBit_MUX:0:MUXI" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux2t1_N.vhd Line: 45
-Info (12128): Elaborating entity "InstructionAddressHolder" for hierarchy "InstructionAddressHolder:g_InstructionAddressHolder" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 377
-Warning (10540): VHDL Signal Declaration warning at InstructionAddressHolder.vhd(42): used explicit default value for signal "s_ResetValue" because signal was never assigned a value File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/InstructionAddressHolder.vhd Line: 42
-Info (12128): Elaborating entity "PCRegister" for hierarchy "InstructionAddressHolder:g_InstructionAddressHolder|PCRegister:g_PCRegister" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/InstructionAddressHolder.vhd Line: 53
-Info (12128): Elaborating entity "PC_dffg" for hierarchy "InstructionAddressHolder:g_InstructionAddressHolder|PCRegister:g_PCRegister|PC_dffg:\generated:0:FlipFlop" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/PCRegister.vhd Line: 42
-Warning (10492): VHDL Process Statement warning at PC_dffg.vhd(53): signal "i_RSTV" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/PC_dffg.vhd Line: 53
-Info (12128): Elaborating entity "AddSub" for hierarchy "AddSub:g_StdProgramCounterAdder" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 391
-Info (12128): Elaborating entity "OnesCompliment" for hierarchy "AddSub:g_StdProgramCounterAdder|OnesCompliment:g_InvertB" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/AddSub.vhd Line: 61
-Info (12128): Elaborating entity "invg" for hierarchy "AddSub:g_StdProgramCounterAdder|OnesCompliment:g_InvertB|invg:\generated:0:notGate" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/OnesCompliment.vhd Line: 26
-Info (12128): Elaborating entity "N_Adder" for hierarchy "AddSub:g_StdProgramCounterAdder|N_Adder:g_Adder" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/AddSub.vhd Line: 81
-Info (12128): Elaborating entity "FullAdder" for hierarchy "AddSub:g_StdProgramCounterAdder|N_Adder:g_Adder|FullAdder:\generated:0:Adder" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/N_Adder.vhd Line: 39
-Info (12128): Elaborating entity "org2" for hierarchy "AddSub:g_StdProgramCounterAdder|N_Adder:g_Adder|FullAdder:\generated:0:Adder|org2:g_AoB" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/FullAdder.vhd Line: 48
-Info (12128): Elaborating entity "andg2" for hierarchy "AddSub:g_StdProgramCounterAdder|N_Adder:g_Adder|FullAdder:\generated:0:Adder|andg2:g_AaB" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/FullAdder.vhd Line: 55
-Info (12128): Elaborating entity "xorg2" for hierarchy "AddSub:g_StdProgramCounterAdder|N_Adder:g_Adder|FullAdder:\generated:0:Adder|xorg2:g_AxB" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/FullAdder.vhd Line: 62
-Info (12128): Elaborating entity "Buffer_IFID" for hierarchy "Buffer_IFID:g_Buffer_IFID" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 406
-Info (12128): Elaborating entity "PCRegister" for hierarchy "Buffer_IFID:g_Buffer_IFID|PCRegister:g_Buffer" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_IFID.vhd Line: 57
-Info (12128): Elaborating entity "ControlUnit" for hierarchy "ControlUnit:g_ControlUnit" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 416
-Info (12128): Elaborating entity "RegFile" for hierarchy "RegFile:g_RegisterFile" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 429
-Info (12128): Elaborating entity "nBitRegister" for hierarchy "RegFile:g_RegisterFile|nBitRegister:zero_Reg" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegFile.vhd Line: 62
-Info (12128): Elaborating entity "dffg" for hierarchy "RegFile:g_RegisterFile|nBitRegister:zero_Reg|dffg:\G_NBIT_REG:0:REG" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/nBitRegister.vhd Line: 37
-Info (12128): Elaborating entity "mux32t1" for hierarchy "RegFile:g_RegisterFile|mux32t1:g_RS1MUX" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegFile.vhd Line: 81
-Info (12128): Elaborating entity "RegisterDecoder" for hierarchy "RegFile:g_RegisterFile|RegisterDecoder:g_RdDec" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegFile.vhd Line: 97
-Info (12128): Elaborating entity "ImmediateExtender" for hierarchy "ImmediateExtender:g_ImmediateExtender" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 446
-Info (12128): Elaborating entity "Compare" for hierarchy "Compare:g_BranchCompare" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 463
-Warning (10540): VHDL Signal Declaration warning at Compare.vhd(26): used explicit default value for signal "s_Padding" because signal was never assigned a value File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/Compare.vhd Line: 26
-Info (12128): Elaborating entity "Buffer_IDEX" for hierarchy "Buffer_IDEX:g_Buffer_IDEX" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 503
-Info (12128): Elaborating entity "nBitRegister" for hierarchy "Buffer_IDEX:g_Buffer_IDEX|nBitRegister:g_Buffer" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_IDEX.vhd Line: 60
-Info (12128): Elaborating entity "ALU_Control" for hierarchy "ALU_Control:g_ALU_Control" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 512
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:g_ALU" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 527
-Info (12128): Elaborating entity "addSub_n" for hierarchy "ALU:g_ALU|addSub_n:g_AddSub" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd Line: 190
-Info (12128): Elaborating entity "onesComp_n" for hierarchy "ALU:g_ALU|addSub_n:g_AddSub|onesComp_n:g_Comp" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/addSub_n.vhd Line: 73
-Info (12128): Elaborating entity "rippleAdder_n" for hierarchy "ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/addSub_n.vhd Line: 86
-Info (12128): Elaborating entity "LogicModule" for hierarchy "ALU:g_ALU|LogicModule:g_Logic" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd Line: 202
-Info (12128): Elaborating entity "dualShift" for hierarchy "ALU:g_ALU|dualShift:g_BarrelShifter" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd Line: 213
-Info (12128): Elaborating entity "rbshift" for hierarchy "ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:rightShifter" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/dualShift.vhd Line: 60
-Info (12128): Elaborating entity "DFmux2t1" for hierarchy "ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:rightShifter|DFmux2t1:\g_valShiftArr:0:g_MuxMain:0:g_mux" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/rbshift.vhd Line: 49
-Info (12128): Elaborating entity "Mux4t1" for hierarchy "ALU:g_ALU|Mux4t1:g_ModuleSelect" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd Line: 238
-Info (12128): Elaborating entity "BitMux4t1" for hierarchy "ALU:g_ALU|BitMux4t1:g_Flag_Select_Overflow" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd Line: 251
-Info (12128): Elaborating entity "IsNegative" for hierarchy "ALU:g_ALU|IsNegative:g_IsNegative" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd Line: 261
-Info (12128): Elaborating entity "IsZero" for hierarchy "ALU:g_ALU|IsZero:g_IsZero" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd Line: 270
-Info (12128): Elaborating entity "Buffer_EXMEM" for hierarchy "Buffer_EXMEM:g_Buffer_EXMEM" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 555
-Info (12128): Elaborating entity "nBitRegister" for hierarchy "Buffer_EXMEM:g_Buffer_EXMEM|nBitRegister:g_Buffer" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_EXMEM.vhd Line: 55
-Info (12128): Elaborating entity "DMEMSignExtender" for hierarchy "DMEMSignExtender:g_DMEMSignExtender" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 569
-Info (12128): Elaborating entity "Buffer_MEMWB" for hierarchy "Buffer_MEMWB:g_Buffer_MEMWB" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 582
-Info (12128): Elaborating entity "nBitRegister" for hierarchy "Buffer_MEMWB:g_Buffer_MEMWB|nBitRegister:g_Buffer" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_MEMWB.vhd Line: 54
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(44): object "s_RegWr" assigned a value but never read File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 44
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(45): object "s_RegWrAddr" assigned a value but never read File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 45
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(46): object "s_RegWrData" assigned a value but never read File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 46
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(54): object "s_Halt" assigned a value but never read File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 54
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(57): object "s_Ovfl" assigned a value but never read File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 57
+Warning (10492): VHDL Process Statement warning at RISCV_Processor.vhd(317): signal "iRST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 317
+Info (12128): Elaborating entity "HACK" for hierarchy "HACK:g_ImemHack" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 331
+Info (12128): Elaborating entity "mem" for hierarchy "mem:IMem" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 337
+Info (12128): Elaborating entity "mux2t1_N" for hierarchy "mux2t1_N:g_Mux_NextInstructionAddress" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 366
+Info (12128): Elaborating entity "mux2t1" for hierarchy "mux2t1_N:g_Mux_NextInstructionAddress|mux2t1:\G_NBit_MUX:0:MUXI" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/mux2t1_N.vhd Line: 45
+Info (12128): Elaborating entity "InstructionAddressHolder" for hierarchy "InstructionAddressHolder:g_InstructionAddressHolder" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 377
+Warning (10540): VHDL Signal Declaration warning at InstructionAddressHolder.vhd(42): used explicit default value for signal "s_ResetValue" because signal was never assigned a value File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/InstructionAddressHolder.vhd Line: 42
+Info (12128): Elaborating entity "PCRegister" for hierarchy "InstructionAddressHolder:g_InstructionAddressHolder|PCRegister:g_PCRegister" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/InstructionAddressHolder.vhd Line: 53
+Info (12128): Elaborating entity "PC_dffg" for hierarchy "InstructionAddressHolder:g_InstructionAddressHolder|PCRegister:g_PCRegister|PC_dffg:\generated:0:FlipFlop" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/PCRegister.vhd Line: 42
+Warning (10492): VHDL Process Statement warning at PC_dffg.vhd(53): signal "i_RSTV" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/PC_dffg.vhd Line: 53
+Info (12128): Elaborating entity "AddSub" for hierarchy "AddSub:g_StdProgramCounterAdder" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 391
+Info (12128): Elaborating entity "OnesCompliment" for hierarchy "AddSub:g_StdProgramCounterAdder|OnesCompliment:g_InvertB" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/AddSub.vhd Line: 61
+Info (12128): Elaborating entity "invg" for hierarchy "AddSub:g_StdProgramCounterAdder|OnesCompliment:g_InvertB|invg:\generated:0:notGate" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/OnesCompliment.vhd Line: 26
+Info (12128): Elaborating entity "N_Adder" for hierarchy "AddSub:g_StdProgramCounterAdder|N_Adder:g_Adder" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/AddSub.vhd Line: 81
+Info (12128): Elaborating entity "FullAdder" for hierarchy "AddSub:g_StdProgramCounterAdder|N_Adder:g_Adder|FullAdder:\generated:0:Adder" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/N_Adder.vhd Line: 39
+Info (12128): Elaborating entity "org2" for hierarchy "AddSub:g_StdProgramCounterAdder|N_Adder:g_Adder|FullAdder:\generated:0:Adder|org2:g_AoB" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/FullAdder.vhd Line: 48
+Info (12128): Elaborating entity "andg2" for hierarchy "AddSub:g_StdProgramCounterAdder|N_Adder:g_Adder|FullAdder:\generated:0:Adder|andg2:g_AaB" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/FullAdder.vhd Line: 55
+Info (12128): Elaborating entity "xorg2" for hierarchy "AddSub:g_StdProgramCounterAdder|N_Adder:g_Adder|FullAdder:\generated:0:Adder|xorg2:g_AxB" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/FullAdder.vhd Line: 62
+Info (12128): Elaborating entity "Buffer_IFID" for hierarchy "Buffer_IFID:g_Buffer_IFID" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 406
+Info (12128): Elaborating entity "PCRegister" for hierarchy "Buffer_IFID:g_Buffer_IFID|PCRegister:g_Buffer" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_IFID.vhd Line: 57
+Info (12128): Elaborating entity "ControlUnit" for hierarchy "ControlUnit:g_ControlUnit" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 416
+Info (12128): Elaborating entity "RegFile" for hierarchy "RegFile:g_RegisterFile" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 429
+Info (12128): Elaborating entity "nBitRegister" for hierarchy "RegFile:g_RegisterFile|nBitRegister:zero_Reg" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegFile.vhd Line: 62
+Info (12128): Elaborating entity "dffg" for hierarchy "RegFile:g_RegisterFile|nBitRegister:zero_Reg|dffg:\G_NBIT_REG:0:REG" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/nBitRegister.vhd Line: 37
+Info (12128): Elaborating entity "mux32t1" for hierarchy "RegFile:g_RegisterFile|mux32t1:g_RS1MUX" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegFile.vhd Line: 81
+Info (12128): Elaborating entity "RegisterDecoder" for hierarchy "RegFile:g_RegisterFile|RegisterDecoder:g_RdDec" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/RegFile.vhd Line: 97
+Info (12128): Elaborating entity "ImmediateExtender" for hierarchy "ImmediateExtender:g_ImmediateExtender" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 446
+Info (12128): Elaborating entity "Compare" for hierarchy "Compare:g_BranchCompare" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 463
+Warning (10540): VHDL Signal Declaration warning at Compare.vhd(26): used explicit default value for signal "s_Padding" because signal was never assigned a value File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/Compare.vhd Line: 26
+Info (12128): Elaborating entity "Buffer_IDEX" for hierarchy "Buffer_IDEX:g_Buffer_IDEX" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 503
+Info (12128): Elaborating entity "nBitRegister" for hierarchy "Buffer_IDEX:g_Buffer_IDEX|nBitRegister:g_Buffer" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_IDEX.vhd Line: 60
+Info (12128): Elaborating entity "ALU_Control" for hierarchy "ALU_Control:g_ALU_Control" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 512
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:g_ALU" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 527
+Info (12128): Elaborating entity "addSub_n" for hierarchy "ALU:g_ALU|addSub_n:g_AddSub" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd Line: 190
+Info (12128): Elaborating entity "onesComp_n" for hierarchy "ALU:g_ALU|addSub_n:g_AddSub|onesComp_n:g_Comp" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/addSub_n.vhd Line: 73
+Info (12128): Elaborating entity "rippleAdder_n" for hierarchy "ALU:g_ALU|addSub_n:g_AddSub|rippleAdder_n:g_Rip" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/addSub_n.vhd Line: 86
+Info (12128): Elaborating entity "LogicModule" for hierarchy "ALU:g_ALU|LogicModule:g_Logic" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd Line: 202
+Info (12128): Elaborating entity "dualShift" for hierarchy "ALU:g_ALU|dualShift:g_BarrelShifter" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd Line: 213
+Info (12128): Elaborating entity "rbshift" for hierarchy "ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:rightShifter" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/dualShift.vhd Line: 60
+Info (12128): Elaborating entity "DFmux2t1" for hierarchy "ALU:g_ALU|dualShift:g_BarrelShifter|rbshift:rightShifter|DFmux2t1:\g_valShiftArr:0:g_MuxMain:0:g_mux" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/rbshift.vhd Line: 49
+Info (12128): Elaborating entity "Mux4t1" for hierarchy "ALU:g_ALU|Mux4t1:g_ModuleSelect" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd Line: 238
+Info (12128): Elaborating entity "BitMux4t1" for hierarchy "ALU:g_ALU|BitMux4t1:g_Flag_Select_Overflow" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd Line: 251
+Info (12128): Elaborating entity "IsNegative" for hierarchy "ALU:g_ALU|IsNegative:g_IsNegative" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd Line: 261
+Info (12128): Elaborating entity "IsZero" for hierarchy "ALU:g_ALU|IsZero:g_IsZero" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/SingleCycleComponents/ALU.vhd Line: 270
+Info (12128): Elaborating entity "Buffer_EXMEM" for hierarchy "Buffer_EXMEM:g_Buffer_EXMEM" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 555
+Info (12128): Elaborating entity "nBitRegister" for hierarchy "Buffer_EXMEM:g_Buffer_EXMEM|nBitRegister:g_Buffer" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_EXMEM.vhd Line: 55
+Info (12128): Elaborating entity "DMEMSignExtender" for hierarchy "DMEMSignExtender:g_DMEMSignExtender" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 569
+Info (12128): Elaborating entity "Buffer_MEMWB" for hierarchy "Buffer_MEMWB:g_Buffer_MEMWB" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 582
+Info (12128): Elaborating entity "nBitRegister" for hierarchy "Buffer_MEMWB:g_Buffer_MEMWB|nBitRegister:g_Buffer" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/Components/PipelinedComponents/Buffer_MEMWB.vhd Line: 54
 Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276007): RAM logic "mem:DMem|ram" is uninferred due to asynchronous read logic File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/mem.vhd Line: 35
+    Info (276007): RAM logic "mem:DMem|ram" is uninferred due to asynchronous read logic File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/mem.vhd Line: 35
 Info (19000): Inferred 1 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "mem:IMem|ram_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
@@ -3511,43 +3506,43 @@ Info (12133): Instantiated megafunction "mem:IMem|altsyncram:ram_rtl_0" with the
     Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_eg81.tdf
-    Info (12023): Found entity 1: altsyncram_eg81 File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/internal/QuartusWork/db/altsyncram_eg81.tdf Line: 28
+    Info (12023): Found entity 1: altsyncram_eg81 File: /home/jagaul/cpre381/Project2_Software/internal/QuartusWork/db/altsyncram_eg81.tdf Line: 28
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 3 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 22 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "iInstAddr[0]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[1]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[12]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[13]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[14]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[15]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[16]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[17]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[18]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[19]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[20]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[21]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[22]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[23]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[24]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[25]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[26]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[27]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[28]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[29]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[30]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
-    Warning (15610): No output dependent on input pin "iInstAddr[31]" File: /home/esliandy/3810/CPRE381_Labs/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[0]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[1]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[12]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[13]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[14]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[15]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[16]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[17]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[18]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[19]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[20]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[21]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[22]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[23]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[24]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[25]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[26]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[27]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[28]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[29]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[30]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[31]" File: /home/jagaul/cpre381/Project2_Software/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
 Info (21057): Implemented 59200 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 67 input pins
     Info (21059): Implemented 32 output pins
     Info (21061): Implemented 59069 logic cells
     Info (21064): Implemented 32 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 33 warnings
-    Info: Peak virtual memory: 966 megabytes
-    Info: Processing ended: Tue Dec  9 17:40:20 2025
-    Info: Elapsed time: 00:00:57
-    Info: Total CPU time (on all processors): 00:01:02
+    Info: Peak virtual memory: 901 megabytes
+    Info: Processing ended: Wed Dec 17 21:05:30 2025
+    Info: Elapsed time: 00:01:23
+    Info: Total CPU time (on all processors): 00:01:17
 
 
