@@ -15,7 +15,7 @@ Info: Running Quartus Prime Timing Analyzer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Wed Dec 10 14:26:41 2025
+    Info: Processing started: Mon Dec 15 19:33:35 2025
 Info: Command: quartus_sta --sdc=toolflow.sdc toolflow --do_report_timing
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -76,18 +76,18 @@ Info (332115): Path #1: Setup slack is -16.527 (VIOLATED)
     Info (332115):     12.302      0.281 FF  CELL  IMem|ram~40525|combout
     Info (332115):     12.569      0.267 FF    IC  IMem|ram~40696|datab
     Info (332115):     12.992      0.423 FR  CELL  IMem|ram~40696|combout
-    Info (332115):     14.476      1.484 RR    IC  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~6|dataa
-    Info (332115):     14.913      0.437 RF  CELL  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~6|combout
-    Info (332115):     15.181      0.268 FF    IC  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~7|datab
-    Info (332115):     15.606      0.425 FF  CELL  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~7|combout
-    Info (332115):     16.313      0.707 FF    IC  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~8|datad
-    Info (332115):     16.438      0.125 FF  CELL  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~8|combout
-    Info (332115):     16.671      0.233 FF    IC  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~11|datac
-    Info (332115):     16.952      0.281 FF  CELL  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~11|combout
-    Info (332115):     17.222      0.270 FF    IC  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~16|datab
-    Info (332115):     17.647      0.425 FF  CELL  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~16|combout
-    Info (332115):     17.876      0.229 FF    IC  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~19|datad
-    Info (332115):     18.001      0.125 FF  CELL  g_ALU|g_ASource|\G_NBit_MUX:19:MUXI|o_O~19|combout
+    Info (332115):     14.476      1.484 RR    IC  g_ALU|g_ASource|o_O[19]~244|dataa
+    Info (332115):     14.913      0.437 RF  CELL  g_ALU|g_ASource|o_O[19]~244|combout
+    Info (332115):     15.181      0.268 FF    IC  g_ALU|g_ASource|o_O[19]~245|datab
+    Info (332115):     15.606      0.425 FF  CELL  g_ALU|g_ASource|o_O[19]~245|combout
+    Info (332115):     16.313      0.707 FF    IC  g_ALU|g_ASource|o_O[19]~246|datad
+    Info (332115):     16.438      0.125 FF  CELL  g_ALU|g_ASource|o_O[19]~246|combout
+    Info (332115):     16.671      0.233 FF    IC  g_ALU|g_ASource|o_O[19]~249|datac
+    Info (332115):     16.952      0.281 FF  CELL  g_ALU|g_ASource|o_O[19]~249|combout
+    Info (332115):     17.222      0.270 FF    IC  g_ALU|g_ASource|o_O[19]~254|datab
+    Info (332115):     17.647      0.425 FF  CELL  g_ALU|g_ASource|o_O[19]~254|combout
+    Info (332115):     17.876      0.229 FF    IC  g_ALU|g_ASource|o_O[19]~257|datad
+    Info (332115):     18.001      0.125 FF  CELL  g_ALU|g_ASource|o_O[19]~257|combout
     Info (332115):     19.364      1.363 FF    IC  g_ALU|g_BarrelShifter|rightShifter|\g_valShiftArr:2:g_MuxMain:16:g_mux|o_O~3|dataa
     Info (332115):     19.788      0.424 FF  CELL  g_ALU|g_BarrelShifter|rightShifter|\g_valShiftArr:2:g_MuxMain:16:g_mux|o_O~3|combout
     Info (332115):     20.079      0.291 FF    IC  g_ALU|g_BarrelShifter|rightShifter|\g_valShiftArr:2:g_MuxMain:16:g_mux|o_O~5|datab
@@ -124,10 +124,10 @@ Info (332115): Path #1: Setup slack is -16.527 (VIOLATED)
     Info (332115):     35.584      0.125 FF  CELL  g_DMEMSignExtender|Mux0~0|combout
     Info (332115):     35.811      0.227 FF    IC  g_DMEMSignExtender|Mux0~1|datad
     Info (332115):     35.961      0.150 FR  CELL  g_DMEMSignExtender|Mux0~1|combout
-    Info (332115):     37.285      1.324 RR    IC  g_RegisterDataSource|\G_NBit_MUX:29:MUXI|o_O~0|datad
-    Info (332115):     37.440      0.155 RR  CELL  g_RegisterDataSource|\G_NBit_MUX:29:MUXI|o_O~0|combout
-    Info (332115):     37.643      0.203 RR    IC  g_RegisterDataSource|\G_NBit_MUX:29:MUXI|o_O~1|datad
-    Info (332115):     37.798      0.155 RR  CELL  g_RegisterDataSource|\G_NBit_MUX:29:MUXI|o_O~1|combout
+    Info (332115):     37.285      1.324 RR    IC  g_RegisterDataSource|o_O[29]~4|datad
+    Info (332115):     37.440      0.155 RR  CELL  g_RegisterDataSource|o_O[29]~4|combout
+    Info (332115):     37.643      0.203 RR    IC  g_RegisterDataSource|o_O[29]~5|datad
+    Info (332115):     37.798      0.155 RR  CELL  g_RegisterDataSource|o_O[29]~5|combout
     Info (332115):     39.663      1.865 RR    IC  g_RegisterFile|\G_REGS:12:REG|\G_NBIT_REG:29:REG|s_Q~feeder|datad
     Info (332115):     39.818      0.155 RR  CELL  g_RegisterFile|\G_REGS:12:REG|\G_NBIT_REG:29:REG|s_Q~feeder|combout
     Info (332115):     39.818      0.000 RR    IC  g_RegisterFile|\G_REGS:12:REG|\G_NBIT_REG:29:REG|s_Q|d
@@ -233,16 +233,16 @@ Info (332115): Path #1: Setup slack is -13.702 (VIOLATED)
     Info (332115):     11.323      0.252 FF  CELL  IMem|ram~40525|combout
     Info (332115):     11.565      0.242 FF    IC  IMem|ram~40696|datab
     Info (332115):     11.942      0.377 FR  CELL  IMem|ram~40696|combout
-    Info (332115):     13.511      1.569 RR    IC  g_ALU|g_ASource|\G_NBit_MUX:26:MUXI|o_O~9|datac
-    Info (332115):     13.774      0.263 RR  CELL  g_ALU|g_ASource|\G_NBit_MUX:26:MUXI|o_O~9|combout
-    Info (332115):     13.965      0.191 RR    IC  g_ALU|g_ASource|\G_NBit_MUX:26:MUXI|o_O~10|datad
-    Info (332115):     14.109      0.144 RR  CELL  g_ALU|g_ASource|\G_NBit_MUX:26:MUXI|o_O~10|combout
-    Info (332115):     15.883      1.774 RR    IC  g_ALU|g_ASource|\G_NBit_MUX:26:MUXI|o_O~11|datac
-    Info (332115):     16.146      0.263 RR  CELL  g_ALU|g_ASource|\G_NBit_MUX:26:MUXI|o_O~11|combout
-    Info (332115):     16.507      0.361 RR    IC  g_ALU|g_ASource|\G_NBit_MUX:26:MUXI|o_O~16|datad
-    Info (332115):     16.651      0.144 RR  CELL  g_ALU|g_ASource|\G_NBit_MUX:26:MUXI|o_O~16|combout
-    Info (332115):     16.840      0.189 RR    IC  g_ALU|g_ASource|\G_NBit_MUX:26:MUXI|o_O~19|datad
-    Info (332115):     16.984      0.144 RR  CELL  g_ALU|g_ASource|\G_NBit_MUX:26:MUXI|o_O~19|combout
+    Info (332115):     13.511      1.569 RR    IC  g_ALU|g_ASource|o_O[26]~119|datac
+    Info (332115):     13.774      0.263 RR  CELL  g_ALU|g_ASource|o_O[26]~119|combout
+    Info (332115):     13.965      0.191 RR    IC  g_ALU|g_ASource|o_O[26]~120|datad
+    Info (332115):     14.109      0.144 RR  CELL  g_ALU|g_ASource|o_O[26]~120|combout
+    Info (332115):     15.883      1.774 RR    IC  g_ALU|g_ASource|o_O[26]~121|datac
+    Info (332115):     16.146      0.263 RR  CELL  g_ALU|g_ASource|o_O[26]~121|combout
+    Info (332115):     16.507      0.361 RR    IC  g_ALU|g_ASource|o_O[26]~126|datad
+    Info (332115):     16.651      0.144 RR  CELL  g_ALU|g_ASource|o_O[26]~126|combout
+    Info (332115):     16.840      0.189 RR    IC  g_ALU|g_ASource|o_O[26]~129|datad
+    Info (332115):     16.984      0.144 RR  CELL  g_ALU|g_ASource|o_O[26]~129|combout
     Info (332115):     18.657      1.673 RR    IC  g_ALU|g_BarrelShifter|rightShifter|\g_valShiftArr:2:g_MuxMain:19:g_mux|o_O~2|datad
     Info (332115):     18.801      0.144 RR  CELL  g_ALU|g_BarrelShifter|rightShifter|\g_valShiftArr:2:g_MuxMain:19:g_mux|o_O~2|combout
     Info (332115):     19.025      0.224 RR    IC  g_ALU|g_BarrelShifter|rightShifter|\g_valShiftArr:1:g_MuxMain:25:g_mux|o_O~1|datab
@@ -277,10 +277,10 @@ Info (332115): Path #1: Setup slack is -13.702 (VIOLATED)
     Info (332115):     32.741      0.144 RR  CELL  g_DMEMSignExtender|Mux0~0|combout
     Info (332115):     32.929      0.188 RR    IC  g_DMEMSignExtender|Mux0~1|datad
     Info (332115):     33.073      0.144 RR  CELL  g_DMEMSignExtender|Mux0~1|combout
-    Info (332115):     34.317      1.244 RR    IC  g_RegisterDataSource|\G_NBit_MUX:29:MUXI|o_O~0|datad
-    Info (332115):     34.461      0.144 RR  CELL  g_RegisterDataSource|\G_NBit_MUX:29:MUXI|o_O~0|combout
-    Info (332115):     34.648      0.187 RR    IC  g_RegisterDataSource|\G_NBit_MUX:29:MUXI|o_O~1|datad
-    Info (332115):     34.792      0.144 RR  CELL  g_RegisterDataSource|\G_NBit_MUX:29:MUXI|o_O~1|combout
+    Info (332115):     34.317      1.244 RR    IC  g_RegisterDataSource|o_O[29]~4|datad
+    Info (332115):     34.461      0.144 RR  CELL  g_RegisterDataSource|o_O[29]~4|combout
+    Info (332115):     34.648      0.187 RR    IC  g_RegisterDataSource|o_O[29]~5|datad
+    Info (332115):     34.792      0.144 RR  CELL  g_RegisterDataSource|o_O[29]~5|combout
     Info (332115):     36.551      1.759 RR    IC  g_RegisterFile|\G_REGS:12:REG|\G_NBIT_REG:29:REG|s_Q~feeder|datad
     Info (332115):     36.695      0.144 RR  CELL  g_RegisterFile|\G_REGS:12:REG|\G_NBIT_REG:29:REG|s_Q~feeder|combout
     Info (332115):     36.695      0.000 RR    IC  g_RegisterFile|\G_REGS:12:REG|\G_NBIT_REG:29:REG|s_Q|d
@@ -382,16 +382,16 @@ Info (332115): Path #1: Setup slack is 1.077
     Info (332115):      6.378      0.133 FF  CELL  IMem|ram~40525|combout
     Info (332115):      6.508      0.130 FF    IC  IMem|ram~40696|datab
     Info (332115):      6.700      0.192 FF  CELL  IMem|ram~40696|combout
-    Info (332115):      7.238      0.538 FF    IC  g_ALU|g_ASource|\G_NBit_MUX:1:MUXI|o_O~14|dataa
-    Info (332115):      7.442      0.204 FF  CELL  g_ALU|g_ASource|\G_NBit_MUX:1:MUXI|o_O~14|combout
-    Info (332115):      7.555      0.113 FF    IC  g_ALU|g_ASource|\G_NBit_MUX:1:MUXI|o_O~15|datac
-    Info (332115):      7.688      0.133 FF  CELL  g_ALU|g_ASource|\G_NBit_MUX:1:MUXI|o_O~15|combout
-    Info (332115):      8.849      1.161 FF    IC  g_ALU|g_ASource|\G_NBit_MUX:1:MUXI|o_O~16|datab
-    Info (332115):      9.025      0.176 FF  CELL  g_ALU|g_ASource|\G_NBit_MUX:1:MUXI|o_O~16|combout
-    Info (332115):      9.132      0.107 FF    IC  g_ALU|g_ASource|\G_NBit_MUX:1:MUXI|o_O~21|datad
-    Info (332115):      9.195      0.063 FF  CELL  g_ALU|g_ASource|\G_NBit_MUX:1:MUXI|o_O~21|combout
-    Info (332115):      9.305      0.110 FF    IC  g_ALU|g_ASource|\G_NBit_MUX:1:MUXI|o_O~24|datad
-    Info (332115):      9.368      0.063 FF  CELL  g_ALU|g_ASource|\G_NBit_MUX:1:MUXI|o_O~24|combout
+    Info (332115):      7.238      0.538 FF    IC  g_ALU|g_ASource|o_O[1]~625|dataa
+    Info (332115):      7.442      0.204 FF  CELL  g_ALU|g_ASource|o_O[1]~625|combout
+    Info (332115):      7.555      0.113 FF    IC  g_ALU|g_ASource|o_O[1]~626|datac
+    Info (332115):      7.688      0.133 FF  CELL  g_ALU|g_ASource|o_O[1]~626|combout
+    Info (332115):      8.849      1.161 FF    IC  g_ALU|g_ASource|o_O[1]~627|datab
+    Info (332115):      9.025      0.176 FF  CELL  g_ALU|g_ASource|o_O[1]~627|combout
+    Info (332115):      9.132      0.107 FF    IC  g_ALU|g_ASource|o_O[1]~632|datad
+    Info (332115):      9.195      0.063 FF  CELL  g_ALU|g_ASource|o_O[1]~632|combout
+    Info (332115):      9.305      0.110 FF    IC  g_ALU|g_ASource|o_O[1]~635|datad
+    Info (332115):      9.368      0.063 FF  CELL  g_ALU|g_ASource|o_O[1]~635|combout
     Info (332115):     10.102      0.734 FF    IC  g_ALU|g_BarrelShifter|leftShifter|\g_valShiftArr:1:g_MuxMain:28:g_mux|o_O~2|datab
     Info (332115):     10.309      0.207 FF  CELL  g_ALU|g_BarrelShifter|leftShifter|\g_valShiftArr:1:g_MuxMain:28:g_mux|o_O~2|combout
     Info (332115):     10.910      0.601 FF    IC  g_ALU|g_BarrelShifter|leftShifter|\g_valShiftArr:1:g_MuxEnd:30:g_mux|o_O~2|datad
@@ -426,10 +426,10 @@ Info (332115): Path #1: Setup slack is 1.077
     Info (332115):     18.451      0.063 FF  CELL  g_DMEMSignExtender|Mux0~0|combout
     Info (332115):     18.559      0.108 FF    IC  g_DMEMSignExtender|Mux0~1|datad
     Info (332115):     18.622      0.063 FF  CELL  g_DMEMSignExtender|Mux0~1|combout
-    Info (332115):     19.342      0.720 FF    IC  g_RegisterDataSource|\G_NBit_MUX:29:MUXI|o_O~0|datad
-    Info (332115):     19.405      0.063 FF  CELL  g_RegisterDataSource|\G_NBit_MUX:29:MUXI|o_O~0|combout
-    Info (332115):     19.511      0.106 FF    IC  g_RegisterDataSource|\G_NBit_MUX:29:MUXI|o_O~1|datad
-    Info (332115):     19.574      0.063 FF  CELL  g_RegisterDataSource|\G_NBit_MUX:29:MUXI|o_O~1|combout
+    Info (332115):     19.342      0.720 FF    IC  g_RegisterDataSource|o_O[29]~4|datad
+    Info (332115):     19.405      0.063 FF  CELL  g_RegisterDataSource|o_O[29]~4|combout
+    Info (332115):     19.511      0.106 FF    IC  g_RegisterDataSource|o_O[29]~5|datad
+    Info (332115):     19.574      0.063 FF  CELL  g_RegisterDataSource|o_O[29]~5|combout
     Info (332115):     20.586      1.012 FF    IC  g_RegisterFile|\G_REGS:12:REG|\G_NBIT_REG:29:REG|s_Q~feeder|datad
     Info (332115):     20.649      0.063 FF  CELL  g_RegisterFile|\G_REGS:12:REG|\G_NBIT_REG:29:REG|s_Q~feeder|combout
     Info (332115):     20.649      0.000 FF    IC  g_RegisterFile|\G_REGS:12:REG|\G_NBIT_REG:29:REG|s_Q|d
@@ -484,7 +484,7 @@ Info (332115): Path #1: Hold slack is 0.627
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 2609 megabytes
-    Info: Processing ended: Wed Dec 10 14:28:11 2025
-    Info: Elapsed time: 00:01:30
-    Info: Total CPU time (on all processors): 00:01:46
+    Info: Peak virtual memory: 2855 megabytes
+    Info: Processing ended: Mon Dec 15 19:35:06 2025
+    Info: Elapsed time: 00:01:31
+    Info: Total CPU time (on all processors): 00:01:47

@@ -33,3 +33,6 @@ wlft*
 
 # Generated transcript file
 transcript
+
+# Libreoffice lock files
+.~lock
